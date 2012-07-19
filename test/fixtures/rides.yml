@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  origin: MyString
+  destination: MyString
+  date: 2012-07-17
+  user_id: 1
+
+two:
+  origin: MyString
+  destination: MyString
+  date: 2012-07-17
+  user_id: 1
