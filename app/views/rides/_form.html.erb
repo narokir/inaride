@@ -1,6 +1,6 @@
 <%= form_for(@ride) do |f| %>
   <% if @ride.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-error">
       <h2><%= pluralize(@ride.errors.count, "error") %> prohibited this ride from being saved:</h2>
 
       <ul>
@@ -11,20 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :origin %><br />
+  <div class="well">
+    <%= f.label :origin %>
     <%= f.text_field :origin %>
-  </div>
-  <div class="field">
-    <%= f.label :destination %><br />
+
+    <%= f.label :destination %>
     <%= f.text_field :destination %>
+    <%= f.label class: 'list_image'%>
+    
   </div>
-  <div class="field">
-    <%= f.label :date %><br />
+  <div class="well">
+    <%= f.label :date %>
     <%= f.date_select :date %>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
+  <div class="well">
+    <%= f.label :user_id %>
     <%= f.number_field :user_id %>
   </div>
   <div class="actions">

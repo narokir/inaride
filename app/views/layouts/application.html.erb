@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Inoride</title>
+  <title>Inoride | <%= yield(:title)%></title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -9,10 +9,10 @@
 <body>
     <div class="container">
 	
-	<div class="navbar">
+	<div class="navbar navbar-fixed-top">
 	    <div class="navbar-inner">
 		<div class="container">
-		    <a class="brand" href="#">inoride</a>
+		    <span class="brand"><%= image_tag('inoride_logo.png')%></span>
 		    <ul class="nav">
 			<li><%= link_to 'Rides', rides_path %></li>
 			<li><%= link_to 'Users', users_path %></li>
@@ -20,10 +20,9 @@
 		</div>
 	    </div>
 	</div>
-
-
-
+	<div id=content class="container">
 <%= yield %>
+	</div>
     </div>
 </body>
 </html>
