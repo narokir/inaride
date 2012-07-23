@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<div class="alert alert-success"><%= notice %><button class="close">&times;</button></div>
 
 <p>
   <b>Name:</b>
@@ -8,6 +8,20 @@
 <p>
   <b>Email:</b>
   <%= @user.email %>
+  </br>
+  <b>uid:</b>
+  <%= @user.uid %>
+  </br>
+  <b>id:</b>
+  <%= @user.id %>
+  </br>
+  <b>img_url:</b>
+  <%= @user.img_url %>
+  </br>
+  <b>Token:</b>
+  <%= @user.oauth_token %>
+  </br>
+  
 </p>
 
 

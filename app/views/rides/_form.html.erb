@@ -17,18 +17,15 @@
 
     <%= f.label :destination %>
     <%= f.text_field :destination %>
-    <%= f.label class: 'list_image'%>
     
-  </div>
-  <div class="well">
+
     <%= f.label :date %>
     <%= f.date_select :date %>
-  </div>
-  <div class="well">
+
     <%= f.label :user_id %>
     <%= f.number_field :user_id %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class:"btn btn-primary btn-large" %>
   </div>
 <% end %>

@@ -19,22 +19,36 @@
 		    <ul class="nav">
 			<li><%= link_to 'Rides', rides_path %></li>
 			<li><%= link_to 'Users', users_path %></li>
-			
 		    </ul>
-		</div>
+
+		    <ul class="nav pull-right">
+			<% if current_user %>
+			<li><a href="#"><%= image_tag current_user.img_url, class:"fbimg" %></a></li>
+			<li class="divider-vertical"></li>
+			<li class="dropdown">
+			    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><%= current_user.name %> <b class="caret"></b></a>
+			    <ul class="dropdown-menu">
+				<li><a href="#">action</a></li>
+				<li><a href="#">action</a></li>
+				<li class="divider"></li>
+				<li><a href="#"><%= link_to "Sign out", signout_path, id: "sign_out" %></a></li>
+			    </ul>
+			</li>
+	      <% else %>
+    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+  <% end %>
+          </ul>
+
+</div>
+		    
+		    
+            
+
+
 	    </div>
 	</div>
 	<div id=content class="container">
-	    			<div id="user_nav" class="pull-right">
-  <% if current_user %>
-    Signed in as <strong><%= current_user.name %></strong>!
-    <%= link_to "Sign out", signout_path, id: "sign_out" %>
-  <% else %>
-    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", class:"signin btn" %>
-  <% end %>
-</div>
 
- 
 <%= yield %>
 	</div>
     </div>

@@ -9,7 +9,11 @@
     <th>Origin</th>
     <th>Destination</th>
     <th>Date</th>
-    <th>User</th>
+    <th>user_id</th>
+    <th>id</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
 
 <% @rides.each do |ride| %>
@@ -18,7 +22,8 @@
     <td><%= ride.destination %></td>
     <td><%= ride.date %></td>
     <td><%= ride.user_id %></td>
-    <td><span class="btn"><%= link_to 'Show', ride,class:"btn btn-mini" %></span></td>
+    <td><%= ride.id %></td>
+    <td><%= link_to 'Show', ride,class:"btn btn-mini" %></td>
     <td><%= link_to 'Edit', edit_ride_path(ride), class:"btn btn-mini" %></td>
     <td><%= link_to 'Destroy', ride, confirm: 'Are you sure?', method: :delete, class:"btn btn-mini" %></td>
   </tr>

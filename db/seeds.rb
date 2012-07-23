@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+users = User.create([{ name: 'narokir', email:'Naro@email.com', img_url:'<img src="/assets/inoride_logo.png"/>', provider: 'facebook', uid:'1' }])
+#User.create(email: 'Emanuel', user: users.first)

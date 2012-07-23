@@ -5,7 +5,6 @@ class CreateRides < ActiveRecord::Migration
       t.string :destination
       t.date :date
       t.integer :user_id
-
       t.timestamps
     end
   end

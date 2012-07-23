@@ -6,7 +6,10 @@
   <tr>
     <th>Name</th>
     <th>Email</th>
-    <th></th>
+    <th>Login Provider</th>
+    <th>Profile Image</th>
+    <th>uid</th>
+    <th>id</th>
   </tr>
 
 <% @users.each do |user| %>
@@ -14,6 +17,9 @@
     <td><%= link_to user.name, user %></td>
     <td><%= user.email %></td>
     <td><%= user.provider %></td>
+    <td><%= user.img_url %></td>
+    <td><%= user.uid %></td>
+    <td><%= user.id %></td>
     <td>
           <div class="btn-group">
     <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
