@@ -11,7 +11,6 @@ Inoride::Application.routes.draw do
   resources :rides
 
   resources :users
-  resources :user
   
 
   # The priority is based upon order of creation:

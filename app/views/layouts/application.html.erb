@@ -19,11 +19,12 @@
 		    <ul class="nav">
 			<li><%= link_to 'Rides', rides_path %></li>
 			<li><%= link_to 'Users', users_path %></li>
+			
 		    </ul>
 
 		    <ul class="nav pull-right">
 			<% if current_user %>
-			<li><a href="#"><%= image_tag current_user.img_url, class:"fbimg" %></a></li>
+			<li><%= link_to image_tag current_user.img_url, class:"fbimg" %></li>
 			<li class="divider-vertical"></li>
 			<li class="dropdown">
 			    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><%= current_user.name %> <b class="caret"></b></a>
@@ -35,8 +36,13 @@
 			    </ul>
 			</li>
 	      <% else %>
-    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-  <% end %>
+	          <ul class="nav">
+		    <li><%= link_to image_tag('user.png'), class:"fbimg" %></li>
+		    <li class="divider-vertical"></li>
+		    <li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
+		</ul>
+		
+		<% end %>
           </ul>
 
 </div>
