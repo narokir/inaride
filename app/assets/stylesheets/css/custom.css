@@ -4,7 +4,16 @@
 
 .fbimg{
     width:32px;
+    padding:0px;
 }
 #user-img{
     vertical-align:middle;
+}
+.logo{
+    width:80%;
+}
+.usrimg a{
+    border:1px solid;
+    margin:19% !important;
+    padding:0px !important;
 }
