@@ -21,7 +21,9 @@
     
 
     <%= f.label :date %>
-    <%= f.date_select :date %>
+  
+    <%= datepicker_input "user","date" %>
+    
 
     <%= f.label :user_id %>
     <%= f.number_field :user_id %>
