@@ -1,2 +1,22 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<% provide(:title, 'Home') %>
+
+<!-- Main hero unit for a primary marketing message or call to action -->
+<div class="hero-unit">
+    <div class="span4 well pull-right">
+    <p><%= link_to 'Ad New Ride', new_ride_path, class: "btn btn-large btn-primary"%></p>
+    
+<%= form_tag rides_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search Near", :name => nil %>
+  </p>
+<% end %>
+
+
+    
+  </div>
+  <h1>Inoride</h1>
+  <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+  <p><%= link_to 'Sign up', signup_path, class: "btn btn-large btn-primary"%></p>
+
+</div>
