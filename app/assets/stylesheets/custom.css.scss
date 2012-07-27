@@ -1,0 +1,51 @@
+@import "bootstrap";
+
+
+#content{
+    padding-top:70px;
+}
+
+/* Use Navigation */
+
+.fbimg{
+    width:32px;
+    padding:0px;
+}
+#user-img{
+    vertical-align:middle;
+}
+#logo{
+    width:80%;
+}
+.usrimg a{
+    border:1px solid;
+    margin:9% !important;
+    padding:0px !important;
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: $grayLight;
+  a {
+    color: #555;
+    &:hover { 
+      color: #222;
+    }
+  }  
+  small { 
+    float: left; 
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+  }
+}
+

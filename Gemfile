@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.6'
 gem "bootstrap-sass", "~> 2.0.4.0"
+gem "gmaps4rails", "~> 1.5.2"
 
 
 

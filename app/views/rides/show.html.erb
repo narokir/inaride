@@ -1,5 +1,22 @@
 <% provide(:title, 'Rides')%>
-<div class="alert alert-success"><%= notice %><button class="close"data-dismiss="alert" type="button">&times;</button></div>
+<div class="alert alert-success"><%= notice %></div>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Title:</th>
+      <th></th>
+    </tr>
+  </thead>
+    <tbody>
+      <tr>
+	<td><%= @ride.title %></td>
+	<td></td>
+      </tr>
+    </tbody>
+</table>
+
+
 
 <p>
   <b>Title:</b>
@@ -9,6 +26,16 @@
 <p>
   <b>Origin:</b>
   <%= @ride.origin %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @ride.longitude %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @ride.latitude %>
 </p>
 
 <p>
@@ -29,3 +56,23 @@
 
 <%= link_to 'Edit', edit_ride_path(@ride) %> |
 <%= link_to 'Back', rides_path %>
+
+<section class="row">
+  
+  <%= #gmaps4rails(@json)
+gmaps({
+       "direction"   => { "data" => { "from" => @ride.origin, "to" => @ride.destination },"markers" => { "data" => @json } },
+       "markers" => {"data" => @json, "options" => {"list_container" => "markers_list" } },
+       "map_options" => { "detect_location" => true, "center_on_user" => true, "zoom" => 6},
+       "markers" => { "data" => @markers },
+       "options" => {"waypoints" => ["toulouse, france", "brest, france"], "display_panel" => true, "panel_id" => "instructions"}
+       
+            })
+ %>
+ 
+ <ul id="markers_list">  </ul>
+ 
+ 
+</section>
+
+

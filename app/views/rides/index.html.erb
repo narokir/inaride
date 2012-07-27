@@ -5,6 +5,7 @@
 
 
 <table class="table table-striped table-bordered">
+  
   <tr>
     <th>Title</th>
     <th>Origin</th>
@@ -14,12 +15,15 @@
     <th>id</th>
     <th>created_at</th>
     <th>updated_at</th>
+    <th>longitude</th>
+    <th>latitude</th>
     <th>Action</th>
   </tr>
+  
 
 <% @rides.each do |ride| %>
   <tr>
-    <td><%= ride.title %></td>
+    <td><%= link_to ride.title, ride %></td>
     <td><%= ride.origin %></td>
     <td><%= ride.destination %></td>
     <td><%= ride.date %></td>
@@ -27,6 +31,8 @@
     <td><%= ride.id %></td>
     <td><%= ride.created_at %></td>
     <td><%= ride.updated_at %></td>
+    <td><%= ride.longitude %></td>
+    <td><%= ride.latitude %></td>
     <td>
       <div class="btn-group">
 	<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
@@ -45,6 +51,7 @@
 <%= @users %>
 </table>
 
-<br />
+<br/>
 
 <%= link_to 'New Ride', new_ride_path, class:"btn btn-large btn-primary" %>
+

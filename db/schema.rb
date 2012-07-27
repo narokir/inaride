@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120724064644) do
+ActiveRecord::Schema.define(:version => 20120727013012) do
 
   create_table "rides", :force => true do |t|
     t.string   "origin"
@@ -20,7 +20,10 @@ ActiveRecord::Schema.define(:version => 20120724064644) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
-    t.date     "date"   :force => true do |t|
+    t.date     "date"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
   end
 
   create_table "users", :force => true do |t|

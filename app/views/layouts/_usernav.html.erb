@@ -1,0 +1,26 @@
+<nav class="nav pull-right">
+    <% if current_user %>
+    <li class="divider-vertical"></li>
+    <li class="usrimg"><%= link_to image_tag current_user.img_url, class:"fbimg", alt: "profil-image" %></li>
+    
+    <li class="dropdown">
+	<a data-toggle="dropdown" class="dropdown-toggle" href="#"><%= current_user.name %> <b class="caret"></b></a>
+	<ul class="dropdown-menu">
+	    <li><%= link_to "Profile", current_user %></li>
+	    <li><a href="#">action</a></li>
+	    <li class="divider"></li>
+	    <li><a href="#"><%= link_to "Sign out", signout_path, id: "sign_out" %></a></li>
+	</ul>
+    </li><li class="divider-vertical"></li>
+    <% else %>
+    
+    <ul class="nav">
+	<li class="divider-vertical"></li>
+	<li class="usrimg"><%= link_to image_tag('user.png'), class:"fbimg" %></li>
+	<li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
+	<li class="divider-vertical"></li>
+    </ul>
+    <%= link_to "Sign Up", signup_path, id: "sign_in", class: "btn btn-primary" %>
+    
+    <% end %>
+</nav>

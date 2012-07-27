@@ -1,4 +1,25 @@
+
 <%= notice %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>id:</th>
+      <th>Name:</th>
+      <th>Email:</th>
+      <th>img_url:</th>
+      <th>uid:</th>
+    </tr>
+  </thead>
+    <tbody>
+      <tr>
+	<td><%= @user.id %></td>
+	<td><%= @user.name %></td>
+	<td><%= @user.email %></td>
+	<td><%= @user.img_url %></td>
+	<td><%= @user.uid %></td>
+      </tr>
+    </tbody>
+</table>
 
 <p>
   <b>Name:</b>
