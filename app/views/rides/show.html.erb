@@ -59,18 +59,26 @@
 
 <section class="row">
   
-  <%= #gmaps4rails(@json)
-gmaps({
-       "direction"   => { "data" => { "from" => @ride.origin, "to" => @ride.destination },"markers" => { "data" => @json } },
-       "markers" => {"data" => @json, "options" => {"list_container" => "markers_list" } },
-       "map_options" => { "detect_location" => true, "center_on_user" => true, "zoom" => 6},
-       "markers" => { "data" => @markers },
-       "options" => {"waypoints" => ["toulouse, france", "brest, france"], "display_panel" => true, "panel_id" => "instructions"}
-       
-            })
- %>
+<%= gmaps({
+    
+    #"markers" => { "data" => '[{ "description": "origin", "title": "Origin", "lng": "5.9311119", "lat": "43.1251606", "picture": "", "width": "", "height": "" } ]',},
+    
+    "direction"   => {
+			"data"    => { "from" => @ride.origin, "to" => @ride.destination},
+
+			"markers" => {"data" => @json, "options" => {"rich_marker" => true } },
+			"options" => { "waypoints" => ["Asheville, NC", "Atlantat, GA"],
+				       "travelMode" => "DRIVING",
+				       "rich_marker" => true,
+				       "display_panel" => true,
+				       "panel_id" => "instructions"},
+			
+				       }
+    })
+    %>
  
- <ul id="markers_list">  </ul>
+ <ul id="markers_list"></ul>
+ <div id="instructions"></ul>
  
  
 </section>

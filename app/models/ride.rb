@@ -11,7 +11,7 @@ class Ride < ActiveRecord::Base
   
 
   def gmaps4rails_infowindow
-    "<h1>Hi This is an infowindow</h1>"
+    "<h1>#{origin}</h1>"
   end
   
 
@@ -25,16 +25,16 @@ class Ride < ActiveRecord::Base
    "shadow_width" => "110",
    "shadow_height" => "110",
    "shadow_anchor" => [5, 10],
-   #"rich_marker" =>  "<div class='my-marker'>It works!<img height='30' width='30' src='http://farm4.static.flickr.com/3212/3012579547_097e27ced9_m.jpg'/></div>"
+   "rich_marker" =>  "<div class='my-marker'>It works!<img height='41' width='32' src='/assets/map_marker_red.png'/></div>"
   }
   end
   
 
  def gmaps4rails_sidebar
-  "#{self.origin}, #{self.destination}"
+  "#{origin} --------> #{destination} #{date}" 
   end
 
   def gmaps4rails_title
-      "<p>I am a title</p>"
+      "<p>#{origin}</p>"
   end
 end

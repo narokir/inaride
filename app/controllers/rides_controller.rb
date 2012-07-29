@@ -4,6 +4,7 @@ class RidesController < ApplicationController
   def index
     @rides = Ride.all
     @json = Ride.all.to_gmaps4rails
+    @markers = Ride.all.to_gmaps4rails
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,8 +16,7 @@ class RidesController < ApplicationController
   # GET /rides/1.json
   def show
     @ride = Ride.find(params[:id])
-    @json = Ride.all.to_gmaps4rails
-    @markers = Ride.all.to_gmaps4rails
+
     
     respond_to do |format|
       format.html # show.html.erb
