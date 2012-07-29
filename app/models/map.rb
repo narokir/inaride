@@ -1,6 +1,7 @@
-class Ride < ActiveRecord::Base
-  belongs_to :user
-  acts_as_gmappable #:process_geocoding => false
+class Map < ActiveRecord::Base
+  attr_accessible :destination, :gmaps, :latitude, :longitude, :origin, :title, :waypoint_1
+  
+  acts_as_gmappable :process_geocoding => false
   
   
   def gmaps4rails_address
@@ -31,7 +32,7 @@ class Ride < ActiveRecord::Base
   
 
  def gmaps4rails_sidebar
-  "#{origin} --------> #{destination} #{date}" 
+  "#{origin} --------> #{destination}" 
   end
 
   def gmaps4rails_title

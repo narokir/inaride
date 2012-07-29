@@ -1,5 +1,9 @@
 Inoride::Application.routes.draw do
   
+  resources :maps
+
+  get "maps/ride_route"
+
   resources :rides
   resources :users
    

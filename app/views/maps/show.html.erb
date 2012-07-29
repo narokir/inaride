@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @map.title %>
+</p>
+
+<p>
+  <b>Origin:</b>
+  <%= @map.origin %>
+</p>
+
+<p>
+  <b>Destination:</b>
+  <%= @map.destination %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @map.longitude %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @map.latitude %>
+</p>
+
+<p>
+  <b>Waypoint 1:</b>
+  <%= @map.waypoint_1 %>
+</p>
+
+<p>
+  <b>Gmaps:</b>
+  <%= @map.gmaps %>
+</p>
+
+
+<%= link_to 'Edit', edit_map_path(@map) %> |
+<%= link_to 'Back', maps_path %>
+
+<section class="container">
+
+<%= gmaps("markers" => {"data" => @json, "options" => {"rich_marker" => true } }) %>
+ 
+ <ul id="markers_list"></ul>
+ <div id="instructions"></ul>
+ 
+ </section>
+
+ 
