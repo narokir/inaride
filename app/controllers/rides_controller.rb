@@ -16,7 +16,7 @@ class RidesController < ApplicationController
   # GET /rides/1.json
   def show
     @ride = Ride.find(params[:id])
-
+    @json = Ride.all.to_gmaps4rails
     
     respond_to do |format|
       format.html # show.html.erb
