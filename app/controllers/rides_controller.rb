@@ -15,7 +15,7 @@ class RidesController < ApplicationController
   def show
     @ride = Ride.find(params[:id])
     #@json = Ride.all.to_gmaps4rails
-    @markers = Ride.all.to_gmaps4rails
+    #@markers = Ride.all.to_gmaps4rails
 
     
     respond_to do |format|
@@ -48,7 +48,7 @@ class RidesController < ApplicationController
   # POST /rides.json
   def create
     @ride = Ride.new(params[:ride])
-    @markers = @ride.to_gmaps4rails
+    #@markers = @ride.to_gmaps4rails
     
     
 
