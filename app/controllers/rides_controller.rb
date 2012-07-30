@@ -15,13 +15,13 @@ class RidesController < ApplicationController
   def show
     @ride = Ride.find(params[:id])
     #@json = Ride.all.to_gmaps4rails
-    #@markers = Ride.all.to_gmaps4rails
+    @markers = Ride.all.to_gmaps4rails
+
 
     
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @ride }
-
     end
   end
 
