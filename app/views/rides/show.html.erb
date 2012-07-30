@@ -1,81 +1,52 @@
 <% provide(:title, 'Rides')%>
+
 <div class="alert alert-success"><%= notice %></div>
 
-<table class="table table-bordered">
+<table class="table table-bordered table-striped">
   <thead>
+      <td colspan=6><h1 class="pull-left"><%= @ride.origin %> -----------> <%= @ride.destination %></h1></td>
     <tr>
-      <th>Title:</th>
-      <th></th>
+      <th>Origin:</th>
+      <th>Destination:</th>
+      <th>Longitude:</th>
+      <th>Latitude:</th>
+      <th>Date:</th>
+      <th>User:</th>
+      <th>Gmaps:</th>
     </tr>
   </thead>
     <tbody>
       <tr>
-	<td><%= @ride.title %></td>
-	<td></td>
+	<td><%= @ride.origin %></td>
+	<td><%= @ride.destination %></td>
+	<td><%= @ride.longitude %></td>
+	<td><%= @ride.latitude %></td>
+	<td><%= @ride.date %></td>
+	<td><%= @ride.user_id %></td>
+	<td><%= @ride.gmaps %></td>
+      </tr>
+      <tr>
+	<td colspan=7>
+	  <div>
+	    <%= link_to 'Edit', edit_ride_path(@ride), class: "btn btn-mini" %>  | 
+	    <%= link_to 'Back', rides_path, class: "btn btn-mini" %>
+	  </div>
+	</td>
       </tr>
     </tbody>
 </table>
 
 
 
-<p>
-  <b>Title:</b>
-  <%= @ride.title %>
-</p>
-
-<p>
-  <b>Origin:</b>
-  <%= @ride.origin %>
-</p>
-
-<p>
-  <b>Longitude:</b>
-  <%= @ride.longitude %>
-</p>
-
-<p>
-  <b>Latitude:</b>
-  <%= @ride.latitude %>
-</p>
-
-<p>
-  <b>Destination:</b>
-  <%= @ride.destination %>
-</p>
-
-<p>
-  <b>Date:</b>
-  <%= @ride.date %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @ride.user_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_ride_path(@ride) %> |
-<%= link_to 'Back', rides_path %>
-
-<section class="row">
+<section class="container">
   
-<%= gmaps({
-    
-    #"markers" => { "data" => '[{ "description": "origin", "title": "Origin", "lng": "5.9311119", "lat": "43.1251606", "picture": "", "width": "", "height": "" } ]',},
-    
-    "direction"   => {
-			"data"    => { "from" => @ride.origin, "to" => @ride.destination},
+  <%=
+gmaps({
+       "direction"   => { "data" => { "from" => @ride.origin, "to" => @ride.destination }, "options" => {"display_panel" => true, "panel_id" => "instructions"}},
+       "markers" => {"data" => @markers, "options" => {"list_container" => "markers_list","rich_marker" => true } },
+            })
+ %>
 
-			"markers" => {"data" => @json, "options" => {"rich_marker" => true } },
-			"options" => { "waypoints" => ["Asheville, NC", "Atlantat, GA"],
-				       "travelMode" => "DRIVING",
-				       "rich_marker" => true,
-				       "display_panel" => true,
-				       "panel_id" => "instructions"},
-			
-				       }
-    })
-    %>
  
  <ul id="markers_list"></ul>
  <div id="instructions"></ul>

@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :img_url, :name, :email, :uid, :id, :provider, :user_id
-  belongs_to :ride
+  has_many :rides
 
   
   def self.from_omniauth(auth)

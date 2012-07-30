@@ -1,7 +1,7 @@
 class Map < ActiveRecord::Base
   attr_accessible :destination, :gmaps, :latitude, :longitude, :origin, :title, :waypoint_1
   
-  acts_as_gmappable :process_geocoding => false
+  acts_as_gmappable #:process_geocoding => false
   
   
   def gmaps4rails_address
@@ -26,7 +26,7 @@ class Map < ActiveRecord::Base
    "shadow_width" => "110",
    "shadow_height" => "110",
    "shadow_anchor" => [5, 10],
-   "rich_marker" =>  "<div class='my-marker'>It works!<img height='41' width='32' src='/assets/map_marker_red.png'/></div>"
+   "rich_marker" =>  "<div class='my-marker'>Put Whatever you like here<img height='41' width='32' src='/assets/map_marker_red.png'/></div>"
   }
   end
   
