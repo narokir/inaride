@@ -48,3 +48,29 @@ footer {
   }
 }
 
+/* input */
+
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+    color: #0E85ED;
+    display: inline-block;
+    font-size: 33px;
+    line-height: 33px;
+    margin-bottom: 9px;
+    padding: 10px 10px 8px 15px;
+    height: 39px;
+}

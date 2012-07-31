@@ -1,22 +1,38 @@
 <% provide(:title, 'Home') %>
 
 <!-- Main hero unit for a primary marketing message or call to action -->
-<div class="hero-unit">
-    <div class="span4 well pull-right">
-    <p><%= link_to 'Ad New Ride', new_ride_path, class: "btn btn-large btn-primary"%></p>
+<div class="hero-unit row">
+    <div class="span6 well">
+        <h1>Hi,</h1>
+  <p>We are a group of people who are always driving somewhere. Chances are, Someone is looking for a ride in the same direction as you. Share your ride and see who comes along. </p>
+ <hr>
+     <p class="pull-right"><%= link_to 'Ad New Ride', new_ride_path, class: "btn btn-large btn-primary"%>
+     <p class=""><%= link_to 'Show All Rides', rides_path, class: "" %></p>
+     </p>
+
+
+     
+
+
+
     
-<%= form_tag rides_path, :method => :get do %>
+<!--<%= form_tag rides_path, :method => :get do %>
   <p>
+    <h3> :)</h3>
     <%= text_field_tag :search, params[:ride] %>
-    <%= submit_tag "Search Near", :name => nil %>
+    <%= submit_tag "Search Near", :name => nil , class: "btn btn-large" %>
   </p>
-<% end %>
+<% end %>-->
 
 
     
   </div>
-  <h1>Inoride</h1>
-  <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-  <p><%= link_to 'Sign up', signup_path, class: "btn btn-large btn-primary"%></p>
+    
+  <div class="span3 well">
+
+
+    
+  </div>
+
 
 </div>
