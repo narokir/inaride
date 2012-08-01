@@ -1,9 +1,11 @@
 
 <%= notice %>
-<table class="table table-bordered">
+
+<table class="table table-bordered table-striped">
   <thead>
+    <td colspan=6><h1 class="pull-left"><%= @user.name %></h1></td>
     <tr>
-      <th>id:</th>
+      <th>user.id:</th>
       <th>Name:</th>
       <th>Email:</th>
       <th>img_url:</th>
@@ -18,33 +20,22 @@
 	<td><%= @user.img_url %></td>
 	<td><%= @user.uid %></td>
       </tr>
+      <tr>
+	<td colspan=1>
+	  <b>Token:</b>
+	</td>
+	<td colspan=5><%= @user.oauth_token %></td>
+      </tr>
+      <tr>
+	<td colspan=7>
+	  <div>
+	    <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-mini" %>  | 
+	    <%= link_to 'Back', users_path, class: "btn btn-mini" %>
+	  </div>
+	</td>
+      </tr>
     </tbody>
 </table>
 
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-  </br>
-  <b>uid:</b>
-  <%= @user.uid %>
-  </br>
-  <b>id:</b>
-  <%= @user.id %>
-  </br>
-  <b>img_url:</b>
-  <%= @user.img_url %>
-  </br>
-  <b>Token:</b>
-  <%= @user.oauth_token %>
-  </br>
-  
-</p>
 
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
