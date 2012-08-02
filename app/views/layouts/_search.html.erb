@@ -1,0 +1,16 @@
+<section id="search" class="">
+
+  <%= form_tag rides_path, :method => 'get' do %>
+
+      
+      <h2>Hey, Where you headed?</h2>
+<div class="control-group">
+      <%= text_field_tag :destination, params[:destination],placeholder: 'Destination' %>
+</div>
+      <%= text_field_tag :origin, params[:origin], placeholder: 'Origin'%>
+      
+    <%= submit_tag "Search Rides", :name => nil, class: "btn btn-large" %>
+
+<% end %>
+
+</section>

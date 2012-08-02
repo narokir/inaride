@@ -3,7 +3,8 @@ class RidesController < ApplicationController
   # GET /rides.json
   def index
     @rides = Ride.all
-
+    @rides = Ride.search(params)
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @rides }
