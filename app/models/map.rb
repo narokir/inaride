@@ -1,8 +1,7 @@
 class Map < ActiveRecord::Base
   attr_accessible :destination, :gmaps, :latitude, :longitude, :origin, :title, :waypoint_1
-  
   acts_as_gmappable #:process_geocoding => false
-  belongs_to :ride
+  #belongs_to :ride
   
   
   def gmaps4rails_address

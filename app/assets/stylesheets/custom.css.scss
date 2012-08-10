@@ -1,5 +1,23 @@
 @import "bootstrap";
 
+/* mixins, variables, etc. */
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
 
 #content{
     padding-top:70px;
@@ -79,3 +97,54 @@ input[type="color"],
 
 */
 
+.subhead {
+    background-color: #EEEEEE;
+    background-image: -moz-linear-gradient(center top , #F5F5F5 0%, #EEEEEE 100%);
+    background-repeat: repeat-x;
+    border: 1px solid #E5E5E5;
+    border-radius: 4px 4px 4px 4px;
+    width: 100%;
+}
+
+.subhead-fixed .nav {
+    margin: 0 auto;
+    padding: 0 1px;
+    width: 938px;
+}
+
+input.mainsearch{
+    color:#0E85ED;
+    font-size:21px;
+    height: 28px;
+    padding: 5px 5px 5px 8px;
+    border:1px solid #9ECFFC;
+}
+input.date{
+    background: url(/assets/calendar.png) no-repeat scroll 96% 50% #fff;
+    width:145px;
+}
+.subhead-fixed {
+    border-color: #D5D5D5;
+    border-radius: 0 0 0 0;
+    border-width: 0 0 1px;
+    box-shadow: 0 1px 0 #FFFFFF inset, 0 1px 5px rgba(0, 0, 0, 0.1);
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 44px;
+    z-index: 1020;
+}
+
+.subhead .nav > li > a {
+    border-left: 1px solid #F5F5F5;
+    border-radius: 0 0 0 0;
+    border-right: 1px solid #E5E5E5;
+    margin: 0;
+    padding-bottom: 11px;
+    padding-top: 11px;
+}
+
+#addon{
+    height: 30px;
+    line-height: 28px;
+}

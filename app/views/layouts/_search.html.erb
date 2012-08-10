@@ -2,15 +2,15 @@
 
   <%= form_tag rides_path, :method => 'get' do %>
 
-      
-      <h2>Hey, Where you headed?</h2>
-<div class="control-group">
-      <%= text_field_tag :destination, params[:destination],placeholder: 'Destination' %>
-</div>
-      <%= text_field_tag :origin, params[:origin], placeholder: 'Origin'%>
-      
-    <%= submit_tag "Search Rides", :name => nil, class: "btn btn-large" %>
-
+    <h2>Where you headed?</h2>
+      <div class="control-group">
+	<%= text_field_tag :destination, params[:destination],placeholder: 'Destination',id: "mainsearch" %>
+	<span class="help-block">Departure town or city</span>
+     
+      <%= text_field_tag :origin, params[:origin], placeholder: 'Origin',id: "mainsearch"%>
+       </div>
+    <%= submit_tag "Find Rides", :name => nil, class: "btn btn-large btn-success span" %>
+    
 <% end %>
 
 </section>

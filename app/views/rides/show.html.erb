@@ -11,7 +11,7 @@
       <th>Longitude:</th>
       <th>Latitude:</th>
       <th>Date:</th>
-      <th>User:</th>
+      <th>user_id:</th>
       <th>Gmaps:</th>
     </tr>
   </thead>
@@ -36,22 +36,24 @@
     </tbody>
 </table>
 
+    <td><%= @ride.user.name %></td><%= link_to @ride.user.name, current_user %>
+    
+
 
 
 <section class="container">
   
-  <%=
+<!--<%=
 gmaps({
        "direction"   => { "data" => { "from" => @ride.origin, "to" => @ride.destination }, "options" => {"display_panel" => true, "panel_id" => "instructions"}},
        "markers" => {"data" => @markers, "options" => {"list_container" => "markers_list","rich_marker" => true } },
             })
- %>
+ %>-->
 
  
  <ul id="markers_list"></ul>
  <div id="instructions"></ul>
- 
- 
+
 </section>
 
 

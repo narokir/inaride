@@ -7,5 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 # encoding: utf-8
 users = User.create([{ name: 'narokir', email:'Naro@email.com', img_url:'user.png', provider: 'facebook', uid:'1' }])
+rides = Ride.create([{ title: 'RideTitle', origin:'Miami', destination:'Boston', latitude: '', longitude:'',date:'',user_id:'',gmaps: 'true' }])
 
 #User.create(email: 'Emanuel', user: users.first)

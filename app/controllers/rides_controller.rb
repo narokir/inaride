@@ -15,10 +15,8 @@ class RidesController < ApplicationController
   # GET /rides/1.json
   def show
     @ride = Ride.find(params[:id])
-    #@json = Ride.all.to_gmaps4rails
-    @markers = Ride.all.to_gmaps4rails
-
-
+    #@markers = Ride.all.to_gmaps4rails
+    
     
     respond_to do |format|
       format.html # show.html.erb
@@ -30,10 +28,14 @@ class RidesController < ApplicationController
   # GET /rides/new.json
   def new
     @ride = Ride.new
+    @user = @ride.build_user(params[:user])
+    #@ride = @ride.build_user
+    #@ride = @ride.build_user()
+    
+    
     #@json = Ride.new.to_gmaps4rails
     #@markers = Ride.new.to_gmaps4rails(params[:markers])
     
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @ride }
@@ -48,14 +50,13 @@ class RidesController < ApplicationController
   # POST /rides
   # POST /rides.json
   def create
-    @ride = Ride.new(params[:ride])
-    #@markers = @ride.to_gmaps4rails
-    
-    
+    #@ride = Ride.new(params[:ride])
+    @ride = current_user.rides.build(params[:ride])
 
+    
+    
     respond_to do |format|
       if @ride.save
-	
         format.html { redirect_to @ride, notice: 'Ride was successfully created.' }
         format.json { render json: @ride, status: :created, location: @ride }
       else

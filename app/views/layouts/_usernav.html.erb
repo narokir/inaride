@@ -19,8 +19,9 @@
 	<li class="usrimg"><%= link_to image_tag('user.png'), class:"fbimg" %></li>
 	<li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
 	<li class="divider-vertical"></li>
+	<li><%= link_to "Sign Up", signup_path %></li>
     </ul>
-    <%= link_to "Sign Up", signup_path, id: "sign_in", class: "btn btn-primary" %>
+    
     
     <% end %>
 </nav>

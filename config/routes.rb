@@ -1,12 +1,14 @@
 Inoride::Application.routes.draw do
   
   resources :maps
+  resources :users
+  resources :rides
+  
+  
+
 
   get "maps/ride_route"
 
-  resources :rides
-  resources :users
-   
   root :to => 'static_pages#home'
   
   match '/help', to: 'static_pages#help'
@@ -16,13 +18,7 @@ Inoride::Application.routes.draw do
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
-  
-  #match 'user/:id', to: 'users#view'
-  
   match '/auth/failure', to: 'static_pages#help'
-  
-  
-  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

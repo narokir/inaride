@@ -1,20 +1,31 @@
 <% provide(:title, 'Home') %>
 
 <!-- Main hero unit for a primary marketing message or call to action -->
-<div class="hero-unit row">
-  <div class="span6 well">
-    <h1>Hi,</h1>
-      <p>We are a group of people who are always driving somewhere. Chances are, Someone is looking for a ride in the same direction as you. Share your ride and see who comes along. </p>
-      <hr>
-      <p class="pull-right"><%= link_to 'Ad New Ride', new_ride_path, class: "btn btn-large btn-primary"%></p>
-	<p class=""><%= link_to 'Show All Rides', rides_path, class: "" %></p>
-      </p>
- 
-    </div>
-    
-  <div class="span3 well">
-    <%= render 'layouts/search' %>
+<div class="row">
+  <div class="hero-unit span">
+    <h3>Inoride connects <span style="color:#28D55F">Drivers</span> and <span style="color:#32B6EF">Passengers</span> who want to <span style="color:#D328CD">Share A Ride</span></h3>
+    <p>This helps save gas | fresh air | money | motorcyclists | squirrels and bugs while </p>
+    <hr>
+      <div class=" well">
+	      <section id="search" class="">
+	<%= form_tag rides_path, :method => 'get',class: "form-inline" do %>
+	  <div class="control-group">
+	  <h4>I am looking for a ride to:</h4></br>
+	  <%= text_field_tag :destination, params[:destination],placeholder: 'Destination', class: "mainsearch"%>
+	  <%= text_field_tag :origin, params[:origin], placeholder: 'Origin', class: "mainsearch"%>
+	  <%= datepicker_input :date, params[:date], class:"mainsearch span2 date",placeholder: "Date", :dateFormat => "yy-mm-dd" %>
+	  <%= submit_tag "Find Your Ride", :name => nil, class: "btn btn-large btn-primary span" %>
+
+	</div>
+	<% end %>
+      </section>
+	
+	
+      </div>
   </div>
-
-
+      
+  <div class="">
+    <%= link_to 'Ad New Ride', new_ride_path, class: "btn btn-large pull-right"%>
+  </div>
 </div>
+
