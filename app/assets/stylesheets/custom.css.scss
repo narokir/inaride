@@ -1,4 +1,15 @@
+$navbarBackground:#555;
+$navbarHeight:55px;
+$linkColor:#68BDF9;
+$baseFontSize:14px;
+$heroUnitBackground:#D4EB84;
+/*============================================================================*/
+
 @import "bootstrap";
+/*@import "bootstrap-responsive";*/
+
+/*============================================================================*/
+
 
 /* mixins, variables, etc. */
 
@@ -7,6 +18,8 @@
   -webkit-box-sizing: border-box; 
   box-sizing: border-box;
 }
+
+
 
 /* miscellaneous */
 
@@ -18,12 +31,11 @@
   @include box_sizing;
 }
 
-
 #content{
-    padding-top:70px;
+    padding-top:80px;
 }
 
-/* Use Navigation */
+/* User Navigation */
 
 .fbimg{
     width:32px;
@@ -35,9 +47,16 @@
 #logo{
     width:80%;
 }
+
+.usrimg {
+    padding:7px !important;
+}
 .usrimg a{
     margin:9% !important;
     padding:0px !important;
+}
+.brand{
+    height:19px;
 }
 
 /* footer */
@@ -67,36 +86,6 @@ footer {
 }
 
 
-/* input 
-
-textarea,
-input[type="text"],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input[type="color"],
-.uneditable-input {
-    color: #0E85ED;
-    display: inline-block;
-    font-size: 33px;
-    line-height: 33px;
-    margin-bottom: 9px;
-    padding: 10px 10px 8px 15px;
-    height: 39px;
-}
-
-
-*/
-
 .subhead {
     background-color: #EEEEEE;
     background-image: -moz-linear-gradient(center top , #F5F5F5 0%, #EEEEEE 100%);
@@ -104,6 +93,7 @@ input[type="color"],
     border: 1px solid #E5E5E5;
     border-radius: 4px 4px 4px 4px;
     width: 100%;
+    padding:5px 0px 5px 0px;
 }
 
 .subhead-fixed .nav {
@@ -131,7 +121,7 @@ input.date{
     left: 0;
     position: fixed;
     right: 0;
-    top: 44px;
+    top: 54px;
     z-index: 1020;
 }
 
@@ -148,3 +138,16 @@ input.date{
     height: 30px;
     line-height: 28px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

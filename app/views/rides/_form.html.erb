@@ -1,6 +1,6 @@
-<%= form_for(@ride) do |f| %>
+<%= simple_form_for(@ride, :html => {:class => 'form-inline' }) do |f| %>
   <% if @ride.errors.any? %>
-    <div id="error_explanation" class="alert alert-error">
+    <div class="alert alert-error">
       <h2><%= pluralize(@ride.errors.count, "error") %> prohibited this ride from being saved:</h2>
 
       <ul>
@@ -13,28 +13,18 @@
 
   <div class="well">
     
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-        
-    <%= f.label :origin %>
-    <%= f.text_field :origin %>
-
-    <%= f.label :destination %>
-    <%= f.text_field :destination %>
-    
-    <%= f.label :latitude %>
-    <%= f.text_field :latitude %>
-    
-    <%= f.label :longitude %>
-    <%= f.text_field :longitude %>
-    
+    <%= f.input :origin %>
+    <%= f.input :destination %>
+    <%= f.input :latitude %>
+    <%= f.input :longitude %>
     
     <%= f.label :date %>
-    <%= datepicker_input "ride","date", :dateFormat => "yy-mm-dd" %>
+    <%= f.datepicker :date, :dateFormat => "yy-mm-dd" %>
     
 
     <%= f.label :user_id %>
     <%= f.number_field :user_id %>
+
     
       <div class="field">
     <%= f.label :gmaps %><br />
@@ -46,12 +36,3 @@
   </div>
 
 <% end %>
-
-<!--
-<div class="well">
-            <input type="text" data-source="[&quot;Alabama&quot;,&quot;Alaska&quot;,&quot;Arizona&quot;,&quot;Arkansas&quot;,&quot;California&quot;,&quot;Colorado&quot;,&quot;Connecticut&quot;,&quot;Delaware&quot;,&quot;Florida&quot;,&quot;Georgia&quot;,&quot;Hawaii&quot;,&quot;Idaho&quot;,&quot;Illinois&quot;,&quot;Indiana&quot;,&quot;Iowa&quot;,&quot;Kansas&quot;,&quot;Kentucky&quot;,&quot;Louisiana&quot;,&quot;Maine&quot;,&quot;Maryland&quot;,&quot;Massachusetts&quot;,&quot;Michigan&quot;,&quot;Minnesota&quot;,&quot;Mississippi&quot;,&quot;Missouri&quot;,&quot;Montana&quot;,&quot;Nebraska&quot;,&quot;Nevada&quot;,&quot;New Hampshire&quot;,&quot;New Jersey&quot;,&quot;New Mexico&quot;,&quot;New York&quot;,&quot;North Dakota&quot;,&quot;North Carolina&quot;,&quot;Ohio&quot;,&quot;Oklahoma&quot;,&quot;Oregon&quot;,&quot;Pennsylvania&quot;,&quot;Rhode Island&quot;,&quot;South Carolina&quot;,&quot;South Dakota&quot;,&quot;Tennessee&quot;,&quot;Texas&quot;,&quot;Utah&quot;,&quot;Vermont&quot;,&quot;Virginia&quot;,&quot;Washington&quot;,&quot;West Virginia&quot;,&quot;Wisconsin&quot;,&quot;Wyoming&quot;]" data-items="4" data-provide="typeahead" style="margin: 0 auto;" class="span3">
-          </div>-->
-	  
-	  
-
-

@@ -1,7 +1,7 @@
 <nav class="nav pull-right">
     <% if current_user %>
     <li class="divider-vertical"></li>
-    <li class="usrimg"><%= link_to image_tag current_user.img_url, class:"fbimg", alt: "profil-image" %></li>
+    <li class="usrimg"><%= link_to image_tag current_user.img_url, class:"fbimg", alt: current_user.name %></li>
     
     <li class="dropdown">
 	<a data-toggle="dropdown" class="dropdown-toggle" href="#"><%= current_user.name %> <b class="caret"></b></a>
@@ -9,7 +9,7 @@
 	    <li><%= link_to "Profile", current_user %></li>
 	    <li><a href="#">action</a></li>
 	    <li class="divider"></li>
-	    <li><a href="#"><%= link_to "Sign out", signout_path, id: "sign_out" %></a></li>
+	    <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
 	</ul>
     </li><li class="divider-vertical"></li>
     <% else %>

@@ -1,31 +1,43 @@
 <% provide(:title, 'Home') %>
 
-<!-- Main hero unit for a primary marketing message or call to action -->
-<div class="row">
-  <div class="hero-unit span">
-    <h3>Inoride connects <span style="color:#28D55F">Drivers</span> and <span style="color:#32B6EF">Passengers</span> who want to <span style="color:#D328CD">Share A Ride</span></h3>
-    <p>This helps save gas | fresh air | money | motorcyclists | squirrels and bugs while </p>
-    <hr>
-      <div class=" well">
-	      <section id="search" class="">
-	<%= form_tag rides_path, :method => 'get',class: "form-inline" do %>
-	  <div class="control-group">
-	  <h4>I am looking for a ride to:</h4></br>
-	  <%= text_field_tag :destination, params[:destination],placeholder: 'Destination', class: "mainsearch"%>
-	  <%= text_field_tag :origin, params[:origin], placeholder: 'Origin', class: "mainsearch"%>
-	  <%= datepicker_input :date, params[:date], class:"mainsearch span2 date",placeholder: "Date", :dateFormat => "yy-mm-dd" %>
-	  <%= submit_tag "Find Your Ride", :name => nil, class: "btn btn-large btn-primary span" %>
-
-	</div>
-	<% end %>
-      </section>
-	
-	
-      </div>
-  </div>
-      
-  <div class="">
-    <%= link_to 'Ad New Ride', new_ride_path, class: "btn btn-large pull-right"%>
-  </div>
+<div class="well">
+  <section id="search">
+  <%= form_tag rides_path, :method => 'get',class: "form-inline" do %>
+    <div class="control-group">
+     <h4>I am looking for a ride to:</h4></br>
+     <%= text_field_tag :destination, params[:destination],placeholder: 'Destination', class: "mainsearch"%>
+     <%= text_field_tag :origin, params[:origin], placeholder: 'Origin', class: "mainsearch"%>
+     <%= datepicker_input :date, params[:date], class:"mainsearch span2 date",placeholder: "Date", :dateFormat => "yy-mm-dd", :name => nil %>
+     <%= submit_tag "Find Your Ride", :name => nil, class: "btn btn-large btn-primary span" %>
+    </div>
+    <% end %>
+  </section>
 </div>
+
+<!-- Main hero unit for a primary marketing message or call to action -->
+
+  <div class="hero-unit">
+    <div class="container">
+    <h2 class="span4 container">Inoride connects <span style="color:#28D55F">drivers</span> and <span style="color:#32B6EF">passengers</span> who want to <span style="color:#D328CD">share a road trip</span></h2>
+  </div>
+  </div>
+
+  <div class="well">
+    <%= link_to 'Ad New Ride', new_ride_path, class: "btn btn-large"%>
+  </div>
+  
+  <section id = "rides">
+    <table class="table">
+      <tr>
+	<% @rides.each do |ride| %>
+	<td><%= link_to image_tag(ride.user.img_url),ride.user%></td>
+	<td><h3><%= link_to "#{ride.origin}   ---------> #{ride.destination}", ride, class: "" %></h3><p><%= ride.date.to_s %></p></td>
+	<td><%= ride.user_id %></td>
+	<td><%= ride.id %></td>
+      </tr>
+      <% end %>
+    </table>
+  </section>
+
+    
 
