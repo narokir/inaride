@@ -25,7 +25,11 @@
   <div class="well">
     <%= link_to 'Ad New Ride', new_ride_path, class: "btn btn-large"%>
   </div>
+  <%= @rides.each do |ride|%>
   
+  <%= ride.user.name%>
+  <%= image_tag (ride.user.img_url)%>
+  <% end %>
 <section id = "rides">
   <table class="table">
     <tr>
