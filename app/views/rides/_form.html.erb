@@ -17,19 +17,10 @@
     <%= f.input :destination %>
     <%= f.input :latitude %>
     <%= f.input :longitude %>
+    <%= f.input :date, :as => :string %> 
+    <%= f.input :user_id %>
+    <%= f.input :gmaps %>
     
-    <%= f.label :date %>
-    <%= f.datepicker :date, :dateFormat => "yy-mm-dd" %>
-    
-
-    <%= f.label :user_id %>
-    <%= f.number_field :user_id %>
-
-    
-      <div class="field">
-    <%= f.label :gmaps %><br />
-    <%= f.check_box :gmaps %>
-  </div>
   </div> 
   <div class="actions">
     <%= f.submit class:"btn btn-primary btn-large" %>
