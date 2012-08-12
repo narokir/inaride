@@ -26,18 +26,15 @@
     <%= link_to 'Ad New Ride', new_ride_path, class: "btn btn-large"%>
   </div>
   
-  <section id = "rides">
-    <table class="table">
-      <tr>
-	<% @rides.each do |ride| %>
-	<td><%= link_to image_tag(ride.user.img_url),ride.user%></td>
-	<td><h3><%= link_to "#{ride.origin}   ---------> #{ride.destination}", ride, class: "" %></h3><p><%= ride.date.to_s %></p></td>
-	<td><%= ride.user_id %></td>
-	<td><%= ride.id %></td>
-      </tr>
-      <% end %>
-    </table>
-  </section>
-
-    
-
+<section id = "rides">
+  <table class="table">
+    <tr>
+      <% @rides.each do |ride| %>
+      <td><%= link_to image_tag(ride.user.img_url),ride.user%></td>
+      <td><h3><%= link_to "#{ride.origin}   ---------> #{ride.destination}", ride, class: "" %></h3><p><%= ride.date.to_s %></p></td>
+      <td><%= ride.user_id %></td>
+      <td><%= ride.id %></td>
+    </tr>
+    <% end %>
+  </table>
+</section>
