@@ -2,7 +2,6 @@ $navbarBackground:#555;
 $navbarHeight:55px;
 $linkColor:#68BDF9;
 $baseFontSize:14px;
-$heroUnitBackground:#D4EB84;
 /*============================================================================*/
 
 @import "bootstrap";
@@ -103,7 +102,7 @@ footer {
 }
 
 input.mainsearch{
-    color:#0E85ED;
+    color:#C3D3E0;
     font-size:21px;
     height: 28px;
     padding: 5px 5px 5px 8px;
@@ -112,6 +111,9 @@ input.mainsearch{
 input.date{
     background: url(/assets/calendar.png) no-repeat scroll 96% 50% #fff;
     width:145px;
+}
+input.date-small{
+    background: url(/assets/calendar_small.png) no-repeat scroll 96% 50% #fff;
 }
 .subhead-fixed {
     border-color: #D5D5D5;

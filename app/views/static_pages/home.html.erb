@@ -1,35 +1,55 @@
 <% provide(:title, 'Home') %>
 
-<div class="well">
-  <section id="search">
-  <%= form_tag rides_path, :method => 'get',class: "form-inline" do %>
-    <div class="control-group">
-     <h4>I am looking for a ride to:</h4></br>
-     <%= text_field_tag :destination, params[:destination],placeholder: 'Destination', class: "mainsearch"%>
-     <%= text_field_tag :origin, params[:origin], placeholder: 'Origin', class: "mainsearch"%>
-     <%= datepicker_input :date, params[:date], class:"mainsearch span2 date",placeholder: "Date", :dateFormat => "yy-mm-dd", :name => nil %>
-     <%= submit_tag "Find Your Ride", :name => nil, class: "btn btn-large btn-primary span" %>
+    <div class="page-header">
+    <h1>Share a roadtrip</h1>
     </div>
-    <% end %>
-  </section>
-</div>
 
 <!-- Main hero unit for a primary marketing message or call to action -->
+<div class="row">
+  <div class="span5">
+<section id="search">
+	
+  <%= form_tag rides_path, :method => 'get',class: "form-horizontal" do %>
+      <div class="control-group">
+	 <label class="control-label">Origin</label>
+	 <div class="controls">
+	    <%= text_field_tag :origin, params[:origin], placeholder: 'Origin',class: "mainsearch"%>
+	 </div>
+      </div>
+      <div class="control-group">
+	 <label class="control-label">Destination</label>
+	 <div class="controls">
+	  <%= text_field_tag :destination, params[:destination],placeholder: 'Destination',class: "mainsearch"%>
+	 </div>
+      </div>
+      <div class="control-group">
+	 <label class="control-label">Date</label>
+	 <div class="controls">
+	  <%= text_field_tag :date, params[:date],id: "ride_date",class: "date-small",class: "mainsearch date-small"%>
+	 </div>
+      </div>
+	  <%= submit_tag "Find Trips", :name => nil, class: "btn btn-primary btn-large pull-right" %>
+	 
+  <% end %>
+  
+</section>
+  </div>
+  <div class="span7">
+    <div class="hero-unit">
+      <p>Inoride connects <span style="color:#28D55F">drivers</span> and <span style="color:#32B6EF">passengers</span> who want to <span style="color:#D328CD">share a road trip</span></p>
+	<%= link_to 'Start a Trip', new_ride_path, class: "btn btn-large"%>
+    </div>
+  </div>
+</div>
 
-  <div class="hero-unit">
+
+<!--  <div class="hero-unit">
     <div class="container">
     <h2 class="span4 container">Inoride connects <span style="color:#28D55F">drivers</span> and <span style="color:#32B6EF">passengers</span> who want to <span style="color:#D328CD">share a road trip</span></h2>
   </div>
-  </div>
+  </div>-->
 
-  <div class="well">
-    <%= link_to 'Ad New Ride', new_ride_path, class: "btn btn-large"%>
-  </div>
-  <%= @rides.each do |ride|%>
-  
-  <%= ride.user.name%>
-  <%= image_tag (ride.user.img_url)%>
-  <% end %>
+
 <section id = "rides">
   <table class="table">
     <tr>

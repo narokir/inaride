@@ -1,32 +1,26 @@
 <% provide(:title, 'Rides')%>
 
-<div class="subhead">
-  <div class="">
-    <div class="container">
-      <section id="search">
-	      
-	<%= form_tag rides_path, :method => 'get',class: "form-inline" do %>
-	    
-	  <div class="control-group">
-		
-	    <h4>I am looking for a ride to:</h4></br>
-	       
-	      <%= text_field_tag :destination, params[:destination],placeholder: 'Destination', class: "mainsearch"%>
-	       
-	      <%= text_field_tag :origin, params[:origin], placeholder: 'Origin', class: "mainsearch"%>
-	       
-	      <%= text_field_tag :date, params[:date],id: "ride_date",class: "mainsearch date"%>
-	       
-	      <%= submit_tag "Find Your Ride", :name => nil, class: "btn btn-large btn-primary span" %>
-	       
-	  </div>
-	      
-	<% end %>
-	    
-      </section>
+<section id="search" class="hero-unit">
+	
+  <%= form_tag rides_path, :method => 'get',class: "form-inline" do %>
+      
+    <div class="control-group">
+	  
+      <h4>I am looking for a ride to:</h4></br>
+	 
+	<%= text_field_tag :destination, params[:destination],placeholder: 'Destination', class: "mainsearch"%>
+	 
+	<%= text_field_tag :origin, params[:origin], placeholder: 'Origin', class: "mainsearch"%>
+	 
+	<%= text_field_tag :date, params[:date],id: "ride_date",class: "mainsearch date"%>
+	 
+	<%= submit_tag "Find Your Ride", :name => nil, class: "btn btn-large btn-primary span" %>
+	 
     </div>
-  </div>
-</div>
+	
+  <% end %>
+      
+</section>
 
 <div class="page-header">
 <h1>Rides</h1>
