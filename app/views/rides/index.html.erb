@@ -7,10 +7,10 @@
     <div class="control-group">
 	  
       <h4>I am looking for a ride to:</h4></br>
+
+	<%= text_field_tag :origin, params[:origin], placeholder: 'Origin', class: "mainsearch"%>
 	 
 	<%= text_field_tag :destination, params[:destination],placeholder: 'Destination', class: "mainsearch"%>
-	 
-	<%= text_field_tag :origin, params[:origin], placeholder: 'Origin', class: "mainsearch"%>
 	 
 	<%= text_field_tag :date, params[:date],id: "ride_date",class: "mainsearch date"%>
 	 

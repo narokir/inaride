@@ -2,8 +2,14 @@ class RidesController < ApplicationController
   # GET /rides
   # GET /rides.json	
   def index
-    @rides = Ride.search(params)
+    #@rides = Ride.search(params)
     #@rides = Ride.all
+    
+    if params.present?
+      @rides=Ride.search(params)
+    else
+      @rides = Ride.all
+    end
     
   
     respond_to do |format|

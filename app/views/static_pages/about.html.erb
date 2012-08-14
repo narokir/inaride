@@ -1,3 +1,9 @@
 <% provide(:title, 'About Us') %>
 
     <h1>About Us</h1>
+    
+
+    
+    <%= text_field_tag :origin, params[:origin], :data => {:provide => 'typeahead', :items => '4', :source =>["Arizona","Alaska"]},:autocomplete=>"off"%>
+
+<input type="text" class="span3" id="demo" data-provide="typeahead" data-items="4" />
