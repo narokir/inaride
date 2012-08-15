@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   attr_accessible :img_url, :name, :email, :uid, :id, :provider
   has_many :rides, :dependent => :destroy
+  
+  validates :name, presence: true
+  validates :email, presence: true
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|

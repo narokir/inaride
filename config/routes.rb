@@ -15,6 +15,7 @@ Inoride::Application.routes.draw do
   match '/about', to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
   match '/signup', to: 'static_pages#signup'
+  match '/signin', to: 'static_pages#signin'
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'

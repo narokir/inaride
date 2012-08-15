@@ -2,45 +2,49 @@
 
 <%= notice %>
 
-<table class="table table-bordered table-striped">
-  <thead>
-      <td colspan=6><h1 class="pull-left"><%= @ride.origin %> -----------> <%= @ride.destination %></h1></td>
-    <tr>
-      <th>Origin:</th>
-      <th>Destination:</th>
-      <th>Longitude:</th>
-      <th>Latitude:</th>
-      <th>Date:</th>
-      <th>user_id:</th>
-      <th>Gmaps:</th>
-    </tr>
-  </thead>
-    <tbody>
-      <tr>
-	<td><%= @ride.origin %></td>
-	<td><%= @ride.destination %></td>
-	<td><%= @ride.longitude %></td>
-	<td><%= @ride.latitude %></td>
-	<td><%= @ride.date %></td>
-	<td><%= @ride.user_id %></td>
-	<td><%= @ride.gmaps %></td>
-      </tr>
-      <tr>
-	<td colspan=7>
-	  <div>
-	    <%= link_to 'Edit', edit_ride_path(@ride), class: "btn btn-mini" %>  | 
-	    <%= link_to 'Back', rides_path, class: "btn btn-mini" %>
-	  </div>
-	</td>
-      </tr>
-    </tbody>
-</table>
-
-    <td><%= @ride.user.name %></td><%= link_to @ride.user.name, current_user %>
+<div class="row">
+    <div class="span8">
+      
+      <table class="table table-bordered table-striped">
+	<thead>
+	    <td colspan=6><h1 class="pull-left"><%= @ride.origin %> -----------> <%= @ride.destination %></h1></td>
+	  <tr>
+	    <th>Origin:</th>
+	    <th>Destination:</th>
+	    <th>Longitude:</th>
+	    <th>Latitude:</th>
+	    <th>Date:</th>
+	    <th>user_id:</th>
+	    <th>Gmaps:</th>
+	  </tr>
+	</thead>
+	  <tbody>
+	    <tr>
+	      <td><%= @ride.origin %></td>
+	      <td><%= @ride.destination %></td>
+	      <td><%= @ride.longitude %></td>
+	      <td><%= @ride.latitude %></td>
+	      <td><%= @ride.date %></td>
+	      <td><%= @ride.user_id %></td>
+	      <td><%= @ride.gmaps %></td>
+	    </tr>
+	    <tr>
+	      <td colspan=7>
+		<div>
+		  <%= link_to 'Edit', edit_ride_path(@ride), class: "btn btn-mini" %>  | 
+		  <%= link_to 'Back', rides_path, class: "btn btn-mini" %>
+		</div>
+	      </td>
+	    </tr>
+	  </tbody>
+      </table>
+    </div><!-- Rides -->
     
-
-
-
+    <div class="span4">
+      <td><%= @ride.user.name %></td><%= link_to @ride.user.name, current_user %>
+    </div>
+</div>
+    
 <section class="container">
   
 <!--<%=

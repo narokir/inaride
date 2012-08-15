@@ -34,16 +34,24 @@ class RidesController < ApplicationController
   # GET /rides/new
   # GET /rides/new.json
   def new
-    @ride = Ride.new
-    @user = @ride.build_user(params[:user])
+    if session[:user_id].present?
+      @ride = Ride.new
+      @user = @ride.build_user(params[:user])
+    else
+      respond_to do |format|
+	format.html { redirect_to signin_url, notice: 'Please Sign in first' }
+      end
+    end
+    #@ride = Ride.new
+    #@user = @ride.build_user(params[:user])
     
     #@json = Ride.new.to_gmaps4rails
     #@markers = Ride.new.to_gmaps4rails(params[:markers])
     
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @ride }
-    end
+    #respond_to do |format|
+     # format.html # new.html.erb
+     # format.json { render json: @ride }
+    #end
   end
 
   # GET /rides/1/edit
