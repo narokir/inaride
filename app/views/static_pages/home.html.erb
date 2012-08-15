@@ -54,7 +54,7 @@
   <table class="table">
     <tr>
       <% @rides.each do |ride| %>
-      <td><%= link_to image_tag(ride.user.img_url),ride.user%></td>
+      <td><%= link_to image_tag(user.img_url),ride.user%></td>
       <td><h3><%= link_to "#{ride.origin}   ---------> #{ride.destination}", ride, class: "" %></h3><p><%= ride.date.strftime(" %A, %b %d, %Y") %></p></td>
       <td><%= ride.user_id %></td>
       <td><%= ride.id %></td>
