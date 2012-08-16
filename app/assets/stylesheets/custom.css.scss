@@ -2,6 +2,7 @@ $navbarBackground:#555;
 $navbarHeight:55px;
 $linkColor:#68BDF9;
 $baseFontSize:14px;
+
 /*============================================================================*/
 
 @import "bootstrap";
@@ -20,7 +21,6 @@ $baseFontSize:14px;
 @mixin btn-add{
     font-size:14px;
     line-height:2;
-    
 }
 
 
