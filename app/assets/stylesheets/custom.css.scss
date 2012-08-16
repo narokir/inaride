@@ -17,10 +17,19 @@ $baseFontSize:14px;
   -webkit-box-sizing: border-box; 
   box-sizing: border-box;
 }
+@mixin btn-add{
+    font-size:14px;
+    line-height:2;
+    
+}
 
 
 
 /* miscellaneous */
+
+.btn-add{
+    @include btn-add;
+}
 
 .debug_dump {
   clear: both;

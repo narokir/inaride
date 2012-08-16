@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :img_url, :name, :email, :uid, :id, :provider
   has_many :rides, :dependent => :destroy
+  belongs_to :static_pages
   
   validates :name, presence: true
   validates :email, presence: true
