@@ -45,6 +45,14 @@
 </div>
 
 
+<%= @ride.each do |ride|%>
+<ul>
+  <li><%= ride.user.name%></li>
+  <li><%= image_tag(ride.user.img_url)%></li>
+  <li><%= ride.origin%></li>
+</ul>
+
+<% end%>
 
 
 <!--  <div class="hero-unit">
@@ -52,5 +60,4 @@
     <h2 class="span4 container">Inoride connects <span style="color:#28D55F">drivers</span> and <span style="color:#32B6EF">passengers</span> who want to <span style="color:#D328CD">share a road trip</span></h2>
   </div>
   </div>-->
-
 
