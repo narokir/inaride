@@ -2,7 +2,7 @@ class Ride < ActiveRecord::Base
   attr_accessible :origin, :destination, :date, :title, :latitude, :longitude, :user_id, :gmaps
   belongs_to :user
   
-  validates_presence_of :origin, :destination
+  validates_presence_of :origin, :destination, :date
   
   
   def self.search(params)

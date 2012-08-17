@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :img_url, :name, :email, :uid, :id, :provider
+  attr_accessible :usr_img, :name, :email, :uid, :id, :provider
   has_many :rides, :dependent => :destroy
   belongs_to :static_pages
   
@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid
-      user.img_url= auth.info.image
+      user.usr_img= auth.info.image
       user.name = auth.info.name
       user.email = auth.info.email
       user.oauth_token = auth.credentials.token

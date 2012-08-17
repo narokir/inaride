@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20120813091937) do
     t.string   "email"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
-    t.string   "img_url"
+    t.string   "usr_img"
   end
 
 end
