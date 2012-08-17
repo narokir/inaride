@@ -2,9 +2,10 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.6'
 gem "gmaps4rails", "~> 1.5.2"
+gem 'pg', '0.12.2'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.6'
+  
 end
 
 # Gems used only for assets and not required
@@ -21,7 +22,7 @@ gem 'jquery_datepicker'
 
 
 group :production do
-  gem 'pg', '0.12.2'
+
 end
 
 

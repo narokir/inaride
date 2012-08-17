@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(:version => 20120813091937) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.string   "img_url"
-    t.integer  "ride_id"
   end
 
 end
