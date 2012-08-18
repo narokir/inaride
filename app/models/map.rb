@@ -13,6 +13,8 @@ class Map < ActiveRecord::Base
 
   def gmaps4rails_infowindow
     "<h1>#{origin}</h1>"
+    "<h2></h2>"
+    
   end	
   
 

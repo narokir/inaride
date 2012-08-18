@@ -1,5 +1,8 @@
+<script src="http://maps.googleapis.com/maps/api/js?sensor=true&libraries=places" type="text/javascript"></script>
+
 <h1>New map</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Back', maps_path %>
+<%= gmaps("markers" => {"data" => @json, "options" => {"rich_marker" => true } }) %>

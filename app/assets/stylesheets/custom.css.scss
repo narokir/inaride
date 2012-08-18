@@ -23,14 +23,14 @@ $baseFontSize:14px;
     line-height:2;
 }
 
-
-
 /* miscellaneous */
 
 .btn-add{
     @include btn-add;
 }
-
+.abbr[title=required]{
+    color:red;
+}
 .debug_dump {
   clear: both;
   float: left;
@@ -42,6 +42,11 @@ $baseFontSize:14px;
 #content{
     padding-top:80px;
 }
+
+  #map {
+    height: 500px;
+    border:1px solid;
+    }
 
 /* User Navigation */
 

@@ -1,4 +1,4 @@
-<%= form_for(@map) do |f| %>
+<%= simple_form_for(@map) do |f| %>
   <% if @map.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@map.errors.count, "error") %> prohibited this map from being saved:</h2>
@@ -10,36 +10,13 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+  <div class="span4">
+    <%= f.input :origin %>
+    <%= f.input :destination %>
+    <%= f.input :longitude %>
   </div>
-  <div class="field">
-    <%= f.label :origin %><br />
-    <%= f.text_field :origin %>
-  </div>
-  <div class="field">
-    <%= f.label :destination %><br />
-    <%= f.text_field :destination %>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %><br />
-    <%= f.text_field :longitude %>
-  </div>
-  <div class="field">
-    <%= f.label :latitude %><br />
-    <%= f.text_field :latitude %>
-  </div>
-  <div class="field">
-    <%= f.label :waypoint_1 %><br />
-    <%= f.text_field :waypoint_1 %>
-  </div>
-  <div class="field">
-    <%= f.label :gmaps %><br />
-    <%= f.check_box :gmaps %>
-  </div>
-  <div class="actions">
+    <%= f.input :latitude %>
+    <%= f.input :waypoint_1 %>
+    <%= f.input :gmaps %>
     <%= f.submit %>
-  </div>
 <% end %>
