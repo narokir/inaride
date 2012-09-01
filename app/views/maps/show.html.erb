@@ -41,11 +41,107 @@
 
 <section class="container">
 
-<%= gmaps("markers" => {"data" => @json, "options" => {"rich_marker" => true } }) %>
+<%= gmaps({"direction"   => {"data" => { "from" => @map.origin, "to" => @map.destination },"options" => {"display_panel" => true, "panel_id" => "instructions"}},})%>
+
+<% content_for :scripts do %>
+<script type="text/javascript">
+  
+  function initialize() {
+  
+   // Start/Finish icons
+ var icons = {
+  start: new google.maps.MarkerImage(
+   // URL
+   'http://localhost:3000/assets/pin2.png',
+   // (width,height)
+   new google.maps.Size( 44, 32 ),
+   // The origin point (x,y)
+   new google.maps.Point( 0, 0 ),
+   // The anchor point (x,y)
+   new google.maps.Point( 22, 32 )
+  ),
+  end: new google.maps.MarkerImage(
+   // URL
+   'end.png',
+   // (width,height)
+   new google.maps.Size( 44, 32 ),
+   // The origin point (x,y)
+   new google.maps.Point( 0, 0 ),
+   // The anchor point (x,y)
+   new google.maps.Point( 22, 32 )
+  )
+ };
+ 
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+
+  
+</script>
+<% end %>
+ 
+ 
+<script type="text/javascript">
+
+</script>
  
  <ul id="markers_list"></ul>
  <div id="instructions"></ul>
  
  </section>
+
+
+
+
+  <!--
+  function initialize() {
+ // Map and directions objects
+ var map = new google.maps.Map( element, options );
+ var service = new google.maps.DirectionsService();
+ var directions = new google.maps.DirectionsRenderer({suppressMarkers: true});
+
+ // Start/Finish icons
+ var icons = {
+  start: new google.maps.MarkerImage(
+   // URL
+   'http://localhost:3000/assets/pin2.png',
+   // (width,height)
+   new google.maps.Size( 44, 32 ),
+   // The origin point (x,y)
+   new google.maps.Point( 0, 0 ),
+   // The anchor point (x,y)
+   new google.maps.Point( 22, 32 )
+  ),
+  end: new google.maps.MarkerImage(
+   // URL
+   'end.png',
+   // (width,height)
+   new google.maps.Size( 44, 32 ),
+   // The origin point (x,y)
+   new google.maps.Point( 0, 0 ),
+   // The anchor point (x,y)
+   new google.maps.Point( 22, 32 )
+  )
+ };
+
+service.route( { origin: origin, destination: destination }, function( response, status ) {
+ if ( status == google.maps.DirectionsStatus.OK ) {
+  display.setDirections( response );
+  var leg = response.routes[ 0 ].legs[ 0 ];
+  makeMarker( leg.start_location, icons.start, "title" );
+  makeMarker( leg.end_location, icons.end, 'title' );
+ }
+});
+function makeMarker( position, icon, title ) {
+ new google.maps.Marker({
+  position: position,
+  map: map,
+  icon: icon,
+  title: title
+ });
+}
+
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+//-->
 
  

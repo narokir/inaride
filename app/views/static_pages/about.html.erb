@@ -1,24 +1,35 @@
 <% provide(:title, 'About Us') %>
 <h1>About Us</h1>
-<%= text_field_tag :origin, params[:origin], :data => {:provide => 'typeahead', :items => '4', :source =>["Arizona","Alaska"]},:autocomplete=>"off"%>
-
-
+<%= text_field_tag :origin, params[:origin], :data => {:provide => 'typeahead'},:autocomplete=>"off", class: "span5"%>
 <hr>
-<%= text_field_tag("origin")%>
 
-<input id="searchTextField" type="text" size="50">
 
 <script src="http://maps.googleapis.com/maps/api/js?sensor=true&libraries=places" type="text/javascript"></script>
 
 <script type="text/javascript">
-       function initialize() {
-        var mapOptions = {
-          center: new google.maps.LatLng(-33.8688, 151.2195),
-          zoom: 13,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById('map'),
-          mapOptions);
+  <!--
+  function initialize() {
+	
+	var defaultZoom = 16; // Why zoomed in? Because it looks good.
+	var mapOptions = {
+	  center: new google.maps.LatLng(13.731547730050778, 100.56798934936523),
+	  zoom: defaultZoom,
+	  mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
+	var map = new google.maps.Map(document.getElementById('map'),mapOptions);
+	
+	// I'm Centering the map in Bangkok
+	// '13.731547730050778'
+	// '100.56798934936523'
+	var mylat = document.getElementById("location_lat").value;
+	var mylng = document.getElementById("location_lng").value;
+	if (jQuery.isEmptyObject(mylat)) {
+	  var mylat = '13.731548';
+	  var mylng = '100.56799';
+	  var defaultZoom = 14; // decrease zoom to 13 if there is no selection from user.
+	};
+	
+
 
         var input = document.getElementById('origin');
         var autocomplete = new google.maps.places.Autocomplete(input);
@@ -61,25 +72,13 @@
           infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
           infowindow.open(map, marker);
         });
-	
-	
 
-        // Sets a listener on a radio button to change the filter type on Places
-        // Autocomplete.
-        function setupClickListener(id, types) {
-          var radioButton = document.getElementById(id);
-          google.maps.event.addDomListener(radioButton, 'click', function() {
-            autocomplete.setTypes(types);
-          });
-        }
 
         setupClickListener('changetype-all', []);
         setupClickListener('changetype-establishment', ['establishment']);
         setupClickListener('changetype-geocode', ['geocode']);
       }
       google.maps.event.addDomListener(window, 'load', initialize);
+//-->
 </script>
-
-      
-      
-    <div id="map"></div>
+<div id="map"></div>

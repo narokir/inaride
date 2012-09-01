@@ -33,3 +33,5 @@
 <br />
 
 <%= link_to 'New Map', new_map_path %>
+
+<%= gmaps("markers" => {"data" => @json, "options" => {"rich_marker" => true } }) %>

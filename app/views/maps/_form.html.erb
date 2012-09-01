@@ -10,13 +10,13 @@
       </ul>
     </div>
   <% end %>
-  <div class="span4">
-    <%= f.input :origin %>
-    <%= f.input :destination %>
-    <%= f.input :longitude %>
-  </div>
-    <%= f.input :latitude %>
+  <div class="span6">
+    <%= f.input :origin, :autocomplete => "off", :input_html => { :class => 'span5' } %>
+    <%= f.input :destination, :autocomplete => "off",:input_html => { :class => 'span5' } %>
     <%= f.input :waypoint_1 %>
+  </div>
+    <%= f.input :longitude %>
+    <%= f.input :latitude %>
     <%= f.input :gmaps %>
-    <%= f.submit %>
+    <%= f.submit :class => ' btn btn-large btn-primary' %>
 <% end %>
