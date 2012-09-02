@@ -11,7 +11,7 @@ class Map < ActiveRecord::Base
   
 
   def gmaps4rails_infowindow
-    "<h1>#{origin}</h1>"
+    "<h2>#{destination}</h2>"
     
   end	
   
@@ -21,12 +21,12 @@ class Map < ActiveRecord::Base
    "picture" => "/assets/map_marker_red.png",
    "width" => 32,
    "height" => 41,
-   "marker_anchor" => [ 5, 10],
+   "marker_anchor" => [ 14, 40],
    "shadow_picture" => "/images/morgan.png" ,
    "shadow_width" => "110",
    "shadow_height" => "110",
    "shadow_anchor" => [5, 10],
-   "rich_marker" =>  "<div class='my-marker'>Put Whatever you like here<img height='41' width='32' src='/assets/map_marker_red.png'/></div>"
+   #"rich_marker" =>  "<div class='my-marker'>Put Whatever you like here<img height='41' width='32' src='/assets/map_marker_red.png'/></div>"
   }
   end
   
@@ -36,6 +36,6 @@ class Map < ActiveRecord::Base
   end
 
   def gmaps4rails_title
-      "<p>#{origin}</p>"
+      "#{destination}"
   end
 end

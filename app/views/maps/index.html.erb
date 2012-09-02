@@ -34,4 +34,12 @@
 
 <%= link_to 'New Map', new_map_path %>
 
-<%= gmaps("markers" => {"data" => @json, "options" => {"rich_marker" => true } }) %>
+<%= gmaps(:map_options => {"detect_location" => true, "center_on_user" => true, 
+   "zoom" => 12})
+ %>
+ 
+ <% content_for :scripts do %>
+    <script type="text/javascript" charset="utf-8">
+
+    </script>
+<% end %>

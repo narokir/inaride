@@ -4,3 +4,73 @@
 
 <%= link_to 'Show', @map %> |
 <%= link_to 'Back', maps_path %>
+
+<section class="container">
+
+
+<%= 
+gmaps({"map_options" => { "zoom" => 12, "auto_adjust" => true, "auto_zoom" => false},
+      "markers" => {"data" => @json, "options" => { "draggable" => true  } },
+      "direction" => {"data"    => { "from" => @map.origin, "to" => @map.destination},  "options" => {"waypoints" => [@map.waypoint_1], "display_panel" => true, "panel_id" => "instructions"}}
+      })
+ %>
+
+
+<% content_for :scripts do %>
+    <script type="text/javascript" charset="utf-8">
+        var markersArray = [];
+        // On click, clear markers, place a new one, update coordinates in the form
+        Gmaps.map.callback = function() {
+            google.maps.event.addListener(Gmaps.map.serviceObject, 'click', function(event) {
+              clearOverlays();
+              placeMarker(event.latLng);
+              updateFormLocation(event.latLng);
+            });
+        };
+        // Update form attributes with given coordinates
+        function updateFormLocation(latLng) {
+            $('#map_latitude').val(latLng.lat());
+            $('#map_longitude').val(latLng.lng());
+            $('#location_attributes_gmaps_zoom').val(Gmaps.map.serviceObject.getZoom());
+        }
+        // Add a marker with an open infowindow
+        function placeMarker(latLng) {
+            var marker = new google.maps.Marker({
+                position: latLng, 
+                map: Gmaps.map.serviceObject,
+                draggable: true
+            });
+	  // Set a custom marker image
+	  var defaultImage = new google.maps.MarkerImage(
+	  "http://localhost:3000/assets/pin2.png",
+	  new google.maps.Size(20, 35),
+	  new google.maps.Point(0, 0),
+	  new google.maps.Point(17, 34),
+	  new google.maps.Size(20, 35));
+	  marker.setIcon(defaultImage); 
+	  
+            markersArray.push(marker);
+            // Set and open infowindow
+            var infowindow = new google.maps.InfoWindow({
+                content: '<div class="popup"><h2>Awesome!</h2><p>Drag me and adjust the zoom level.</p>'
+            });
+            infowindow.open(Gmaps.map.serviceObject,marker);
+            // Listen to drag & drop
+            google.maps.event.addListener(marker, 'dragend', function() {
+                updateFormLocation(this.getPosition());
+            });
+        }
+        // Removes the overlays from the map
+        function clearOverlays() {
+          if (markersArray) {
+            for (var i = 0; i < markersArray.length; i++ ) {
+              markersArray[i].setMap(null);
+            }
+          }
+          markersArray.length = 0;
+        }
+    </script>
+<% end %>
+
+ 
+</section>
