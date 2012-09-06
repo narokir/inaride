@@ -1,40 +1,46 @@
-<% provide(:title, 'Home') %>
+<script src="http://maps.googleapis.com/maps/api/js?sensor=true&libraries=places" type="text/javascript"></script>
 
-    <div class="page-header">
-    <h1>Share a roadtrip</h1>
-    </div>
+<% provide(:title, 'Home') %>
+<div class="row">
+  <div class="page-header">
+    <h1>
+      Share a ride
+    </h1>
+  </div>
+</div>
 
 <!-- Main hero unit for a primary marketing message or call to action -->
 <div class="row">
-  <div class="span5">
+  <div class="span7">
 <section id="search">
 	
   <%= form_tag rides_path, :method => 'get',class: "form-horizontal" do %>
       <div class="control-group">
 	 <label class="control-label">Origin</label>
 	 <div class="controls">
-	    <%= text_field_tag :origin, params[:origin], placeholder: 'Origin',class: "mainsearch"%>
+	    <%= text_field_tag :origin, params[:origin], placeholder: 'Origin',class: "mainsearch span5",:autocomplete => "off"%>
 	 </div>
       </div>
       <div class="control-group">
 	 <label class="control-label">Destination</label>
 	 <div class="controls">
-	  <%= text_field_tag :destination, params[:destination],placeholder: 'Destination',class: "mainsearch"%>
+	  <%= text_field_tag :destination, params[:destination],placeholder: 'Destination',class: "mainsearch span5",:autocomplete => "off"%>
 	 </div>
       </div>
       <div class="control-group">
 	 <label class="control-label">Date</label>
 	 <div class="controls">
 	  <%= text_field_tag :date, params[:date],id: "ride_date",class: "date-small",class: "mainsearch date-small"%>
+	  	  <%= submit_tag "Find Trips", :name => nil, class: "btn btn-primary btn-large pull-right" %>
+
 	 </div>
       </div>
-	  <%= submit_tag "Find Trips", :name => nil, class: "btn btn-primary btn-large pull-right" %>
 	 
   <% end %>
   
 </section>
   </div>
-  <div class="span7">
+  <div class="span4">
     <div class="hero-unit">
       <p>Inoride connects <span style="color:#28D55F">drivers</span> and <span style="color:#32B6EF">passengers</span> who want to <span style="color:#D328CD">share a road trip</span></p>
 	<%= link_to(new_ride_path, html_options = { class: "btn btn-large btn-add"}) do %>
@@ -64,3 +70,37 @@
     <% end %>
   </table>
 </section>
+
+
+
+
+<script type="text/javascript" charset="utf-8">
+function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(-33.8688, 151.2195),
+          zoom: 13,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById('map_canvas'),
+          mapOptions);
+
+        var origin = document.getElementById('origin');
+	var destination = document.getElementById('destination');
+        var autocomplete = new google.maps.places.Autocomplete(origin);
+	var autocomplete = new google.maps.places.Autocomplete(destination);
+
+        autocomplete.bindTo('bounds', map);
+
+        var infowindow = new google.maps.InfoWindow();
+        var marker = new google.maps.Marker({
+          map: map
+        });
+
+        setupClickListener('changetype-all', []);
+        setupClickListener('changetype-establishment', ['establishment']);
+        setupClickListener('changetype-geocode', ['geocode']);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<div id="map_canvas"></div>

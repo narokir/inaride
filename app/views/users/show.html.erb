@@ -60,7 +60,7 @@
     <td><%= link_to "#{ride.origin} ---> #{ride.destination}", ride %></td>
     <td><%= ride.origin %></td>
     <td><%= ride.destination %></td>
-    <td><%= ride.date %></td>
+    <td><%= ride.date.strftime(" %A, %b %d, %Y") %></td>
     <td><%= ride.user_id %></td>
     <td><%= @ride_id %></td>
     <td>
