@@ -24,103 +24,89 @@
 <script type="text/javascript">
   
   
-      var map;
-      var markers = [];
-      var droplocation = new google.maps.LatLng(37.7699298, -90.4469157);
-      
+  var map;
+  var markers = [];
+  var unitedStates = new google.maps.LatLng(37.7699298, -90.4469157);
+  
+  var originMarker = new google.maps.MarkerImage(
+    "http://localhost:3000/assets/pin3.png",
+    new google.maps.Size(50, 50),
+    new google.maps.Point(0, 0),
+    new google.maps.Point(17, 34),
+    new google.maps.Size(40, 40));
+    
+  var destinationMarker = new google.maps.MarkerImage(
+    "http://localhost:3000/assets/pin3.png",
+    new google.maps.Size(50, 50),
+    new google.maps.Point(0, 0),
+    new google.maps.Point(17, 34),
+    new google.maps.Size(40, 40));
+  
+  var mapOptions = {
+    zoom: 4,
+    center: unitedStates,
+    mapTypeId: google.maps.MapTypeId.ROADMAP	
+  };
+  
+  map = new google.maps.Map(document.getElementById('map'),
+  mapOptions);
 
+  // Add autocomplete to Origin and Destination
+  var origin = document.getElementById('map_origin');
+  var destination = document.getElementById('map_destination');
+  var org = new google.maps.places.Autocomplete(origin);
+  var dest = new google.maps.places.Autocomplete(destination);
+  
+  org.bindTo('bounds', map);
+  dest.bindTo('bounds', map);
 
-      function initialize() {
-        var unitedStates = new google.maps.LatLng(37.7699298, -90.4469157);
-        var mapOptions = {
-          zoom: 4,
-          center: unitedStates,
-          mapTypeId: google.maps.MapTypeId.ROADMAP	
-        };
-        map = new google.maps.Map(document.getElementById('map'),
-            mapOptions);
-
-        google.maps.event.addListener(map, 'click', function(event) {
-	alert('hi');
-        });
-
-	
-	
-	
-	
-
-    // Add autocomplete to Origin and Destination
-    var origin = document.getElementById('map_origin');
-    var destination = document.getElementById('map_destination');
-    var autocomplete = new google.maps.places.Autocomplete(origin);
-    var autocomplete = new google.maps.places.Autocomplete(destination);
-    
-    
-    
-    
-    autocomplete.bindTo('bounds', map);
-    
-         // Add a marker to the map and push to the array.
-      function addMarker(origin) {
-        marker = new google.maps.Marker({
-          position: location,
-          map: map,
-	  draggable: true
-        });
-      }
-    
-    var infowindow = new google.maps.InfoWindow();
-    var marker = new google.maps.Marker({
+  // Add and set a marker	
+  function addMarker(place) {
+    marker = new google.maps.Marker({
+      position: place,
       map: map
     });
+    alert('You are about tot set a merker');
     
-    google.maps.event.addListener(autocomplete, 'place_changed', function() {
-      infowindow.open(map,marker);
-      
-      var place = autocomplete.getPlace();
-      
-      if (place.geometry.viewport) {
-	map.fitBounds(place.geometry.viewport);
-	}
-	else
-	{
-	  map.setCenter(place.geometry.location);
-	  map.setZoom(12);  // Why 17? Because it looks good.
-	};
-	
-	
-      // add custom Marker Image
-      var image = new google.maps.MarkerImage(
-	"http://localhost:3000/assets/pin3.png",
-	new google.maps.Size(50, 50),
-	new google.maps.Point(0, 0),
-	new google.maps.Point(17, 34),
-	new google.maps.Size(40, 40));
-	  marker.setIcon(image);
-	  marker.setPosition(place.geometry.location);
-	  markers.push(marker);
-	  
-      // Open inforwindow with location input
-      var address = '';
-      if (place.address_components) {
-	address = [
-	  (place.address_components[0] && place.address_components[0].short_name || ''),
-	  (place.address_components[1] && place.address_components[1].short_name || ''),
-	  (place.address_components[2] && place.address_components[2].short_name || '')
-	].join(' ');
-      }
-      infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
-      infowindow.open(map, marker);
-      map.setZoom(12);  // Why 17? Because it looks good.
-    });
+    // Customize Marker Image
+    marker.setIcon(originMarker);
+    marker.setPosition(place.geometry.location);
+    markers.push(marker);
+  }
+
+  // Add lister for Origin
+  google.maps.event.addListener(org, 'place_changed', function(event) {    
+    var place = org.getPlace();
     
+    if (place.geometry.location) {
+     map.fitBounds(place.geometry.viewport);
+    }
+    else
+    {
+      map.setCenter(place.geometry.location);
+      map.setZoom(12);
+    };
+    alert('Origin' + place.geometry.location);
+    addMarker(place.geometry.location);
+  });
+  
+  // Add lister for Destination
+  google.maps.event.addListener(dest, 'place_changed', function(event) {    
+    var place = dest.getPlace();
+    
+    if (place.geometry.location) {
+     map.fitBounds(place.geometry.viewport);
+    }
+    else
+    {
+      map.setCenter(place.geometry.location);
+      map.setZoom(12);
+    };
+    alert('Destination' + place.geometry.location);
+    addMarker(place.geometry.location);
+  });
 
-
-     
-      }
-
-      
-      google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, 'load', initialize);
   
 </script>
 <% end %>
