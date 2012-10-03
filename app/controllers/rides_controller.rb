@@ -10,8 +10,6 @@ class RidesController < ApplicationController
     else
       @rides = Ride.all
     end
-    
-  
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @rides }
@@ -23,7 +21,7 @@ class RidesController < ApplicationController
   def show
     @ride = Ride.find(params[:id])
     #@markers = Ride.all.to_gmaps4rails
-    
+    @json = Ride.find(params[:id]).to_gmaps4rails
     
     respond_to do |format|
       format.html # show.html.erb
@@ -37,10 +35,8 @@ class RidesController < ApplicationController
     if session[:user_id].present?
       @ride = Ride.new
       @user = @ride.build_user(params[:user])
-      
     else
       respond_to do |format|
-	@ride = Ride.new
 	format.html { redirect_to signin_url, notice: 'Please Sign in first' }
       end
     end
@@ -66,7 +62,6 @@ class RidesController < ApplicationController
   def create
     #@ride = Ride.new(params[:ride])
     @ride = current_user.rides.build(params[:ride])
-    @json = Ride.new.to_gmaps4rails
 
     
     

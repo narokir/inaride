@@ -51,10 +51,7 @@ $btnSuccessBackgroundHighlight:#28C168;
     padding-top:80px;
 }
 
-#map {
-  height: 400px;
-  border:1px solid;
-  }
+
 
 /* User Navigation */
 
@@ -174,14 +171,13 @@ input.date-small{
 .navbar .nav > li >.signup{
     padding: 11px;
 }
-.add_ride_container{
+.well2{
     background-color: #F5F5F5;
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 4px 4px 4px 4px;
     margin-bottom: 20px;
     min-height: 171px;
     padding: 19px;
-    width: 340px;
 }
 
 .display{
