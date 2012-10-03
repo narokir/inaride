@@ -23,91 +23,46 @@
 <% content_for :scripts do %>
 <script type="text/javascript">
   
+
   
-  var map;
-  var markers = [];
-  var unitedStates = new google.maps.LatLng(37.7699298, -90.4469157);
+  alert('start');
+
+  var boston = new google.maps.LatLng(42.3584308, -71.0597732);
+  var defaultZoom = 8;
+  var origin = document.getElementById('map_origin');
   
   var mapOptions = {
-      zoom: 4,
-      center: unitedStates,
+      center: boston,
+      zoom: defaultZoom,
       mapTypeId: google.maps.MapTypeId.ROADMAP	
   };
+  map = new google.maps.Map(document.getElementById('map'),mapOptions);
   
-  map = new google.maps.Map(document.getElementById('map'),
-  mapOptions);
-
-  // Add autocomplete to Origin and Destination
-  var origin = document.getElementById('map_origin');
-  var destination = document.getElementById('map_destination');
-  var org = new google.maps.places.Autocomplete(origin);
-  var dest = new google.maps.places.Autocomplete(destination);
+  alert(boston);
   
-  org.bindTo('bounds', map);
-  dest.bindTo('bounds', map);
-
-  // Add and set a marker	
-  function addMarker(place,image) {
-    marker = new google.maps.Marker({
-      position: place,
-      map: map,
-    });
-    alert('You are about tot set a merker');
+    // Add autocomplete to Origin and Destination
+    var origin = document.getElementById('map_origin');
+    var autocomplete = new google.maps.places.Autocomplete(origin);
+    var destination = document.getElementById('map_destination');
+    var autocomplete = new google.maps.places.Autocomplete(destination);
     
-    // Push Marker to Aray. Why? Don't know yet.
-    markers.push(marker);
+    autocomplete.bindTo('bounds', map);
+  
+  
+  
+  
+  function initialize() {
+  
+  marker = new google.maps.Marker({
+  map: map,
+  position: boston
+  });
+  var infowindow = new google.maps.InfoWindow({
+  content: boston
+  });
+  infowindow.open(map,marker);
   }
-
-  // Add lister for Origin
-  google.maps.event.addListener(org, 'place_changed', function(event) {    
-    var place = org.getPlace();
-    
-    if (place.geometry.location) {
-     map.fitBounds(place.geometry.viewport);
-    }
-    else
-    {
-      map.setCenter(place.geometry.location);
-      map.setZoom(12);
-    };
-    alert('Origin' + place.geometry.location);
-    addMarker(place.geometry.location);
-    
-    //Render custom Marker for Origin
-    var originMarker = new google.maps.MarkerImage(
-    "http://localhost:3000/assets/map_marker_green.png",
-    new google.maps.Size(32, 41),
-    new google.maps.Point(0, 0),
-    new google.maps.Point(17, 34),
-    new google.maps.Size(32, 41));
-    marker.setIcon(originMarker);
-  });
-  
-  // Add lister for Destination
-  google.maps.event.addListener(dest, 'place_changed', function(event) {    
-    var place = dest.getPlace();
-    
-    if (place.geometry.location) {
-     map.fitBounds(place.geometry.viewport);
-    }
-    else
-    {
-      map.setCenter(place.geometry.location);
-      map.setZoom(12);
-    };
-    alert('Destination' + place.geometry.location);
-    addMarker(place.geometry.location);
-    
-    //Render custom Marker for Destinatin
-    var destinationMarker = new google.maps.MarkerImage(
-    "http://localhost:3000/assets/map_marker_red.png",
-    new google.maps.Size(32, 41),
-    new google.maps.Point(0, 0),
-    new google.maps.Point(17, 34),
-    new google.maps.Size(32, 41));
-    marker.setIcon(destinationMarker);
-  });
-google.maps.event.addDomListener(window, 'load', initialize);
+  google.maps.event.addDomListener(window, 'load', initialize);
   
 </script>
 <% end %>
@@ -210,8 +165,118 @@ google.maps.event.addDomListener(window, 'load', initialize);
     setupClickListener('changetype-establishment', ['establishment']);
     setupClickListener('changetype-geocode', ['geocode']);
   }
-  google.maps.event.addDomListener(window, 'load', initialize);
+ 
 
+
+
+-->
+
+
+<!--
+
+
+  var map;
+  var markers = [];
+  var unitedStates = new google.maps.LatLng(42.3584308, -71.0597732);
+  
+
+  
+  var mapOptions = {
+      zoom: 12,
+      center: unitedStates,
+      mapTypeId: google.maps.MapTypeId.ROADMAP	
+  };
+  
+  map = new google.maps.Map(document.getElementById('map'),
+  mapOptions);
+
+  // Add autocomplete to Origin and Destination
+  var origin = document.getElementById('map_origin');
+  var destination = document.getElementById('map_destination');
+  var org = new google.maps.places.Autocomplete(origin);
+  var dest = new google.maps.places.Autocomplete(destination);
+  
+  org.bindTo('bounds', map);
+  dest.bindTo('bounds', map);
+  var infowindow = new google.maps.InfoWindow();
+  
+
+  // Add and set a marker	
+  function addMarker(place,image) {
+    marker = new google.maps.Marker({
+      position: place,
+      map: map,
+      animation: google.maps.Animation.DROP
+    });
+    alert('You are about tot set a merker');
+    
+    // Push Marker to Aray. Why? Don't know yet.
+    markers.push(marker);
+     
+  }
+    // Define custom destinatino marker
+    var destinationMarker = new google.maps.MarkerImage(
+    "http://localhost:3000/assets/map_marker_red.png",
+    new google.maps.Size(32, 41),
+    new google.maps.Point(0, 0),
+    new google.maps.Point(17, 34),
+    new google.maps.Size(32, 41));
+    
+    // Define custom origin marker
+    var originMarker = new google.maps.MarkerImage(
+    "http://localhost:3000/assets/map_marker_green.png",
+    new google.maps.Size(32, 41),
+    new google.maps.Point(0, 0),
+    new google.maps.Point(17, 34),
+    new google.maps.Size(32, 41));
+
+  // Add lister for Origin
+  google.maps.event.addListener(org, 'place_changed', function(event) {
+  
+    var place = org.getPlace();
+    
+    if (place.geometry.location) {
+     map.fitBounds(place.geometry.viewport);
+    }
+    else
+    {
+      map.setCenter(place.geometry.location);
+      map.setZoom(12);
+    };
+    alert('Origin' + place.geometry.location);
+    addMarker(place.geometry.location);
+    
+    //Render custom Marker for Origin
+    marker.setIcon(originMarker);
+    var infowindow = new google.maps.InfoWindow({
+      content: '<div class="popup"><h2>Awesome!</h2><p>Drag me and adjust the zoom level.</p><button class="btn btn-large">Button</button>'
+    });
+    infowindow.open(map,marker);
+
+  });
+  
+  // Add lister for Destination
+  google.maps.event.addListener(dest, 'place_changed', function(event) {    
+    var place = dest.getPlace();
+    
+    if (place.geometry.location) {
+     map.fitBounds(place.geometry.viewport);
+    }
+    else
+    {
+      map.setCenter(place.geometry.location);
+      map.setZoom(12);
+    };
+    alert('Destination' + place.geometry.location);
+    addMarker(place.geometry.location);
+    
+    //Render custom Marker for Destinatin
+    marker.setIcon(destinationMarker);
+    infowindow.setContent(latLng);
+    infowindow.open(Gmaps.map.serviceObject,marker);
+  });
+  
+google.maps.event.addDomListener(window, 'load', initialize);
 
 
 -->

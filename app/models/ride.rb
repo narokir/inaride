@@ -3,6 +3,7 @@ class Ride < ActiveRecord::Base
   belongs_to :user
   
   validates_presence_of :origin, :destination, :date
+  acts_as_gmappable #:process_geocoding => false
   
   
   def self.search(params)

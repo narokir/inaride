@@ -36,6 +36,13 @@
 		</div>
 	      </td>
 	    </tr>
+	    <tr>
+	      <td colspan=7>
+		<div>Map
+		</div>
+	      </td>
+	    </tr>
+	    
 	  </tbody>
       </table>
     </div><!-- Rides -->
@@ -47,12 +54,12 @@
     
 <section class="container">
   
-<!--<%=
+<%=
 gmaps({
        "direction"   => { "data" => { "from" => @ride.origin, "to" => @ride.destination }, "options" => {"display_panel" => true, "panel_id" => "instructions"}},
        "markers" => {"data" => @markers, "options" => {"list_container" => "markers_list","rich_marker" => true } },
             })
- %>-->
+ %>
 
  
  <ul id="markers_list"></ul>

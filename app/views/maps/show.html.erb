@@ -39,6 +39,11 @@
 <%= link_to 'Edit', edit_map_path(@map) %> |
 <%= link_to 'Back', maps_path %>
 
+      <input onclick="clearOverlays();" type=button value="Clear Overlays">
+      <input onclick="showOverlays();" type=button value="Show All Overlays">
+      <input onclick="deleteOverlays();" type=button value="Delete Overlays">
+      <button id="drop" onclick="drop()">Drop Marker</button>
+
 <section class="container">
 
 
@@ -49,12 +54,15 @@ gmaps({
 	  :direction => {
 	       :data => { :from => @map.origin, :to => @map.destination},
 	    :options => { :waypoints => [@map.waypoint_1], :display_panel => true, :panel_id => "instructions"}}
+	    
       })
  %>
 <!--Directions Will not work without waypoint-->
 
    <% content_for :scripts do %>
     <script type="text/javascript" charset="utf-8">
+      
+
         var markersArray = [];
         // On click, clear markers, place a new one, update coordinates in the form
         Gmaps.map.callback = function() {
@@ -95,6 +103,11 @@ gmaps({
                 updateFormLocation(this.getPosition());
             });
         }
+	
+	            // Removes the overlays from the map, but keeps them in the array.
+      function clearOverlays() {
+        setAllMap(null);
+      }
         // Removes the overlays from the map
         function clearOverlays() {
           if (markersArray) {

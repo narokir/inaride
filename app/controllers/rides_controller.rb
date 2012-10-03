@@ -37,8 +37,10 @@ class RidesController < ApplicationController
     if session[:user_id].present?
       @ride = Ride.new
       @user = @ride.build_user(params[:user])
+      
     else
       respond_to do |format|
+	@ride = Ride.new
 	format.html { redirect_to signin_url, notice: 'Please Sign in first' }
       end
     end
@@ -64,6 +66,7 @@ class RidesController < ApplicationController
   def create
     #@ride = Ride.new(params[:ride])
     @ride = current_user.rides.build(params[:ride])
+    @json = Ride.new.to_gmaps4rails
 
     
     

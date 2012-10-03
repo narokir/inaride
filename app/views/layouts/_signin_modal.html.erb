@@ -1,14 +1,10 @@
    <div class="modal hide fade" id="myModal">
     <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal">close</button>
+    <button type="button" class="close" data-dismiss="modal"><%= image_tag('/assets/close.png') %></button>
     <h3>Sign In</h3>
     </div>
     <div class="modal-body">
-    <p>Sign in with facebook account</p>
-    <%= link_to "Sign in", "/auth/facebook", id: "sign_in", class: "btn btn-primary" %>
-    </div>
-    <div class="modal-footer">
-    <a href="#" class="btn" data-dismiss="modal">Close</a>
-    <a href="#" class="btn btn-primary">Save changes</a>
+    <p>Yep, Facebook is the way to go</p>
+    <%= link_to image_tag('fb-signin.png'), "/auth/facebook",class:"signup" %></br></br>
     </div>
     </div>
