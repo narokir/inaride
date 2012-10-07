@@ -7,6 +7,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 	    :display => 'popup',
 	    :secure_image_url => 'true',
 	    :image_size => 'square'
-  
-  
+
 end

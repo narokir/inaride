@@ -2,50 +2,55 @@
 
 <% provide(:title, 'Home') %>
 <div class="row">
-  <div class="page-header">
-    <h1>
-      Share a ride
-    </h1>
-  </div>
+
+    <h3>
+      Inoride connects <span style="color:#32B6EF">drivers</span> and <span style="color:#31ED8F">passengers</span> who want to <span>share rides</span>
+    </h3></br>
+
 </div>
 
 <!-- Main hero unit for a primary marketing message or call to action -->
-<div class="row">
+
+<div class="row" id="main">
   <div class="span7">
 <section id="search">
+  
 	
   <%= form_tag rides_path, :method => 'get',class: "form-horizontal" do %>
+  
+  <div class="search-container row">
       <div class="control-group">
-	 <label class="control-label">Origin</label>
 	 <div class="controls">
-	    <%= text_field_tag :origin, params[:origin], placeholder: 'Origin',class: "mainsearch span5",:autocomplete => "off"%>
+	    <%= text_field_tag :origin, params[:origin], placeholder: 'Origin',class: "mainsearch span4",:autocomplete => "off"%>
 	 </div>
       </div>
       <div class="control-group">
-	 <label class="control-label">Destination</label>
 	 <div class="controls">
-	  <%= text_field_tag :destination, params[:destination],placeholder: 'Destination',class: "mainsearch span5",:autocomplete => "off"%>
+	  <%= text_field_tag :destination, params[:destination],placeholder: 'Destination',class: "mainsearch span4",:autocomplete => "off"%>
 	 </div>
       </div>
       <div class="control-group">
-	 <label class="control-label">Date</label>
 	 <div class="controls">
-	  <%= text_field_tag :date, params[:date],id: "ride_date",class: "date-small",class: "mainsearch date-small"%>
-	  	  <%= submit_tag "Find Trips", :name => nil, class: "btn btn-primary btn-large pull-right" %>
-
+	  <%= text_field_tag :date, params[:date], placeholder: 'Dade',id: "ride_date",class: "date-small",class: "mainsearch date-small span2"%>
+	  <%= submit_tag "Search", :name => nil, class: "btn btn-large" %>
 	 </div>
       </div>
+  </div>
 	 
   <% end %>
   
 </section>
   </div>
-  <div class="span4">
-    <div class="hero-unit">
-      <p>Inoride connects <span style="color:#28D55F">drivers</span> and <span style="color:#32B6EF">passengers</span> who want to <span style="color:#D328CD">share a road trip</span></p>
-	<%= link_to(new_ride_path, html_options = { class: "btn btn-large btn-add"}) do %>
-	  ADD A RIDE<%=image_tag('car.png')%>
+  <div class="span5 ">
+    <div class="well2">
+      <div>
+	<h3>Grab a passenger</h3>
+	<p>There is no charge for posting a ride anouncement. You get to split the cost of gas, make a new friend, or even find your sweetheart.<span style="color:#ED286D">&hearts;</span><p>
+      <h4></h4>
+      <%= link_to(new_ride_path, html_options = { class: "btn btn-large btn-success"}) do %>
+	  Add Ride<%=image_tag('CAR2.png')%>
 	<% end %>
+      </div>
     </div>
   </div>
 </div>
@@ -63,7 +68,7 @@
     <tr>
       <% @ride.each do |ride| %>
       <td><%= image_tag(ride.user.usr_img)%></td>
-      <td><h3><%= link_to "#{ride.origin}   ---------> #{ride.destination}", ride, class: "" %></h3><p><%= ride.date.strftime(" %A, %b %d, %Y") %></p></td>
+      <td><h4><%= link_to "#{ride.origin}   ---------> #{ride.destination}", ride, class: "" %></h4><p><%= ride.date.strftime(" %A, %b %d, %Y") %></p></td>
       <td><%= ride.user_id %></td>
       <td><%= ride.id %></td>
     </tr>

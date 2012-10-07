@@ -11,15 +11,20 @@
     </div>
   <% end %>
 
-  <div class="well">
+  <div class="">
     
-    <%= f.input :origin %>
-    <%= f.input :destination %>
-    <%= f.input :latitude %>
-    <%= f.input :longitude %>
-    <%= f.input :date, :as => :string %> 
-    <%= f.input :user_id %>
-    <%= f.input :gmaps %>
+    <%= f.input :origin, :input_html => { :class => 'span5' } %>
+    <%= f.input :destination,:input_html => { :class => 'span5' } %>
+    <%# f.input :latitude %>
+    <%# f.input :longitude %>
+    <div class="control-group">
+	<div class="controls">
+    <%= f.input :date, :as => :string, :input_html => {:class => 'date-small span2'} %>
+    
+</div>
+    </div>
+    <%#  f.input :user_id %>
+    <%#  f.input :gmaps %>
     
   </div> 
   <div class="actions">
@@ -27,3 +32,7 @@
   </div>
 
 <% end %>
+<script src="http://maps.googleapis.com/maps/api/js?sensor=true&libraries=places" type="text/javascript"></script>
+
+
+<div id="map_canvas"></div>

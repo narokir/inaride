@@ -10,8 +10,6 @@ class RidesController < ApplicationController
     else
       @rides = Ride.all
     end
-    
-  
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @rides }
@@ -23,7 +21,7 @@ class RidesController < ApplicationController
   def show
     @ride = Ride.find(params[:id])
     #@markers = Ride.all.to_gmaps4rails
-    
+    @json = Ride.find(params[:id]).to_gmaps4rails
     
     respond_to do |format|
       format.html # show.html.erb

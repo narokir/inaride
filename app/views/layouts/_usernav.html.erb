@@ -16,12 +16,11 @@
     <% else %>
     
     <ul class="nav">
-      <li><%= link_to "modal signin",signup_path, data:{toggle: "modal", target:"#myModal"} %></li>
+      
       <li class="divider-vertical"></li>
-      <li class="usrimg"><%= link_to image_tag('user.png'), class:"fbimg" %></li>
-      <li><%= link_to "Sign in with facebook", "/auth/facebook", id: "sign_in" %></li>
+      <li><%= link_to "Sign In",signup_path, data:{toggle: "modal", target:"#myModal"} %></li>
       <li class="divider-vertical"></li>
-      <li><%= link_to "Sign Up", signup_path %></li>
+      <li><%= link_to "Sign up", signup_path,class:"" %></li>
     </ul>
     <% end %>
 </nav>

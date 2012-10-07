@@ -39,22 +39,32 @@
 <%= link_to 'Edit', edit_map_path(@map) %> |
 <%= link_to 'Back', maps_path %>
 
+      <input onclick="clearOverlays();" type=button value="Clear Overlays">
+      <input onclick="showOverlays();" type=button value="Show All Overlays">
+      <input onclick="deleteOverlays();" type=button value="Delete Overlays">
+      <button id="drop" onclick="drop()">Drop Marker</button>
+
 <section class="container">
 
 
 <%= 
 gmaps({
 	:map_options => { :zoom => 18, :auto_adjust => true, :auto_zoom => false},
-	    :markers => { :data => @json, :options => { :draggable => true,"custom_infowindow_class" => "yellow"  } },
+	    :markers => { :data => @json, :options => { :draggable => true,"custom_infowindow_class" => "yellow", "list_container" => "markers_list"  } },
 	  :direction => {
 	       :data => { :from => @map.origin, :to => @map.destination},
 	    :options => { :waypoints => [@map.waypoint_1], :display_panel => true, :panel_id => "instructions"}}
+	    
       })
  %>
+ 
+
 <!--Directions Will not work without waypoint-->
 
    <% content_for :scripts do %>
     <script type="text/javascript" charset="utf-8">
+      
+
         var markersArray = [];
         // On click, clear markers, place a new one, update coordinates in the form
         Gmaps.map.callback = function() {
@@ -77,6 +87,9 @@ gmaps({
                 map: Gmaps.map.serviceObject,
                 draggable: true
             });
+	  var markerOptions = {
+	    draggable:true
+	  };
 	  var defaultImage = new google.maps.MarkerImage(
 	  "http://localhost:3000/assets/pin2.png",
 	  new google.maps.Size(20, 35),
@@ -95,6 +108,11 @@ gmaps({
                 updateFormLocation(this.getPosition());
             });
         }
+	
+      // Removes the overlays from the map, but keeps them in the array.
+      function clearOverlays() {
+        setAllMap(null);
+      }
         // Removes the overlays from the map
         function clearOverlays() {
           if (markersArray) {
@@ -132,6 +150,7 @@ gmaps({
  
  <ul id="markers_list"></ul>
  <div id="instructions"></ul>
+
  
 </section>
 

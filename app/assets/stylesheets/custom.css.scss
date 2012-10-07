@@ -1,7 +1,15 @@
-$navbarBackground:#555;
+$navbarBackground:#3366FF;
+$navbarBackgroundHighlight:#0099FF;
+$navbarLinkColor:#B9F7F7;
+$navbarLinkColorHover:#FFFFFF;
+$navbarLinkColorActive:#FFFFFF;
 $navbarHeight:55px;
-$linkColor:#68BDF9;
 $baseFontSize:14px;
+$btnPrimaryBackground:#0099FF;
+$btnPrimaryBackgroundHighlight:#3366FF;
+$btnBorder:#999;
+$btnSuccessBackground:#0EED72;
+$btnSuccessBackgroundHighlight:#28C168;
 
 /*============================================================================*/
 
@@ -43,10 +51,7 @@ $baseFontSize:14px;
     padding-top:80px;
 }
 
-#map {
-  height: 400px;
-  border:1px solid;
-  }
+
 
 /* User Navigation */
 
@@ -116,10 +121,9 @@ footer {
 }
 
 input.mainsearch{
-    color:#101F2B;
     font-size:18px;
     height: 28px;
-    border:1px solid #9ECFFC;
+    margin-right:20px;
 }
 input.date{
     background: url(/assets/calendar.png) no-repeat scroll 96% 50% #fff;
@@ -152,6 +156,50 @@ input.date-small{
 #addon{
     height: 30px;
     line-height: 28px;
+}
+.search-container{
+    padding:20px;
+    background-color: #fff;
+    border: 1px solid #0099FF;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0px 0px 5px #B8B8B8;
+}
+.search-container .controls{
+    margin-left:0px;
+}
+
+.navbar .nav > li >.signup{
+    padding: 11px;
+}
+.well2{
+    background-color: #F5F5F5;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 4px 4px 4px 4px;
+    margin-bottom: 20px;
+    min-height: 171px;
+    padding: 19px;
+}
+
+.display{
+    background-color: #F5F5F5;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 4px 4px 4px 4px;
+    padding: 15px;
+
+}
+.pic{
+    float:left;
+    img{
+	border:1px solid #0099FF;
+    }
+}
+
+.info{
+    margin-left:10px;
+    float:left;
+}
+.higlight{
+    background-color: #F5F5F5;
 }
 
 
