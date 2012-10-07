@@ -32,7 +32,8 @@ class Map < ActiveRecord::Base
   
 
  def gmaps4rails_sidebar
-  "#{origin} --------> #{destination}" 
+  :origin
+  :destination;
   end
 
   def gmaps4rails_title

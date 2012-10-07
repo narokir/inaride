@@ -50,13 +50,15 @@
 <%= 
 gmaps({
 	:map_options => { :zoom => 18, :auto_adjust => true, :auto_zoom => false},
-	    :markers => { :data => @json, :options => { :draggable => true,"custom_infowindow_class" => "yellow"  } },
+	    :markers => { :data => @json, :options => { :draggable => true,"custom_infowindow_class" => "yellow", "list_container" => "markers_list"  } },
 	  :direction => {
 	       :data => { :from => @map.origin, :to => @map.destination},
 	    :options => { :waypoints => [@map.waypoint_1], :display_panel => true, :panel_id => "instructions"}}
 	    
       })
  %>
+ 
+
 <!--Directions Will not work without waypoint-->
 
    <% content_for :scripts do %>
@@ -85,6 +87,9 @@ gmaps({
                 map: Gmaps.map.serviceObject,
                 draggable: true
             });
+	  var markerOptions = {
+	    draggable: true
+	  };
 	  var defaultImage = new google.maps.MarkerImage(
 	  "http://localhost:3000/assets/pin2.png",
 	  new google.maps.Size(20, 35),
@@ -104,7 +109,7 @@ gmaps({
             });
         }
 	
-	            // Removes the overlays from the map, but keeps them in the array.
+      // Removes the overlays from the map, but keeps them in the array.
       function clearOverlays() {
         setAllMap(null);
       }
@@ -145,6 +150,7 @@ gmaps({
  
  <ul id="markers_list"></ul>
  <div id="instructions"></ul>
+
  
 </section>
 

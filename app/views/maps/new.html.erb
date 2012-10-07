@@ -13,57 +13,85 @@
       <button id="drop" onclick="drop()">Drop Marker</button>
 
 <%= gmaps({
-          "map_options" => {"libraries" => ["places"],"auto_adjust" => true,"zoom" => 'defaultZoom' },
-	  "markers"     => {"data" => @json },
-          })
+          "map_options" => {"libraries" => ["places"] },
+	  "markers"     => { "data" => @json},
+          });
  %>
 
 
-
 <% content_for :scripts do %>
-<script type="text/javascript">
-  
-
-  
-  alert('start');
-
-  var boston = new google.maps.LatLng(42.3584308, -71.0597732);
-  var defaultZoom = 8;
-  var origin = document.getElementById('map_origin');
+<script type="text/javascript" charset="utf-8">
+  //Declare New map variables
+  var markers = [];
+  var unitedStates = new google.maps.LatLng(37.7699298, -90.4469157);
+  var defaultZoom = 4
   
   var mapOptions = {
-      center: boston,
-      zoom: defaultZoom,
-      mapTypeId: google.maps.MapTypeId.ROADMAP	
+    zoom: defaultZoom,
+    center: unitedStates,
+    mapTypeId: google.maps.MapTypeId.ROADMAP	
   };
-  map = new google.maps.Map(document.getElementById('map'),mapOptions);
+function initialize(){
+  alert('initialise')
   
-  alert(boston);
+  //Build the map without any markers
+  map = new google.maps.Map(document.getElementById('map'),
+      mapOptions);
   
-    // Add autocomplete to Origin and Destination
-    var origin = document.getElementById('map_origin');
-    var autocomplete = new google.maps.places.Autocomplete(origin);
-    var destination = document.getElementById('map_destination');
-    var autocomplete = new google.maps.places.Autocomplete(destination);
+  // Add autocomplete to Origin and Destination
+  var start = document.getElementById('map_origin');
+  var end = document.getElementById('map_destination');
+  var origin = new google.maps.places.Autocomplete(start);
+  var destination = new google.maps.places.Autocomplete(end);
     
-    autocomplete.bindTo('bounds', map);
-  
-  
-  
-  
-  function initialize() {
-  
+  //listen for place change and get new place location
+  google.maps.event.addListener(origin, 'place_changed', function() {
+    // get the geolocation of new place input
+    var place = origin.getPlace();
+    alert('Origin changed. A new Marker will be placed at' + place.geometry.location);
+    
+  if (place.geometry.viewport) {
+    map.fitBounds(place.geometry.viewport);
+    }
+    else
+    {
+    map.setCenter(place.geometry.location);
+    //map.setZoom(2);  // Why 17? Because it looks good.
+    };
+  //set a new Marker
   marker = new google.maps.Marker({
-  map: map,
-  position: boston
+    position: place.geometry.location,
+    map: map,
+    draggable: true,
+    icon: "http://localhost:3000/assets/map_marker_green.png",
   });
-  var infowindow = new google.maps.InfoWindow({
-  content: boston
+  markers.push(place);
   });
-  infowindow.open(map,marker);
-  }
-  google.maps.event.addDomListener(window, 'load', initialize);
   
+  //listen for place change and get new place location
+  google.maps.event.addListener(destination, 'place_changed', function() {
+  
+  // get the geolocation of new place input
+  var place = destination.getPlace();
+  alert('Destination changed. A new Marker will be placed at' + place.geometry.location);
+    
+  if (place.geometry.viewport) {
+    // map.setCenter(place.geometry.location);
+    map.fitBounds(place.geometry.viewport);
+    //map.setZoom(8);  // Why 17? Because it looks good.
+    }
+  //set a new Marker
+  marker = new google.maps.Marker({
+    position: place.geometry.location,
+    map: map,
+    draggable: true,
+    icon: "http://localhost:3000/assets/map_marker_red.png",
+  });
+  markers.push(place);
+  });
+  
+}
+google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 <% end %>
 

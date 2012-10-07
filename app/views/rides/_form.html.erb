@@ -15,11 +15,16 @@
     
     <%= f.input :origin, :input_html => { :class => 'span5' } %>
     <%= f.input :destination,:input_html => { :class => 'span5' } %>
-    <%= f.input :latitude %>
-    <%= f.input :longitude %>
-    <%= f.input :date, :as => :string %> 
-    <%= f.input :user_id %>
-    <%= f.input :gmaps %>
+    <%# f.input :latitude %>
+    <%# f.input :longitude %>
+    <div class="control-group">
+	<div class="controls">
+    <%= f.input :date, :as => :string, :input_html => {:class => 'date-small span2'} %>
+    
+</div>
+    </div>
+    <%#  f.input :user_id %>
+    <%#  f.input :gmaps %>
     
   </div> 
   <div class="actions">
@@ -29,33 +34,5 @@
 <% end %>
 <script src="http://maps.googleapis.com/maps/api/js?sensor=true&libraries=places" type="text/javascript"></script>
 
-<script type="text/javascript" charset="utf-8">
-function initialize() {
-        var mapOptions = {
-          center: new google.maps.LatLng(-33.8688, 151.2195),
-          zoom: 13,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById('map_canvas'),
-          mapOptions);
-
-        var origin = document.getElementById('ride_origin');
-	var destination = document.getElementById('ride_destination');
-        var autocomplete = new google.maps.places.Autocomplete(origin);
-	var autocomplete = new google.maps.places.Autocomplete(destination);
-
-        autocomplete.bindTo('bounds', map);
-
-        var infowindow = new google.maps.InfoWindow();
-        var marker = new google.maps.Marker({
-          map: map
-        });
-
-        setupClickListener('changetype-all', []);
-        setupClickListener('changetype-establishment', ['establishment']);
-        setupClickListener('changetype-geocode', ['geocode']);
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
-</script>
 
 <div id="map_canvas"></div>
