@@ -1,9 +1,8 @@
 class RidesController < ApplicationController
+  
   # GET /rides
   # GET /rides.json	
   def index
-    #@rides = Ride.search(params)
-    #@rides = Ride.all
     
     if params.present?
       @rides=Ride.search(params)
@@ -62,8 +61,6 @@ class RidesController < ApplicationController
   def create
     #@ride = Ride.new(params[:ride])
     @ride = current_user.rides.build(params[:ride])
-
-    
     
     respond_to do |format|
       if @ride.save

@@ -1,5 +1,5 @@
-$navbarBackground:#3366FF;
-$navbarBackgroundHighlight:#0099FF;
+$navbarBackground:#14584E;
+$navbarBackgroundHighlight:#1E7B6D;
 $navbarLinkColor:#B9F7F7;
 $navbarLinkColorHover:#FFFFFF;
 $navbarLinkColorActive:#FFFFFF;
@@ -48,7 +48,7 @@ $btnSuccessBackgroundHighlight:#28C168;
 }
 
 #content{
-    padding-top:80px;
+    padding-top:56px;
 }
 
 
@@ -158,11 +158,13 @@ input.date-small{
     line-height: 28px;
 }
 .search-container{
-    padding:20px;
+    color:#888888;
+    padding:20px 20px 0px 20px;
     background-color: #fff;
-    border: 1px solid #0099FF;
+    border: 5px solid #BCDDD0;
     border-radius: 4px 4px 4px 4px;
-    box-shadow: 0px 0px 5px #B8B8B8;
+    box-shadow: 0px 0px 5px #022816;
+    
 }
 .search-container .controls{
     margin-left:0px;
@@ -176,7 +178,6 @@ input.date-small{
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 4px 4px 4px 4px;
     margin-bottom: 20px;
-    min-height: 171px;
     padding: 19px;
 }
 
@@ -203,4 +204,43 @@ input.date-small{
 }
 
 
+.masthead {
+    color: #FFFFFF;
+    margin-bottom: 0;
+    padding: 70px 0 80px;
+}
+.jumbotron {
+    background: url(/assets/dog_as_bg4.png) no-repeat scroll 50% 100% transparent;
+    /*background: -moz-linear-gradient(left, #137069 0%, #26ea7b 100%);*/
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2) inset, 0 -3px 7px rgba(0, 0, 0, 0.2) inset;
+    color: #FFFFFF;
+    padding: 40px 0;
+    position: relative;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 0, 0, 0.075);
+}
+
+
+.masthead p {
+    font-size: 28px;
+    font-weight: 200;
+    line-height: 1.25;
+    margin-top:10px;
+}
+.masthead h1 {
+    font-size: 55px;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+.masthead-background {
+    /*background: -moz-linear-gradient(top, #137069 0%, #26ea7b 100%) repeat scroll 0 0;*/
+    /*background: -moz-linear-gradient(top, #6ac0f2 0%, #70edf4 100%);*/
+    /*background: -moz-linear-gradient(top, #4ae0d4 0%, #85f3b5 100%);*/
+    background: -moz-linear-gradient(-45deg, #189288 0%, #55ef98 100%);
+}
+.driver{
+    color:#ED286D;
+}
+.passenger{
+    color:#8EF29D;  
+}
 

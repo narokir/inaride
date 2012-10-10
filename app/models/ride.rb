@@ -29,7 +29,7 @@ class Ride < ActiveRecord::Base
   arel = order('created_at ASC') # note: default is all, just sorted
   arel = arel.where('origin LIKE ?', params[:origin]).order('created_at DESC') if params[:origin].present?
   arel = arel.where('destination LIKE ?', params[:destination]) if params[:destination].present?
-  arel = arel.where('date LIKE ?', params[:date]) if params[:date].present?
+  arel = arel.where('CAST(date as TEXT)LIKE ?', params[:date]) if params[:date].present?
   arel
   end
   

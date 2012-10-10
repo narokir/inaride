@@ -5,32 +5,42 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
-
 </head>
+
 <body>
  <!-- Header -->   
 <%= render 'layouts/header' %>
-<div class="container" id= "content">
-    
-<!-- Messages --> 
-<% flash.each do |name, msg| %>
-  <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
-    <button class="close">&times;</button>
-    <%= msg %>
-  </div>
-<% end %>
 
-<%= yield %>
+<div id="content">
 
-<!-- Signin Modal -->
-<%= render 'layouts/signin_modal' %>
-
-<!-- Footer -->
-<%= render 'layouts/footer' %>
-
-<!-- Debug -->
-<%= debug(params) if Rails.env.development? %>
+  <!-- Messages --> 
+<div class="container">
+    <% flash.each do |name, msg| %>
+    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+      <button class="close">&times;</button>
+      <%= msg %>
+    </div>
+  <% end %>
 </div>
+     <div class="row">
+    <%= yield %>
+    </div> 
+  <div class="container-fluid">
+
+    <!-- Signin Modal -->
+    <%= render 'layouts/signin_modal' %>
     
+    <!-- Footer -->
+    <div class="row">
+    <%= render 'layouts/footer' %>
+    </div>
+    
+    <div class="row">
+    <!-- Debug -->
+    <%= debug(params) if Rails.env.development? %>
+    </div>
+  </div>
+</div><!-- End content -->
+  
 </body>
 </html>
