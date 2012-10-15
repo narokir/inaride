@@ -1,10 +1,16 @@
-   <div class="modal hide fade" id="myModal">
-    <div class="modal-header">
+<div class="modal hide fade" id="myModal">
+  <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal"><%= image_tag('/assets/close.png') %></button>
     <h3>Sign In</h3>
+  </div>
+  <div class="modal-body">
+    <p>Sign in to Inoride with your facebook account.Sweet and simple!</p>
+    <br>
+    <div class="">
+      <%= link_to image_tag('fb-signin.png'), "/auth/facebook", class: "signup" %>
     </div>
-    <div class="modal-body">
-    <p>Yep, Facebook is the way to go</p>
-    <%= link_to image_tag('fb-signin.png'), "/auth/facebook",class:"signup" %></br></br>
-    </div>
-    </div>
+    <br>
+    <p></p>
+    </br>
+  </div>
+</div>

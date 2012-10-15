@@ -43,6 +43,7 @@
   </div>
 </div>
 
+
 </div>
 <div class="row well2">
   <div class="container">
@@ -50,37 +51,35 @@
       <h3>Grab a passenger</h3>
       <p>You get to <strong>split the cost of gas</strong>, make a new friend, or even find your sweetheart.<span style="color:#ED286D">&hearts;</span></p>
     </div>
-    <div class="span3">
-    <%= link_to(new_ride_path, html_options = { class: "btn btn-large btn-success"}) do %>
+    <div class="span3 pull-right">
+    <%= link_to(new_ride_path, html_options = { class: "btn btn-large btn-success pull-right"}) do %>
       Add Ride<%=image_tag('CAR2.png')%>
     <% end %>
     </div>
   </div>
 </div>
 
-
 <div class="container">
-
-
-<div class="row" id="main">
-
-</div>
-      
-
-<section id = "rides" class="row">
-  <table class="table">
-    <tr>
-      <% @ride.each do |ride| %>
-      <td><%= image_tag(ride.user.usr_img)%></td>
-      <td><h4><%= link_to "#{ride.origin}   ---------> #{ride.destination}", ride, class: "" %></h4><p><%= ride.date.strftime(" %A, %b %d, %Y") %></p></td>
-      <td><%= ride.user_id %></td>
-      <td><%= ride.id %></td>
-    </tr>
-    <% end %>
-  </table>
-</section>
-
-
+  <div class="row">
+    <div class="span5">
+      <h2>Current Rides</h2>
+      <table class="table rides-list">
+        <tr>
+          <% @ride.each do |ride| %>
+              <td><%= image_tag(ride.user.usr_img) %></td>
+              <td><h4><%= link_to "#{ride.origin}   ---------> #{ride.destination}", ride, class: "" %></h4>
+                <p><%= ride.date.strftime(" %A, %b %d, %Y") %></p></td>
+              </tr>
+          <% end %>
+          </table>
+    </div>
+    <div class="span7">
+      <h2>Feature Area</h2>
+      <div class="thumbnail">
+        <iframe width="530" height="298" src="http://www.youtube.com/embed/J8Tyh62J0Ic?list=PLA7495FE801FE8C42&amp;hl=en_US" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script type="text/javascript" charset="utf-8">

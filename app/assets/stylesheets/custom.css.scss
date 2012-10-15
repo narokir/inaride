@@ -1,4 +1,6 @@
 $navbarBackground:#14584E;
+$linkColor:#249988;
+$linkColorHover:#1E7B6D;
 $navbarBackgroundHighlight:#1E7B6D;
 $navbarLinkColor:#B9F7F7;
 $navbarLinkColorHover:#FFFFFF;
@@ -10,6 +12,9 @@ $btnPrimaryBackgroundHighlight:#3366FF;
 $btnBorder:#999;
 $btnSuccessBackground:#0EED72;
 $btnSuccessBackgroundHighlight:#28C168;
+$baseFontSize:14px;
+$inputBorder:#BCDDD0;
+$offWhite:#F5F5F5;
 
 /*============================================================================*/
 
@@ -82,12 +87,13 @@ $btnSuccessBackgroundHighlight:#28C168;
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid #eaeaea;
+  border-top: 1px solid $gray;
   color: $grayLight;
+  background:$offWhite;
   a {
-    color: #555;
+    color: $grayLight;
     &:hover { 
-      color: #222;
+      color: $gray;
     }
   }  
   small { 
@@ -103,54 +109,17 @@ footer {
   }
 }
 
-
-.subhead {
-    background-color: #EEEEEE;
-    background-image: -moz-linear-gradient(center top , #F5F5F5 0%, #EEEEEE 100%);
-    background-repeat: repeat-x;
-    border: 1px solid #E5E5E5;
-    border-radius: 4px 4px 4px 4px;
-    width: 100%;
-    padding:5px 0px 5px 0px;
-}
-
-.subhead-fixed .nav {
-    margin: 0 auto;
-    padding: 0 1px;
-    width: 938px;
-}
-
 input.mainsearch{
     font-size:18px;
     height: 28px;
     margin-right:20px;
 }
 input.date{
-    background: url(/assets/calendar.png) no-repeat scroll 96% 50% #fff;
+    background: url(/assets/calendar.png) no-repeat scroll 96% 50% $white;
     width:145px;
 }
 input.date-small{
     background: url(/assets/calendar_small.png) no-repeat scroll 96% 50% #fff;
-}
-.subhead-fixed {
-    border-color: #D5D5D5;
-    border-radius: 0 0 0 0;
-    border-width: 0 0 1px;
-    box-shadow: 0 1px 0 #FFFFFF inset, 0 1px 5px rgba(0, 0, 0, 0.1);
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 54px;
-    z-index: 1020;
-}
-
-.subhead .nav > li > a {
-    border-left: 1px solid #F5F5F5;
-    border-radius: 0 0 0 0;
-    border-right: 1px solid #E5E5E5;
-    margin: 0;
-    padding-bottom: 11px;
-    padding-top: 11px;
 }
 
 #addon{
@@ -159,7 +128,7 @@ input.date-small{
 }
 .search-container{
     color:#888888;
-    padding:20px 20px 0px 20px;
+    padding:20px 10px 0px 20px;
     background-color: #fff;
     border: 5px solid #BCDDD0;
     border-radius: 4px 4px 4px 4px;
@@ -207,7 +176,7 @@ input.date-small{
 .masthead {
     color: #FFFFFF;
     margin-bottom: 0;
-    padding: 70px 0 80px;
+    padding: 25px 0 25px;
 }
 .jumbotron {
     background: url(/assets/dog_as_bg4.png) no-repeat scroll 50% 100% transparent;
@@ -243,4 +212,21 @@ input.date-small{
 .passenger{
     color:#8EF29D;  
 }
+.alert{
+  margin: 20px 0px 20px 0px;
+}
 
+.dropdown-menu a.signup:hover{
+  background-color: transparent;
+}
+.rides-list tr:hover {
+  background: $offWhite;
+}
+.rides-list tr{
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin:5px 7px;
+}
+.rides-list td, th{
+  padding: 5px;
+}
