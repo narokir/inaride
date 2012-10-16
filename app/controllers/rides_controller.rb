@@ -3,7 +3,6 @@ class RidesController < ApplicationController
   # GET /rides
   # GET /rides.json	
   def index
-    
     if params.present?
       @rides=Ride.search(params)
     else

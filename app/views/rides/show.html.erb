@@ -56,7 +56,7 @@
       <h2>Driver</h2>
       <div class="pic"><div><%= image_tag(@ride.user.usr_img)%></div></div>
       <div class="info">
-	<p><%= link_to @ride.user.name, current_user %></p>
+	<p><%= link_to @ride.user.name, @ride.user %></p>
 	<a href="#" class="btn btn-mini">Contact Driver</a>
 	</div>
       
