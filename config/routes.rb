@@ -4,11 +4,7 @@ Inoride::Application.routes.draw do
   resources :users
   resources :rides
   
-  
-
-
   get "maps/ride_route"
-
   root :to => 'static_pages#home'
   
   match '/help', to: 'static_pages#help'
@@ -20,6 +16,7 @@ Inoride::Application.routes.draw do
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
   match '/auth/failure', to: 'static_pages#help'
+  match '/search', to: 'search#search_rides', as: 'search'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

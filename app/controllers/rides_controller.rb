@@ -3,11 +3,8 @@ class RidesController < ApplicationController
   # GET /rides
   # GET /rides.json	
   def index
-    if params.present?
-      @rides=Ride.search(params)
-    else
-      @rides = Ride.all
-    end
+    @rides = Ride.all
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @rides }
@@ -35,7 +32,7 @@ class RidesController < ApplicationController
       @user = @ride.build_user(params[:user])
     else
       respond_to do |format|
-	format.html { redirect_to signin_url, notice: 'Please Sign in first' }
+	    format.html { redirect_to signin_url, notice: 'Please Sign in first' }
       end
     end
     #@ride = Ride.new

@@ -1,6 +1,10 @@
+<% provide(:title, @user.name)%>
 <div class="container">
 <%= notice %>
 
+  <div class="page-header"><h1><%= @user.name %></h1></div>
+
+  <%= image_tag(@user.usr_img)%>
 <table class="table table-bordered table-striped">
   <thead>
     <td colspan=6><h1 class="pull-left"><%= @user.name %></h1></td>
@@ -24,7 +28,7 @@
 	<td colspan=1>
 	  <b>Token:</b>
 	</td>
-	<td colspan=5><%= @user.oauth_token %></td>
+	<td colspan=8><%= @user.oauth_token %></td>
       </tr>
       <tr>
 	<td colspan=7>
