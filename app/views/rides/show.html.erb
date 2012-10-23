@@ -1,20 +1,23 @@
-<% provide(:title, 'Rides')%>
+<% provide(:title, "Ride from #{@ride.origin} to #{@ride.destination}")%>
 <div class="container">
 <% notice %>
+  <div class="page-header">
+    <h2><%= @ride.origin %> -----------> <%= @ride.destination %></h2>
+  </div>
 
 <div class="row">
     <div class="span8">
-      
       <table class="table table-bordered table-striped">
 	<thead>
-	    <td colspan=6 class="higlight"><h3 class="pull-left"><%= @ride.origin %> -----------> <%= @ride.destination %></h3></td>
+    <tr><td class="higlight" colspan="6"><%= @ride.notes %></td>
+    </tr>
 	  <tr>
 	    <th>Origin:</th>
 	    <th>Destination:</th>
 	    <!--<th>Longitude:</th>-->
 	    <!--<th>Latitude:</th>-->
 	    <th>Date:</th>
-	    <th>user_id:</th>
+	    <!--<th>user_id:</th>-->
 	  </tr>
 	</thead>
 	  <tbody>
@@ -23,8 +26,8 @@
 	      <td><%= @ride.destination %></td>
 	      <!--<td><%= @ride.longitude %></td>-->
 	      <!--<td><%= @ride.latitude %></td>-->
-	      <td><%= @ride.date %></td>
-	      <td><%= @ride.user_id %></td>
+	      <td><%= @ride.date.strftime(" %A, %b %d, %Y") %></td>
+	      <!--<td><%# @ride.user_id %></td>-->
 	    </tr>
 	    <tr>
 	      <td colspan=7>
@@ -38,29 +41,49 @@
 	      <td colspan=7>
 		<div>
 		  <%= gmaps({
-	:map_options => { :zoom => 18, :auto_adjust => true, :auto_zoom => false},
-	    #:markers => { :data => @json, :options => { :draggable => true,"custom_infowindow_class" => "yellow"  } },
-	  :direction => {
-	       :data => { :from => @ride.origin, :to => @ride.destination}},
-	       })
-		    %>
+	         :map_options => { :zoom => 18, :auto_adjust => true, :auto_zoom => false},
+	          #:markers => { :data => @json, :options => { :draggable => true,"custom_infowindow_class" => "yellow"  } },
+	         :direction => {
+	         :data => { :from => @ride.origin, :to => @ride.destination}},
+	      })%>
 		</div>
 	      </td>
 	    </tr>
-	    
 	  </tbody>
       </table>
     </div><!-- Rides -->
-    
-    <div class="span3 well2">
-      <h2>Driver</h2>
-      <div class="pic"><div><%= image_tag(@ride.user.usr_img)%></div></div>
-      <div class="info">
-	<p><%= link_to @ride.user.name, @ride.user %></p>
-	<a href="#" class="btn btn-mini">Contact Driver</a>
-	</div>
-      
+
+  <div class="span3 well2">
+    <div class="row">
+      <div class="span price">
+        <h2>$<%= @ride.price %></h2><small>Per passenger</small>
+      </div>
+      <div class="seats span pull-right">
+        <h2 class="">
+          <%= if @ride.seats.present?
+            @ride.seats
+            else
+            @ride_seats = "0"
+            end %>
+        </h2>
+        <small>Seats available</small>
+      </div>
     </div>
+
+    <hr>
+    <a class="btn btn-success">Join This Ride</a>
+    <hr>
+    <section>
+      <h3>Driver</h3>
+    <div class="pic"><div><%= image_tag(@ride.user.usr_img)%></div></div>
+    <div class="info">
+      <p><%= link_to @ride.user.name, @ride.user %></p>
+      <a href="#" class="btn btn-mini">Send Message</a>
+    </div>
+    </section>
+
+  </div>
+
 </div>
     
 <section class="container">
@@ -70,7 +93,7 @@
 var markersArray = [];
 
 Gmaps.map.callback = function() {
-alert('Your ride was successfully mapped. Press OK to continue')
+//alert('Your ride was successfully mapped. Press OK to continue')
 clearOverlays();
 }
 //Clear the markers
@@ -84,10 +107,6 @@ function clearOverlays() {
 }
  </script>
 <% end %>
-
- 
- <ul id="markers_list"></ul>
- <div id="instructions"></ul>
 
 </section>
  </div><!--end container-->

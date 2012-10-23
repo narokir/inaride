@@ -6,5 +6,17 @@
 // 
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
+//= require bootstrap.js
 //= require_tree .
+
+$(document).ready(function(){
+    $('.tooltip-left').tooltip({placement:'left'});
+    $('.tooltip-right').tooltip({placement:'right'});
+    $('.tooltip-top').tooltip({placement:'top',trigger:'focus'});
+    $('.tooltip-bottom').tooltip({placement:'bottom'});
+    $('.has-popover').popover({placement:'right',trigger:'focus'});
+});
+
+
+
+

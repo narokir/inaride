@@ -1,38 +1,60 @@
-<%= simple_form_for(@ride, :html => {:class => 'form-inline' }) do |f| %>
-  <% if @ride.errors.any? %>
+<% if @ride.errors.any? %>
     <div class="alert alert-error">
-      <h2><%= pluralize(@ride.errors.count, "error") %> prohibited this ride from being saved:</h2>
-
+      <h3>Hey you missed <%= pluralize(@ride.errors.count, "error") %> things</h3>
       <ul>
-      <% @ride.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @ride.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
-  <% end %>
-
-  <div class="">
-    
-    <%= f.input :origin, :input_html => { :class => 'span5' } %>
-    <%= f.input :destination,:input_html => { :class => 'span5' } %>
-    <%# f.input :latitude %>
-    <%# f.input :longitude %>
-    <div class="control-group">
-	<div class="controls">
-    <%= f.input :date, :as => :string, :input_html => {:class => 'date-small span2'} %>
-    
-</div>
-    </div>
-    <%#  f.input :user_id %>
-    <%#  f.input :gmaps %>
-    
-  </div> 
-  <div class="actions">
-    <%= f.submit class:"btn btn-primary btn-large" %>
-  </div>
-
 <% end %>
-<script src="http://maps.googleapis.com/maps/api/js?sensor=true&libraries=places" type="text/javascript"></script>
 
 
-<div id="map_canvas"></div>
+<%= simple_form_for(@ride, :html => {:class => 'form-horizontal' }) do |f| %>
+    <div class="well2">
+      <legend>Locations</legend>
+    <%= f.input :origin,:label =>'Start Location', :error_html => { :id => 'password_error'},:placeholder => 'Start Location', :input_html => { :class => 'span5' } %>
+    <%= f.input :destination,:label => 'End Location',:placeholder => 'End Location', :input_html => { :class => 'span5' } %>
+    </div>
+
+    <hr>
+    <div class=" well2">
+      <legend>Departure date and time</legend>
+      <div class="">
+        <%= f.input :date, :as => :string, :label => "Departure date",:placeholder => "Date", :input_html => {:class => 'date-tiny span2'} %>
+      </div>
+      <div class=""><!--TODO: Create "time" control-->
+        <%# f.input :time,:collection => ['1','2','3','4','5','6','7','8','9','10','11','12'], :include_blank => false,:label => false, :input_html => {:class => 'span1'}%>
+        <%= f.input :time,:label => 'Departure time',:input_html => {:class => 'span1'} %>
+      </div>
+      <div class="span">
+        <%# f.input :time,:collection => ['00','15','30','45'], :include_blank => false,:label => false, :input_html => {:class => 'span1'}%>
+      </div>
+      <div class="span">
+        <%# f.input :date,:collection => ['AM','PM'],:include_blank => false,:label => false, :input_html => {:class => 'span1'}%>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="well2">
+      <legend>How much</legend>
+      <div class="">
+        <%= f.input :price,:wrapper_html => { :class => '' }, :label => "Price/seat",:wrapper => :prepend do %>
+            <span class="add-on">$</span><%= f.input_field :price,:class =>"span1" %>
+        <% end %>
+      </div>
+      <div class="">
+        <%= f.input :seats,:wrapper_html => { :class => '' },:label => "Seats avl", :placeholder => "1",:input_html => {:class => 'span1 has-popover',:title =>"Tip","data-content" =>"Enter the number of seats available for passengers"} %>
+      </div>
+    </div>
+    <hr>
+    <div class="well2">
+      <%= f.input :notes,:label => "Instructions",:input_html => {:class =>"span5",:rows=> 4} %>
+    </div>
+    <div class="actions">
+    <%= f.submit 'Post Ride', class:"btn btn-success btn-large" %>
+  </div>
+<% end %>
+
+

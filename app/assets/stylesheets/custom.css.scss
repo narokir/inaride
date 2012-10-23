@@ -1,103 +1,97 @@
-$navbarBackground:#14584E;
-$linkColor:#249988;
-$linkColorHover:#1E7B6D;
-$navbarBackgroundHighlight:#1E7B6D;
-$navbarLinkColor:#B9F7F7;
-$navbarLinkColorHover:#FFFFFF;
-$navbarLinkColorActive:#FFFFFF;
-$navbarHeight:55px;
 $baseFontSize:14px;
-$btnPrimaryBackground:#0099FF;
-$btnPrimaryBackgroundHighlight:#3366FF;
-$btnBorder:#999;
-$btnSuccessBackground:#0EED72;
-$btnSuccessBackgroundHighlight:#28C168;
-$baseFontSize:14px;
-$inputBorder:#BCDDD0;
-$offWhite:#F5F5F5;
+$baseLineHeight:18px;
+$navbarBackground: #14584E;
+$linkColor: #249988;
+$linkColorHover: #1E7B6D;
+$navbarBackgroundHighlight: #1E7B6D;
+$navbarLinkColor: #B9F7F7;
+$navbarLinkColorHover: #FFFFFF;
+$navbarLinkColorActive: #FFFFFF;
+$navbarHeight: 55px;
+$btnPrimaryBackground: #0099FF;
+$btnPrimaryBackgroundHighlight: #3366FF;
+$btnBorder: #999;
+$btnSuccessBackground: #0EED72;
+$btnSuccessBackgroundHighlight: #28C168;
+$inputBorder: #BCDDD0;
+$offWhite: #F5F5F5;
+$placeholderText:#999;
+$white:#fff;
+$driver:#ED286D;
+$passenger:#8EF29D;
 
-/*============================================================================*/
+
 
 @import "bootstrap";
 /*@import "bootstrap-responsive";*/
 
-/*============================================================================*/
-
-
-/* mixins, variables, etc. */
+/*============================================================================
+=========           mixins, variables, etc.           =======================
+============================================================================*/
 
 @mixin box_sizing {
-  -moz-box-sizing: border-box; 
-  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-@mixin btn-add{
-    font-size:14px;
-    line-height:2;
+
+@mixin btn-add {
+  font-size: 14px;
+  line-height: 2;
 }
 
-/* miscellaneous */
-
-.btn-add{
-    @include btn-add;
-}
-.abbr[title=required]{
-    color:red;
-}
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
+@mixin text-shadow {
+  text-shadow: 0 1px 0 $white;
 }
 
-#content{
-    padding-top:56px;
+/*============================================================================
+=========           Navigation Bar              ============================
+============================================================================*/
+
+.fbimg {
+  width: 32px;
+  padding: 0px;
 }
 
-
-
-/* User Navigation */
-
-.fbimg{
-    width:32px;
-    padding:0px;
+#user-img {
+  vertical-align: middle;
 }
-#user-img{
-    vertical-align:middle;
-}
-#logo{
-    width:80%;
+
+#logo {
+  width: 80%;
 }
 
 .usrimg {
-    padding:7px !important;
-}
-.usrimg a{
-    margin:9% !important;
-    padding:0px !important;
-}
-.brand{
-    height:19px;
+  padding: 7px !important;
 }
 
-/* footer */
+.usrimg a {
+  margin: 9% !important;
+  padding: 0px !important;
+}
+
+.brand {
+  height: 19px;
+}
+
+/*============================================================================
+=========           Footer              ============================
+============================================================================*/
 
 footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $gray;
   color: $grayLight;
-  background:$offWhite;
+  background: $offWhite;
   a {
     color: $grayLight;
-    &:hover { 
+    &:hover {
       color: $gray;
     }
-  }  
-  small { 
-    float: left; 
+  }
+  small {
+    float: left;
   }
   ul {
     float: right;
@@ -109,124 +103,253 @@ footer {
   }
 }
 
-input.mainsearch{
-    font-size:18px;
-    height: 28px;
-    margin-right:20px;
-}
-input.date{
-    background: url(/assets/calendar.png) no-repeat scroll 96% 50% $white;
-    width:145px;
-}
-input.date-small{
-    background: url(/assets/calendar_small.png) no-repeat scroll 96% 50% #fff;
+/*============================================================================
+=========           Miscellaneous              ==============================
+============================================================================*/
+
+.btn-add {
+  @include btn-add;
 }
 
-#addon{
-    height: 30px;
-    line-height: 28px;
-}
-.search-container{
-    color:#888888;
-    padding:20px 10px 0px 20px;
-    background-color: #fff;
-    border: 5px solid #BCDDD0;
-    border-radius: 4px 4px 4px 4px;
-    box-shadow: 0px 0px 5px #022816;
-    
-}
-.search-container .controls{
-    margin-left:0px;
+.abbr[title=required] {
+  color: red;
 }
 
-.navbar .nav > li >.signup{
-    padding: 11px;
-}
-.well2{
-    background-color: #F5F5F5;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    border-radius: 4px 4px 4px 4px;
-    margin-bottom: 20px;
-    padding: 19px;
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
 }
 
-.display{
-    background-color: #F5F5F5;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    border-radius: 4px 4px 4px 4px;
-    padding: 15px;
-
-}
-.pic{
-    float:left;
-    img{
-	border:1px solid #0099FF;
-    }
+#content {
+  padding-top: 56px;
 }
 
-.info{
-    margin-left:10px;
-    float:left;
-}
-.higlight{
-    background-color: #F5F5F5;
+input.mainsearch {
+  font-size: 18px;
+  height: 28px;
+  margin-right: 20px;
 }
 
+input.date {
+  background: url(/assets/calendar.png) no-repeat scroll 96% 50% $white;
+  width: 145px;
+}
+
+input.date-small {
+  background: url(/assets/calendar_small.png) no-repeat scroll 96% 50% #fff;
+}
+
+input.date-tiny {
+  background: url(/assets/calendar_tiny.png) no-repeat scroll 96% 50% #fff;
+}
+
+#addon {
+  height: 30px;
+  line-height: 28px;
+}
+
+.search-container {
+  padding: 20px 10px 0px 20px;
+  background-color: #fff;
+  border: 5px solid #BCDDD0;
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: 0px 0px 5px #022816;
+}
+
+.search-container .controls {
+  margin-left: 0px;
+}
+
+.navbar .nav > li >.signup {
+  padding: 11px;
+}
+
+.well2 {
+  background-color: #F5F5F5;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 4px 4px 4px 4px;
+  margin-bottom: 20px;
+  padding: 19px;
+  h2{
+    margin: 0px;
+  }
+}
+
+.display {
+  background-color: #F5F5F5;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 4px 4px 4px 4px;
+  padding: 15px;
+}
+
+.pic {
+  float: left;
+  img {
+    border: 1px solid $green;
+  }
+}
+
+.info {
+  margin-left: 10px;
+  float: left;
+}
+
+.higlight {
+  background-color: #F5F5F5;
+}
 
 .masthead {
-    color: #FFFFFF;
-    margin-bottom: 0;
-    padding: 25px 0 25px;
-}
-.jumbotron {
-    background: url(/assets/dog_as_bg4.png) no-repeat scroll 50% 100% transparent;
-    /*background: -moz-linear-gradient(left, #137069 0%, #26ea7b 100%);*/
-    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2) inset, 0 -3px 7px rgba(0, 0, 0, 0.2) inset;
-    color: #FFFFFF;
-    padding: 40px 0;
-    position: relative;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 0, 0, 0.075);
+  color: #FFFFFF;
+  margin-bottom: 0;
+  padding: 25px 0 25px;
 }
 
+.jumbotron {
+  background: url(/assets/dog_as_bg4.png) no-repeat scroll 50% 100% transparent;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2) inset, 0 -3px 7px rgba(0, 0, 0, 0.2) inset;
+  color: #FFFFFF;
+  padding: 40px 0;
+  position: relative;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 0, 0, 0.075);
+}
 
 .masthead p {
-    font-size: 28px;
-    font-weight: 200;
-    line-height: 1.25;
-    margin-top:10px;
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 1.25;
+  margin-top: 10px;
 }
+
 .masthead h1 {
-    font-size: 55px;
-    letter-spacing: -1px;
-    line-height: 1;
+  font-size: 55px;
+  letter-spacing: -1px;
+  line-height: 1;
 }
+
 .masthead-background {
-    /*background: -moz-linear-gradient(top, #137069 0%, #26ea7b 100%) repeat scroll 0 0;*/
-    /*background: -moz-linear-gradient(top, #6ac0f2 0%, #70edf4 100%);*/
-    /*background: -moz-linear-gradient(top, #4ae0d4 0%, #85f3b5 100%);*/
-    background: -moz-linear-gradient(-45deg, #189288 0%, #55ef98 100%);
+  background: -moz-linear-gradient(-45deg, #189288 0%, #55ef98 100%);
+  background: -webkit-linear-gradient(-45deg, #189288 0%, #55ef98 100%);
+
 }
-.driver{
-    color:#ED286D;
+
+.driver {
+  color: #ED286D;
 }
-.passenger{
-    color:#8EF29D;  
+
+.passenger {
+  color: #8EF29D;
 }
-.alert{
+
+.alert {
   margin: 20px 0px 20px 0px;
 }
 
-.dropdown-menu a.signup:hover{
+.dropdown-menu a.signup:hover {
   background-color: transparent;
 }
+
 .rides-list tr:hover {
   background: $offWhite;
 }
-.rides-list tr{
+
+.rides-list tr {
   border: 1px solid #ddd;
   border-radius: 3px;
-  margin:5px 7px;
+  margin: 5px 7px;
 }
-.rides-list td, th{
+
+.rides-list td, th {
   padding: 5px;
+}
+
+.price {
+  @include text-shadow;
+  color: $green;
+  small {
+    color: $grayLight;
+  }
+}
+
+.seats {
+  color: $orange;
+  small {
+    color: $grayLight;
+  }
+}
+
+p.help-block{
+  color: $grayLight;
+  font-size: .75em;
+}
+select{
+  padding: 4px 6px;
+  line-height: 23px;
+}
+
+$inputHeight:2em;
+
+#new_ride{
+  #ride_origin{
+    border: 1px solid #C6C6C6;
+    background-position: 4px 50%;
+    background-repeat: no-repeat;
+    background-image: url(/assets/marker_green_small.png);
+    background-attachment: scroll;
+    padding-left: 40px;
+  }
+  #ride_destination{
+    border: 1px solid #C6C6C6;
+    background-position: 4px 50%;
+    background-repeat: no-repeat;
+    background-image: url(/assets/marker_red_small.png);
+    background-attachment: scroll;
+    padding-left: 40px;
+  }
+  input[type="text"],input[type="number"],select{
+    height: $inputHeight;
+  }
+  .add-on{
+    height: $inputHeight;
+    line-height: $inputHeight;
+  }
+}
+
+#new_ride select{
+  height: 38px;
+}
+
+select {
+  -webkit-appearance: none;
+}
+
+select {
+  border: 1px solid $inputBorder;
+  padding: 0.5em;
+  line-height: 1.2em;
+  width: 80%;
+  background: #fff;
+  -webkit-box-shadow: 1px 1px 1px #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  background-image:url(/assets/select_control.png);
+  background-position: 89% 50%;
+  background-repeat: no-repeat;
+}
+
+input[type=checkbox],
+input[type=radio] {
+  display: inline-block;
+  font-size: 15px;
+  line-height: 1em;
+  margin: 0 0.25em 0 0;
+  padding: 0;
+  width: 1.25em;
+  height: 1.25em;
+  vertical-align: text-top;
+}
+
+input[type=radio] {
+  -webkit-border-radius: 2em; /* Make radios round */
 }

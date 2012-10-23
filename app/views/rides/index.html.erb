@@ -20,24 +20,31 @@
 <table class="table table-striped table-bordered">
   
   <tr>
+    <th>Driver</th>
     <th>Trip</th>
     <th>Origin</th>
     <th>Destination</th>
-    <th>Date</th>
-    <th>user_id</th>
-    <th>id</th>
+    <!--<th>user_id</th>-->
+    <!--<th>id</th>-->
+    <th>Price</th>
     <th>Action</th>
   </tr>
   
 
 <% @rides.each do |ride| %>
   <tr>
-    <td><%= link_to "#{ride.origin} ---> #{ride.destination}", ride %></td>
+    <td>
+      <%=image_tag(ride.user.usr_img)%>
+    </td>
+    <td>
+      <h4><%= link_to "#{ride.origin} ---> #{ride.destination}", ride %></h4>
+      <p class="date"><%= ride.date.strftime(" %A, %b %d, %Y") %></p>
+    </td>
     <td><%= ride.origin %></td>
     <td><%= ride.destination %></td>
-    <td><%= ride.date.strftime(" %A, %b %d, %Y") %></td>
-    <td><%= ride.user_id %></td>
-    <td><%= ride.id %></td>
+    <!--<td><%# ride.user_id %></td>-->
+    <!--<td><%# ride.id %></td>-->
+    <td><%= ride.price %></td>
     
     <td>
       <div class="btn-group">
@@ -56,6 +63,6 @@
 <% end %>
 
 </table>
-<%= link_to 'Ad New Ride', new_ride_path, class: "btn btn-primary btn-large"%>
+<%= link_to 'Post a Ride', new_ride_path, class: "btn btn-primary btn-large"%>
 </div><!--end container-->
 

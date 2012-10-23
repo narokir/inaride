@@ -1,8 +1,8 @@
 class Ride < ActiveRecord::Base
-  attr_accessible :origin, :destination, :date, :title, :latitude, :longitude, :user_id, :gmaps
+  attr_accessible :origin, :destination, :date, :title, :latitude, :longitude, :user_id, :gmaps, :price, :seats, :notes,:time
   belongs_to :user
 
-  validates_presence_of :origin, :destination, :date
+  validates_presence_of :origin, :destination, :date, :price, :seats
   acts_as_gmappable #:process_geocoding => false
 
   def gmaps4rails_address
@@ -30,6 +30,10 @@ class Ride < ActiveRecord::Base
     arel = arel.where('destination LIKE ?', params[:destination]) if params[:destination].present?
     arel = arel.where('CAST(date as TEXT)LIKE ?', "%#{params[:date]}%") if params[:date].present?
     arel
+  end
+
+  def self.count
+    @rides=Ride.count()
   end
   
 end

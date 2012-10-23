@@ -1,25 +1,36 @@
 <% provide(:title, 'Create New Ride')%>
+
 <div class="container">
 <div class="page-header">
   <h1>New ride</h1>
 </div>
 <div class="row">
-  <div class="span6">
+  <div class="span8">
 <%= render 'form' %>
   </div>
-  <div class="span6 pull-right">
+
+  <!--<a class="tooltip-left"href="#" title="A nice tooltip" >Tooltip Left</a>
+  <a class="tooltip-right"href="#" title="A nice tooltip" >Tooltip Right</a>
+  <a class="has-popover"href="#">Popover</a>-->
+
+
+
+  <div class="span4 pull-right">
   <%= gmaps({
-    "map_options" => { "libraries" => ["places"],"type" => "ROADMAP", "center_longitude" => -71.0597732,"center_latitude" => 42.3584308, "zoom" => 8, "auto_adjust" => true},
+    "map_options" => { :libraries => ["places"],:type => "ROADMAP", :center_longitude => -71.0597732,:center_latitude => 42.3584308, :zoom => 13, :auto_adjust => true},
 
 	  })
     %>
  </div>
 </div>
+  <%= link_to 'Back', rides_path %>
 </div><!--end container-->
+
+
 <% content_for :scripts do %>
 <script type="text/javascript" charset="utf-8">
   var unitedStates = new google.maps.LatLng(42.3584308, -71.0597732);
-var markersArray = [];
+  var markersArray = [];
 
 
 Gmaps.map.callback = function() {
@@ -35,7 +46,7 @@ Gmaps.map.callback = function() {
   clearOverlays();
     // get the geolocation of new place input
     var place = origin.getPlace();
-    alert('Origin changed. A new Marker will be placed at' + place.geometry.location);
+    //alert('Origin changed. A new Marker will be placed at' + place.geometry.location);
     
   if (place.geometry.viewport) {
     Gmaps.map.serviceObject.fitBounds(place.geometry.viewport);
@@ -43,7 +54,7 @@ Gmaps.map.callback = function() {
     else
     {
     Gmaps.map.serviceObject.setCenter(place.geometry.location);
-    //map.setZoom(2);  // Why 17? Because it looks good.
+    Gmaps.map.serviceObject.setZoom(15);  // Why 17? Because it looks good.
     };
   //set a new Marker
   placeOrigin(place.geometry.location);
@@ -54,12 +65,12 @@ Gmaps.map.callback = function() {
   google.maps.event.addListener(destination, 'place_changed', function(event) {
   // get the geolocation of new place input
   var place = destination.getPlace();
-  alert('Destination changed. A new Marker will be placed at' + place.geometry.location);
+  //alert('Destination changed. A new Marker will be placed at' + place.geometry.location);
     
   if (place.geometry.viewport) {
     // Gmaps.map.serviceObject.setCenter(place.geometry.location);
     Gmaps.map.serviceObject.fitBounds(place.geometry.viewport);
-    //Gmaps.map.serviceObject.setZoom(8);  // Why 17? Because it looks good.
+    Gmaps.map.serviceObject.setZoom(15);  // Why 17? Because it looks good.
     }
   //set a new Marker
   placeDestination(place.geometry.location);
@@ -111,8 +122,6 @@ function placeDestination(latLng) {
 }
 </script>
 <% end %>
-
-<%= link_to 'Back', rides_path %>
  
 
 

@@ -3,6 +3,9 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 
+
+
 jQuery ->
   $('#ride_date').datepicker
     dateFormat: 'yy-mm-dd'
+    #$("a.tooltip").tooltip(placement:'left');

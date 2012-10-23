@@ -1,7 +1,6 @@
-<script src="http://maps.googleapis.com/maps/api/js?sensor=true&libraries=places" type="text/javascript"></script>
+<script src="http://maps.googleapis.com/maps/api/js?sensor=true&v=3.4&libraries=places" type="text/javascript"></script>
 
-
-<% provide(:title, 'Home') %>
+<% provide(:title, 'Carpool and Rideshare - Join The Ride') %>
 <div class="masthead-background">
   
 <div class="jumbotron masthead">
@@ -33,9 +32,9 @@
       <% end %>
     </section>	
   </div>
-  <div class="span7">
+  <div class="span6">
     <h1>Join The Ride.</h1>
-    <p> Introducing Inoride - the platform for connecting <span class="">Drivers</span> and <span class="">Passengers</span>.</p>
+    <p> Introducing Inoride - the ridesharing service that joins <span class="">Drivers</span> & <span class="">Passengers</span> in convenient carpools.</p>
     
     <div class="fb-like" data-href="http://inoride.herokuapp.com/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
   </div>
@@ -48,7 +47,7 @@
 <div class="row well2">
   <div class="container">
     <div class="span8">
-      <h3>Grab a passenger</h3>
+      <h2>Grab a passenger</h2>
       <p>You get to <strong>split the cost of gas</strong>, make a new friend, or even find your sweetheart.<span style="color:#ED286D">&hearts;</span></p>
     </div>
     <div class="span3 pull-right">
@@ -62,19 +61,19 @@
 <div class="container">
   <div class="row">
     <div class="span5">
-      <h2>Current Rides</h2>
+      <h3>Current Rides</h3>
       <table class="table rides-list">
         <tr>
           <% @ride.each do |ride| %>
               <td><%= image_tag(ride.user.usr_img) %></td>
-              <td><h4><%= link_to "#{ride.origin}   ---------> #{ride.destination}", ride, class: "" %></h4>
-                <p><%= ride.date.strftime(" %A, %b %d, %Y") %></p></td>
+              <td><h5><%= link_to "#{ride.origin}   -----> #{ride.destination}", ride, class: "" %></h5>
+                <p class="muted"><%= ride.date.strftime(" %A, %b %d, %Y") %></p></td>
               </tr>
           <% end %>
           </table>
     </div>
     <div class="span7">
-      <h2>Feature Area</h2>
+      <h3>Feature Area</h3>
       <div class="thumbnail">
         <iframe width="530" height="298" src="http://www.youtube.com/embed/J8Tyh62J0Ic?list=PLA7495FE801FE8C42&amp;hl=en_US" frameborder="0" allowfullscreen></iframe>
       </div>

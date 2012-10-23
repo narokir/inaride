@@ -15,7 +15,6 @@ class RidesController < ApplicationController
   # GET /rides/1.json
   def show
     @ride = Ride.find(params[:id])
-    #@markers = Ride.all.to_gmaps4rails
     @json = Ride.find(params[:id]).to_gmaps4rails
     
     respond_to do |format|
@@ -35,16 +34,6 @@ class RidesController < ApplicationController
 	    format.html { redirect_to signin_url, notice: 'Please Sign in first' }
       end
     end
-    #@ride = Ride.new
-    #@user = @ride.build_user(params[:user])
-    
-    #@json = Ride.new.to_gmaps4rails
-    #@markers = Ride.new.to_gmaps4rails(params[:markers])
-    
-    #respond_to do |format|
-     # format.html # new.html.erb
-     # format.json { render json: @ride }
-    #end
   end
 
   # GET /rides/1/edit
@@ -55,7 +44,6 @@ class RidesController < ApplicationController
   # POST /rides
   # POST /rides.json
   def create
-    #@ride = Ride.new(params[:ride])
     @ride = current_user.rides.build(params[:ride])
     
     respond_to do |format|
