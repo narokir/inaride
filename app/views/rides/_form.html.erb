@@ -1,6 +1,6 @@
 <% if @ride.errors.any? %>
     <div class="alert alert-error">
-      <h3>Hey you missed <%= pluralize(@ride.errors.count, "error") %> things</h3>
+      <h3>Hey you missed a few things</h3>
       <ul>
         <% @ride.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
@@ -9,23 +9,23 @@
     </div>
 <% end %>
 
-
 <%= simple_form_for(@ride, :html => {:class => 'form-horizontal' }) do |f| %>
     <div class="well2">
-      <legend>Locations</legend>
+      <legend>Where are you going?</legend>
     <%= f.input :origin,:label =>'Start Location', :error_html => { :id => 'password_error'},:placeholder => 'Start Location', :input_html => { :class => 'span5' } %>
-    <%= f.input :destination,:label => 'End Location',:placeholder => 'End Location', :input_html => { :class => 'span5' } %>
+    <%= f.input :destination,:label => 'Destination',:placeholder => 'End Location', :input_html => { :class => 'span5' } %>
     </div>
 
     <hr>
+
     <div class=" well2">
-      <legend>Departure date and time</legend>
+      <legend>When do you expect to leave?</legend>
       <div class="">
-        <%= f.input :date, :as => :string, :label => "Departure date",:placeholder => "Date", :input_html => {:class => 'date-tiny span2'} %>
+        <%= f.input :date, :as => :string, :label => "Date",:placeholder => "Date", :input_html => {:class => 'date-tiny span2'} %>
       </div>
       <div class="">
         <%# f.input :time,:collection => ['1','2','3','4','5','6','7','8','9','10','11','12'], :include_blank => false,:label => false, :input_html => {:class => 'span1'}%>
-        <%= f.input :time,:label => 'Departure time',:input_html => {:class => 'span1'} %>
+        <%= f.input :time,:label => 'Time',:as => :time,:minute_step => 15,:ampm => true,:input_html => {:class => 'span1'} %>
       </div>
       <div class="span">
         <%# f.input :time,:collection => ['00','15','30','45'], :include_blank => false,:label => false, :input_html => {:class => 'span1'}%>
@@ -48,9 +48,12 @@
         <%= f.input :seats,:wrapper_html => { :class => '' },:label => "Seats avl", :placeholder => "1",:input_html => {:class => 'span1 has-popover',:title =>"Tip","data-content" =>"Enter the number of seats available for passengers"} %>
       </div>
     </div>
+
     <hr>
+
     <div class="well2">
-      <%= f.input :notes,:label => "Instructions",:input_html => {:class =>"span5",:rows=> 4} %>
+      <legend>Say hello to your passengers</legend>
+      <%= f.input :notes,:label => "Message",:input_html => {:class =>"span5",:rows=> 4} %>
     </div>
     <div class="actions">
     <%= f.submit 'Post Ride', class:"btn btn-success btn-large" %>

@@ -2,44 +2,20 @@
 <div class="container">
 <%= notice %>
 
-  <div class="page-header"><h1><%= @user.name %></h1></div>
+  <div class="page-header"></div>
 
-  <%= image_tag(@user.usr_img)%>
-<table class="table table-bordered table-striped">
-  <thead>
-    <td colspan=6><h1 class="pull-left"><%= @user.name %></h1></td>
-    <tr>
-      <th>id:</th>
-      <th>Name:</th>
-      <th>Email:</th>
-      <th>usr_img:</th>
-      <th>uid:</th>
-    </tr>
-  </thead>
-    <tbody>
-      <tr>
-	<td><%= @user.id %></td>
-	<td><%= @user.name %></td>
-	<td><%= @user.email %></td>
-	<td><%= @user.usr_img %></td>
-	<td><%= @user.uid %></td>
-      </tr>
-      <tr>
-	<td colspan=1>
-	  <b>Token:</b>
-	</td>
-	<td colspan=8><%= @user.oauth_token %></td>
-      </tr>
-      <tr>
-	<td colspan=7>
-	  <div>
-	    <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-mini" %>  | 
-	    <%= link_to 'Back', users_path, class: "btn btn-mini" %>
-	  </div>
-	</td>
-      </tr>
-    </tbody>
-</table>
+  <div class="row">
+    <div class="span4 well2">
+      <section>
+        <div class="pic"><div><%= image_tag(@user.usr_img)%></div></div>
+        <div class="info">
+          <p><strong><%= @user.name %></strong></p>
+          <p><%= @user.email %></p>
+        </div>
+      </section>
+    </div>
+    <div class="span4"></div>
+  </div>
 
 <div>
 <h1>Rides</h1>
