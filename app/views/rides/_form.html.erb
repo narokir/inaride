@@ -9,6 +9,36 @@
     </div>
 <% end %>
 
+<div id="myCarousel" class="carousel slide">
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div class="active item">Slide 1</div>
+    <div class="item">Slide 2</div>
+    <div class="item">Slide 3</div>
+  </div>
+  <!-- Carousel nav -->
+  <a class="btn" href="#myCarousel" data-slide="prev">Back</a>
+  <a class="btn btn-primary" id="next" href="#myCarousel" data-slide="next">Next</a>
+</div>
+
+<script>
+
+    $('.carousel').carousel({
+        interval: false
+    })
+    $('#myCarousel a.next').click(function() {
+        alert('hello')
+    })
+
+</script>
+
+
+
+
+
+
+
+
 <%= simple_form_for(@ride, :html => {:class => 'form-horizontal' }) do |f| %>
     <div class="well2">
       <legend>Where are you going?</legend>

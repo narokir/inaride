@@ -42,21 +42,20 @@
   </div>
 </div>
 
-
 </div>
-<div class="row well2">
+<section id="highlight" class="row well2">
   <div class="container">
-    <div class="span8">
-      <h2>Grab a passenger</h2>
-      <p>You get to <strong>split the cost of gas</strong>, make a new friend, or even find your sweetheart.<span style="color:#ED286D">&hearts;</span></p>
-    </div>
+    <article class="span8">
+      <h2>Driving? Split the gas</h2>
+      <p><strong>Grab a passenger</strong>, make a new friend, save some money and buy cookies <span style="color:#ED286D">&hearts;</span></p>
+    </article>
     <div class="span3 pull-right">
-    <%= link_to(new_ride_path, html_options = { class: "btn btn-large btn-success pull-right"}) do %>
+    <%= link_to(new_ride_path, html_options = { class: "btn btn-large btn-success pull-right add-ride"}) do %>
       Add Ride<%=image_tag('CAR2.png')%>
     <% end %>
     </div>
   </div>
-</div>
+</section>
 
 <div class="container">
   <div class="row">

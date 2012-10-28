@@ -31,7 +31,8 @@ class RidesController < ApplicationController
       @user = @ride.build_user(params[:user])
     else
       respond_to do |format|
-	    format.html { redirect_to signin_url, notice: 'Please Sign in first' }
+      format.html { redirect_to signin_url, notice: 'Please Sign in first' }
+      format.json { render json: @ride }
       end
     end
   end

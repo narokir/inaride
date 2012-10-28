@@ -8,7 +8,6 @@
 //= require jquery_ujs
 //= require bootstrap.js
 //= require_tree .
-
 $(document).ready(function(){
     $('.tooltip-left').tooltip({placement:'left'});
     $('.tooltip-right').tooltip({placement:'right'});
@@ -16,7 +15,6 @@ $(document).ready(function(){
     $('.tooltip-bottom').tooltip({placement:'bottom'});
     $('.has-popover').popover({placement:'right',trigger:'focus'});
 });
-
 
 
 
