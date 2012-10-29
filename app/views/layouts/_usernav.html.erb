@@ -1,9 +1,9 @@
-
 <nav class="nav pull-right">
     <% if current_user %>
     <li class="divider-vertical"></li>
-    <li class="usrimg"><%= link_to image_tag current_user.usr_img, class:"fbimg", alt: current_user.name %></li>
-    
+    <li class="usrimg"><%= image_tag current_user.usr_img, class:"fbimg" %></li>
+
+
     <li class="dropdown">
 	<a data-toggle="dropdown" class="dropdown-toggle" href="#"><%= current_user.name %> <b class="caret"></b></a>
 	<ul class="dropdown-menu">
@@ -19,6 +19,7 @@
           <li><%# link_to image_tag('fb-signin.png'), "/auth/facebook",:id =>"sign_in", class: "sign_in" %></li>
         </ul>-->
       </li>
+      <li><li><%= link_to "Sign Up",new_user_path %></li></li>
     <ul class="nav">
       <!--<li><%= link_to "Sign In",signup_path, data:{toggle: "modal", target:"#myModal"} %></li>-->
       <li><%= link_to "Add Ride",new_ride_path %></li>

@@ -1,20 +1,21 @@
+<%= simple_form_for(@user, :html => {:class => 'form-horizontal' }) do |f| %>
+    <% if @user.errors.any? %>
+        <div class="error_messages">
+          <h2>Form is invalid</h2>
+          <ul>
+            <% for message in @user.errors.full_messages %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
-<%= simple_form_for(@user, :html => {:class => 'form-inline' }) do |f| %>
-  <% if @user.errors.any? %>
-    <div class="alert alert-error">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+      <%= f.input :name %>
+      <%= f.input :email %>
+      <%= f.input :password %>
+      <%= f.input :password_confirmation %>
+
+    <div class="form-actions">
+      <%= f.submit "Sign Up", class: "btn btn-primary btn-large" %>
     </div>
-  <% end %>
-  
-    <%= f.input :name %>
-    <%= f.input :email %>
-
-  <div class="actions">
-    <%= f.submit class: "btn btn-primary btn-large" %>
-  </div>
 <% end %>
