@@ -12,11 +12,12 @@
       <li><%= link_to "Add Ride",new_ride_path %></li>
     <% else %>
       <li>
-        <a id="sign_in" class="sign_in" href="#">Sign in</a>
+        <a id="sign_in" class="sign_in" href="/auth/facebook">Sign in</a>
 <!--        <ul class="dropdown-menu">
           <li><%# link_to image_tag('fb-signin.png'), "/auth/facebook",:id =>"sign_in", class: "sign_in" %></li>
         </ul>-->
       </li>
+      <li><a id="signin" class="sign_in" href="#">Sign in</a></li>
     <ul class="nav">
       <!--<li><%= link_to "Sign In",signup_path, data:{toggle: "modal", target:"#myModal"} %></li>-->
       <li><%= link_to "Add Ride",new_ride_path %></li>

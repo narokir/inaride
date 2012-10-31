@@ -31,6 +31,6 @@ group :test do
   gem 'turn', '~> 0.8.3', :require => false
 end
 
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '1.4.0'
 gem 'simple_form'
 
