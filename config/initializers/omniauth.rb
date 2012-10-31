@@ -5,7 +5,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   provider :facebook,'503197923030255', '886cedc0272b03013b130004af9824f1',
     #TODO: store facebook app_id and Key in yml
   #provider :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET'],
-	    :scope => 'email,user_birthday,user_likes,user_birthday,interests,hometown,user_interests,user_likes,user_about_me,user_education_history',
+	    :scope => 'email,user_birthday,user_likes,user_birthday,user_interests',
 	    :display => 'popup',
 	    :secure_image_url => 'true',
 	    :image_size => 'square'
