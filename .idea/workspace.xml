@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6aa90fd-6260-43cb-ac5c-d1b521ebbb7c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/facebook.js.coffee.erb" afterPath="$PROJECT_DIR$/app/assets/javascripts/facebook.js.coffee.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/omniauth.rb" afterPath="$PROJECT_DIR$/config/initializers/omniauth.rb" />
     </list>
     <ignored path="inoride.iws" />
@@ -65,7 +64,7 @@
       <file leaf-file-name="omniauth.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/initializers/omniauth.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="76" selection-start="426" selection-end="426" vertical-scroll-proportion="0.1923077">
+            <state line="7" column="117" selection-start="467" selection-end="467" vertical-scroll-proportion="0.1958042">
               <folding />
             </state>
           </provider>
@@ -785,7 +784,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/initializers/omniauth.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="76" selection-start="426" selection-end="426" vertical-scroll-proportion="0.1923077">
+        <state line="7" column="117" selection-start="467" selection-end="467" vertical-scroll-proportion="0.1958042">
           <folding />
         </state>
       </provider>
