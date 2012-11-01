@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.2.6'
 gem "gmaps4rails", "~> 1.5.2"
 gem 'pg', '0.12.2'
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '1.4.0'
 gem 'simple_form'
 gem 'jquery-rails'
 gem 'jquery_datepicker'
@@ -21,13 +21,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-
-
-
 group :production do
 
 end
-
 
 group :test do
   # Pretty printed test output
