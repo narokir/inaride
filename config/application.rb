@@ -9,8 +9,6 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-YAML.load(File.read(File.expand_path('../application.yml', __FILE__)))
-
 module Inoride
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
