@@ -75,7 +75,7 @@
     <hr>
     <section>
       <h3>Driver</h3>
-    <div class="pic"><div><%= image_tag(@ride.user.usr_img)%></div></div>
+    <div class="profile_img_wrap"><div><%= image_tag(@ride.user.usr_img,options={:class =>"profile_img_small"})%></div></div>
     <div class="info">
       <p><%= link_to @ride.user.name, @ride.user %></p>
       <a href="#" class="btn btn-mini">Send Message</a>

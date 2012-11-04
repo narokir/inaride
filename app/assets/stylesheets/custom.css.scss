@@ -190,12 +190,12 @@ input.date-tiny {
   padding: 15px;
 }
 
-.pic {
+.profile_img_wrap {
   float: left;
-  img {
-    border: 1px solid $green;
-    border-radius: 4px;
-  }
+}
+.profile_img_small {
+  border: 1px solid $green;
+  border-radius: 4px;
 }
 
 .info {
@@ -380,4 +380,12 @@ h1.user-details{
 
 .slide{
   height: 262px;
+}
+#current_rides{
+  p.muted{
+    margin-bottom: 0px;
+  }
+}
+.carousel-inner{
+  height: 200px;
 }

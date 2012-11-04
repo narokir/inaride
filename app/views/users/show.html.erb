@@ -12,8 +12,8 @@
           <p><strong>Hey There</strong></p>
         </div>
         <hr>
-        <div class="pic">
-          <div><%= image_tag(@user.usr_img) %></div>
+        <div class="profile_img_wrap">
+          <div><%= image_tag(@user.usr_img, options = {:class =>"profile_img_small"})  %></div>
         </div>
         <div class="info">
           <p><%= @user.name %></p>

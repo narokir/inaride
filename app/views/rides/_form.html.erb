@@ -13,18 +13,18 @@
 
 <%= simple_form_for(@ride, :html => {:class => 'form-horizontal' }) do |f| %>
 
-    <div id="myCarousel" class="carousel slide">
+    <div id="myCarousel" class="carousel slide well2">
       <!-- Carousel items -->
       <div class="carousel-inner">
         <div class="active item">
-          <div class="well2 slide">
+          <div class="slide">
             <legend>Where are you going?</legend>
             <%= f.input :origin,:label =>'Start Location', :error_html => { :id => 'password_error'},:placeholder => 'Start Location', :input_html => { :class => 'span5' } %>
             <%= f.input :destination,:label => 'Destination',:placeholder => 'End Location', :input_html => { :class => 'span5' } %>
           </div>
         </div>
         <div class="item">
-          <div class=" well2 slide">
+          <div class="slide">
             <legend>When do you expect to leave?</legend>
             <div class="">
               <%= f.input :date, :as => :string, :label => "Date",:placeholder => "Date", :input_html => {:class => 'date-tiny span2'} %>
@@ -42,7 +42,7 @@
           </div>
         </div>
         <div class="item">
-          <div class="well2 slide">
+          <div class="slide">
             <legend>How much</legend>
             <div class="">
               <%= f.input :price,:wrapper_html => { :class => '' }, :label => "Price/seat",:wrapper => :prepend do %>
@@ -55,7 +55,7 @@
           </div>
         </div>
         <div class="item">
-          <div class="well2 slide">
+          <div class="slide">
             <fieldset>
             <legend>Say hello to your passengers</legend>
             <%= f.input :notes,:label => "Message",:input_html => {:class =>"span5",:rows=> 4} %>
@@ -63,8 +63,8 @@
           </div>
         </div>
         <div class="item">
-          <div class="actions well2 slide">
-            <h2>Sweet! You're done</h2>
+          <div class="actions slide">
+            <h2>Well done!</h2>
             <%= f.submit 'Post This Ride', class:"btn btn-success btn-large" %>
           </div>
         </div>
@@ -76,6 +76,9 @@
     </div>
 
 <% end %>
+<div id="results"></div>
+
+
 
 <script>
 
@@ -85,9 +88,7 @@
 
     // Could be slid or slide (slide happens before animation, slid happens after)
     $('#myCarousel').bind('slide', function() {
-        $("#next").fadeOut('slow', function() {
-            // Animation complete.
-        });
+
     });
 
 
@@ -96,6 +97,22 @@
         $('#myCarousel').carousel(0)
         $("#slide1").addClass("btn-success");
     });
+    $('#ride_price').change(function() {
+        alert('Handler for .change() called.');
+        function showValues() {
+            var fields = $(":input").serializeArray();
+            $("#results").empty();
+            jQuery.each(fields, function(i, field){
+                $("#results").append(field.value + " ");
+            });
+        }
+
+        $(":checkbox, :radio").click(showValues);
+        $("select").change(showValues);
+        showValues();
+    });
+
+
 
 </script>
 

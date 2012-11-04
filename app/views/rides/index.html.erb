@@ -34,7 +34,7 @@
 <% @rides.each do |ride| %>
   <tr>
     <td>
-      <%=image_tag(ride.user.usr_img)%>
+      <%= image_tag(ride.user.usr_img,options={:class =>"profile_img_small"})%>
     </td>
     <td>
       <h4><%= link_to "#{ride.origin} ---> #{ride.destination}", ride %></h4>
