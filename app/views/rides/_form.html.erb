@@ -9,85 +9,111 @@
     </div>
 <% end %>
 
-<div id="myCarousel" class="carousel slide">
-  <!-- Carousel items -->
-  <div class="carousel-inner">
-    <div class="active item">Slide 1</div>
-    <div class="item">Slide 2</div>
-    <div class="item">Slide 3</div>
-  </div>
-  <!-- Carousel nav -->
-  <a class="btn" href="#myCarousel" data-slide="prev">Back</a>
-  <a class="btn btn-primary" id="next" href="#myCarousel" data-slide="next">Next</a>
-</div>
+
+
+<%= simple_form_for(@ride, :html => {:class => 'form-horizontal' }) do |f| %>
+
+    <div id="myCarousel" class="carousel slide well2">
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+        <div class="active item">
+          <div class="slide">
+            <legend>Where are you going?</legend>
+            <%= f.input :origin,:label =>'Start Location', :error_html => { :id => 'password_error'},:placeholder => 'Start Location', :input_html => { :class => 'span5' } %>
+            <%= f.input :destination,:label => 'Destination',:placeholder => 'End Location', :input_html => { :class => 'span5' } %>
+          </div>
+        </div>
+        <div class="item">
+          <div class="slide">
+            <legend>When do you expect to leave?</legend>
+            <div class="">
+              <%= f.input :date, :as => :string, :label => "Date",:placeholder => "Date", :input_html => {:class => 'date-tiny span2'} %>
+            </div>
+            <div class="">
+              <%# f.input :time,:collection => ['1','2','3','4','5','6','7','8','9','10','11','12'], :include_blank => false,:label => false, :input_html => {:class => 'span1'}%>
+              <%= f.input :time,:label => 'Time',:as => :time,:minute_step => 15,:ampm => true,:input_html => {:class => 'span1'} %>
+            </div>
+            <div class="span">
+              <%# f.input :time,:collection => ['00','15','30','45'], :include_blank => false,:label => false, :input_html => {:class => 'span1'}%>
+            </div>
+            <div class="span">
+              <%# f.input :date,:collection => ['AM','PM'],:include_blank => false,:label => false, :input_html => {:class => 'span1'}%>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="slide">
+            <legend>How much</legend>
+            <div class="">
+              <%= f.input :price,:wrapper_html => { :class => '' }, :label => "Price/seat",:wrapper => :prepend do %>
+                  <span class="add-on">$</span><%= f.input_field :price,:class =>"span1" %>
+              <% end %>
+            </div>
+            <div class="">
+              <%= f.input :seats,:wrapper_html => { :class => '' },:label => "Seats avl", :placeholder => "1",:input_html => {:class => 'span1 has-popover',:title =>"Tip","data-content" =>"Enter the number of seats available for passengers"} %>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="slide">
+            <fieldset>
+            <legend>Say hello to your passengers</legend>
+            <%= f.input :notes,:label => "Message",:input_html => {:class =>"span5",:rows=> 4} %>
+            </fieldset>
+          </div>
+        </div>
+        <div class="item">
+          <div class="actions slide">
+            <h2>Well done!</h2>
+            <%= f.submit 'Post This Ride', class:"btn btn-success btn-large" %>
+          </div>
+        </div>
+      </div>
+      <!-- Carousel nav -->
+      <a class="btn" href="#myCarousel" data-slide="prev">Back</a>
+      <a class="btn btn-primary" id="next" href="#myCarousel" data-slide="next">Next</a>
+      <a class="btn" id="slide1">1</a>
+    </div>
+
+<% end %>
+<div id="results"></div>
+
+
 
 <script>
 
     $('.carousel').carousel({
         interval: false
     })
-    $('#myCarousel a.next').click(function() {
-        alert('hello')
-    })
+
+    // Could be slid or slide (slide happens before animation, slid happens after)
+    $('#myCarousel').bind('slide', function() {
+
+    });
+
+
+    $("#slide1").click(function() {
+        //alert("Handler for .click() called.");
+        $('#myCarousel').carousel(0)
+        $("#slide1").addClass("btn-success");
+    });
+    $('#ride_price').change(function() {
+        alert('Handler for .change() called.');
+        function showValues() {
+            var fields = $(":input").serializeArray();
+            $("#results").empty();
+            jQuery.each(fields, function(i, field){
+                $("#results").append(field.value + " ");
+            });
+        }
+
+        $(":checkbox, :radio").click(showValues);
+        $("select").change(showValues);
+        showValues();
+    });
+
+
 
 </script>
-
-
-
-
-
-
-
-
-<%= simple_form_for(@ride, :html => {:class => 'form-horizontal' }) do |f| %>
-    <div class="well2">
-      <legend>Where are you going?</legend>
-    <%= f.input :origin,:label =>'Start Location', :error_html => { :id => 'password_error'},:placeholder => 'Start Location', :input_html => { :class => 'span5' } %>
-    <%= f.input :destination,:label => 'Destination',:placeholder => 'End Location', :input_html => { :class => 'span5' } %>
-    </div>
-
-    <hr>
-
-    <div class=" well2">
-      <legend>When do you expect to leave?</legend>
-      <div class="">
-        <%= f.input :date, :as => :string, :label => "Date",:placeholder => "Date", :input_html => {:class => 'date-tiny span2'} %>
-      </div>
-      <div class="">
-        <%# f.input :time,:collection => ['1','2','3','4','5','6','7','8','9','10','11','12'], :include_blank => false,:label => false, :input_html => {:class => 'span1'}%>
-        <%= f.input :time,:label => 'Time',:as => :time,:minute_step => 15,:ampm => true,:input_html => {:class => 'span1'} %>
-      </div>
-      <div class="span">
-        <%# f.input :time,:collection => ['00','15','30','45'], :include_blank => false,:label => false, :input_html => {:class => 'span1'}%>
-      </div>
-      <div class="span">
-        <%# f.input :date,:collection => ['AM','PM'],:include_blank => false,:label => false, :input_html => {:class => 'span1'}%>
-      </div>
-    </div>
-
-    <hr>
-
-    <div class="well2">
-      <legend>How much</legend>
-      <div class="">
-        <%= f.input :price,:wrapper_html => { :class => '' }, :label => "Price/seat",:wrapper => :prepend do %>
-            <span class="add-on">$</span><%= f.input_field :price,:class =>"span1" %>
-        <% end %>
-      </div>
-      <div class="">
-        <%= f.input :seats,:wrapper_html => { :class => '' },:label => "Seats avl", :placeholder => "1",:input_html => {:class => 'span1 has-popover',:title =>"Tip","data-content" =>"Enter the number of seats available for passengers"} %>
-      </div>
-    </div>
-
-    <hr>
-
-    <div class="well2">
-      <legend>Say hello to your passengers</legend>
-      <%= f.input :notes,:label => "Message",:input_html => {:class =>"span5",:rows=> 4} %>
-    </div>
-    <div class="actions">
-    <%= f.submit 'Post Ride', class:"btn btn-success btn-large" %>
-  </div>
-<% end %>
 
 

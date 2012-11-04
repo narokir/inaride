@@ -51,8 +51,9 @@ $passenger:#8EF29D;
 =========           Navigation Bar              ============================
 ============================================================================*/
 
+
 .fbimg {
-  width: 32px;
+  width: 23px;
   padding: 0px;
 }
 
@@ -66,6 +67,7 @@ $passenger:#8EF29D;
 
 .usrimg {
   padding: 7px !important;
+  line-height: 2.5em;
 }
 
 .usrimg a {
@@ -188,12 +190,12 @@ input.date-tiny {
   padding: 15px;
 }
 
-.pic {
+.profile_img_wrap {
   float: left;
-  img {
-    border: 1px solid $green;
-    border-radius: 4px;
-  }
+}
+.profile_img_small {
+  border: 1px solid $green;
+  border-radius: 4px;
 }
 
 .info {
@@ -374,4 +376,16 @@ h1.user-details{
   margin-left: 20px;
   padding: 10px;
   font-size: 1.75em;
+}
+
+.slide{
+  height: 262px;
+}
+#current_rides{
+  p.muted{
+    margin-bottom: 0px;
+  }
+}
+.carousel-inner{
+  height: 200px;
 }
