@@ -64,12 +64,17 @@
       <table class="table rides-list">
         <tr>
           <% @ride.each do |ride| %>
-              <td><%= image_tag(ride.user.usr_img, options = {:class =>"profile_img_small"})  %></td>
-              <td><p><strong><%= link_to "#{ride.origin}   -----> #{ride.destination}", ride, class: "" %></strong></p>
-                <p class="muted"><%= ride.date.strftime(" %A, %b %d, %Y") %></p></td>
-              </tr>
+          <td><%= image_tag(ride.user.usr_img, options = {:class =>"profile_img_small"})  %></td>
+          <td><p><strong><%= link_to "#{ride.origin}   -----> #{ride.destination}", ride, class: "" %></strong></p>
+          <p class="muted"><%= ride.date.strftime(" %A, %b %d, %Y") %></p></td>
+              <td>
+                <div class="span price">
+                  <h3>$<%= ride.price %></h3>
+                </div>
+              </td>
+        </tr>
           <% end %>
-          </table>
+      </table>
     </div>
     <div class="span7">
       <h3>Feature Area</h3>

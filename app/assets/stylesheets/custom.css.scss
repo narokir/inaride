@@ -271,6 +271,7 @@ input.date-tiny {
 
 .rides-list td, th {
   padding: 5px;
+  vertical-align: middle;
 }
 
 .price {
@@ -388,4 +389,9 @@ h1.user-details{
 }
 .carousel-inner{
   height: 200px;
+}
+#current_rides{
+  .rides-list p{
+    margin:0px;
+  }
 }

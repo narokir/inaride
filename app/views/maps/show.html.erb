@@ -1,159 +1,158 @@
-<p id="notice"><%= notice %></p>
+<div class="contaiern">
 
-<p>
-  <b>Title:</b>
-  <%= @map.title %>
-</p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Origin:</b>
-  <%= @map.origin %>
-</p>
+  <p>
+    <b>Title:</b>
+    <%= @map.title %>
+  </p>
 
-<p>
-  <b>Destination:</b>
-  <%= @map.destination %>
-</p>
+  <p>
+    <b>Origin:</b>
+    <%= @map.origin %>
+  </p>
 
-<p>
-  <b>Longitude:</b>
-  <%= @map.longitude %>
-</p>
+  <p>
+    <b>Destination:</b>
+    <%= @map.destination %>
+  </p>
 
-<p>
-  <b>Latitude:</b>
-  <%= @map.latitude %>
-</p>
+  <p>
+    <b>Longitude:</b>
+    <%= @map.longitude %>
+  </p>
 
-<p>
-  <b>Waypoint 1:</b>
-  <%= @map.waypoint_1 %>
-</p>
+  <p>
+    <b>Latitude:</b>
+    <%= @map.latitude %>
+  </p>
 
-<p>
-  <b>Gmaps:</b>
-  <%= @map.gmaps %>
-</p>
+  <p>
+    <b>Waypoint 1:</b>
+    <%= @map.waypoint_1 %>
+  </p>
 
-
-<%= link_to 'Edit', edit_map_path(@map) %> |
-<%= link_to 'Back', maps_path %>
-
-      <input onclick="clearOverlays();" type=button value="Clear Overlays">
-      <input onclick="showOverlays();" type=button value="Show All Overlays">
-      <input onclick="deleteOverlays();" type=button value="Delete Overlays">
-      <button id="drop" onclick="drop()">Drop Marker</button>
-
-<section class="container">
+  <p>
+    <b>Gmaps:</b>
+    <%= @map.gmaps %>
+  </p>
 
 
-<%= 
-gmaps({
-	:map_options => { :zoom => 18, :auto_adjust => true, :auto_zoom => false},
-	    :markers => { :data => @json, :options => { :draggable => true,"custom_infowindow_class" => "yellow", "list_container" => "markers_list"  } },
-	  :direction => {
-	       :data => { :from => @map.origin, :to => @map.destination},
-	    :options => { :waypoints => [@map.waypoint_1], :display_panel => true, :panel_id => "instructions"}}
-	    
-      })
- %>
- 
+  <%= link_to 'Edit', edit_map_path(@map) %> |
+  <%= link_to 'Back', maps_path %>
 
-<!--Directions Will not work without waypoint-->
+  <input onclick="clearOverlays();" type=button value="Clear Overlays">
+  <input onclick="showOverlays();" type=button value="Show All Overlays">
+  <input onclick="deleteOverlays();" type=button value="Delete Overlays">
+  <button id="drop" onclick="drop()">Drop Marker</button>
 
-   <% content_for :scripts do %>
-    <script type="text/javascript" charset="utf-8">
-      
+  <section class="container">
 
-        var markersArray = [];
-        // On click, clear markers, place a new one, update coordinates in the form
-        Gmaps.map.callback = function() {
-            google.maps.event.addListener(Gmaps.map.serviceObject, 'click', function(event) {
-              clearOverlays();
-              placeMarker(event.latLng);
-              updateFormLocation(event.latLng);
-            });
-        };
-        // Update form attributes with given coordinates
-        function updateFormLocation(latLng) {
-            $('#map_latitude').val(latLng.lat());
-            $('#map_longitude').val(latLng.lng());
-            $('#location_attributes_gmaps_zoom').val(Gmaps.map.serviceObject.getZoom());
-        }
-        // Add a marker with an open infowindow
-        function placeMarker(latLng) {
-            var marker = new google.maps.Marker({
-                position: latLng, 
-                map: Gmaps.map.serviceObject,
-                draggable: true
-            });
-	  var markerOptions = {
-	    draggable:true
-	  };
-	  var defaultImage = new google.maps.MarkerImage(
-	  "http://localhost:3000/assets/pin2.png",
-	  new google.maps.Size(20, 35),
-	  new google.maps.Point(0, 0),
-	  new google.maps.Point(17, 34),
-	  new google.maps.Size(20, 35));
-	  marker.setIcon(defaultImage); 
-            markersArray.push(marker);
-            // Set and open infowindow
-            var infowindow = new google.maps.InfoWindow({
-                content: '<div class="popup"><h2>Awesome!</h2><p>Drag me and adjust the zoom level.</p><button class="btn btn-large">Button</button>'
-            });
-            infowindow.open(Gmaps.map.serviceObject,marker);
-            // Listen to drag & drop
-            google.maps.event.addListener(marker, 'dragend', function() {
-                updateFormLocation(this.getPosition());
-            });
-        }
-	
-      // Removes the overlays from the map, but keeps them in the array.
-      function clearOverlays() {
-        setAllMap(null);
-      }
-        // Removes the overlays from the map
-        function clearOverlays() {
-          if (markersArray) {
-            for (var i = 0; i < markersArray.length; i++ ) {
-              markersArray[i].setMap(null);
+
+    <%=
+        gmaps({
+                      :map_options => { :zoom => 18, :auto_adjust => true, :auto_zoom => false},
+                      :markers => { :data => @json, :options => { :draggable => true,"custom_infowindow_class" => "yellow", "list_container" => "markers_list"  } },
+                      :direction => {
+                              :data => { :from => @map.origin, :to => @map.destination},
+                              :options => { :waypoints => [@map.waypoint_1], :display_panel => true, :panel_id => "instructions"}}
+
+              })
+    %>
+
+
+    <!--Directions Will not work without waypoint-->
+
+    <% content_for :scripts do %>
+        <script type="text/javascript" charset="utf-8">
+
+
+            var markersArray = [];
+            // On click, clear markers, place a new one, update coordinates in the form
+            Gmaps.map.callback = function() {
+                google.maps.event.addListener(Gmaps.map.serviceObject, 'click', function(event) {
+                    clearOverlays();
+                    placeMarker(event.latLng);
+                    updateFormLocation(event.latLng);
+                });
+            };
+            // Update form attributes with given coordinates
+            function updateFormLocation(latLng) {
+                $('#map_latitude').val(latLng.lat());
+                $('#map_longitude').val(latLng.lng());
+                $('#location_attributes_gmaps_zoom').val(Gmaps.map.serviceObject.getZoom());
             }
-          }
-          markersArray.length = 0;
-        }
-	
-	// Custom Infowindow for markers
-	Gmaps.map.infobox = function(boxText) {
-	return {
-	   content: boxText
-	  ,disableAutoPan: false
-	  ,maxWidth: 0
-	  ,pixelOffset: new google.maps.Size(-140, 0)
-	  ,zIndex: null
-	  ,boxStyle: { 
-	    background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.5/examples/tipbox.gif') no-repeat"
-	    ,opacity: 0.95
-	    ,width: "280px"
-	     }
-	  ,closeBoxMargin: "10px 2px 2px 2px"
-	  ,closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif"
-	  ,infoBoxClearance: new google.maps.Size(1, 1)
-	  ,isHidden: false
-	  ,pane: "floatPane"
-	  ,enableEventPropagation: false
-       }};
-    </script>
-<% end %>
+            // Add a marker with an open infowindow
+            function placeMarker(latLng) {
+                var marker = new google.maps.Marker({
+                    position: latLng,
+                    map: Gmaps.map.serviceObject,
+                    draggable: true
+                });
+                var markerOptions = {
+                    draggable:true
+                };
+                var defaultImage = new google.maps.MarkerImage(
+                        "http://localhost:3000/assets/pin2.png",
+                        new google.maps.Size(20, 35),
+                        new google.maps.Point(0, 0),
+                        new google.maps.Point(17, 34),
+                        new google.maps.Size(20, 35));
+                marker.setIcon(defaultImage);
+                markersArray.push(marker);
+                // Set and open infowindow
+                var infowindow = new google.maps.InfoWindow({
+                    content: '<div class="popup"><h2>Awesome!</h2><p>Drag me and adjust the zoom level.</p><button class="btn btn-large">Button</button>'
+                });
+                infowindow.open(Gmaps.map.serviceObject,marker);
+                // Listen to drag & drop
+                google.maps.event.addListener(marker, 'dragend', function() {
+                    updateFormLocation(this.getPosition());
+                });
+            }
+
+            // Removes the overlays from the map, but keeps them in the array.
+            function clearOverlays() {
+                setAllMap(null);
+            }
+            // Removes the overlays from the map
+            function clearOverlays() {
+                if (markersArray) {
+                    for (var i = 0; i < markersArray.length; i++ ) {
+                        markersArray[i].setMap(null);
+                    }
+                }
+                markersArray.length = 0;
+            }
+
+            // Custom Infowindow for markers
+            Gmaps.map.infobox = function(boxText) {
+                return {
+                    content: boxText
+                    ,disableAutoPan: false
+                    ,maxWidth: 0
+                    ,pixelOffset: new google.maps.Size(-140, 0)
+                    ,zIndex: null
+                    ,boxStyle: {
+                        background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.5/examples/tipbox.gif') no-repeat"
+                        ,opacity: 0.95
+                        ,width: "280px"
+                    }
+                    ,closeBoxMargin: "10px 2px 2px 2px"
+                    ,closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif"
+                    ,infoBoxClearance: new google.maps.Size(1, 1)
+                    ,isHidden: false
+                    ,pane: "floatPane"
+                    ,enableEventPropagation: false
+                }};
+        </script>
+    <% end %>
 
 
- 
- <ul id="markers_list"></ul>
- <div id="instructions"></ul>
 
- 
-</section>
+    <ul id="markers_list"></ul>
+    <div id="instructions"></ul>
 
 
-
- 
+  </section>
+</div>
