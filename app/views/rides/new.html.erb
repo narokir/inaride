@@ -99,7 +99,7 @@ function placeOrigin(latLng) {
   markersArray.push(marker);
   // Set and open infowindow
   var infowindow = new google.maps.InfoWindow({
-      content: '<h3>Origin</h3><input onclick="clearOverlays();" class="btn btn-mini" type=button value="Clear Overlays">'
+      content: '<p>'+latLng+'</p><input onclick="clearOverlays();" class="btn btn-mini" type=button value="Clear Overlays">'
   });
   infowindow.open(Gmaps.map.serviceObject,marker);
 }
@@ -115,7 +115,7 @@ function placeDestination(latLng) {
   markersArray.push(marker);
   // Set and open infowindow
   var infowindow = new google.maps.InfoWindow({
-      content: '<h3>Destination</h3><input onclick="clearOverlays();" class="btn btn-mini" type=button value="Clear">'
+      content: '<p>Destination</p><input onclick="clearOverlays();" class="btn btn-mini" type=button value="Clear">'
   });
   infowindow.open(Gmaps.map.serviceObject,marker);
 }
