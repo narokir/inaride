@@ -14,9 +14,9 @@ class Ride < ActiveRecord::Base
   def gmaps4rails_marker_picture
   {
    "picture" => "/assets/map_marker_red.png",
-   "width" => 32,
-   "height" => 41,
-   "marker_anchor" => [ 14, 40],
+   "width" => 55,
+   "height" => 23,
+   "marker_anchor" => [ 22, 40],
    "shadow_picture" => "/images/morgan.png" ,
    "shadow_width" => "110",
    "shadow_height" => "110",

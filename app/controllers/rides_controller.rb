@@ -29,6 +29,15 @@ class RidesController < ApplicationController
     if session[:user_id].present?
       @ride = Ride.new
       @user = @ride.build_user(params[:user])
+      @markers = '[
+             {"description": "Origin",
+              "lng": "-71.0597732",
+              "lat": "42.3584308",
+              "picture": "http://localhost:3000/assets/map_marker_green.png",
+              "width": "55",
+              "height": "41"
+              },]'
+      @json = @markers
     else
       respond_to do |format|
       format.html { redirect_to signin_url, notice: 'Please Sign in first' }
