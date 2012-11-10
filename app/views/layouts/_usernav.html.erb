@@ -1,7 +1,7 @@
 <nav class="nav pull-right">
     <% if current_user %>
       <li class="usrimg">
-        <%= if current_user.usr_img.present?
+        <% if current_user.usr_img.present?
               image_tag current_user.usr_img, class:"fbimg", alt: current_user.first_name
             else
               image_tag ("user.png"), class:"fbimg", alt: current_user.first_name

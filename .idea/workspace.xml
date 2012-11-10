@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a6aa90fd-6260-43cb-ac5c-d1b521ebbb7c" name="Default" comment="" />
+    <list default="true" id="a6aa90fd-6260-43cb-ac5c-d1b521ebbb7c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_usernav.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_usernav.html.erb" />
+    </list>
     <ignored path="inoride.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,10 +35,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_usernav.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="_usernav.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/_usernav.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="25" selection-start="54" selection-end="54" vertical-scroll-proportion="-0.6896552">
+            <state line="6" column="26" selection-start="258" selection-end="258" vertical-scroll-proportion="0.17492712">
               <folding />
             </state>
           </provider>
@@ -50,10 +53,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="new.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/rides/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="123" column="1" selection-start="4840" selection-end="4840" vertical-scroll-proportion="3.2944605">
+            <state line="123" column="1" selection-start="4840" selection-end="4840" vertical-scroll-proportion="-77.93104">
               <folding />
             </state>
           </provider>
@@ -136,8 +139,8 @@
         <option value="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/static_pages_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/_usernav.html.erb" />
         <option value="$PROJECT_DIR$/app/views/rides/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/_usernav.html.erb" />
       </list>
     </option>
   </component>
@@ -759,13 +762,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/_usernav.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="25" selection-start="54" selection-end="54" vertical-scroll-proportion="-0.6896552">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="44" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0">
@@ -780,6 +776,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/rides/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="123" column="1" selection-start="4840" selection-end="4840" vertical-scroll-proportion="-77.93104">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/rides_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="24" selection-start="825" selection-end="825" vertical-scroll-proportion="0.0">
@@ -787,9 +790,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/rides/new.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/_usernav.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="1" selection-start="4840" selection-end="4840" vertical-scroll-proportion="3.2944605">
+        <state line="6" column="26" selection-start="258" selection-end="258" vertical-scroll-proportion="0.17492712">
           <folding />
         </state>
       </provider>
