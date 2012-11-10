@@ -16,12 +16,14 @@
 
   <!-- Messages -->
 <div class="container" id="messages">
-    <% flash.each do |name, msg| %>
-    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
-      <button data-dismiss="alert" class="close" type="button">&times;</button>
-      <%= msg %>
-    </div>
+<div class="row">
+  <% flash.each do |name, msg| %>
+      <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+        <button data-dismiss="alert" class="close" type="button">&times;</button>
+        <%= msg %>
+      </div>
   <% end %>
+</div>
 </div>
      <div class="row">
     <%= yield %>
