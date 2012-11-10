@@ -20,8 +20,14 @@ class StaticPagesController < ApplicationController
     if session[:user_id].present?
       respond_to do |format|
         format.html { redirect_to new_ride_path, notice: 'Hey there' }
+<<<<<<< Updated upstream
         format.json { render json: @ride }
       end
+=======
+        #format.json { render json: @ride }
+      end
+      #redirect_to new_ride_path
+>>>>>>> Stashed changes
     end
   end
   

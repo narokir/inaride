@@ -8,4 +8,8 @@ module ApplicationHelper
       "#{page_title} | #{base_title}"
     end
   end
+
+  def picture
+    pic = "fuck"
+  end
 end

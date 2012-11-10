@@ -15,6 +15,7 @@
 <div id="content">
 
   <!-- Messages -->
+<<<<<<< Updated upstream
 <div class="container" id="messages">
 <div class="row">
   <% flash.each do |name, msg| %>
@@ -22,7 +23,17 @@
         <button data-dismiss="alert" class="close" type="button">&times;</button>
         <%= msg %>
       </div>
+=======
+<div class="container" id="">
+  <div class="row">
+    <% flash.each do |name, msg| %>
+    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+      <button data-dismiss="alert" class="close" type="button">&times;</button>
+      <%= msg %>
+    </div>
+>>>>>>> Stashed changes
   <% end %>
+  </div>
 </div>
 </div>
      <div class="row">
