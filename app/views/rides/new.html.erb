@@ -15,16 +15,6 @@
 
 
 
-<<<<<<< HEAD
-    <div class="span4 pull-right">
-      <%= gmaps({
-                        "map_options" => { :libraries => ["places"],:type => "ROADMAP", :center_longitude => -71.0597732,:center_latitude => 42.3584308, :zoom => 13, :auto_adjust => true},
-
-                })
-      %>
-    </div>
-  </div>
-=======
   <div class="span4 pull-right">
   <%= gmaps({
     "map_options" => { :libraries => ["places"],:type => "ROADMAP", :center_longitude => -71.0597732,:center_latitude => 42.3584308, :zoom => 13, :auto_adjust => false},
@@ -33,12 +23,10 @@
     %>
  </div>
 </div>
->>>>>>> map-markers
 </div><!--end container-->
 
 
 <% content_for :scripts do %>
-<<<<<<< HEAD
     <script type="text/javascript" charset="utf-8">
         var unitedStates = new google.maps.LatLng(42.3584308, -71.0597732);
         var markersArray = [];
@@ -133,9 +121,8 @@
         }
     </script>
 <% end %>
- 
-=======
-<script type="text/javascript" charset="utf-8">
+
+<!--<script type="text/javascript" charset="utf-8">
 var unitedStates = new google.maps.LatLng(42.3584308, -71.0597732);
 var markersArray = [];
 
@@ -228,7 +215,7 @@ function placeDestination(latLng) {
     infowindow.open(Gmaps.map.serviceObject,marker);
 }
 </script>
-<% end %>
+
 
 
 
@@ -356,8 +343,3 @@ function placeDestination(latLng) {
     infowindow.open(Gmaps.map.serviceObject,marker);
 }
 </script>-->
- 
-
-
-
->>>>>>> map-markers
