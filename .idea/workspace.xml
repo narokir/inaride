@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6aa90fd-6260-43cb-ac5c-d1b521ebbb7c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/facebook.js.coffee.erb" afterPath="$PROJECT_DIR$/app/assets/javascripts/facebook.js.coffee.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/static_pages/signin.html.erb" afterPath="$PROJECT_DIR$/app/views/static_pages/signin.html.erb" />
     </list>
     <ignored path="inoride.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,15 +35,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="facebook.js.coffee.erb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/facebook.js.coffee.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="8" selection-start="284" selection-end="284" vertical-scroll-proportion="0.34334764">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="signin.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/static_pages/signin.html.erb">
           <provider selected="true" editor-type-id="text-editor">
@@ -53,10 +44,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="omniauth.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="omniauth.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/initializers/omniauth.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="3" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0">
+            <state line="3" column="3" selection-start="103" selection-end="103" vertical-scroll-proportion="0.08141112">
               <folding />
             </state>
           </provider>
@@ -739,20 +730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="32" selection-start="84" selection-end="84" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/initializers/omniauth.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="3" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/static_pages/signin.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="70" selection-start="328" selection-end="335" vertical-scroll-proportion="-6.8965516">
@@ -762,7 +739,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/facebook.js.coffee.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="8" selection-start="284" selection-end="284" vertical-scroll-proportion="0.34334764">
+        <state line="20" column="21" selection-start="587" selection-end="587" vertical-scroll-proportion="0.5722461">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="32" selection-start="84" selection-end="84" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/initializers/omniauth.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="3" selection-start="103" selection-end="103" vertical-scroll-proportion="0.08141112">
           <folding />
         </state>
       </provider>
