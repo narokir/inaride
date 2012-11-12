@@ -1,5 +1,5 @@
 <% provide(:title, 'Search Rides')%>
-<%notice%>
+<%=notice%>
 <div class="masthead-background">
   <div class="masthead">
     <div class="container">
@@ -17,25 +17,32 @@
 
   <table class="table table-striped table-bordered">
 
-    <tr>
+<!--    <tr>
       <th>Trip</th>
       <th>Origin</th>
       <th>Destination</th>
       <th>Date</th>
-      <th>user_id</th>
-      <th>id</th>
+
       <th>Action</th>
-    </tr>
+    </tr>-->
 
 
     <% @rides.each do |ride| %>
         <tr>
+          <td>
+            <div class="profile_img_wrap">
+              <div><%= image_tag(ride.user.usr_img, options = {:class =>"profile_img_small"})  %></div>
+            </div>
+            <div class="info">
+              <p><%= link_to ride.user.first_name,ride.user %></p>
+            </div>
+          </td>
           <td><%= link_to "#{ride.origin} ---> #{ride.destination}", ride %></td>
-          <td><%= ride.origin %></td>
-          <td><%= ride.destination %></td>
+          <!--<td><%= ride.origin %></td>-->
+          <!--<td><%= ride.destination %></td>-->
           <td><%= ride.date.strftime(" %A, %b %d, %Y") %></td>
-          <td><%= ride.user_id %></td>
-          <td><%= ride.id %></td>
+
+
 
           <td>
             <div class="btn-group">
@@ -52,8 +59,17 @@
           </td>
         </tr>
     <% end %>
-     <%= @rides.count %>
+    <div class="alert alert-info">
+    <% if params[:origin].blank? && params[:destination].blank?  %>
+      <strong><%= @rides.count %></strong> rides leaving from
+    <% else %>
+          <strong><%= @rides.count %></strong> rides leaving from<strong> <%= params[:origin] %></strong> going to <strong><%= params[:destination] %> </strong><strong><%= ("on #{params[:date]}" if params[:date].present?)%></strong>
+    <% end %>
+
+    </div>
+
+
   </table>
-  <%= link_to 'Ad New Ride', new_ride_path, class: "btn btn-primary btn-large"%>
+  <%= link_to 'Add New Ride', new_ride_path, class: "btn btn-primary btn-large"%>
 </div><!--end container-->
 

@@ -1,9 +1,13 @@
 class SessionsController < ApplicationController
   
-  def create
+  def create(default = root_url)
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
-    redirect_to(request.env["HTTP_REFERER"])
+    if !request.env["HTTP_REFERER"].blank? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
+      redirect_to :back
+    else
+      redirect_to default
+    end
   end
 
   def destroy
