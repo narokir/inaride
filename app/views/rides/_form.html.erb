@@ -45,12 +45,12 @@
           <div class="slide">
             <legend>How much</legend>
             <div class="">
-              <%= f.input :price,:wrapper_html => { :class => '' }, :label => "Price/seat",:wrapper => :prepend do %>
-                  <span class="add-on">$</span><%= f.input_field :price,:class =>"span1" %>
+              <%= f.input :price,:wrapper_html => { :class => '' }, :label => "Price per seat",:wrapper => :prepend do %>
+		  <span class="add-on">$</span><%= f.input_field :price,:class => 'span1 has-popover',:title =>"Ride contrebutions","data-content" =>"Enter the ammount you would like each passenger to contrebute to the ride.","value"=>"2",:wrapper_html => { :class => 'span1' },:label => "Price per seat", :input_html => {} %>
               <% end %>
             </div>
             <div class="">
-              <%= f.input :seats,:wrapper_html => { :class => '' },:label => "Seats avl", :placeholder => "1",:input_html => {:class => 'span1 has-popover',:title =>"Tip","data-content" =>"Enter the number of seats available for passengers"} %>
+              <%= f.input :seats,:wrapper_html => { :class => '' },:label => "Seats avlable", :input_html => {:class => 'span1 has-popover',:title =>"Seats Available","data-content" =>"Enter the number of seats available for passengers.","value"=>"2"} %>
             </div>
           </div>
         </div>
@@ -64,11 +64,14 @@
         </div>
         <div class="item">
           <div class="actions slide">
-            <h2>Well done!</h2>
+	    <fieldset>
+            <legend>That's it</legend>
+            <h2>All done!</h2>
             <%= f.submit 'Post This Ride', class:"btn btn-success btn-large" %>
+	    </fieldset>
           </div>
         </div>
-      </div>
+      </div><hr>
       <div class="pull-right">
         <!-- Carousel nav -->
         <a class="btn" href="#myCarousel" data-slide="prev">Back</a>

@@ -60,11 +60,7 @@
       </div>
       <div class="seats span pull-right">
         <h2 class="">
-          <%= if @ride.seats.present?
-            @ride.seats
-            else
-            @ride_seats = "0"
-            end %>
+          <%= seats %>
         </h2>
         <small>Seats available</small>
       </div>
