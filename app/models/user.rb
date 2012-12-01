@@ -1,6 +1,25 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id               :integer          not null, primary key
+#  provider         :string(255)
+#  uid              :string(255)
+#  name             :string(255)
+#  oauth_token      :string(255)
+#  oauth_expires_at :datetime
+#  email            :string(255)
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  usr_img          :string(255)
+#  password_digest  :string(255)
+#  first_name       :string(255)
+#  last_name        :string(255)
+#
+
 class User < ActiveRecord::Base
-  attr_accessible :usr_img, :name, :email, :uid, :id, :provider, :last_name, :first_name
-  has_many :rides, :dependent => :destroy
+  attr_accessible :name, :email, :uid, :last_name, :first_name
+  has_many :rides, dependent: :destroy
   
   validates :name, presence: true
   validates :email, presence: true
