@@ -6,45 +6,21 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>
 </head>
 
 <body>
- <!-- Header -->   
-<%= render 'layouts/header' %>
-
-<div id="content">
-
-  <!-- Messages -->
-
-<div class="container" id="messages">
-<div class="row">
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-      <% end %>
-  </div>
-</div>
-</div>
-     <div class="row">
+  <%= render 'layouts/header' %>
+  <div id="container">
     <%= yield %>
-    </div> 
-  <footer>
-
-    <!-- Signin Modal -->
-    <%= render 'layouts/signin_modal' %>
-    
-    <!-- Footer -->
-    <div class="row">
     <%= render 'layouts/footer' %>
-    </div>
-  </footer>
-
+  </div>
   <div class="container">
     <div class="row">
       <!-- Debug -->
       <%= debug(params) if Rails.env.development? %>
     </div>
   </div>
-</div><!-- End content -->
-  
+</div> 
 </body>
 </html>
