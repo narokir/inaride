@@ -1,11 +1,8 @@
 <% provide(:title, @user.name)%>
 <div class="container" xmlns="http://www.w3.org/1999/html">
 <%= notice %>
-
-  <div class="page-header"></div>
-
   <div class="row">
-    <h1 class="user-details"> Narek Kirakossian</h1>
+    <h1 class="user-details"><%= @user.name %></h1>
     <div class="span4 well2">
       <section class="clearfix">
         <div class="greeting">

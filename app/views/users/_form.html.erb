@@ -1,4 +1,3 @@
-
 <%= simple_form_for(@user, :html => {:class => 'form-inline' }) do |f| %>
 <%= render '/shared/error_messages' %>  
     <%= f.input :name %>
@@ -7,6 +6,6 @@
     <%= f.input :password_confirmation %>
 
   <div class="actions">
-    <%= f.submit class: "btn btn-primary btn-large" %>
+    <%= f.submit "Create My Account", class: "btn btn-primary btn-large" %>
   </div>
 <% end %>

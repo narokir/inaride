@@ -1,10 +1,16 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation
-  has_secure_password
   has_many :rides, :dependent => :destroy
+  
+  has_secure_password
+  before_save { self.email.downcase! }
   
   validates :name, presence: true
   validates :email, presence: true
+  validates :password, presence: true, length: { minimum: 6 }
+  validates :password_confirmation, presence: true
+
+
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
