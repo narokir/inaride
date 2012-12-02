@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
   
   validates :name, presence: true
   validates :email, presence: true
-  validates :password, presence: true, length: { minimum: 6 }
-  validates :password_confirmation, presence: true
+  #validates :password, presence: true, length: { minimum: 6 }
+  #validates :password_confirmation, presence: true
 
 
 
@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
       user.uid = auth.uid
       user.usr_img= auth.info.image
       user.name = auth.info.name
+      user.password = 'foobar'
+      user.password_confirmation = 'foobar'
       user.first_name = auth.info.first_name
       user.last_name = auth.info.last_name
       user.email = auth.info.email

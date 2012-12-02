@@ -1,5 +1,5 @@
 class RidesController < ApplicationController
-  
+  before_filter :signed_in_user
   # GET /rides
   # GET /rides.json	
   def index
@@ -26,7 +26,6 @@ class RidesController < ApplicationController
   # GET /rides/new
   # GET /rides/new.json
   def new
-    if session[:user_id].present?
       @ride = Ride.new
       @user = @ride.build_user(params[:user])
       @markers = '[
@@ -38,12 +37,6 @@ class RidesController < ApplicationController
               "height": "41"
               },]'
       @json = @markers
-    else
-      respond_to do |format|
-      format.html { redirect_to signin_url, notice: 'Please Sign in first' }
-      format.json { render json: @ride }
-      end
-    end
   end
 
   # GET /rides/1/edit
@@ -94,4 +87,10 @@ class RidesController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  private
+
+    def signed_in_user
+      redirect_to signin_url, notice: "Please sign in." unless signed_in?
+    end
 end
