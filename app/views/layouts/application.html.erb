@@ -18,12 +18,9 @@
 
 <div class="container" id="messages">
 <div class="row">
-  <% flash.each do |name, msg| %>
-      <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
-        <button data-dismiss="alert" class="close" type="button">&times;</button>
-        <%= msg %>
-      </div>
-  <% end %>
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
   </div>
 </div>
 </div>
