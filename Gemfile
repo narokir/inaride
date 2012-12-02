@@ -8,8 +8,9 @@ gem 'simple_form'
 gem 'jquery-rails'
 gem 'jquery_datepicker'
 
+
 group :development, :test do
-  
+  gem 'bcrypt-ruby', '3.0.1'
 end
 
 # Gems used only for assets and not required
@@ -22,7 +23,7 @@ group :assets do
 end
 
 group :production do
-
+  gem 'bcrypt-ruby', '3.0.1'
 end
 
 group :test do

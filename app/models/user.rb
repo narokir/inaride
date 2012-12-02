@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  attr_accessible :usr_img, :name, :email, :uid, :id, :provider, :last_name, :first_name
+  attr_accessible :name, :email, :password, :password_confirmation
+  has_secure_password
   has_many :rides, :dependent => :destroy
   
   validates :name, presence: true
