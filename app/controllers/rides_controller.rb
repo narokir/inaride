@@ -1,5 +1,5 @@
 class RidesController < ApplicationController
-  before_filter :signed_in_user
+  before_filter :signed_in_user, only: [:edit, :update, :new, :create]
   # GET /rides
   # GET /rides.json	
   def index
@@ -38,13 +38,10 @@ class RidesController < ApplicationController
   # POST /rides.json
   def create
     @ride = user.rides.build(params[:ride])
-    
     respond_to do |format|
       if @ride.save
-        format.html { redirect_to @ride, notice: 'Ride was successfully created.' }
-        format.json { render json: @ride, status: :created, location: @ride }
+      flash[:success] = "Nice! Ride was created"
       else
-        format.html { render action: "new" }
         format.json { render json: @ride.errors, status: :unprocessable_entity }
       end
     end
@@ -54,7 +51,6 @@ class RidesController < ApplicationController
   # PUT /rides/1.json
   def update
     @ride = Ride.find(params[:id])
-
     respond_to do |format|
       if @ride.update_attributes(params[:ride])
         format.html { redirect_to @ride, notice: 'Ride was successfully updated.' }
@@ -81,6 +77,9 @@ class RidesController < ApplicationController
   private
 
     def signed_in_user
-      redirect_to signin_url, notice: "Please sign in." unless signed_in?
+      unless signed_in?
+        store_location
+        redirect_to signin_url, notice: "Please sign in to Post your ride"
+      end
     end
 end

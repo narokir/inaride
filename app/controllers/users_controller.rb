@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :signed_in_user, only: [:edit, :update]
-  before_filter :correct_user,   only: [:edit, :update]
+before_filter :signed_in_user, only: [:edit, :update, :index]
   # GET /users
   # GET /users.json
   def index
@@ -66,19 +65,18 @@ class UsersController < ApplicationController
     session[:user_id] = nil
     @user = User.find(params[:id])
     @user.destroy
-
-
     respond_to do |format|
       format.html { redirect_to users_url }
       format.json { head :ok }
     end
   end
-  def redirect_back_or(default)
-    redirect_to(session[:return_to] || default)
-    session.delete(:return_to)
-  end
+  
+  private
 
-  def store_location
-    session[:return_to] = request.url
-  end
+    def signed_in_user
+      unless signed_in?
+        store_location
+        redirect_to signin_url, notice: "Please sign in to Create a ride"
+      end
+    end
 end
