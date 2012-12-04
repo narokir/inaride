@@ -1,17 +1,29 @@
 <% provide(:title, 'Sign In') %>
-<div class="container">
-
-  <div class="page-header">
-    <h1>Sign In</h1>
-  </div>
+<div class="container offset" id="signin">
   <div class="row">
-    <div class="span well2">
-      <p>Sign in to Inoride with you facebook account. It's sweet and simple!</p>
-      <br>
+    <h2>Sign in to Inoride with facebook.</h2>
+      <div class="well">
       <%= link_to image_tag('fb-signin.png'), "/auth/facebook",class:"sign_in",id:"sign_in" %></br></br>
+      <strong>Safe, Simple, Fast.</strong>
     </div>
   </div>
 </div>
+
+
+<div class="modal hide fade" id="signinModal">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal"><%= image_tag('/assets/close.png') %></button>
+    <h3>Sign In</h3>
+  </div>
+  <div class="modal-body">
+    <h2>Sign in to Inoride with facebook</h2>
+    <div class="well2">
+      <%= link_to image_tag('fb-signin.png'), "/auth/facebook", class: "sign_in" %>
+    </div>
+    <strong>Safe. Simple. Fast.</strong>
+  </div>
+</div>
+
 <script type="text/javascript">
   $(window).load(function() {
   $("#signinModal").modal('show');

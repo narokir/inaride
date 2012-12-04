@@ -4,11 +4,6 @@ class RidesController < ApplicationController
   # GET /rides.json	
   def index
     @rides = Ride.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @rides }
-    end
   end
 
   # GET /rides/1
@@ -16,11 +11,6 @@ class RidesController < ApplicationController
   def show
     @ride = Ride.find(params[:id])
     @json = Ride.find(params[:id]).to_gmaps4rails
-    
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @ride }
-    end
   end
 
   # GET /rides/new
@@ -47,7 +37,7 @@ class RidesController < ApplicationController
   # POST /rides
   # POST /rides.json
   def create
-    @ride = current_user.rides.build(params[:ride])
+    @ride = user.rides.build(params[:ride])
     
     respond_to do |format|
       if @ride.save
