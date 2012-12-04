@@ -37,13 +37,12 @@ class RidesController < ApplicationController
   # POST /rides
   # POST /rides.json
   def create
-    @ride = user.rides.build(params[:ride])
-    respond_to do |format|
-      if @ride.save
-      flash[:success] = "Nice! Ride was created"
-      else
-        format.json { render json: @ride.errors, status: :unprocessable_entity }
-      end
+    @ride = current_user.rides.build(params[:ride])
+    if @ride.save
+      redirect_to @ride
+      flash[:success] = "Nice! Your ride was successfuly added"
+    else
+      format.json { render json: @ride.errors, status: :unprocessable_entity }
     end
   end
 
