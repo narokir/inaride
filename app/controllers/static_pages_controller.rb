@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+  
   def home
     @ride = Ride.all(limit: 4)
   end
