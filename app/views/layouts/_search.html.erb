@@ -6,7 +6,7 @@
  
     <%= text_field_tag :origin, params[:origin], placeholder: 'Origin',class: "mainsearch span4",:autocomplete => "off"%>
     <%= text_field_tag :destination, params[:destination],placeholder: 'Destination',class: "mainsearch span4",:autocomplete => "off"%>
-    <%= text_field_tag :date, params[:date], placeholder: 'Dade',id: "ride_date",class: "date-small",class: "mainsearch date-small span2"%>
+    <%= text_field_tag :date, params[:date], placeholder: 'Date',id: "ride_date",class: "date-small",class: "mainsearch date-small span2"%>
     <%= submit_tag "Search", :name => nil, class: "btn btn-large btn-primary" %>
 
   <% end %>
