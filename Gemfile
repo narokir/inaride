@@ -24,6 +24,7 @@ end
 
 group :production do
   gem 'bcrypt-ruby', '3.0.1'
+  gem 'pg', '0.12.2'
 end
 
 group :test do
