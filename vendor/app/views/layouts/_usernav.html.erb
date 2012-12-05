@@ -1,0 +1,37 @@
+<nav class="nav pull-right">
+    <% if signed_in? %>
+    <li class="usrimg">
+      <%= if current_user.usr_img.present?
+        image_tag current_user.usr_img, class:"fbimg", alt: current_user.first_name
+      else
+        image_tag ("user.png"), class:"fbimg", alt: current_user.first_name
+      end%>
+    </li>
+
+    <li class="dropdown">
+	<a data-toggle="dropdown" class="dropdown-toggle" href="#"><%= current_user.first_name %> <b class="caret"></b></a>
+	<ul class="dropdown-menu">
+	    <li><%= link_to "Profile", current_user %></li>
+	    <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
+	</ul>
+    </li>
+      <li><%= link_to "Add Ride",new_ride_path %></li>
+    <% else %>
+      <li>
+      </li>
+      <li class="usrimg">
+        <%= if @usr_img.present?
+              image_tag current_user.usr_img, class:"fbimg", alt: current_user.first_name
+            else
+              image_tag ("profile_ico.png"),class:"fbimg"
+            end%>
+      </li>
+      <li><a id="sign_in" class="sign_in" href="/auth/facebook">Sign in</a></li>
+    <ul class="nav">
+      <!--<li><%= link_to "Sign In",signup_path, data:{toggle: "modal", target:"#myModal"} %></li>-->
+      <li><%= link_to "Add Ride",new_ride_path %></li>
+    </ul>
+    <% end %>
+</nav>
+
+

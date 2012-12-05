@@ -1,0 +1,15 @@
+<footer class="container">
+  <small>
+    <a href="http://railstutorial.org/"><%=link_to image_tag('inoride_logo_monotone.png', alt: "inoride"), root_path%>
+    by narokir
+  </small>
+  <nav>
+    <ul>
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "About", about_path %></li>
+      <li><%= link_to "Contact", contact_path %></li>
+      <li><%= link_to "Help", help_path %></li>
+  </nav>
+  <%= yield :scripts %>
+</footer>
+

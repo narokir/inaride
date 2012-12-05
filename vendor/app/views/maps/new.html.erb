@@ -1,0 +1,33 @@
+<style>
+    html, body, #map_canvas {
+        margin: 0;
+        padding: 0;
+        height: 300px;
+        width: auto;
+
+    }
+</style>
+
+
+<div class="container">
+
+
+<h1>New map</h1>
+
+<script src="http://maps.googleapis.com/maps/api/js?sensor=true&libraries=places" type="text/javascript"></script>
+
+
+<%= render 'form' %>
+
+<%= link_to 'Back', maps_path %>
+
+  <a class="tooltip-left"href="#" title="A nice tooltip" >Tooltip Left</a>
+  <a class="tooltip-right"href="#" title="A nice tooltip" >Tooltip Right</a>
+  <a class="has-popover"href="#">Popover</a>
+  <a class="btn btn-large btn-danger has-popover" data-content="Crap" href="#" data-original-title="A Title">Click to toggle popover</a>
+  <a class="mapbox" href="#">Show the map</a>
+
+</div>
+
+
+

@@ -1,0 +1,117 @@
+<script src="http://maps.googleapis.com/maps/api/js?sensor=true&v=3.4&libraries=places" type="text/javascript"></script>
+
+<% provide(:title, 'Carpool and Rideshare - Join The Ride') %>
+<div class="masthead-background">
+  
+<div class="jumbotron masthead">
+  <div class="container">
+    <div class="row">
+  <div class="span5">
+    <section id="search"> 
+      <%= form_tag search_path, :method => 'get',class: "form-horizontal" do %>
+      
+      <div class="search-container">
+	  <div class="control-group">
+	     <div class="controls">
+		<%= text_field_tag :origin, params[:origin], placeholder: 'Origin',class: "mainsearch span4",:autocomplete => "off"%>
+	     </div>
+	  </div>
+	  <div class="control-group">
+	     <div class="controls">
+	      <%= text_field_tag :destination, params[:destination],placeholder: 'Destination',class: "mainsearch span4",:autocomplete => "off"%>
+	     </div>
+	  </div>
+	  <div class="control-group">
+	     <div class="controls">
+	      <%= text_field_tag :date, params[:date], placeholder: 'Date',id: "ride_date",class: "date-small",class: "mainsearch date-small span2"%>
+	      <%= submit_tag "Search", :name => nil, class: "btn btn-large btn-primary" %>
+	     </div>
+	  </div>
+      </div>
+	     
+      <% end %>
+    </section>	
+  </div>
+  <div class="span6">
+    <h1>Join The Ride.</h1>
+    <p> Play Innoride - the ridesharing game that joins <span class="">Drivers</span> & <span class="">Passengers</span> in convenient carpools.</p>
+    
+    <div class="fb-like" data-href="http://inoride.herokuapp.com/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
+  </div>
+  </div>
+  </div>
+</div>
+
+</div>
+<section id="highlight" class="row well2">
+  <div class="container">
+    <article class="span8">
+      <h2>Driving? Share the ride</h2>
+      <p><strong>Save some gas money</strong>, buy cookies for everyone and be awesome <span style="color:#ED286D">&hearts;</span></p>
+    </article>
+    <div class="span3 pull-right">
+    <%= link_to(new_ride_path, html_options = { class: "btn btn-large btn-success pull-right add-ride"}) do %>
+      Add My Ride<%=image_tag('CAR2.png')%>
+    <% end %>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="row">
+    <div id="current_rides"  class="span5">
+      <h3>Current Rides</h3>
+      <table class="table rides-list">
+        <tr>
+          <% @ride.each do |ride| %>
+          <td><%= image_tag(ride.user.usr_img, options = {:class =>"profile_img_small"})  %></td>
+          <td><p><strong><%= link_to "#{ride.origin}   -----> #{ride.destination}", ride, class: "" %></strong></p>
+          <p class="muted"><%= ride.date.strftime(" %A, %b %d, %Y") %></p></td>
+              <td>
+                <div class="span price">
+                  <h3>$<%= ride.price %></h3>
+                </div>
+              </td>
+        </tr>
+          <% end %>
+      </table>
+    </div>
+    <div class="span7">
+      <h3>Feature Area</h3>
+      <div class="thumbnail">
+        <iframe width="530" height="298" src="http://www.youtube.com/embed/J8Tyh62J0Ic?list=PLA7495FE801FE8C42&amp;hl=en_US" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(-33.8688, 151.2195),
+          zoom: 13,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById('map_canvas'),
+          mapOptions);
+
+        var origin = document.getElementById('origin');
+	var destination = document.getElementById('destination');
+        var autocomplete = new google.maps.places.Autocomplete(origin);
+	var autocomplete = new google.maps.places.Autocomplete(destination);
+
+        autocomplete.bindTo('bounds', map);
+
+        var infowindow = new google.maps.InfoWindow();
+        var marker = new google.maps.Marker({
+          map: map
+        });
+
+        setupClickListener('changetype-all', []);
+        setupClickListener('changetype-establishment', ['establishment']);
+        setupClickListener('changetype-geocode', ['geocode']);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<div id="map_canvas"></div>

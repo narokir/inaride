@@ -1,0 +1,109 @@
+<% provide(:title, "Ride from #{@ride.origin} to #{@ride.destination}")%>
+<div class="container">
+<% notice %>
+  <div class="page-header">
+    <h2><%= @ride.origin %> -----------> <%= @ride.destination %></h2>
+  </div>
+
+<div class="row">
+    <div class="span8">
+      <table class="table table-bordered table-striped">
+	<thead>
+    <tr><td class="higlight" colspan="6"><%= @ride.notes %></td>
+    </tr>
+	  <tr>
+	    <th>Origin:</th>
+	    <th>Destination:</th>
+	    <!--<th>Longitude:</th>-->
+	    <!--<th>Latitude:</th>-->
+	    <th>Date:</th>
+	    <!--<th>user_id:</th>-->
+	  </tr>
+	</thead>
+	  <tbody>
+	    <tr>
+	      <td><%= @ride.origin %></td>
+	      <td><%= @ride.destination %></td>
+	      <!--<td><%= @ride.longitude %></td>-->
+	      <!--<td><%= @ride.latitude %></td>-->
+	      <td><%= @ride.date.strftime(" %A, %b %d, %Y") %></td>
+	      <!--<td><%# @ride.user_id %></td>-->
+	    </tr>
+	    <tr>
+	      <td colspan=7>
+		<div>
+		  <%= link_to 'Edit', edit_ride_path(@ride), class: "btn btn-mini" %>  | 
+		  <%= link_to 'Back', rides_path, class: "btn btn-mini" %>
+		</div>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td colspan=7>
+		<div>
+		  <%= gmaps({
+	         :map_options => { :zoom => 18, :auto_adjust => true, :auto_zoom => false},
+	          #:markers => { :data => @json, :options => { :draggable => true,"custom_infowindow_class" => "yellow"  } },
+	         :direction => {
+	         :data => { :from => @ride.origin, :to => @ride.destination}},
+	      })%>
+		</div>
+	      </td>
+	    </tr>
+	  </tbody>
+      </table>
+    </div><!-- Rides -->
+
+  <div class="span3 well2">
+    <div class="row">
+      <div class="span price">
+        <h2>$<%= @ride.price %></h2><small>Per passenger</small>
+      </div>
+      <div class="seats span pull-right">
+        <h2 class="">
+          <%= seats %>
+        </h2>
+        <small>Seats available</small>
+      </div>
+    </div>
+
+    <hr>
+    <a class="btn btn-success">Join This Ride</a>
+    <hr>
+    <section>
+      <h3>Driver</h3>
+    <div class="profile_img_wrap"><div><%= image_tag(@ride.user.usr_img,options={:class =>"profile_img_small"})%></div></div>
+    <div class="info">
+      <p><%= link_to @ride.user.name, @ride.user %></p>
+      <a href="#" class="btn btn-mini">Send Message</a>
+    </div>
+    </section>
+
+  </div>
+
+</div>
+    
+<section class="container">
+  
+<% content_for :scripts do %>
+ <script type="text/javascript" charset="utf-8">
+var markersArray = [];
+
+Gmaps.map.callback = function() {
+//alert('Your ride was successfully mapped. Press OK to continue')
+clearOverlays();
+}
+//Clear the markers
+function clearOverlays() {
+  if (markersArray) {
+    for (var i = 0; i < markersArray.length; i++ ) {
+      markersArray[i].setMap(null);
+    }
+  }
+  markersArray.length = 0;
+}
+ </script>
+<% end %>
+
+</section>
+ </div><!--end container-->
+
