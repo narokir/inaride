@@ -135,7 +135,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby (= 3.0.1)
-  bootstrap-sass (~> 2.1.0.1)
+  bootstrap-sass (= 2.1.0.1)
   coffee-rails
   gmaps4rails (~> 1.5.2)
   jquery-rails
@@ -143,7 +143,7 @@ DEPENDENCIES
   omniauth-facebook (= 1.4.0)
   pg (= 0.12.2)
   rails (= 3.2.6)
-  sass-rails (~> 3.1)
+  sass-rails (= 3.2.5)
   simple_form
   turn (~> 0.8.3)
   uglifier (>= 1.0.3)
