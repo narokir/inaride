@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.9'
 gem "gmaps4rails", "~> 1.5.2"
 gem 'pg', '0.12.2'
 gem 'omniauth-facebook', '1.4.0'
