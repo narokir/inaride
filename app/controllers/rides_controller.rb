@@ -1,5 +1,5 @@
 class RidesController < ApplicationController
-  before_filter :signed_in_user, only: [:edit, :update, :new, :create]
+  before_filter :signed_in_user, only: [:edit, :update, :new, :create, :destroy]
   # GET /rides
   # GET /rides.json	
   def index
