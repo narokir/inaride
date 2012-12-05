@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.9'
 gem "gmaps4rails", "~> 1.5.2"
-gem 'pg', '0.12.2'
+gem 'pg'
 gem 'omniauth-facebook', '1.4.0'
 gem 'simple_form'
 gem 'jquery-rails'
@@ -24,7 +24,7 @@ end
 
 group :production do
   gem 'bcrypt-ruby', '3.0.1'
-  gem 'pg', '0.12.2'
+  gem 'pg'
 end
 
 group :test do
