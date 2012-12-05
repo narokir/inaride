@@ -6,7 +6,6 @@ Inoride::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   
   get "maps/ride_route"
-  get "/"
   root :to => 'static_pages#home'
   
   match '/help', to: 'static_pages#help'
