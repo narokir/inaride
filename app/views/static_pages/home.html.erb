@@ -65,7 +65,7 @@
         <tr>
           <% @ride.each do |ride| %>
           <td><%= image_tag(ride.user.usr_img, options = {:class =>"profile_img_small"})  %></td>
-          <td><p><strong><%= link_to "#{ride.origin}   -----> #{ride.destination}", ride, class: "" %></strong></p>
+          <td><p><%= link_to "#{ride.origin}   -----> #{ride.destination}", ride, class: "" %></p>
           <p class="muted"><%= ride.date.strftime(" %A, %b %d, %Y") %></p></td>
               <td>
                 <div class="span price">
@@ -77,9 +77,9 @@
       </table>
     </div>
     <div class="span7">
-      <h3>Feature Area</h3>
+      <h3>On the road</h3>
       <div class="thumbnail">
-        <iframe width="530" height="298" src="http://www.youtube.com/embed/J8Tyh62J0Ic?list=PLA7495FE801FE8C42&amp;hl=en_US" frameborder="0" allowfullscreen></iframe>
+        <%= image_tag('tedy_car_window.jpg') %>
       </div>
     </div>
   </div>
