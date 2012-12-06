@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :email, :password, :password_confirmation
+  attr_accessible :name, :email, :password, :password_confirmation, :first_name, :last_name, :usr_img
   has_many :rides, :dependent => :destroy
   
   has_secure_password

@@ -19,7 +19,7 @@
         <div class="active item">
           <div class="slide">
             <legend>Where are you going?</legend>
-            <%= f.input :origin,:label =>'Start Location', :error_html => { :id => 'password_error'},:placeholder => 'Origin city, street or a Zip code', :input_html => { :class => 'span5' } %>
+            <%= f.input :origin,:label =>'Start Location', :error_html => { :id => 'ride_origin'},:placeholder => 'Origin city, street or a Zip code', :input_html => { :class => 'span5' } %>
             <%= f.input :destination,:label => 'Destination',:placeholder => 'Destination city, street or a Zip code', :input_html => { :class => 'span5' } %>
           </div>
         </div>
@@ -116,8 +116,8 @@
         showValues();
     });
 
-
-
 </script>
+
+
 
 

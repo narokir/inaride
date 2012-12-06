@@ -3,7 +3,7 @@ class Ride < ActiveRecord::Base
   belongs_to :user
 
   validates_presence_of :origin, :destination, :date, :price, :seats
-  acts_as_gmappable #:process_geocoding => false
+  acts_as_gmappable #:process_geocoding => true
 
   def gmaps4rails_address
   "#{self.origin}, #{self.destination}"

@@ -7,6 +7,7 @@ gem 'omniauth-facebook', '1.4.0'
 gem 'simple_form'
 gem 'jquery-rails'
 gem 'jquery_datepicker'
+gem 'faker', '1.0.1'
 
 
 group :development, :test do
