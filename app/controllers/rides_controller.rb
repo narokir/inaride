@@ -3,7 +3,7 @@ class RidesController < ApplicationController
   # GET /rides
   # GET /rides.json	
   def index
-    @rides = Ride.all
+    @rides = Ride.paginate(:page => params[:page], :per_page => 1)
   end
 
   # GET /rides/1
