@@ -1,0 +1,28 @@
+<% @user.rides.each do |ride| %>
+<tr>
+  <td>
+    <%= link_to "#{ride.origin} ---> #{ride.destination}", ride %>
+    <p class="muted"><%= ride.date.strftime(" %A, %b %d, %Y") %></p>
+  </td>
+  <td>
+    <div class="span price">
+      <h3><%= number_to_currency(ride.price, precision: 0) %></h3>
+    </div>
+  </td>
+  
+  <% if current_user?(ride.user) %>
+  <td>
+    <div class="btn-group">
+      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+	Action
+	<span class="caret"></span>
+	</a>
+      <ul class="dropdown-menu">
+	<li><%= link_to 'Edit', edit_ride_path(ride) %></li>
+	<li><%= link_to 'Destroy', ride, confirm: 'Are you sure?', method: :delete %></li>
+      </ul>
+    </div>
+  </td>
+</tr>
+<% end %>
+<% end %>

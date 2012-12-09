@@ -3,9 +3,9 @@
 <section id="searchbar" class =""> 
   <%= form_tag search_path, :method => 'get',class: "form-inline" do %>
 
-    <%= text_field_tag :origin, params[:origin], placeholder: 'Origin',class: "ride_origin mainsearch span4",:autocomplete => "off"%>
-    <%= text_field_tag :destination, params[:destination],placeholder: 'Destination',class: "ride_destination mainsearch span4",:autocomplete => "off"%>
-    <%= text_field_tag :date, params[:date], placeholder: 'Date',id: "ride_date",class: "date-small",class: "mainsearch date-small span2"%>
+    <%= text_field_tag :origin, params[:origin], placeholder: 'From:',class: "ride_origin mainsearch span4",:autocomplete => "off"%>
+    <%= text_field_tag :destination, params[:destination],placeholder: 'To:',class: "ride_destination mainsearch span4",:autocomplete => "off"%>
+    <%= text_field_tag :date, params[:date], placeholder: 'Date:',id: "ride_date",class: "date-small",class: "mainsearch date-small span2"%>
     <%= submit_tag "Search", :name => nil, class: "btn btn-large btn-primary" %>
 
   <% end %>

@@ -58,8 +58,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
+  font-size: 2em;
 }
 
 h2 {
@@ -68,7 +67,6 @@ h2 {
 
 p {
   font-size: 1.1em;
-  line-height: 1.7em;
 }
 
 /*============================================================================
@@ -111,9 +109,14 @@ body {
 =========           Forms                       ==============================
 ============================================================================*/
 
-    input.ride_origin,
-    input.ride_destination,
-    input#ride_date{
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+    height: $inputHeight;
+}
+
+
+input.ride_origin,
+input.ride_destination,
+input#ride_date{
 	height:$inputHeight;
     }
 
@@ -270,8 +273,6 @@ footer {
 }
 
 
-
-
 .btn-add {
   @include btn-add;
 }
@@ -348,11 +349,12 @@ footer {
   float: left;
 }
 
-#highlight {
-  a.add-ride{
+
+a.add-ride{
     line-height: 3em;
+    border-color: #1B8246;
   }
-}
+
 
 .masthead {
   color: #FFFFFF;

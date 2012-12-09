@@ -78,7 +78,7 @@ class RidesController < ApplicationController
     def signed_in_user
       unless signed_in?
         store_location
-        redirect_to signin_url, notice: "Please sign in to Post your ride"
+        redirect_to signin_url, notice: "Please sign in"
       end
     end
 end

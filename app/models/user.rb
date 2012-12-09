@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
   before_save { self.email.downcase! }
   before_save { |user| user.email = email.downcase }
   
-  validates :name, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
   validates :email, presence: true
   #validates :password, presence: true, length: { minimum: 6 }
   #validates :password_confirmation, presence: true
