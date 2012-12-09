@@ -36,6 +36,7 @@ before_filter :signed_in_user, only: [:edit, :update, :index]
   def create
     @user = User.new(params[:user])
     if @user.save
+      sign_in @user
       flash[:success] = "Nice! Welcome to Innoride"
       redirect_to @user
     else

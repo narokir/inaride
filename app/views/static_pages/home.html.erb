@@ -20,17 +20,15 @@
 </div>
 
 
-
-
-
 <section id="highlight" class="row-fluid well2">
   <div class="container">
-    <div class="span4 search-container">
-      <h2>Find a ride</h2>
+    <div class="span4">
       <%= render '/layouts/main_search_form' %>
     </div>
     <div class="span8">
-      <%= render 'current_rides' %>
+  <table class="table table-striped table-bordered">
+  <%= render @rides %>
+  </table>
     </div>
   </div>
 </section>

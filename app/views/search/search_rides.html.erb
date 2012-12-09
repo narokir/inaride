@@ -12,7 +12,9 @@
 
 <div class="container">
   <%= render '/shared/search_message' %>
-  <%= render 'list_found_rides' %>
+  <table class="table table-striped table-bordered">
+  <%= render @rides %>
+  </table>
   <%= link_to 'Add New Ride', new_ride_path, class: "btn btn-success btn-large"%>
 </div>
 

@@ -3,17 +3,18 @@
 
 <section id="main_search" class=""> 
   <%= form_tag search_path, :method => 'get',class: "form-inline" do %>
+  <h2>Find a ride</h2>
       <div class="control-group">
 	 <div class="controls">
-	    <%= text_field_tag :origin, params[:origin], placeholder: 'From:',class: "mainsearch span ride_origin",:autocomplete => "off"%>
+	    <%= text_field_tag :origin, params[:origin], placeholder: 'From:',class: "mainsearch ride_origin",:autocomplete => "off"%>
 	 </div>
       </div>
       <div class="control-group">
 	 <div class="controls">
-	  <%= text_field_tag :destination, params[:destination],placeholder: 'To:',class: "mainsearch span  ride_destination",:autocomplete => "off"%>
+	  <%= text_field_tag :destination, params[:destination],placeholder: 'To:',class: "mainsearch ride_destination",:autocomplete => "off"%>
 	 </div>
       </div>
-      <div class="control-group">
+      <div class="control-group ride_date">
 	 <div class="controls">
 	  <%= text_field_tag :date, params[:date], placeholder: 'Date:',id: "ride_date",class: "mainsearch date-small "%>
 	 </div>

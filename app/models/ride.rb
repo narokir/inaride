@@ -1,5 +1,5 @@
 class Ride < ActiveRecord::Base
-  attr_accessible :origin, :destination, :date, :title, :latitude, :longitude, :user_id, :gmaps, :price, :seats, :notes,:time
+  attr_accessible :origin, :destination, :date, :title, :latitude, :longitude, :gmaps, :price, :seats, :notes,:time
   belongs_to :user
 
   validates_presence_of :origin, :destination, :date, :price, :seats

@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :first_name, :last_name, :usr_img
-  has_many :rides, :dependent => :destroy
+  has_many :rides, dependent: :destroy
   
   has_secure_password
+  
   before_save { self.email.downcase! }
+  before_save { |user| user.email = email.downcase }
   
   validates :name, presence: true
   validates :email, presence: true
