@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20121202020010) do
+=======
+ActiveRecord::Schema.define(:version => 20121030053948) do
+>>>>>>> 1a50efd987ec34acbb6320229a971099cad3ffaa
 
   create_table "maps", :force => true do |t|
     t.string   "title"
@@ -54,7 +58,10 @@ ActiveRecord::Schema.define(:version => 20121202020010) do
     t.string   "usr_img"
     t.string   "first_name"
     t.string   "last_name"
+<<<<<<< HEAD
     t.string   "password_digest"
+=======
+>>>>>>> 1a50efd987ec34acbb6320229a971099cad3ffaa
   end
 
 end
