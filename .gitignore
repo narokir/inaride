@@ -9,7 +9,7 @@
 
 # Ignore comodo file
 / .komodoproject
-/.DS_Store
+.DS_Store
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
