@@ -50,7 +50,7 @@ before_filter :signed_in_user, only: [:edit, :update, :index]
     @user = User.find(params[:id])
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: 'Your profile was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

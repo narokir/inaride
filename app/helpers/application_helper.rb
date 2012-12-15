@@ -9,15 +9,6 @@ module ApplicationHelper
     end
   end
   
-  # Display placeholder for user profile image if unavailable
-  def usr_profile_img
-    if @user.usr_img.blank?
-      @user.usr_img = "/assets/user_placeholder.png"
-    else
-      @user.usr_img
-    end
-  end
-  
   def seats
     if @ride.seats.present?
     @ride.seats

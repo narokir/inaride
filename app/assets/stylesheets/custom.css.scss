@@ -1,25 +1,32 @@
-$baseFontSize:14px;
-$baseLineHeight:18px;
-$navbarBackground: #14584E;
-$linkColor: #249988;
-$linkColorHover: #1E7B6D;
-$navbarBackgroundHighlight: #1E7B6D;
-$navbarLinkColor: #B9F7F7;
-$navbarLinkColorHover: #FFFFFF;
-$navbarLinkColorActive: #FFFFFF;
-$navbarHeight: 55px;
-$btnPrimaryBackground: #0099FF;
+$baseFontSize:			14px;
+$baseLineHeight:		18px;
+$inputHeight:			2em;
+$navbarHeight: 			55px;
+$navbarBackground: 		#14584E;
+$linkColor: 			#249988;
+$linkColorHover: 		#1E7B6D;
+$navbarBackgroundHighlight: 	#1E7B6D;
+$navbarLinkColor: 		#B9F7F7;
+$navbarLinkColorHover: 		#FFFFFF;
+$navbarLinkColorActive: 	#FFFFFF;
+$btnPrimaryBackground: 		#0099FF;
 $btnPrimaryBackgroundHighlight: #3366FF;
-$btnBorder: #999;
-$btnSuccessBackground: #0EED72;
+$btnBorder: 			#999;
+$btnSuccessBackground: 		#0EED72;
 $btnSuccessBackgroundHighlight: #28C168;
-$inputBorder: #BCDDD0;
-$offWhite: #F5F5F5;
-$placeholderText:#999;
-$white:#fff;
-$driver:#ED286D;
-$passenger:#8EF29D;
-$inputHeight:2em;
+$inputBorder: 			#BCDDD0;
+$placeholderText:		#999;
+
+
+
+// Colors
+//-----------------------------
+
+$graySoft:	#ccc;
+$driver:	#ED286D;
+$white:		#fff;
+$passenger:	#8EF29D;
+$offWhite: 	#F5F5F5;
 
 
 
@@ -86,30 +93,32 @@ li.focus{
 }
 
 .fbimg {
-  width: 23px;
-  padding: 0px;
+    border: 1px solid #084B36;
+    border-radius: 3px 3px 3px 3px;
+    padding: 0;
+    width: 23px;
 }
 
 #user-img {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
 #logo {
-  width: 80%;
+    width: 80%;
 }
 
 .usrimg {
-  padding: 7px !important;
-  line-height: 2.5em;
+    padding: 7px !important;
+    line-height: 2.5em;
 }
 
 .usrimg a {
-  margin: 9% !important;
-  padding: 0px !important;
+    margin: 9% !important;
+    padding: 0px !important;
 }
 
 .brand {
-  height: 19px;
+    height: 19px;
 }
 
 /*============================================================================
@@ -248,7 +257,7 @@ input[type=radio] {
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid $grayLighter;
+  border-top: 1px solid $graySoft;
   color: $grayLight;
   background: $offWhite;
   a {
@@ -347,7 +356,7 @@ footer {
   float: left;
 }
 .profile_img_small {
-  border: 1px solid $green;
+  border: 1px solid $graySoft;
   border-radius: 4px;
 }
 
@@ -402,13 +411,7 @@ a.add-ride{
 
 }
 
-.driver {
-  color: #ED286D;
-}
 
-.passenger {
-  color: #8EF29D;
-}
 
 .alert {
   margin: 20px 0px 20px 0px;
