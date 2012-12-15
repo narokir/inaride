@@ -9,6 +9,15 @@ module ApplicationHelper
     end
   end
   
+  def usr_profile_img
+    if @user.usr_img.blank?
+      #@user.usr_img = "/assets/user_placeholder.png"
+      'there is no image'
+    else
+      'do something else'
+    end
+  end
+  
   def seats
     if @ride.seats.present?
     @ride.seats
