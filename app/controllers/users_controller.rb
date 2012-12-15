@@ -38,7 +38,7 @@ before_filter :signed_in_user, only: [:edit, :update, :index]
     if @user.save
       sign_in @user
       flash[:success] = "Nice! Welcome to Innoride"
-      redirect_to @user
+      redirect_back_or @user
     else
       render 'new'
     end
@@ -77,7 +77,7 @@ before_filter :signed_in_user, only: [:edit, :update, :index]
     def signed_in_user
       unless signed_in?
         store_location
-        redirect_to signin_url, notice: "Please sign in to Create a ride"
+        redirect_to signin_url, notice: "Please sign"
       end
     end
 end

@@ -1,54 +1,35 @@
 <script src="http://maps.googleapis.com/maps/api/js?sensor=true&v=3.4&libraries=places" type="text/javascript"></script>
 
 
-<section id="main_search" class=""> 
-  <%= form_tag search_path, :method => 'get',class: "form-inline" do %>
+<section id="main_search" class="main_search"> 
+  <%= form_tag search_path, :method => 'get', id: "main-search",class: "form-inline" do %>
   <h2>Find a ride</h2>
       <div class="control-group">
 	 <div class="controls">
-	    <%= text_field_tag :origin, params[:origin], placeholder: 'From:',class: "mainsearch ride_origin",:autocomplete => "off"%>
+	    <%= text_field_tag :origin, params[:origin], placeholder:"From:",class: "mainsearch ride_origin",autocomplete:"off", :onkeydown => "if($('.pac-container').is(':visible') && event.keyCode == 13) {event.preventDefault();}"%>
 	 </div>
       </div>
       <div class="control-group">
 	 <div class="controls">
-	  <%= text_field_tag :destination, params[:destination],placeholder: 'To:',class: "mainsearch ride_destination",:autocomplete => "off"%>
+	  <%= text_field_tag :destination, params[:destination],placeholder: 'To:',class: "mainsearch ride_destination",:autocomplete => "off", :onkeydown => "if($('.pac-container').is(':visible') && event.keyCode == 13) {event.preventDefault();}"%>
 	 </div>
       </div>
       <div class="control-group ride_date">
 	 <div class="controls">
-	  <%= text_field_tag :date, params[:date], placeholder: 'Date:',id: "ride_date",class: "mainsearch date-small "%>
+	  <%= text_field_tag :date, params[:date], placeholder: 'Date:',id: "ride_date",class: "mainsearch date-small", :autocomplete => "off"%>
 	 </div>
       </div>
       <%= submit_tag "Search", :name => nil, class: "btn btn-large btn-primary" %>
   <% end %>
 </section>
 
+
 <script type="text/javascript" charset="utf-8">
-function initialize() {
-        var mapOptions = {
-          center: new google.maps.LatLng(-33.8688, 151.2195),
-          zoom: 13,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById('map_canvas'),
-          mapOptions);
-
-        var origin = document.getElementById('origin');
-	var destination = document.getElementById('destination');
-        var autocomplete = new google.maps.places.Autocomplete(origin);
-	var autocomplete = new google.maps.places.Autocomplete(destination);
-
-        autocomplete.bindTo('bounds', map);
-
-        var infowindow = new google.maps.InfoWindow();
-        var marker = new google.maps.Marker({
-          map: map
-        });
-
-        setupClickListener('changetype-all', []);
-        setupClickListener('changetype-establishment', ['establishment']);
-        setupClickListener('changetype-geocode', ['geocode']);
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
+  function initialize() {
+    var origin = document.getElementById('origin');
+    var destination = document.getElementById('destination');
+    var autocomplete = new google.maps.places.Autocomplete(origin);
+    var autocomplete = new google.maps.places.Autocomplete(destination);
+  }
+  google.maps.event.addDomListenerOnce(window, 'load',initialize);
 </script>
-<div id="map_canvas"></div>
