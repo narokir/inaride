@@ -38,5 +38,5 @@ $(Document).ready(function(){
         //alert('Handler for .focus() called.');
         $(this).prop("placeholder","")
     });
-    
+
 })
