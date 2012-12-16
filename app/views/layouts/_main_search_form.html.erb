@@ -2,8 +2,8 @@
 
 
 <section id="main_search" class="main_search"> 
-  <%= form_tag search_path, :method => 'get', id: "main-search",class: "form-inline" do %>
-  <h2>Find a ride</h2>
+  <%= form_tag search_path, :method => 'get', id: "main-search",class: "form-horizontal" do %>
+  <legend>Find rides</legend>
       <div class="control-group">
 	 <div class="controls">
 	    <%= text_field_tag :origin, params[:origin], placeholder:"From:",class: "mainsearch span ride_origin",autocomplete:"off", :onkeydown => "if($('.pac-container').is(':visible') && event.keyCode == 13) {event.preventDefault();}"%>
@@ -19,7 +19,11 @@
 	  <%= text_field_tag :date, params[:date], placeholder: 'Date:',id: "ride_date",class: "mainsearch date-small", :autocomplete => "off"%>
 	 </div>
       </div>
-      <%= submit_tag "Search", :name => nil, class: "btn btn-large btn-primary" %>
+      <div class="control-group">
+	 <div class="controls">
+      <%= submit_tag "Search", :name => nil, class: "btn btn-primary" %>
+	 </div>
+      </div>
   <% end %>
 </section>
 

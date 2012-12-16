@@ -1,5 +1,6 @@
-<footer class="container">
-  <small>
+<footer class="row-fluid">
+<div class="container">
+    <small>
     <a href="http://railstutorial.org/"><%=link_to image_tag('inoride_logo_monotone.png', alt: "inoride"), root_path%>
     by narokir
   </small>
@@ -11,5 +12,6 @@
       <li><%= link_to "Help", help_path %></li>
   </nav>
   <%= yield :scripts %>
+</div>
 </footer>
 

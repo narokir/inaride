@@ -1,13 +1,32 @@
-$navbarBackgroundHighlight: #CCCC99;
+$orange:		#FF6666;
+$orangeDark:		#A02D0B;
+$green:			#33FF99;
+$greenDark:		#ddd;
+$blue:			#0099FF;
+$blueMid:		#227eff;
+$blueDark:		#277BE0;
+$linkColor:         	#0099FF;
+
+$navbarBackgroundHighlight: $orange;
 $navbarBackground: darken($navbarBackgroundHighlight, 5%);
 $bodyBackground:url('/assets/fancy_deboss.png') transparent;
+$navbarLinkColor:                 $orangeDark;
+
+// Buttons
+// -------------------------
+$btnPrimaryBackground: 			$blueMid;
+$btnPrimaryBackgroundHighlight:     	$blue;
+
+$btnSuccessBackground: #00f07e;
+$btnSuccessBackgroundHighlight: #18d87d;
 
 
 
 @import "bootstrap";
 @import "bootstrap-responsive";
 
-/* universal */
+/* universal 
+------------------------------------------------------------------------------*/
 
 html {
   overflow-y: scroll;
@@ -33,6 +52,73 @@ textarea {
 .center h1 {
   margin-bottom: 10px;
 }
+
+
+
+/* header 
+------------------------------------------------------------------------------*/
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+li.usrimg{
+    padding:10px 0px 10px 0px;
+    img.fbimg{
+	border:1px solid #A02D0B;
+	border-radius:3px;
+	width:23px;
+	height:23px;
+    }
+}
+
+/* footer
+------------------------------------------------------------------------------*/
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #666;
+  background:$white;
+}
+
+footer a {
+  color: #0099FF;
+}  
+
+footer a:hover { 
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 10px;
+}
+
+
+
 
 
 
