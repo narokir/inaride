@@ -26,9 +26,11 @@
       <%= render '/layouts/main_search_form' %>
     </div>
     <div class="span8">
-  <table class="table table-striped table-bordered">
-  <%= render @rides %>
-  </table>
+      <div id="current_rides">
+	<table class="table table-bordered">
+	<%= render 'current_rides' %>
+	</table>
+      </div>
     </div>
   </div>
 </section>

@@ -1,16 +1,23 @@
-<div id="current_rides">
-  <table class="table rides-list">
-    <tr>
-      <% @ride.each do |ride| %>
-      <td><%= image_tag(ride.user.usr_img, options = {:class =>"profile_img_small"})  %></td>
-      <td><p><%= link_to "#{ride.origin}   -----> #{ride.destination}", ride, class: "" %></p>
-      <p class="muted"><%= ride.date.strftime(" %A, %b %d, %Y") %></p></td>
-	  <td>
-	    <div class="span price">
-	      <h3>$<%= ride.price %></h3>
-	    </div>
-	  </td>
-    </tr>
-      <% end %>
-  </table>
-</div>
+<% @rides.each do |ride| %>
+<tr>
+  <td>
+    <div class="profile_img_wrap">
+      <div><%= image_tag(ride.user.usr_img, options = {:class =>"profile_img_small"})  %></div>
+    </div>
+    <div class="info">
+      <p><%= link_to ride.user.first_name,ride.user %></p>
+    </div>
+  </td>
+  <td>
+    <%= link_to "#{ride.origin} ---> #{ride.destination}", ride %><br>
+    <small class="muted"><%= ride.date.strftime(" %A, %b %d, %Y") %><small>
+  </td>
+  <td>
+    <div class="span price">
+      <h3><%= number_to_currency(ride.price, precision: 0) %></h3>
+    </div>
+  </td>
+</tr>
+<% end %>
+
+
