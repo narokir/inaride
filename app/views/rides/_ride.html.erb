@@ -8,27 +8,26 @@
     </div>
   </td>
   <td>
-    <%= link_to "#{ride.origin} ---> #{ride.destination}", ride %>
-    <p class="muted"><%= ride.date.strftime(" %A, %b %d, %Y") %></p>
+    <%= link_to "#{ride.origin} ---> #{ride.destination}", ride %><br>
+    <small class="muted"><%= ride.date.strftime(" %A, %b %d, %Y") %><small>
   </td>
   <td>
     <div class="span price">
       <h3><%= number_to_currency(ride.price, precision: 0) %></h3>
     </div>
   </td>
-  
-  <% if current_user?(ride.user) %>
   <td>
     <div class="btn-group">
-      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+      <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
 	Action
 	<span class="caret"></span>
 	</a>
       <ul class="dropdown-menu">
+	<% if current_user.admin? && !current_user?(ride.user) %>
 	<li><%= link_to 'Edit', edit_ride_path(ride) %></li>
-	<li><%= link_to 'Destroy', ride, confirm: 'Are you sure?', method: :delete %></li>
+	<li><%= link_to 'Delete', ride, confirm: 'Are you sure?', method: :delete %></li>
+	<% end %>
       </ul>
     </div>
   </td>
 </tr>
-<% end %>

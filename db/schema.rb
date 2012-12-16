@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121215195308) do
+ActiveRecord::Schema.define(:version => 20121216003424) do
 
   create_table "maps", :force => true do |t|
     t.string   "title"
@@ -49,12 +49,13 @@ ActiveRecord::Schema.define(:version => 20121215195308) do
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
     t.string   "email"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.string   "usr_img"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "password_digest"
+    t.boolean  "admin",            :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -68,7 +68,7 @@ class RidesController < ApplicationController
     @ride.destroy
 
     respond_to do |format|
-      format.html { redirect_to rides_url }
+      format.html { redirect_to rides_url, notice: 'Ride was successfully deleted.' }
       format.json { head :ok }
     end
   end

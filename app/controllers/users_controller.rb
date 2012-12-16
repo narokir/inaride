@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
-before_filter :signed_in_user, only: [:edit, :update, :index]
+  before_filter :signed_in_user, only: [:edit, :update, :index]
+  before_filter :admin_user,     only: :destroy
+  before_filter :correct_user,   only: [:edit, :update]
+  
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page],limit: 10)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
@@ -77,7 +80,16 @@ before_filter :signed_in_user, only: [:edit, :update, :index]
     def signed_in_user
       unless signed_in?
         store_location
-        redirect_to signin_url, notice: "Please sign"
+        redirect_to signin_url, notice: "Please sign" unless signed_in?
       end
+    end
+    
+    def admin_user
+      redirect_to(root_path) unless current_user.admin?
+    end
+    
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_path) unless current_user?(@user)
     end
 end

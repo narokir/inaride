@@ -1,0 +1,20 @@
+<tr>
+  <td><%= user.id %></td>
+  <td><%= link_to user.first_name, user %></td>
+  <td><%= user.email %></td>
+  <td><%= image_tag user.usr_img %></td>
+  <td>
+    <div class="btn-group">
+      <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+	Action
+	<span class="caret"></span>
+	</a>
+      <ul class="dropdown-menu">
+	<% if current_user.admin? && !current_user?(user) %>
+	  <li><%= link_to 'Edit', edit_user_path(user) %></li>
+	  <li><%= link_to 'Delete', user, confirm: 'Are you sure?', method: :delete %></li>
+	<% end %>
+      </ul>
+    </div>
+  </td>
+</tr>
