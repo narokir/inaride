@@ -59,6 +59,9 @@ $offWhite: 	#F5F5F5;
 body {
   padding-top: 57px;
 }
+@mixin frame{
+    background: url('/assets/fancy_deboss.png') repeat transparent;
+}
 
 /*============================================================================
 =========           Typography                    ============================
@@ -136,18 +139,8 @@ li.focus{
 =========           Forms                       ==============================
 ============================================================================*/
 
-textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
-    height: $inputHeight;
-}
-
-
-input.ride_origin,
-input.ride_destination,
-input#ride_date{
-	height:$inputHeight;
-    }
-
 #main_search{
+    @include frame:
     
     h2{
 	font-size:1em;
@@ -164,14 +157,19 @@ input#ride_date{
 	float:left;
 	margin:0px 10px 0px 0px;
     }
-    form{
-	padding:20px;
-	background-color: $offWhite;
-	border: 5px solid #BCDDD0;
-	border-radius: 4px 4px 4px 4px;
-	box-shadow: 0px 0px 5px #022816;
-    }
+
 }
+
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+    height: $inputHeight;
+}
+
+
+input.ride_origin,
+input.ride_destination,
+input#ride_date{
+	height:$inputHeight;
+    }
 
 #error_explanation {
   color: #f00;
