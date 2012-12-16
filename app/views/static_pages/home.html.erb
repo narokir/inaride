@@ -1,23 +1,18 @@
 <% provide(:title, 'Carpool and Rideshare - Join The Ride') %>
 
-<div class="masthead-background"> 
-  <div class="jumbotron masthead">
-    <div class="container">
-      <div class="row">
-	<div class="span5">
-	
-	</div>
-	<div class="span6">
+
+  <div class="jumbotron">
+
+
 	  <h1>Join The Ride</h1>
 	  <p> Ridesharing is back - connect with millions of <span class="">Drivers</span> & <span class="">Passengers</span> in convenient carpools.</p>
             <%= link_to(new_ride_path, html_options = { class: "btn btn-large btn-success add-ride"}) do %>
 	      Add Your Ride<%=image_tag('logo_bug.png')%>
 	    <% end %>
-	</div>
-      </div>
-    </div>
+
+
   </div>
-</div>
+
 
 
 <section id="highlight" class="row-fluid well2">
