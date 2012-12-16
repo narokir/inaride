@@ -52,6 +52,18 @@ textarea {
 .center h1 {
   margin-bottom: 10px;
 }
+.container-skiny{
+    max-width:800px;
+    margin:0 auto;
+}
+.hero-unit{
+    text-align:center;
+    padding:20px;
+    background:#fff;
+    h1{
+	color:$blue;
+    }
+}
 
 
 
