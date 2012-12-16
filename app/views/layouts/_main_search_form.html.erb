@@ -6,12 +6,12 @@
   <h2>Find a ride</h2>
       <div class="control-group">
 	 <div class="controls">
-	    <%= text_field_tag :origin, params[:origin], placeholder:"From:",class: "mainsearch ride_origin",autocomplete:"off", :onkeydown => "if($('.pac-container').is(':visible') && event.keyCode == 13) {event.preventDefault();}"%>
+	    <%= text_field_tag :origin, params[:origin], placeholder:"From:",class: "mainsearch span ride_origin",autocomplete:"off", :onkeydown => "if($('.pac-container').is(':visible') && event.keyCode == 13) {event.preventDefault();}"%>
 	 </div>
       </div>
       <div class="control-group">
 	 <div class="controls">
-	  <%= text_field_tag :destination, params[:destination],placeholder: 'To:',class: "mainsearch ride_destination",:autocomplete => "off", :onkeydown => "if($('.pac-container').is(':visible') && event.keyCode == 13) {event.preventDefault();}"%>
+	  <%= text_field_tag :destination, params[:destination],placeholder: 'To:',class: "mainsearch span ride_destination",:autocomplete => "off", :onkeydown => "if($('.pac-container').is(':visible') && event.keyCode == 13) {event.preventDefault();}"%>
 	 </div>
       </div>
       <div class="control-group ride_date">

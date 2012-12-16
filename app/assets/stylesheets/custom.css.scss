@@ -59,8 +59,12 @@ $offWhite: 	#F5F5F5;
 body {
   padding-top: 57px;
 }
-@mixin frame{
-    background: url('/assets/fancy_deboss.png') repeat transparent;
+@mixin frame {
+    background: url("/assets/fancy_deboss.png") repeat scroll 0 0 whitesmoke;
+    border: 15px solid #BCDDD0;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 0 5px #5A7E6D;
+    padding: 20px;
 }
 
 /*============================================================================
@@ -140,22 +144,28 @@ li.focus{
 ============================================================================*/
 
 #main_search{
-    @include frame:
+    @include frame;
     
     h2{
 	font-size:1em;
 	margin-bottom:1em;
     }
     
-    input[type="text"]{
-	width:88%;
+    input.span{
+	width:100%;
     }
     input#ride_date{
 	width:160px;
     }
+input.span{
+    height:37px;
+}
     .ride_date{
 	float:left;
 	margin:0px 10px 0px 0px;
+    }
+    form{
+	margin-bottom:0;
     }
 
 }
