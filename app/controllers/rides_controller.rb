@@ -39,8 +39,8 @@ class RidesController < ApplicationController
   def create
     @ride = current_user.rides.build(params[:ride])
     if @ride.save
+      flash[:success] = "Nice! Ride was successfuly added"
       redirect_to @ride
-      flash[:success] = "Nice! Your ride was successfuly added"
     else
       format.json { render json: @ride.errors, status: :unprocessable_entity }
     end

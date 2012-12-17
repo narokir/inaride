@@ -1,36 +1,48 @@
 <% provide(:title, "Ride from #{@ride.origin} to #{@ride.destination}")%>
 <% notice %>
-  <div class="page-header">
-    <h2><%= @ride.origin %> -----------> <%= @ride.destination %></h2>
-  </div>
+    <h1><%= @ride.origin %> --- <%=image_tag('logo_bug.png')%> --> <%= @ride.destination %></h1>
 
 <div class="row-fluid">
-    <div class="span8">
-      <table class="table table-bordered table-striped">
-	<thead>
-	  <tr>
-	    <td class="higlight" colspan="6"><%= @ride.notes %></td>
-	  </tr>
-	  <tr>
-	    <th>Origin:</th>
-	    <th>Destination:</th>
-	    <th>Date:</th>
-	  </tr>
-	</thead>
-	  <tbody>
+    <section id="ride" class="span8">
+      <table class="table table-bordered">
+	<tbody>
 	    <tr>
-	      <td><%= @ride.origin %></td>
-	      <td><%= @ride.destination %></td>
-	      <td><%= @ride.date.strftime(" %A, %b %d, %Y") %></td>
+	      <td colspan=2>
+		<h4><span class="date"><%= @ride.date.strftime(" %A, %b %d, %Y") %></span></h4>
+	      </td>
+	      <td>
+		<span class="price">$<%= @ride.price %></span>
+		<small class="muted">Per passenger</small>
+	      </td>
+	      <td>
+		<span class="price"><%= seats %></span>
+		<small class="muted">Seats available</small>
+	      </td>
 	    </tr>
 	    <tr>
-	      <td colspan=7>
+	      <td colspan=3>
+		<article class="user">
+		  <%= image_tag(@ride.user.image, options = {:class =>"profile_img_small"})  %>
+		</article>
+		<p clas="ride-note"><%= wrap(@ride.notes) %></p>
+	      </td>
+	      <td>
+		<a class="btn btn-success">Join This Ride</a>
+	      </td>
+	    </tr>
+	<% if current_user?(@ride.user) %>
+	    <tr>
+	      <td colspan=4>
 		<div>
-		  <%= link_to 'Edit', edit_ride_path(@ride), class: "btn btn-mini" %>  | 
-		  <%= link_to 'Back', rides_path, class: "btn btn-mini" %>
+		  <%= link_to 'Edit Ride', edit_ride_path(@ride)%>  | 
+		  <%= link_to "Delete", @ride, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: "Delete Ride #{@ride.origin} to #{@ride.destination}" %>
+
 		</div>
 	      </td>
 	    </tr>
+	<% end %>
 	    <tr>
 	      <td colspan=7>
 		<div>
@@ -45,33 +57,19 @@
 	    </tr>
 	  </tbody>
       </table>
-    </div><!-- Rides -->
+    </section><!-- Rides -->
 
-  <div class="span3 well">
-
-      <div class="span price">
-        <h2>$<%= @ride.price %></h2><small>Per passenger</small>
-      </div>
-      <div class="seats span pull-right">
-        <h2 class="">
-          <%= seats %>
-        </h2>
-        <small>Seats available</small>
-      </div>
-
-
-    <hr>
-    <a class="btn btn-success">Join This Ride</a>
-    <hr>
-    <section>
-      <h3>Driver</h3>
+  <section id="driver" class="span3 embos">
+      <h2>Driver</h2>
+      <hr>
     <div class="profile_img_wrap"><div><%= image_tag(@ride.user.image,options={:class =>"profile_img_small"})%></div></div>
-    <div class="info">
-      <p><%= link_to @ride.user.name, @ride.user %></p>
+    <article class="driver-info">
+      <small><%= link_to @ride.user.first_name, @ride.user %></small>
       <a href="#" class="btn btn-mini">Send Message</a>
-    </div>
-    </section>
-  </div>
+    </article>
+  </section>
+  
+  
 </div>
     
 <section class="container">

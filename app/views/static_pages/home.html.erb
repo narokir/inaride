@@ -5,21 +5,19 @@
   <div class="mast span6 embos">
     <h1>Join The Ride <%=image_tag('logo_bug.png')%></h1>
     <hr>
-    <p> Share rides and connect with thousands of <span class="">Drivers</span> & <span class="">Passengers</span> in convenient carpools.</p>
+    <p> Share rides and meet awesome people like yourself. <%= link_to 'Learn How', '#' %></p>
       <%= link_to(new_ride_path, html_options = { class: "btn btn-large btn-success add-ride"}) do %>
 	Add Your Ride
       <% end %>
   </div>
-  <div class="span6 embos">
+  <section id="search-rides" class="span6 embos">
     <%= render '/layouts/main_search_form' %>
-  </div>
+  </section>
 </div>
   
-<section id="highlight" class="">
   <div class="embos">
     <%= render 'current_rides' %>
   </div>
-</section>
 
 
 <div class="row-fluid">

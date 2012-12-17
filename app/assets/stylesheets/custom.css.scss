@@ -1,5 +1,8 @@
-$orange:		#FF6666;
-$orangeDark:		#A02D0B;
+$salmon:		#FF6666;
+$salmonDark:		#A02D0B;
+$salmonSoft:		#FFA3A3;
+$youngBlue:		#5abfe0;
+$youngGreen:		#41a3a2;
 $green:			#33FF99;
 $greenDark:		#ddd;
 $blue:			#0099FF;
@@ -7,10 +10,10 @@ $blueMid:		#227eff;
 $blueDark:		#277BE0;
 $linkColor:         	#5abfe0;
 
-$navbarBackgroundHighlight: $orange;
+$navbarBackgroundHighlight: $salmon;
 $navbarBackground: darken($navbarBackgroundHighlight, 5%);
 $bodyBackground:url('/assets/fancy_deboss.png') transparent;
-$navbarLinkColor:                 $orangeDark;
+$navbarLinkColor:                 $salmonDark;
 
 // Buttons
 // -------------------------
@@ -31,6 +34,10 @@ $paginationBackground: 			#fff;
 $paginationBorder: 			#ddd;
 $paginationActiveBackground: 		#f5f5f5;
 
+// Typography
+// -------------------------
+//$headingsColor: $youngGreen;
+
 
 
 @import "bootstrap";
@@ -46,10 +53,6 @@ html {
 body {
   padding-top: 60px;
   background:url('/assets/fancy_deboss.png');
-}
-
-section {
-  overflow: auto;
 }
 
 textarea {
@@ -86,6 +89,22 @@ textarea {
     margin-bottom:10px;
     padding: 20px;
 }
+
+/* Typography 
+------------------------------------------------------------------------------*/
+h1{
+    color:$youngGreen;
+    text-shadow:0px 1px 0px #fff;
+}
+
+
+
+
+
+
+
+
+
 
 /* Main Search form 
 ------------------------------------------------------------------------------*/
@@ -177,6 +196,37 @@ footer ul {
 footer ul li {
   float: left;
   margin-left: 10px;
+}
+
+
+/* ride 
+------------------------------------------------------------------------------*/
+#ride{
+    .user{
+	float:left;
+	margin-right:5px;
+    }
+
+}
+
+img.profile_img_small{
+    border:1px solid;
+    border-color:#FFA3A3;
+    border-radius:4px;
+}
+
+span.price{
+    font-size: 18px;
+    font-weight: bold;
+    display:block;
+}
+span.seats{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.date{
+    color:$salmon;
 }
 
 

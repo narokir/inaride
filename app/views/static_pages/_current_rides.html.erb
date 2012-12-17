@@ -1,22 +1,23 @@
-<table class="table table-striped table-condensed">
+<table class="table  table-condensed">
 <% @rides.each do |ride| %>
 <tr>
   <td>
-    <div class="profile_img_wrap">
-      <div><%= image_tag(ride.user.image, options = {:class =>"profile_img_small"})  %></div>
-    </div>
-    <div class="info">
-      <small><%= link_to ride.user.first_name,ride.user %></small>
-    </div>
+    <article class="user">
+      <%= image_tag(ride.user.image, options = {:class =>"profile_img_small"})  %>
+      <div class="info">
+	<small><%= link_to ride.user.first_name,ride.user %></small>
+      </div>
+    </article>
   </td>
   <td>
     <%= link_to "#{ride.origin} ---> #{ride.destination}", ride %><br>
     <small class="muted"><%= ride.date.strftime(" %A, %b %d, %Y") %><small>
   </td>
   <td>
-    <div class="span price">
+    <span class="price">
       <span class="ride-price"><%= number_to_currency(ride.price, precision: 0) %></span>
-    </div>
+    </span>
+    <small class="muted">Per passenger</small>
   </td>
 </tr>
 <% end %>

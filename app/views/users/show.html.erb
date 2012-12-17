@@ -1,27 +1,29 @@
 <% provide(:title, @user.name)%>
-<div class="container" xmlns="http://www.w3.org/1999/html">
 <%= notice %>
-<div class="row-fluid">
-    <h1 class="user-details">Hi <%= @user.first_name %></h1>
-<div class="container">
-      <div class="span4">
-        <section class="clearfix">
-        <div class="profile_img_wrap">
-	  <div><%= image_tag(@user.image, options = {:class =>"profile_img_small"})  %></div>
-          <div><%# gravatar_for @user %></div>
-        </div>
-        <div class="info">
-          <p><%= @user.first_name %> <%= @user.last_name %></p>
-          <%= link_to 'Edit Profile', edit_user_path, :class => 'btn btn-mini' %>
-        </div>
-      </section>
-    </div>
 
-    <div class="span8">
-      <table class="table table-striped table-bordered">
-         <th colspan="2">Your rides</th>
-	  <%= render 'user_rides' %>
-      </table>
+<div class="row-fluid">
+
+  <section id="user" class="span4 embos">
+    <h1 class="user-details">Hi <%= @user.first_name %></h1>
+    <div class="profile_img_wrap">
+      <div><%= image_tag(@user.image, options = {:class =>"profile_img_small"})  %></div>
+      <div><%# gravatar_for @user %></div>
     </div>
-  </div>
+    <div class="info">
+      <p><%= @user.first_name %> <%= @user.last_name %></p>
+      <%= link_to 'Edit Profile', edit_user_path, :class => 'btn btn-mini' %>
+    </div>
+  </section>	
+
+
+  <section id="rides" class="span8 embos">
+    <% if @user.rides.any? %>
+      <h3>Rides(<%= @user.rides.count %>)</h3>
+      <table class="table">
+      <%= render @rides %>
+      </table>
+    <% end %>
+  </section>
+</div>
+
 

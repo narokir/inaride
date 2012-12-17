@@ -3,9 +3,11 @@ class Ride < ActiveRecord::Base
   belongs_to :user
 
   validates_presence_of :origin, :destination, :date, :price, :seats
+  validates :user_id, presence: true
+  
   acts_as_gmappable :validation => false #:process_geocoding => true
   
-  #default_scope order: 'ride.created_at DESC'
+  default_scope order: 'created_at DESC'
 
   def gmaps4rails_address
   "#{self.origin}, #{self.destination}"
