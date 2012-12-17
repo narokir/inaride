@@ -1,36 +1,31 @@
 <% provide(:title, 'Carpool and Rideshare - Join The Ride') %>
 
 
-  <div class="hero-unit">
-
-
-	  <h1>Join The Ride</h1>
-	  <p> Ridesharing is back - connect with millions of <span class="">Drivers</span> & <span class="">Passengers</span> in convenient carpools.</p>
-            <%= link_to(new_ride_path, html_options = { class: "btn btn-large btn-success add-ride"}) do %>
-	      Add Your Ride<%=image_tag('logo_bug.png')%>
-	    <% end %>
-
-
+<div class="row-fluid">
+  <div class="mast span6 embos">
+    <h1>Join The Ride <%=image_tag('logo_bug.png')%></h1>
+    <hr>
+    <p> Share rides and connect with thousands of <span class="">Drivers</span> & <span class="">Passengers</span> in convenient carpools.</p>
+      <%= link_to(new_ride_path, html_options = { class: "btn btn-large btn-success add-ride"}) do %>
+	Add Your Ride
+      <% end %>
   </div>
-
-
-
-<section id="highlight" class="row-fluid">
-    <div class="span5">
-      <%= render '/layouts/main_search_form' %>
-    </div>
-    <div class="span7">
+  <div class="span6 embos">
+    <%= render '/layouts/main_search_form' %>
+  </div>
+</div>
+  
+<section id="highlight" class="">
+    <div class="embos">
       <div id="current_rides">
 	<table class="table table-bordered">
 	<%= render 'current_rides' %>
 	</table>
       </div>
     </div>
-
 </section>
 
-<div class="container">
-  <div class="row">
 
+<div class="row-fluid">
     <%# render 'featured' %>
-  </div>
+</div>

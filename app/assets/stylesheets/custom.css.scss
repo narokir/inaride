@@ -5,7 +5,7 @@ $greenDark:		#ddd;
 $blue:			#0099FF;
 $blueMid:		#227eff;
 $blueDark:		#277BE0;
-$linkColor:         	#0099FF;
+$linkColor:         	#5abfe0;
 
 $navbarBackgroundHighlight: $orange;
 $navbarBackground: darken($navbarBackgroundHighlight, 5%);
@@ -19,6 +19,11 @@ $btnPrimaryBackgroundHighlight:     	$blue;
 
 $btnSuccessBackground: #00f07e;
 $btnSuccessBackgroundHighlight: #18d87d;
+
+// Tables
+// -------------------------
+$tableBackground: 			#fff; // overall background-color
+$tableBorder: 				#eee;
 
 
 
@@ -45,27 +50,66 @@ textarea {
   resize: vertical;
 }
 
-.center {
-  text-align: center;
-}
-
-.center h1 {
-  margin-bottom: 10px;
-}
 .container-skiny{
-    max-width:800px;
+    max-width:1024px;
     margin:0 auto;
 }
-.hero-unit{
-    text-align:center;
+.mast{
     padding:20px;
     background:#fff;
     h1{
-	color:$blue;
+	font-size:48px;
+	color:#5abfe0;
+    }
+    hr{
+	margin:0px 0px 15px 0px;
+    }
+    p{
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 30px;
+    margin-bottom:23px;
     }
 }
 
+.embos{
+    background:#fff;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+    margin-bottom:10px;
+    padding: 20px;
+}
 
+/* Main Search form 
+------------------------------------------------------------------------------*/
+
+#main_search{
+    background:#fff;
+    form{
+	margin-bottom:0px;
+    }
+    
+    .ride-date{
+	margin-right:10px;
+	float:left;
+    }
+
+    input{
+	margin-bottom:0px;
+	
+    }
+    input#origin,input#destination{
+	border:1px solid #C7E6DA;
+	height:37px;
+    }
+    input#ride_date{
+	border:1px solid #C7E6DA;
+	height:30px;
+    }
+
+    
+}
 
 /* header 
 ------------------------------------------------------------------------------*/

@@ -14,14 +14,14 @@
 	  <%= text_field_tag :destination, params[:destination],placeholder: 'To:',class: "mainsearch span ride_destination",:autocomplete => "off", :onkeydown => "if($('.pac-container').is(':visible') && event.keyCode == 13) {event.preventDefault();}"%>
 	 </div>
       </div>
-      <div class="control-group ride_date">
+      <div class="control-group ride-date">
 	 <div class="controls">
 	  <%= text_field_tag :date, params[:date], placeholder: 'Date:',id: "ride_date",class: "mainsearch date-small", :autocomplete => "off"%>
 	 </div>
       </div>
-      <div class="control-group">
+      <div class="control-group ">
 	 <div class="controls">
-      <%= submit_tag "Search", :name => nil, class: "btn btn-primary" %>
+      <%= submit_tag "Search", :name => nil, class: "btn btn-large btn-primary" %>
 	 </div>
       </div>
   <% end %>
