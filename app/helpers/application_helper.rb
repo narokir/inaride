@@ -11,7 +11,7 @@ module ApplicationHelper
   
   # Display placeholder for user profile image if unavailable
   def usr_profile_img
-    if @user.usr_img.blank? && current_user.usr_img.blank?
+    if @user.usr_img.present?
       @user.usr_img = "/assets/user_placeholder.png"
       current_user.usr_img = "/assets/user_placeholder.png"
     else
@@ -20,8 +20,9 @@ module ApplicationHelper
   end
   
   def driver_profile_img
-    @ride.user.usr_img.blank?
-    @ride.user.usr_img = "/assets/user_placeholder.png"
+    if ride.user.usr_img.present?
+      ride.user.usr_img = "/assets/user_placeholder.png"
+    end
   end
   
   def seats

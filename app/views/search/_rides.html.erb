@@ -2,10 +2,10 @@
   <tr>
     <td>
       <div class="profile_img_wrap">
-	<div><%= image_tag(ride.user.usr_img, options = {:class =>"profile_img_small"})  %></div>
+	<div><%= image_tag(ride.user.image, options = {:class =>"profile_img_small"})  %></div>
       </div>
       <div class="info">
-	<p><%= link_to ride.user.first_name,ride.user %></p>
+	<small><%= link_to ride.user.first_name,ride.user %></small>
       </div>
     </td>
     <td><%= link_to "#{ride.origin} ---> #{ride.destination}", ride %></br>

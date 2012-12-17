@@ -39,4 +39,13 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+  
+  
+  def image
+    if usr_img.present?
+      usr_img
+    else
+      usr_img = "/assets/user_placeholder.png"
+    end
+  end
 end

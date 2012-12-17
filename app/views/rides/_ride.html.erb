@@ -1,10 +1,10 @@
 <tr>
   <td>
     <div class="profile_img_wrap">
-      <div><%= image_tag(ride.user.usr_img, options = {:class =>"profile_img_small"})  %></div>
+      <div><%= image_tag(ride.user.image, options = {:class =>"profile_img_small"})  %></div>
     </div>
     <div class="info">
-      <p><%= link_to ride.user.first_name,ride.user %></p>
+      <small><%= link_to ride.user.first_name,ride.user %></small>
     </div>
   </td>
   <td>
@@ -13,9 +13,10 @@
   </td>
   <td>
     <div class="span price">
-      <h3><%= number_to_currency(ride.price, precision: 0) %></h3>
+      <%= number_to_currency(ride.price, precision: 0) %>
     </div>
   </td>
+  <% if current_user.admin? && !current_user?(ride.user) %>
   <td>
     <div class="btn-group">
       <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
@@ -23,11 +24,12 @@
 	<span class="caret"></span>
 	</a>
       <ul class="dropdown-menu">
-	<% if current_user.admin? && !current_user?(ride.user) %>
+	
 	<li><%= link_to 'Edit', edit_ride_path(ride) %></li>
 	<li><%= link_to 'Delete', ride, confirm: 'Are you sure?', method: :delete %></li>
-	<% end %>
+	
       </ul>
     </div>
   </td>
+  <% end %>
 </tr>

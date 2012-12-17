@@ -7,7 +7,7 @@
       <div class="span4">
         <section class="clearfix">
         <div class="profile_img_wrap">
-	  <div><%= image_tag(usr_profile_img, options = {:class =>"profile_img_small"})  %></div>
+	  <div><%= image_tag(@user.image, options = {:class =>"profile_img_small"})  %></div>
           <div><%# gravatar_for @user %></div>
         </div>
         <div class="info">

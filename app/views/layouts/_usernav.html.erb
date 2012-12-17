@@ -2,7 +2,7 @@
   <% if signed_in? %>
     
     <li class="usrimg">
-      <%=image_tag current_user.usr_img, class:"fbimg", alt: current_user.first_name%>
+      <%=image_tag current_user.image, class:"fbimg", alt: current_user.first_name%>
     </li>
   
     <li class="dropdown">
