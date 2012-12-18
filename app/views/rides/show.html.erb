@@ -5,7 +5,7 @@
 <div class="row-fluid">
     <section id="ride-info" class="span8">
       
-      <table class="table embos table-bordered">
+      <table class="table table-bordered">
 	<tbody>
 	    <tr>
 	      <td colspan=2>
@@ -65,7 +65,9 @@
     <div><%= link_to image_tag(@ride.user.image,options={:class =>"profile_img_small"}),@ride.user %></div>
     <small><%= link_to @ride.user.first_name, @ride.user %></small>
   </div>
-  <%= @ride.user.first_name %>
+  <%= @user.first_name %>
+  <%= @user.last_name.slice!(0,1) %></br>
+  <strong>Rides: <%= @user.rides.count %></strong>
   <a href="#" class="btn btn-mini">Send Message</a>
 </aside>
 
