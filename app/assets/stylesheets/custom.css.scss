@@ -201,8 +201,13 @@ footer ul li {
 
 /* ride 
 ------------------------------------------------------------------------------*/
-#ride{
-    .user{
+
+h1.trip{
+    font-size:2em;
+}
+
+aside#driver{
+    .driver-info{
 	float:left;
 	margin-right:5px;
     }

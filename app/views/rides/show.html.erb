@@ -1,10 +1,11 @@
 <% provide(:title, "Ride from #{@ride.origin} to #{@ride.destination}")%>
 <% notice %>
-    <h1><%= @ride.origin %> --- <%=image_tag('logo_bug.png')%> --> <%= @ride.destination %></h1>
+<h1 class="trip"><%= @ride.origin %> --- <%=image_tag('logo_bug.png')%> --> <%= @ride.destination %></h1>
 
 <div class="row-fluid">
-    <section id="ride" class="span8">
-      <table class="table table-bordered">
+    <section id="ride-info" class="span8">
+      
+      <table class="table embos table-bordered">
 	<tbody>
 	    <tr>
 	      <td colspan=2>
@@ -21,13 +22,13 @@
 	    </tr>
 	    <tr>
 	      <td colspan=3>
-		<article class="user">
-		  <%= image_tag(@ride.user.image, options = {:class =>"profile_img_small"})  %>
-		</article>
+		<div class="driver-info">
+		  <div><%= image_tag(@ride.user.image,options={:class =>"profile_img_small"}) %></div>
+		</div>
 		<p clas="ride-note"><%= wrap(@ride.notes) %></p>
 	      </td>
 	      <td>
-		<a class="btn btn-success">Join This Ride</a>
+		<a class="btn btn-success">Request Pickup</a>
 	      </td>
 	    </tr>
 	<% if current_user?(@ride.user) %>
@@ -38,7 +39,6 @@
 		  <%= link_to "Delete", @ride, method: :delete,
                                      data: { confirm: "You sure?" },
                                      title: "Delete Ride #{@ride.origin} to #{@ride.destination}" %>
-
 		</div>
 	      </td>
 	    </tr>
@@ -59,20 +59,18 @@
       </table>
     </section><!-- Rides -->
 
-  <section id="driver" class="span3 embos">
-      <h2>Driver</h2>
-      <hr>
-    <div class="profile_img_wrap"><div><%= image_tag(@ride.user.image,options={:class =>"profile_img_small"})%></div></div>
-    <article class="driver-info">
-      <small><%= link_to @ride.user.first_name, @ride.user %></small>
-      <a href="#" class="btn btn-mini">Send Message</a>
-    </article>
-  </section>
-  
-  
+<aside id="driver" class="span3 embos">
+  <h2>Driver</h2><hr>
+  <div class="driver-info">
+    <div><%= link_to image_tag(@ride.user.image,options={:class =>"profile_img_small"}),@ride.user %></div>
+    <small><%= link_to @ride.user.first_name, @ride.user %></small>
+  </div>
+  <%= @ride.user.first_name %>
+  <a href="#" class="btn btn-mini">Send Message</a>
+</aside>
+
 </div>
-    
-<section class="container">
+
   
 <% content_for :scripts do %>
  <script type="text/javascript" charset="utf-8">
@@ -93,6 +91,4 @@ function clearOverlays() {
 }
  </script>
 <% end %>
-
-</section>
 

@@ -10,6 +10,8 @@ class RidesController < ApplicationController
   # GET /rides/1.json
   def show
     @ride = Ride.find(params[:id])
+    #@rides = @user.rides.create(params[:user_id])
+    @user = @ride.user(params[:id])
     @json = Ride.find(params[:id]).to_gmaps4rails
   end
 
@@ -80,5 +82,12 @@ class RidesController < ApplicationController
         store_location
         redirect_to signin_url, notice: "Please sign in"
       end
+    end
+    
+  private
+
+    def correct_user
+      @ride = current_user.rides.find_by_id(params[:id])
+      redirect_to root_url if @ride.nil?
     end
 end
