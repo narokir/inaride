@@ -1,13 +1,11 @@
 <% provide(:title, "Ride from #{@ride.origin} to #{@ride.destination}")%>
 <% notice %>
-<h1 class="trip"><%= @ride.origin %> --- <%=image_tag('logo_bug.png')%> --> <%= @ride.destination %></h1>
-
+  <h1 class="trip"><%= @ride.origin %> --- <%=image_tag('logo_bug.png')%> --> <%= @ride.destination %></h1>
 <div class="row-fluid">
-    <section id="ride-info" class="span8">
-      
-      <table class="table table-bordered">
+    <section id="ride-info" class="span8">      
+      <table class="embos span">
 	<tbody>
-	    <tr>
+	  <tr>
 	      <td colspan=2>
 		<h4><span class="date"><%= @ride.date.strftime(" %A, %b %d, %Y") %></span></h4>
 	      </td>
@@ -60,15 +58,29 @@
     </section><!-- Rides -->
 
 <aside id="driver" class="span3 embos">
-  <h2>Driver</h2><hr>
-  <div class="driver-info">
-    <div><%= link_to image_tag(@ride.user.image,options={:class =>"profile_img_small"}),@ride.user %></div>
-    <small><%= link_to @ride.user.first_name, @ride.user %></small>
+  <h2>Driver</h2><%= link_to (@ride.user.full_name),@ride.user %><hr>
+  <div class="row-fluid">
+    <div class="span3">
+	<div><%= link_to image_tag(@ride.user.image,options={:class =>"profile_img_small"}),@ride.user %></div>
+    </div>
+    <div class="span9">
+      <ul class="unstyled">
+	<li>Rides: <%= @user.rides.count %></li>
+	<li>Experience: Beginner</li>
+	<li></li>
+
+      </ul>	
+    </div>
   </div>
-  <%= @user.first_name %>
-  <%= @user.last_name.slice!(0,1) %></br>
-  <strong>Rides: <%= @user.rides.count %></strong>
-  <a href="#" class="btn btn-mini">Send Message</a>
+  <hr>
+  <button type="button" class="btn btn-mini" data-toggle="collapse" data-target="#message">
+    Send Message
+  </button>
+  <div id="message" class="collapse in"><br>
+    <textarea rows="3"></textarea>
+    <br>
+      <button type="button" class="btn btn-mini btn-success">Send</button>
+  </div>
 </aside>
 
 </div>

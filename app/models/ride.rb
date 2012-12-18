@@ -3,6 +3,8 @@ class Ride < ActiveRecord::Base
   belongs_to :user
 
   validates_presence_of :origin, :destination, :date, :price, :seats
+  validates :notes, presence: true, length: { maximum: 300 }
+  
   validates :user_id, presence: true
   
   acts_as_gmappable :validation => false #:process_geocoding => true

@@ -48,4 +48,8 @@ class User < ActiveRecord::Base
       usr_img = "/assets/user_placeholder.png"
     end
   end
+  
+  def full_name
+    first_name + " " + last_name.slice!(0,1)
+  end
 end
