@@ -1,58 +1,60 @@
 <% provide(:title, "Ride from #{@ride.origin} to #{@ride.destination}")%>
 <% notice %>
-  <h1 class="trip"><%= @ride.origin %> --- <%=image_tag('logo_bug.png')%> --> <%= @ride.destination %></h1>
-<div class="">
-    <section id="ride-info" class="span8 embos">      
-      <table class="">
-	<tbody>
-	  <tr>
-	      <td colspan=1>
-		<h4><span class="date"><%= @ride.date.strftime(" %A, %b %d, %Y") %></span></h4>
-	      </td>
-	      <td>
-		<span class="price">$<%= @ride.price %></span>
-		<small class="muted">Per passenger</small>
-	      </td>
-	      <td>
-		<span class="price"><%= seats %></span>
-		<small class="muted">Seats available</small>
-	      </td>
-	      <td colspan=1>
-		<a class="pickup btn btn-success pull-right">Request Pickup</a>
-	      </td>
-	    </tr>
-	    <tr>
-	      <td colspan=4>
-		<div class="driver-info">
-		  <div><%= image_tag(@ride.user.image,options={:class =>"profile_img_small"}) %></div>
-		</div>
-		<div class="ride-note"><%= wrap(@ride.notes) %></div>
-	      </td>
 
-	    </tr>
-	<% if current_user?(@ride.user) %>
-	    <tr>
-	      <td colspan=4>
-		<div>
-		  <%= link_to 'Edit Ride', edit_ride_path(@ride)%>  | 
-		  <%= link_to "Delete", @ride, method: :delete,
-                                     data: { confirm: "You sure?" },
-                                     title: "Delete Ride #{@ride.origin} to #{@ride.destination}" %>
-		</div>
-	      </td>
-	    </tr>
-	<% end %>
-	  </tbody>
-      </table>
-      <div>
-	<%= gmaps({
-       :map_options => { :zoom => 18, :auto_adjust => true, :auto_zoom => false},
-	#:markers => { :data => @json, :options => { :draggable => true,"custom_infowindow_class" => "yellow"  } },
-       :direction => {
-       :data => { :from => @ride.origin, :to => @ride.destination}},
-		  })%>
-      </div>
-    </section><!-- Rides -->
+
+
+<section id="ride-info" class="span8 embos">
+  <h1 class="trip"><%= @ride.origin %> --- <%=image_tag('logo_bug.png')%> --> <%= @ride.destination %></h1>
+
+  <table class="">
+    <tbody>
+      <tr>
+	<td colspan=1>
+	  <h4><span class="date"><%= @ride.date.strftime(" %A, %b %d, %Y") %></span></h4>
+	</td>
+	<td>
+	  <span class="price">$<%= @ride.price %></span>
+	  <small class="muted">Per passenger</small>
+	</td>
+	<td>
+	  <span class="price"><%= seats %></span>
+	  <small class="muted">Seats available</small>
+	</td>
+	<td colspan=1>
+	  <a class="pickup btn btn-success pull-right">Request Pickup</a>
+	</td>
+      </tr>
+      <tr>
+	<td colspan=4>
+	  <div class="driver-info">
+	    <div><%= image_tag(@ride.user.image,options={:class =>"profile_img_small"}) %></div>
+	  </div>
+	  <div class="ride-note"><%= wrap(@ride.notes) %></div>
+	</td>
+      </tr>
+      <% if current_user?(@ride.user) %>
+      <tr>
+	<td colspan=4>
+	  <div>
+	    <%= link_to 'Edit Ride', edit_ride_path(@ride)%>  | 
+	    <%= link_to "Delete", @ride, method: :delete,
+			       data: { confirm: "You sure?" },
+			       title: "Delete Ride #{@ride.origin} to #{@ride.destination}" %>
+	  </div>
+	</td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div>
+    <%= gmaps({
+   :map_options => { :zoom => 18, :auto_adjust => true, :auto_zoom => false},
+    #:markers => { :data => @json, :options => { :draggable => true,"custom_infowindow_class" => "yellow"  } },
+   :direction => {
+   :data => { :from => @ride.origin, :to => @ride.destination}},
+	      })%>
+  </div>
+</section><!-- Rides -->
 
 <aside id="driver" class="span3 embos">
   <h2>Driver</h2><%= link_to (@ride.user.full_name),@ride.user %><hr>
@@ -65,7 +67,6 @@
 	<li>Rides: <%= @user.rides.count %></li>
 	<li>Experience: Beginner</li>
 	<li></li>
-
       </ul>	
     </div>
   </div>
@@ -79,8 +80,6 @@
       <button type="button" class="btn btn-mini btn-success">Send</button>
   </div>
 </aside>
-
-</div>
 
   
 <% content_for :scripts do %>
@@ -102,4 +101,6 @@ function clearOverlays() {
 }
  </script>
 <% end %>
+
+
 
