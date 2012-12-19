@@ -1,15 +1,6 @@
-<% if @ride.errors.any? %>
-    <div class="alert alert-error">
-      <h3>Hey you missed a few things</h3>
-      <ul>
-        <% @ride.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-<% end %>
 
 <%= simple_form_for(@ride, :html => {:class => 'form-horizontal' }) do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
   <%= f.input :origin,:label =>'Start Location', :error_html => { :id => 'ride_origin'},:placeholder => 'Origin city, street or a Zip code', :input_html => { :class => 'span8 ride_origin' } %>
   <%= f.input :destination,:label => 'Destination',:placeholder => 'Destination city, street or a Zip code', :input_html => { :class => 'span8 ride_destination' } %>
   <hr>

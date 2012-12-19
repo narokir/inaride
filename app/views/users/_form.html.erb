@@ -1,13 +1,12 @@
-<div class="well">
-  <%= simple_form_for(@user, :html => {:class => 'form-inline' }) do |f| %>
-<%= render '/shared/error_messages' %>  
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :email %>
-    <%= f.input :password %>
-    <%= f.input :password_confirmation %>
+<%= simple_form_for(@user, :html => {:class => 'form-inline' }) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+    
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
   <div class="actions">
-    <%= f.submit  class: "btn btn-primary btn-large" %>
+  <%= f.submit  class: "btn btn-primary btn-large" %>
   </div>
 <% end %>
-</div>
