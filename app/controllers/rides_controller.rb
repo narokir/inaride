@@ -44,6 +44,7 @@ class RidesController < ApplicationController
       flash[:success] = "Nice! Ride was successfuly added"
       redirect_to @ride
     else
+      format.html { render action: "new" }
       format.json { render json: @ride.errors, status: :unprocessable_entity }
     end
   end
