@@ -1,12 +1,12 @@
 <% provide(:title, "Ride from #{@ride.origin} to #{@ride.destination}")%>
 <% notice %>
   <h1 class="trip"><%= @ride.origin %> --- <%=image_tag('logo_bug.png')%> --> <%= @ride.destination %></h1>
-<div class="row-fluid">
-    <section id="ride-info" class="span8">      
-      <table class="embos span">
+<div class="">
+    <section id="ride-info" class="span8 embos">      
+      <table class="">
 	<tbody>
 	  <tr>
-	      <td colspan=2>
+	      <td colspan=1>
 		<h4><span class="date"><%= @ride.date.strftime(" %A, %b %d, %Y") %></span></h4>
 	      </td>
 	      <td>
@@ -17,17 +17,18 @@
 		<span class="price"><%= seats %></span>
 		<small class="muted">Seats available</small>
 	      </td>
+	      <td colspan=1>
+		<a class="pickup btn btn-success pull-right">Request Pickup</a>
+	      </td>
 	    </tr>
 	    <tr>
-	      <td colspan=3>
+	      <td colspan=4>
 		<div class="driver-info">
 		  <div><%= image_tag(@ride.user.image,options={:class =>"profile_img_small"}) %></div>
 		</div>
-		<p clas="ride-note"><%= wrap(@ride.notes) %></p>
+		<div class="ride-note"><%= wrap(@ride.notes) %></div>
 	      </td>
-	      <td>
-		<a class="btn btn-success">Request Pickup</a>
-	      </td>
+
 	    </tr>
 	<% if current_user?(@ride.user) %>
 	    <tr>
@@ -41,20 +42,16 @@
 	      </td>
 	    </tr>
 	<% end %>
-	    <tr>
-	      <td colspan=7>
-		<div>
-		  <%= gmaps({
-	         :map_options => { :zoom => 18, :auto_adjust => true, :auto_zoom => false},
-	          #:markers => { :data => @json, :options => { :draggable => true,"custom_infowindow_class" => "yellow"  } },
-	         :direction => {
-	         :data => { :from => @ride.origin, :to => @ride.destination}},
-	      })%>
-		</div>
-	      </td>
-	    </tr>
 	  </tbody>
       </table>
+      <div>
+	<%= gmaps({
+       :map_options => { :zoom => 18, :auto_adjust => true, :auto_zoom => false},
+	#:markers => { :data => @json, :options => { :draggable => true,"custom_infowindow_class" => "yellow"  } },
+       :direction => {
+       :data => { :from => @ride.origin, :to => @ride.destination}},
+		  })%>
+      </div>
     </section><!-- Rides -->
 
 <aside id="driver" class="span3 embos">

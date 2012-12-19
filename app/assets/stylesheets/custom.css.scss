@@ -89,6 +89,14 @@ textarea {
     margin-bottom:10px;
     padding: 20px;
 }
+.table-embos{
+    background:#fff;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+    margin-bottom:10px;
+    padding: 1px;
+}
 
 /* Typography 
 ------------------------------------------------------------------------------*/
@@ -202,7 +210,41 @@ footer ul li {
 /* ride 
 ------------------------------------------------------------------------------*/
 
+h1.trip{
+    font-size:1.5em;
+}
+
 #ride-info{
+/*    background:#fff;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+    padding:2px;*/
+/*    div [class*="span"]{
+	padding:5px;
+    }*/
+    .span3{
+	border-left:1px dotted #ddd;
+	margin-left:0px;
+	padding:10px;
+    }
+    .span8{
+	border-top:1px dotted #ddd;
+    }
+    .span9{
+	border-top:1px dotted #ddd;
+	border-right:1px dotted #ddd;
+    }
+    .span12{
+	border-top:1px dotted #ddd;
+	margin-left:0px;
+    }
+    .map_container{
+	border:none;
+    }
+
+
+    
     table{
       width:100%;
       
@@ -224,12 +266,17 @@ footer ul li {
 	tr{
 	   
 	}
+	.pickup{
+	    border: 1px solid #1B8B08;
+	    border-radius: 5px 5px 5px 5px;
+	    line-height: inherit;
+	    margin: 3px;
+	    padding: 12px 18px;
+
+	}
     } 
 }
 
-h1.trip{
-    font-size:1.5em;
-}
 
 .driver-info{
     float:left;
