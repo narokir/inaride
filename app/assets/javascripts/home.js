@@ -4,17 +4,14 @@
 //        event.preventDefault();
 //    });
 //});
-
-
-
-$(Document).ready(function(){
+$(document).ready(function(){
     //Replace placeholder on inputs
-    $('#origin').blur(function() {
+    $('#ride_origin').blur(function() {
         //alert('Handler for .focus() called.');
         $(this).prop("placeholder","From:")
         //alert('Handler for .prop() called.');
     });
-    $('#origin').focus(function() {
+    $('#ride_origin').focus(function() {
         //alert('Handler for .focus() called.');
         $(this).prop("placeholder","")
     });
@@ -29,14 +26,14 @@ $(Document).ready(function(){
         $(this).prop("placeholder","")
     });
     
-    $('#destination').blur(function() {
+    $('#ride_destination').blur(function() {
         //alert('Handler for .focus() called.');
         $(this).prop("placeholder","To:")
         //alert('Handler for .prop() called.');
     });
-    $('#destination').focus(function() {
+    $('#ride_destination').focus(function() {
         //alert('Handler for .focus() called.');
         $(this).prop("placeholder","")
     });
 
-})
+});
