@@ -11,13 +11,16 @@
   </td>
   <td>
     <%= link_to "#{ride.origin} ---> #{ride.destination}", ride %><br>
-    <small class="muted"><%= ride.date.strftime(" %A, %b %d, %Y") %></small>
+    <span class="date"><%= ride.date.strftime(" %A, %b %d") %></span>
+    <span class="muted"><%= ride.time %></span>
   </td>
   <td>
-    <span class="price">
-      <span class="ride-price"><%= number_to_currency(ride.price, precision: 0) %></span>
-    </span>
+    <span class="price"><%= number_to_currency(ride.price, precision: 0) %></span>
     <small class="muted">Per passenger</small>
+  </td>
+  <td>
+    <span class="seats"><%= ride.seats %></span>
+    <small class="muted">Seats available</small>
   </td>
   <td>
     <%= link_to "show", ride %>
