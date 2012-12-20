@@ -1,0 +1,117 @@
+  <%= gmaps({
+    "map_options" => { :libraries => ["places"],:type => "ROADMAP", :center_longitude => -71.0597732,:center_latitude => 42.3584308, :zoom => 13, :auto_adjust => false},
+    #"markers" => { :data => @json, :options => { :dragable => true} },
+	  })
+    %>
+    
+<% content_for :scripts do %>
+<script type="text/javascript" charset="utf-8">
+  // Prevent origin and location inputs from submiting form when "Enter" pressed
+  $('#ride_origin').keydown(function(event) {
+  if (event.which == 13) {
+     event.preventDefault();
+    }
+  });
+  $('#ride_destination').keydown(function(event) {
+  if (event.which == 13) {
+     event.preventDefault();
+    }
+  });
+  
+  var unitedStates = new google.maps.LatLng(42.3584308, -71.0597732);
+  var markersArray = [];
+
+  Gmaps.map.callback = function() {
+      placeOrigin(unitedStates);
+      // Add autocomplete to Origin and Destination
+      var start = document.getElementById('ride_origin');
+      var end = document.getElementById('ride_destination');
+      var origin = new google.maps.places.Autocomplete(start);
+      var destination = new google.maps.places.Autocomplete(end);
+
+      //listen for place on Origin change and get new place location
+      google.maps.event.addListener(origin, 'place_changed', function(event) {
+	  clearOverlays();
+	  // get the geolocation of new place input
+	  var place = origin.getPlace();
+	  //alert('Origin changed. A new Marker will be placed at' + place.geometry.location);
+
+	  if (place.geometry.viewport) {
+	      Gmaps.map.serviceObject.fitBounds(place.geometry.viewport);
+	  }
+	  else
+	  {
+	      Gmaps.map.serviceObject.setCenter(place.geometry.location);
+	      Gmaps.map.serviceObject.setZoom(15); // Why 17? Because it looks good.
+	  };
+	  
+	  //set a new Marker
+	  placeOrigin(place.geometry.location);
+	  markersArray.push(marker);
+      });
+
+      //listen for place change on Destination and get new place location
+      google.maps.event.addListener(destination, 'place_changed', function(event) {
+	  // get the geolocation of new place input
+	  var place = destination.getPlace();
+	  //alert('Destination changed. A new Marker will be placed at' + place.geometry.location);
+
+	  if (place.geometry.viewport) {
+	      // Gmaps.map.serviceObject.setCenter(place.geometry.location);
+	      Gmaps.map.serviceObject.fitBounds(place.geometry.viewport);
+	      Gmaps.map.serviceObject.setZoom(15); // Why 17? Because it looks good.
+	  }
+	  //set a new Marker
+	  placeDestination(place.geometry.location);
+	  markersArray.push(marker);
+      });
+
+  }
+  
+
+
+  //Clear the markers
+  function clearOverlays() {
+      if (markersArray) {
+	  for (var i = 0; i < markersArray.length; i++ ) {
+	      markersArray[i].setMap(null);
+	  }
+      }
+      markersArray.length = 0;
+  }
+
+  //Create a New marker for Origin
+  function placeOrigin(latLng) {
+      var marker = new google.maps.Marker({
+	  position: latLng,
+	  map: Gmaps.map.serviceObject,
+	  draggable: true,
+	  icon: "http://localhost:3000/assets/map_marker_green.png"
+      });
+      markersArray.push(marker);
+      // Set and open infowindow
+      var originName = document.getElementById('ride_origin').value
+      var infowindow = new google.maps.InfoWindow({
+	  content: '<strong>Start Location</strong><small><p>'+originName+'</p><a onclick="clearOverlays();" class="small" type=button value="clear marker">clear marker</a></small>'
+      });
+      infowindow.open(Gmaps.map.serviceObject,marker);
+  }
+
+  //Create a New marker for Destination
+  function placeDestination(latLng) {
+      var marker = new google.maps.Marker({
+	  position: latLng,
+	  map: Gmaps.map.serviceObject,
+	  draggable: true,
+	  icon: "http://localhost:3000/assets/map_marker_red.png"
+      });
+      markersArray.push(marker);
+      // Set and open infowindow
+      var destinationName = document.getElementById('ride_destination').value
+      var infowindow = new google.maps.InfoWindow({
+	  content: '<strong>Destination</strong><small><p>'+destinationName+'</p><a onclick="clearOverlays();" class="small" type=button value="clear marker">clear marker</a></small>'
+      });
+      infowindow.open(Gmaps.map.serviceObject,marker);
+  }
+</script>
+<% end %>
