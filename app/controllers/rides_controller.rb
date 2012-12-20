@@ -1,7 +1,8 @@
 class RidesController < ApplicationController
   before_filter	:signed_in_user, only: [:edit, :update, :new, :create, :destroy, :index]
-  before_filter	:correct_user,	only: [:index]
-  before_filter :admin_user,     only: :destroy
+  before_filter	:correct_user,	 only: [:edit, :destroy]
+  before_filter :admin_user,     only: [:destroy]
+  
   # GET /rides
   # GET /rides.json	
   def index
@@ -46,8 +47,8 @@ class RidesController < ApplicationController
       flash[:success] = "Nice! Ride was successfuly added"
       redirect_to @ride
     else
-      render action: "new" 
-      #format.json { render json: @ride.errors, status: :unprocessable_entity }
+      render action: "new"
+      @feed_items = []
     end
   end
 

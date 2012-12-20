@@ -1,7 +1,7 @@
 <% provide(:title, 'Carpool and Rideshare - Join The Ride') %>
 
 <div class="row-fluid">
-  <div class="mast span8 embos">
+  <div class="mast span7 embos">
     <h1>Join The Ride <%=image_tag('logo_bug.png')%></h1>
     <hr>
     <p> Share rides and meet awesome people like yourself. <%= link_to 'Learn How', '#' %></p>
@@ -9,7 +9,7 @@
 	Add Your Ride
       <% end %>
   </div>
-  <section id="search-rides" class="span4 embos">
+  <section id="search-rides" class="span5 embos">
     <%= render '/layouts/main_search_form' %>
   </section>
   <div class="row-fluid">
@@ -17,6 +17,19 @@
     <h3>Recent rides</h3>
     <%= render 'current_rides' %>
   </div>
+  <%# if signed_in? %>
+<!--  <div class="row-fluid">
+  <div class="embos span">
+    <h3>Feed</h3>
+    <%# render 'shared/feed' %>
+  </div>
+  </div>-->
+  <%# end %>
+  <% if signed_in? %>
+  <div class="span embos">
+    <%= render partial: 'shared/feed_item', collection: @feed_items %>
+  </div>
+  <% end %>
   </div>
 </div>
 

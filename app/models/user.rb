@@ -40,6 +40,11 @@ class User < ActiveRecord::Base
     end
   end
   
+  def feed
+    # This is preliminary. See "Following users" for the full implementation.
+    Ride.where("user_id = ?", id)
+  end
+  
   
   def image
     if usr_img.present?
