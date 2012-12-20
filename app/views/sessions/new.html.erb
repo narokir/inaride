@@ -1,11 +1,13 @@
 <% provide(:title, 'Sign In') %>
 <% notice %>
-<div class="container embos span5">
-<h1>Sign in</h1><hr>
-  <%= link_to image_tag('fb-signin.png'), "/auth/facebook",class:"sign_in",id:"sign_in" %></br></br>
-  <strong>Safe, Simple, Fast.</strong>
-  <hr>
-  <%= render 'form' %>
+<div class="row-fluid">
+  <div class="embos span5">
+    <h1>Sign in</h1><hr>
+    <%= link_to image_tag('fb-signin.png'), "/auth/facebook",class:"sign_in",id:"sign_in" %></br></br>
+    <strong>Safe, Simple, Fast.</strong>
+    <hr>
+    <%= render 'form' %>
+  </div>
 </div>
 
 
