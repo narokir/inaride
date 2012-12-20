@@ -1,12 +1,11 @@
 <% provide(:title, "Ride from #{@ride.origin} to #{@ride.destination}")%>
 <% notice %>
-
-
-
-<section id="ride-info" class="span8 embos">
+<div class="row-fluid">
+  <div class="span8 embos">
+<section id="ride-info">
   <h1 class="trip"><%= @ride.origin %> --- <%=image_tag('logo_bug.png')%> --> <%= @ride.destination %></h1>
 
-  <table class="">
+  <table>
     <tbody>
       <tr>
 	<td colspan=1>
@@ -55,7 +54,7 @@
 	      })%>
   </div>
 </section><!-- Rides -->
-
+  </div>
 <aside id="driver" class="span3 embos">
   <h2>Driver</h2><%= link_to (@ride.user.full_name),@ride.user %><hr>
   <div class="row-fluid">
@@ -80,6 +79,8 @@
       <button type="button" class="btn btn-mini btn-success">Send</button>
   </div>
 </aside>
+</div>
+
 
   
 <% content_for :scripts do %>

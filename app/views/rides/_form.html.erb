@@ -1,5 +1,5 @@
 <%= simple_form_for(@ride, :html => {:class => 'form-horizontal' }) do |f| %>
-<%= render 'shared/error_messages', object: f.object %>
+  <%= render 'shared/error_messages', object: f.object %>
   <%= f.input :origin,label:'Start Location', :error_html => { id: 'ride_origin'},placeholder: 'Origin city, street or a Zip code', :input_html => { class:'span8 ride_origin' },autocomplete: "off" %>
   <%= f.input :destination,:label => 'Destination',:placeholder => 'Destination city, street or a Zip code', :input_html => { :class => 'span8 ride_destination' } %>
   <hr>
@@ -11,10 +11,10 @@
   <%# f.input :date,:collection => ['AM','PM'],:include_blank => false,:label => false, :input_html => {:class => 'span2'}%>
   
   <%= f.input :price,:wrapper_html => { :class => '' }, :label => "Price per seat",:wrapper => :prepend do %>
-      <span class="add-on">$</span><%= f.input_field :price,:class => 'span4 has-popover',:title =>"Ride contrebutions","data-content" =>"Enter the ammount you would like each passenger to contrebute to the ride.","value"=>"2",:wrapper_html => { :class => 'span1' },:label => "Price per seat", :input_html => {} %>
+      <span class="add-on">$</span><%= f.input_field :price,class:'span4 has-popover',title: "Ride contrebutions","data-content" =>"Enter the ammount you would like each passenger to contrebute to the ride.","value"=>"2",:wrapper_html => { :class => 'span1' },:label => "Price per seat", :input_html => {} %>
   <% end %>
   <%= f.input :seats,:wrapper_html => { :class => '' },:label => "Seats avlable", :input_html => {:class => 'span1 has-popover',:title =>"Seats Available","data-content" =>"Enter the number of seats available for passengers.","value"=>"2"} %>
-  <%= f.input :notes,:label => "Message",:input_html => {:class =>"span8",:rows=> 3} %>
+  <%= f.input :notes,label: "Any notes?",:input_html => {:class =>"span8",:rows=> 3},placeholder: "Hey, I'm #{current_user.first_name}, I can offer someone a ride."%>
   <div class="controls">
   <%= f.submit 'Post This Ride', class:"btn btn-success btn-large" %>
   </div>

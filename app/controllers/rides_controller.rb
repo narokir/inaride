@@ -1,5 +1,7 @@
 class RidesController < ApplicationController
-  before_filter :signed_in_user, only: [:edit, :update, :new, :create, :destroy]
+  before_filter	:signed_in_user, only: [:edit, :update, :new, :create, :destroy, :index]
+  before_filter	:correct_user,	only: [:index]
+  before_filter :admin_user,     only: :destroy
   # GET /rides
   # GET /rides.json	
   def index
@@ -84,11 +86,13 @@ class RidesController < ApplicationController
         redirect_to signin_url, notice: "Please sign in"
       end
     end
-    
-  private
 
     def correct_user
       @ride = current_user.rides.find_by_id(params[:id])
       redirect_to root_url if @ride.nil?
+    end
+    
+    def admin_user
+      redirect_to(root_path) unless current_user.admin?
     end
 end

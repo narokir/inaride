@@ -3,7 +3,7 @@ class Ride < ActiveRecord::Base
   belongs_to :user
 
   validates_presence_of :origin, :destination, :date, :price, :seats
-  validates :notes, presence: true, length: { maximum: 300 }
+  validates :notes, length: { maximum: 300 }
   
   validates :user_id, presence: true
   

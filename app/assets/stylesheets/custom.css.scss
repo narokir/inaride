@@ -9,6 +9,7 @@ $blue:			#0099FF;
 $blueMid:		#227eff;
 $blueDark:		#277BE0;
 $linkColor:         	#5abfe0;
+$red:			#B92048;
 
 $navbarBackgroundHighlight: $salmon;
 $navbarBackground: darken($navbarBackgroundHighlight, 5%);
@@ -37,8 +38,6 @@ $paginationActiveBackground: 		#f5f5f5;
 // Typography
 // -------------------------
 //$headingsColor: $youngGreen;
-
-
 
 @import "bootstrap";
 @import "bootstrap-responsive";
