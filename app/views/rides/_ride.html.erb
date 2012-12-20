@@ -1,15 +1,17 @@
 <tr>
+  <% if !current_user?(ride.user) %>
   <td>
   <div class="driver-info">
     <div><%= image_tag(ride.user.image,options={:class =>"profile_img_small"}) %></div>
     <small><%= link_to ride.user.first_name, ride.user %></small>
   </div>
   </td>
+  <% end %>
   <td>
     <%= link_to "#{ride.origin} ---> #{ride.destination}", ride %><br>
     <small class="muted date"><%= ride.date.strftime(" %A, %b %d, %Y") %></small>
     <br>
-    <% if current_user.admin? && current_user?(ride.user) %>
+    <% if current_user.admin? || current_user?(ride.user) %>
       <%= link_to 'Edit', edit_ride_path(ride) %>
       | <%= link_to 'Delete', ride, confirm: 'Are you sure?', method: :delete %>
     <% end %>

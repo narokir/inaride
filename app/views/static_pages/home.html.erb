@@ -17,19 +17,6 @@
     <h3>Recent rides</h3>
     <%= render 'current_rides' %>
   </div>
-  <%# if signed_in? %>
-<!--  <div class="row-fluid">
-  <div class="embos span">
-    <h3>Feed</h3>
-    <%# render 'shared/feed' %>
-  </div>
-  </div>-->
-  <%# end %>
-  <% if signed_in? %>
-  <div class="span embos">
-    <%= render partial: 'shared/feed_item', collection: @feed_items %>
-  </div>
-  <% end %>
   </div>
 </div>
 

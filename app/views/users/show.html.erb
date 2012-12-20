@@ -6,7 +6,7 @@
   <section id="user" class="span4 embos">
     <h1 class="user-details">Hi <%= @user.first_name %></h1>
     <div class="profile_img_wrap">
-      <div><%= image_tag(@user.image, options = {:class =>"profile_img_small"})  %></div>
+      <div class="driver-info"><%= image_tag(@user.image, options = {:class =>"profile_img_small"})  %></div>
       <div><%# gravatar_for @user %></div>
     </div>
     <div class="info">
