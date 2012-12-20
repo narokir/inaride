@@ -12,7 +12,7 @@
   <td>
     <%= link_to "#{ride.origin} ---> #{ride.destination}", ride %><br>
     <span class="date"><%= ride.date.strftime(" %A, %b %d") %></span>
-    <span class="muted"><%= ride.time %></span>
+    <span class="muted"><%= ride.time.strftime(" %I, %M %p") if present? %></span>
   </td>
   <td>
     <span class="price"><%= number_to_currency(ride.price, precision: 0) %></span>

@@ -9,7 +9,7 @@ admin = User.create!(name: 			"Admin User",
                          password_confirmation: "foobar")
     admin.toggle!(:admin)
     
-    20.times do
+    10.times do
       name = Faker::Name.name
       email = Faker::Internet.free_email
       usr_img = "/assets/user_placeholder.png"
@@ -25,7 +25,7 @@ admin = User.create!(name: 			"Admin User",
                    password: 			password,
                    password_cofirmation: 	password)
       
-      users = User.all(limit: 8)
+      users = User.all(limit: 6)
       10.times do
 	notes = Faker::Lorem.sentence(5)
 	origin = "#{Faker::Address.city}, #{Faker::Address.us_state_abbr}"
@@ -35,6 +35,7 @@ admin = User.create!(name: 			"Admin User",
 	date = "2012-11-07"
 	price = "43"
 	seats = "3"
+	time = "23:00:00"
 	
 	users.each { |user| user.rides.create!(notes:		notes,
 					      origin: 		origin,
@@ -43,7 +44,8 @@ admin = User.create!(name: 			"Admin User",
 					      price: 		price,
 					      seats: 		seats,
 					      latitude: 	latitude,
-					      longitude: 	longitude)
+					      longitude: 	longitude,
+					      time:		time)
 		    }
 	
       end
