@@ -282,6 +282,24 @@ span.price, span.seats{
     color:$salmon;
 }
 
+form#signin{
+    width:224px;
+    label{
+	background: none repeat scroll 0 0 #EEEEEE;
+	border-left: 1px solid #DDDDDD;
+	border-radius: 3px 3px 0px 0px;
+	border-right: 1px solid #DDDDDD;
+	border-top: 1px solid #DDDDDD;
+	display: block;
+	margin-bottom:0;
+	padding-bottom: 2px;
+	padding-left: 5px;
+    }
+    input.password,input.email{
+	border-radius:0px 0px 3px 3px
+    }
+}
+
 
 
 

@@ -4,13 +4,14 @@
     <h3>Sign In</h3>
   </div>
   <div class="modal-body">
-    <p>Sign in to Inoride with your facebook account.Sweet and simple!</p>
-    <br>
-    <div class="">
-      <%= link_to image_tag('fb-signin.png'), "/auth/facebook", class: "sign_in" %>
+    <div class="row">
+    <div class="span2 embos">
+      <%= link_to image_tag('fb-logo.jpg'), "/auth/facebook", class: "sign_in" %>
+      <%= link_to 'Sign in', "/auth/facebook", class: "btn" %>
     </div>
-    <br>
-    <p></p>
-    </br>
+    <div class="span">
+      <%= render "/sessions/form" %>
+    </div>
+    </div>
   </div>
 </div>
