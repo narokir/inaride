@@ -214,33 +214,31 @@ h1.trip{
 }
 
 #ride-info{
+ .map_container{
+    border:none;
+ }
 
-    .map_container{
-	border:none;
+ table{
+  width:100%;
+  tbody{
+    border-right:1px dotted #ddd;
+	border-top:1px dotted #ddd;
     }
-
-    table{
-      width:100%;
-	
-	tbody{
-	    border-right:1px dotted #ddd;
-	    border-top:1px dotted #ddd;
+    
+    td{
+	border-bottom:1px dotted #ddd;
+	border-left:1px dotted #ddd;
+	padding:5px;
+    }
+    
+    .pickup{
+	border: 1px solid #1B8B08;
+	border-radius: 5px 5px 5px 5px;
+	line-height: inherit;
+	margin: 3px;
+	padding: 12px 18px;
 	}
-	
-	td{
-	    border-bottom:1px dotted #ddd;
-	    border-left:1px dotted #ddd;
-	    padding:5px;
-	}
-	
-	.pickup{
-	    border: 1px solid #1B8B08;
-	    border-radius: 5px 5px 5px 5px;
-	    line-height: inherit;
-	    margin: 3px;
-	    padding: 12px 18px;
-	    }
-    } 
+    }
 }
 
 
@@ -281,6 +279,9 @@ span.price, span.seats{
 .date{
     color:$salmon;
 }
+
+/* Sign in Form 
+------------------------------------------------------------------------------*/
 
 form#signin{
     width:224px;
