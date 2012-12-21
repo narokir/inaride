@@ -7,10 +7,15 @@ gem 'omniauth-facebook', '1.4.0'
 gem 'simple_form'
 gem 'jquery-rails'
 gem 'jquery_datepicker'
+<<<<<<< HEAD
 gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate'
 
+=======
+gem 'faker'
+gem 'annotate', ">=2.5.0"
+>>>>>>> 1a50efd987ec34acbb6320229a971099cad3ffaa
 
 group :development, :test do
   gem 'bcrypt-ruby', '3.0.1'

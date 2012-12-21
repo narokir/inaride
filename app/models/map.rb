@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: maps
+#
+#  id          :integer          not null, primary key
+#  title       :string(255)
+#  origin      :string(255)
+#  destination :string(255)
+#  longitude   :float
+#  latitude    :float
+#  waypoint_1  :string(255)
+#  gmaps       :boolean
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class Map < ActiveRecord::Base
   attr_accessible :destination, :gmaps, :latitude, :longitude, :origin, :title, :waypoint_1
   acts_as_gmappable #:process_geocoding => false

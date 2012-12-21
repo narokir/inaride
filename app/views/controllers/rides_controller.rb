@@ -3,18 +3,7 @@ class RidesController < ApplicationController
   # GET /rides
   # GET /rides.json	
   def index
-<<<<<<< HEAD
-    @rides = Ride.paginate(:page => params[:page], :per_page => 10)
-=======
-    @rides = Ride.all
-<<<<<<< HEAD
-=======
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @rides }
-    end
->>>>>>> 1a50efd987ec34acbb6320229a971099cad3ffaa
->>>>>>> 24f802f3ed36f25cb31ec4df74716ed564ecd882
+    @rides = Ride.paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /rides/1
@@ -48,12 +37,16 @@ class RidesController < ApplicationController
   # POST /rides
   # POST /rides.json
   def create
+    #@ride = Ride.new(params[:ride])
     @ride = current_user.rides.build(params[:ride])
-    if @ride.save
-      redirect_to @ride
-      flash[:success] = "Nice! Your ride was successfuly added"
-    else
-      format.json { render json: @ride.errors, status: :unprocessable_entity }
+    respond_to do |format|
+      if @ride.save
+        format.html { redirect_to @ride, notice: 'Ride was successfully created.' }
+        format.json { render json: @ride, status: :created, location: @ride }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @ride.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -79,7 +72,7 @@ class RidesController < ApplicationController
     @ride.destroy
 
     respond_to do |format|
-      format.html { redirect_to rides_url, notice: 'Ride was successfully deleted.' }
+      format.html { redirect_to rides_url }
       format.json { head :ok }
     end
   end

@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20121216003424) do
+=======
+<<<<<<< HEAD
+ActiveRecord::Schema.define(:version => 20121202020010) do
+=======
+ActiveRecord::Schema.define(:version => 20121030053948) do
+>>>>>>> 1a50efd987ec34acbb6320229a971099cad3ffaa
+>>>>>>> 24f802f3ed36f25cb31ec4df74716ed564ecd882
 
   create_table "maps", :force => true do |t|
     t.string   "title"
@@ -54,8 +62,14 @@ ActiveRecord::Schema.define(:version => 20121216003424) do
     t.string   "usr_img"
     t.string   "first_name"
     t.string   "last_name"
+<<<<<<< HEAD
     t.string   "password_digest"
+<<<<<<< HEAD
     t.boolean  "admin",            :default => false
+=======
+=======
+>>>>>>> 1a50efd987ec34acbb6320229a971099cad3ffaa
+>>>>>>> 24f802f3ed36f25cb31ec4df74716ed564ecd882
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
