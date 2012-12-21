@@ -18,17 +18,11 @@
 #
 
 class User < ActiveRecord::Base
-<<<<<<< HEAD
+
   attr_accessible :name, :email, :password, :password_confirmation, :first_name, :last_name, :usr_img
-<<<<<<< HEAD
+
   has_many :rides, dependent: :destroy
-=======
-  has_many :rides, :dependent => :destroy
-=======
-  attr_accessible :name, :email, :uid, :last_name, :first_name
-  has_many :rides, dependent: :destroy
->>>>>>> 1a50efd987ec34acbb6320229a971099cad3ffaa
->>>>>>> 24f802f3ed36f25cb31ec4df74716ed564ecd882
+
   
   has_secure_password
   

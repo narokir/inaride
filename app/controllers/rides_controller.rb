@@ -3,18 +3,14 @@ class RidesController < ApplicationController
   # GET /rides
   # GET /rides.json	
   def index
-<<<<<<< HEAD
+
     @rides = Ride.paginate(:page => params[:page], :per_page => 10)
-=======
-    @rides = Ride.all
-<<<<<<< HEAD
-=======
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @rides }
     end
->>>>>>> 1a50efd987ec34acbb6320229a971099cad3ffaa
->>>>>>> 24f802f3ed36f25cb31ec4df74716ed564ecd882
+
   end
 
   # GET /rides/1
