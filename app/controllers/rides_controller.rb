@@ -1,7 +1,7 @@
 class RidesController < ApplicationController
-  before_filter	:signed_in_user, only: [:edit, :update, :new, :create, :destroy, :index]
+  before_filter	:signed_in_user, only: [:create, :destroy]
   before_filter	:correct_user,	 only: [:edit, :destroy]
-  before_filter :admin_user,     only: [:destroy]
+  before_filter :admin_user,     only: :destroy
   
   # GET /rides
   # GET /rides.json	
@@ -70,9 +70,8 @@ class RidesController < ApplicationController
   # DELETE /rides/1
   # DELETE /rides/1.json
   def destroy
-    @ride = Ride.find(params[:id])
+    #@ride = Ride.find(params[:id])
     @ride.destroy
-
     respond_to do |format|
       format.html { redirect_to rides_url, notice: 'Ride was successfully deleted.' }
       format.json { head :ok }
