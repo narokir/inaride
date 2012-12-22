@@ -70,7 +70,7 @@ class RidesController < ApplicationController
   # DELETE /rides/1
   # DELETE /rides/1.json
   def destroy
-    #@ride = Ride.find(params[:id])
+    @ride = Ride.find(params[:id])
     @ride.destroy
     respond_to do |format|
       format.html { redirect_to rides_url, notice: 'Ride was successfully deleted.' }
