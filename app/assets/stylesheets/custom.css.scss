@@ -241,7 +241,24 @@ h1.trip{
     }
 }
 
+/* User Profile 
+------------------------------------------------------------------------------*/
 
+
+section#user{
+    h1{
+	margin:0px 0px 4px 0px;
+	line-height:1em;
+    }
+    h2{
+	margin:0px 0px 5px 0px;
+	font-size:1em;
+	line-height:1em;
+    }
+    hr{
+	margin:5px 0px 5px 0px;
+    }
+}
 .driver-info{
     float:left;
     margin-right:5px;
