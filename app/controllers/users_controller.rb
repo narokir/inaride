@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_filter :signed_in_user, only: [:index,:edit, :update, :destroy, :show]
-  before_filter :correct_user,   only: [:edit, :update]
-  before_filter :admin_user,     only: [:edit, :destroy]
+  before_filter :signed_in_user, only: [:index,:edit, :update, :show]
+  #before_filter :correct_user,   only: [:edit, :update]
+  #before_filter :admin_user,     only: [:edit, :destroy]
   
   # GET /users
   # GET /users.json
@@ -51,15 +51,12 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
-    @user = User.find(params[:id])
-    respond_to do |format|
-      if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'Your profile was successfully updated.' }
-        format.json { head :ok }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.update_attributes(params[:user])
+      flash[:success] = "Profile updated"
+      sign_in @user
+      redirect_to @user
+    else
+      render 'edit'
     end
   end
 
@@ -88,12 +85,10 @@ class UsersController < ApplicationController
     
     def admin_user
       redirect_to(root_path) unless current_user.admin?
-      flash[:warning] = "Admin"
     end
     
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_path) unless current_user?(@user)
-      flash[:warning] = "correct user"
     end
 end

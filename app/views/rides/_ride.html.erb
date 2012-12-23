@@ -11,9 +11,9 @@
     <%= link_to "#{ride.origin} ---> #{ride.destination}", ride %><br>
     <small class="muted date"><%= ride.date.strftime(" %A, %b %d, %Y") %></small>
     <br>
-    <% if current_user.admin? || current_user?(ride.user) %>
+    <% if current_user?(ride.user) || current_user.admin? %>
       <%= link_to 'Edit', edit_ride_path(ride) %>
-      | <%= link_to 'Delete', ride, method: :delete, confirm: 'Are you sure?' %>
+      | <%= link_to 'Delete', ride, method: :delete, confirm: 'Are you sure you want to do that?' %>
     <% end %>
   </td>
   <td>

@@ -1,7 +1,7 @@
 class RidesController < ApplicationController
-  before_filter	:signed_in_user, only: [:create, :destroy]
+  before_filter	:signed_in_user, only: [:create, :destroy, :new]
   before_filter	:correct_user,	 only: [:edit, :destroy]
-  before_filter :admin_user,     only: :destroy
+  #before_filter	:admin_user,	 only: [:edit, :destroy, :show]
   
   # GET /rides
   # GET /rides.json	
@@ -44,7 +44,7 @@ class RidesController < ApplicationController
   def create
     @ride = current_user.rides.build(params[:ride])
     if @ride.save
-      flash[:success] = "Nice! Ride was successfuly added"
+      flash[:success] = "Nice! Ride Created."
       redirect_to @ride
     else
       render action: "new"
@@ -72,10 +72,8 @@ class RidesController < ApplicationController
   def destroy
     @ride = Ride.find(params[:id])
     @ride.destroy
-    respond_to do |format|
-      format.html { redirect_to rides_url, notice: 'Ride was successfully deleted.' }
-      format.json { head :ok }
-    end
+    flash[:success] = "Ride was deleted!"
+    redirect_to current_user
   end
   
   private

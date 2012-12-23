@@ -11,18 +11,10 @@
     </div>
   </td>
   
-  <% if current_user?(ride.user) %>
+  <% if current_user?(ride.user) && current_user.admin? %>
   <td>
-    <div class="btn-group">
-      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-	Action
-	<span class="caret"></span>
-	</a>
-      <ul class="dropdown-menu">
-	<li><%= link_to 'Edit', edit_ride_path(ride) %></li>
-	<li><%= link_to 'Destroy', ride, confirm: 'Are you sure?', method: :delete %></li>
-      </ul>
-    </div>
+    <%= link_to 'Edit', edit_ride_path(ride) %></li>
+    | <%= link_to 'Destroy', ride, confirm: 'Are you sure?', method: :delete %>
   </td>
 </tr>
 <% end %>

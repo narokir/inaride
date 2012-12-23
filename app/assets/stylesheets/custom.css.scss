@@ -287,7 +287,7 @@ img.profile_img_small{
     border-radius:4px;
 }
 
-span.price, span.seats{
+span.price, span.seats, span.rides{
     font-size: 18px;
     font-weight: bold;
     display:block;
@@ -295,6 +295,9 @@ span.price, span.seats{
 
 .date{
     color:$salmon;
+}
+.red{
+    color:#66CC99;
 }
 
 /* Sign in Form 

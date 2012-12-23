@@ -1,10 +1,11 @@
 class SearchController < ApplicationController
   
   def search_rides
-    if params.present?
+    if params[:origin].present? || params[:destination].present? || params[:date].present?
       @rides=Ride.search(params).limit(10)
     else
-      scoped
+      render 'rides'
+      flash[:error] = "no params"
     end
   end
 

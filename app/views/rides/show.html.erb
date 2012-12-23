@@ -19,9 +19,11 @@
 	  <span class="price"><%= seats %></span>
 	  <small class="muted">Seats available</small>
 	</td>
+	<% if !current_user?(@ride.user) %>
 	<td colspan=1>
 	  <a class="pickup btn btn-success pull-right">Request Pickup</a>
 	</td>
+	<% end %>
       </tr>
       <tr>
 	<td colspan=4>
@@ -55,8 +57,9 @@
   </div>
 </section><!-- Rides -->
   </div>
+
 <aside id="driver" class="span4 embos">
-  <h2>Driver</h2><%= link_to (@ride.user.full_name),@ride.user %><hr>
+  <h2>Driver</h2><%= @ride.user.full_name %><hr>
   <div class="row-fluid">
     <div class="span3">
 	<div><%= link_to image_tag(@ride.user.image,options={:class =>"profile_img_small"}),@ride.user %></div>

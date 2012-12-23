@@ -32,4 +32,5 @@ module ApplicationHelper
     @ride_seats = "0"
     end
   end
+  
 end
