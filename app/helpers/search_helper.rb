@@ -1,10 +1,11 @@
 module SearchHelper
   
-  def no_search_params
-    if params[:origin].blank? && params[:destination].blank?
-      notice = 'You did not provide an origin or destination'
+  def search_status
+    if params[:origin].blank? && params[:destination].blank? && params[:date].blank?
+      notice = 'You forgot to mention a few things like origin, destination or date. Try again ->'
     else
-      "#{params[:origin]},#{params[:destination]},#{params[:date]}"
+     "#{params[:origin]}#{params[:destination]}#{params[:date]}"
+     render :text => 'hi'
     end
   end
   

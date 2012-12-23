@@ -1,4 +1,10 @@
 <% @rides.each do |ride| %>
+<p>
+<b><%= pluralize(@rides.count, 'ride') %></b>
+leaving From <b><%="#{ride.origin}" %></b>
+going to <b><%="#{ride.destination}" %></b>
+on <b><%="#{ride.date.strftime(" %A, %b %d")}" %></b>
+</p>
   <tr>
     <td>
       <div class="profile_img_wrap">
@@ -9,7 +15,7 @@
       </div>
     </td>
     <td><%= link_to "#{ride.origin} ---> #{ride.destination}", ride %></br>
-    <span class="date"><%= ride.date.strftime(" %A, %b %d, %Y") %></span> | <%= ride.time.strftime(" %I, %M %p") %>
+    <span class="date"><%= ride.date.strftime(" %A, %b %d, %Y") %></span> | <%= ride.time.strftime("%I:%M %p") %>
     </td>
     <td>
     <div class="span price">
@@ -18,7 +24,8 @@
     </div>
     </td>
     <td>
-      <%= link_to 'Show', ride %>
+      <span class="seats"><%= ride.seats %></span>
+      <small class="muted">Seats available</small>
     </td>
   </tr>
 <% end %>
