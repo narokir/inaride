@@ -50,8 +50,10 @@ html {
 }
 
 body {
-  padding-top: 60px;
   background:url('/assets/fancy_deboss.png');
+}
+#main{
+    padding-top:60px;
 }
 
 textarea {
@@ -320,6 +322,21 @@ form#signin{
 	border-radius:0px 0px 3px 3px
     }
 }
+
+/* Media queries 
+------------------------------------------------------------------------------*/
+
+    /* Large desktop */
+    @media (min-width: 1200px) {}
+     
+    /* Portrait tablet to landscape and desktop */
+    @media (min-width: 768px) and (max-width: 979px) { #main{padding-top:0px;} }
+     
+    /* Landscape phone to portrait tablet */
+    @media (max-width: 767px) { #main{padding-top:0px;} }
+     
+    /* Landscape phones and down */
+    @media (max-width: 480px) { #main{padding-top:0px;} }
 
 
 
