@@ -5,7 +5,8 @@ class SearchController < ApplicationController
       @rides=Ride.search(params).limit(10)
       render 'results'
     else
-      render 'results', notice: 'Sorry no rides found'
+      render 'results'
+      flash.now[:info] = "No params given"
     end
   end
 

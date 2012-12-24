@@ -1,10 +1,4 @@
 <% @rides.each do |ride| %>
-<p>
-<b><%= pluralize(@rides.count, 'ride') %></b>
-leaving From <b><%="#{ride.origin}" %></b>
-going to <b><%="#{ride.destination}" %></b>
-on <b><%="#{ride.date.strftime(" %A, %b %d")}" %></b>
-</p>
   <tr>
     <td>
       <div class="profile_img_wrap">
