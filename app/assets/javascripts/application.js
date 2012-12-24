@@ -14,6 +14,7 @@ $(document).ready(function(){
     $('.tooltip-top').tooltip({placement:'top',trigger:'focus'});
     $('.tooltip-bottom').tooltip({placement:'bottom'});
     $('.has-popover').popover({placement:'right',trigger:'focus'});
+    $(".collapse").collapse({ toggle: true });
 });
 
 
