@@ -69,7 +69,7 @@
     background:#fff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
   font-weight:normal;
-  color:#FFADAF}.ui-state-default
+  color:#FF6666}.ui-state-default
   a,.ui-state-default a:link,.ui-state-default
   a:visited{color:#FF6666;text-decoration:none}.ui-state-hover,.ui-widget-content
   .ui-state-hover,.ui-widget-header
@@ -79,9 +79,9 @@
   a:hover,.ui-state-hover a:link,.ui-state-hover
   a:visited{color:#fff;text-decoration:none}.ui-state-active,.ui-widget-content
   .ui-state-active,.ui-widget-header .ui-state-active{border:1px solid
-  #aaa;font-weight:normal;color:#212121}.ui-state-active a,.ui-state-active
+  #aaa;font-weight:normal;color:#FF6666}.ui-state-active a,.ui-state-active
   a:link,.ui-state-active
-  a:visited{color:#212121;text-decoration:none}.ui-state-highlight,.ui-widget-content
+  a:visited{color:#79C8F3;text-decoration:none}.ui-state-highlight,.ui-widget-content
   .ui-state-highlight,.ui-widget-header .ui-state-highlight{border:1px solid
   #85c7ba;background:#afdacd
   url(images/ui-bg_highlight-soft_55_afdacd_1x100.png) 50% top
