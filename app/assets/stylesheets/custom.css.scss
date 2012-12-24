@@ -10,11 +10,13 @@ $blueMid:		#227eff;
 $blueDark:		#277BE0;
 $linkColor:         	#5abfe0;
 $red:			#B92048;
+$white:			#ffffff;
 
-$navbarBackgroundHighlight: $salmon;
+$navbarBackgroundHighlight: $white;
+$navbarHeight:60px;
 $navbarBackground: darken($navbarBackgroundHighlight, 5%);
 $bodyBackground:url('/assets/fancy_deboss.png') transparent;
-$navbarLinkColor:                 $salmonDark;
+$navbarLinkColor:                 $youngBlue;
 
 // Buttons
 // -------------------------
@@ -53,7 +55,7 @@ body {
   background:url('/assets/fancy_deboss.png');
 }
 #main{
-    padding-top:60px;
+    padding-top:90px;
 }
 
 textarea {
@@ -183,7 +185,7 @@ li.usrimg{
     
     .container{
 	padding:2em 0 2em 0;
-	background:url("/assets/inoride_main_img.png") no-repeat scroll 50% 100% transparent;
+	/*background:url("/assets/people_in_car.jpg") no-repeat scroll 50% 100% transparent;*/
 	color:#fff;
 	
     }
