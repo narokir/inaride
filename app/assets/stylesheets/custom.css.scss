@@ -55,7 +55,7 @@ body {
   background:url('/assets/fancy_deboss.png');
 }
 #main{
-    padding-top:90px;
+    padding-top:80px;
 }
 
 textarea {
@@ -65,23 +65,6 @@ textarea {
 .container-skiny{
     max-width:1024px;
     margin:0 auto;
-}
-.mast{
-    padding:20px;
-    background:#fff;
-    h1{
-	font-size:48px;
-	color:#5abfe0;
-    }
-    hr{
-	margin:0px 0px 15px 0px;
-    }
-    p{
-    font-size: 18px;
-    font-weight: 200;
-    line-height: 30px;
-    margin-bottom:23px;
-    }
 }
 
 .embos{
@@ -107,14 +90,6 @@ h1{
     color:$youngGreen;
     text-shadow:0px 1px 0px #fff;
 }
-
-
-
-
-
-
-
-
 
 
 /* Main Search form 
@@ -150,16 +125,12 @@ h1{
 /* header 
 ------------------------------------------------------------------------------*/
 
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  line-height: 1;
+
+span#brand {
+    display: block;
+    float: left;
+    padding-top: 11px;
+
 }
 
 #logo:hover {
@@ -167,9 +138,9 @@ h1{
   text-decoration: none;
 }
 li.usrimg{
-    padding:10px 0px 10px 0px;
+    padding:17px 0px;
     img.fbimg{
-	border:1px solid #A02D0B;
+	border:1px solid #9F9F9F;
 	border-radius:3px;
 	width:23px;
 	height:23px;
@@ -180,8 +151,9 @@ li.usrimg{
 /* mast
 ------------------------------------------------------------------------------*/
 #mast{
-    margin-top:45px;
-    background:-moz-linear-gradient(-45deg, #189288 0%, #55EF98 100%) repeat scroll 0 0 transparent;
+    margin-top:60px;
+    /*background:-moz-linear-gradient(-45deg, #189288 0%, #55EF98 100%) repeat scroll 0 0 transparent;*/
+    background:url("/assets/noisy_net.png") repeat scroll 0 0 transparent;
     
     .container{
 	padding:2em 0 2em 0;
@@ -196,9 +168,10 @@ li.usrimg{
 	line-height: 1em;
     }
     p{
-	font-size:2em;
+	font-size:1.9em;
 	font-weight:lighter;
 	line-height:1em;
+	letter-spacing:.05em;
     }
 }
 

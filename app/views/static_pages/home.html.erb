@@ -2,11 +2,11 @@
 
 <div class="row-fluid">
   <div class="mast span7 embos">
-    <h1>Join The Ride <%=image_tag('logo_bug.png')%></h1>
+    <h1>Set up a pickmeup <%=image_tag('logo_bug.png')%></h1>
     <hr>
-    <p> Share rides and meet awesome people like yourself. <%= link_to 'Learn How', '#' %></p>
-      <%= link_to(new_ride_path, html_options = { class: "btn btn-large btn-success add-ride"}) do %>
-	Add Your Ride
+    <p> Be nice and pick someone up. It's cheaper for both of you and your kids will breath fresh air. <%= link_to 'Why?', '#' %></p>
+      <%= link_to(new_ride_path, html_options = { class: "btn btn-large btn-success add-ride tooltip-right", title:"Good idea"}) do %>
+	Pick someone up
       <% end %>
   </div>
   <section id="search-rides" class="span5 embos">
@@ -14,7 +14,7 @@
   </section>
   <div class="row-fluid">
   <div class="embos span">
-    <h3>Recent rides</h3>
+    <h3>Bunch of new pick me ups</h3>
     <%= render 'current_rides' %>
   </div>
   </div>
