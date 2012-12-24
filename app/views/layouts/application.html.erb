@@ -18,6 +18,10 @@
       <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
   </div>
+    
+    <% if current_page?(:controller => 'static_pages', :action => 'home') %>
+      <%= render 'layouts/mast' %>
+    <% end %>
   
     <div id="main" class="container">
     <%= yield %>
