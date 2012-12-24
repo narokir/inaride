@@ -1,0 +1,27 @@
+<% provide(:title, 'Search Rides')%>
+<%notice%>
+<div class="row-fluid">
+  
+<div class="span8 embos">
+  
+  <table class="table table-bordered">
+    
+  <% if @rides.present? %>
+    <%= render 'rides' %>
+  <% else %>
+    <div class="alert alert-info">
+    <b><%= notice = "0 rides found."%></b>
+    <%= search_status %>
+    </div>
+  <% end %>
+
+  </table>
+  <%= link_to 'Add New Ride', new_ride_path, class: "btn btn-success btn-large"%>
+</div>
+
+<div class="span4 embos">
+    <%= render 'layouts/main_search_form' %>
+</div>
+
+</div>
+
