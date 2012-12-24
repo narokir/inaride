@@ -1,17 +1,13 @@
 <% provide(:title, 'Sign up') %>
 <div class="row-fluid">
-  <div class="embos span6 offset3">
+  <section id="signup" class="embos span6 offset3">
       <h1>Sign up</h1><hr>
       <div class="row-fluid">
-	<div class="span6 embos">
-	  <%= link_to image_tag('fb-logo.jpg'), "/auth/facebook", class: "sign_in" %>
-	</div>
-	<div class="span6 embos">
-	  <a href="#" data-toggle="collapse" data-target="#signup-form" class="tooltip-left" title="You're nuts">The hard way</a>
-	</div>
+	  <%= link_to image_tag('fb-logo.png'), "/auth/facebook", class: "sign_in signup span6 btn" %>
+	  <button href="#" data-toggle="collapse" data-target="#signup-form" class="tooltip-right span6 btn" title="You gonna fill out a form">The hard way</button>
       </div>
       
-      <div id="signup-form" class="collapse in">
+      <div id="signup-form" class="collapse in"><hr>
 	<%= simple_form_for(@user,:html => {:class => 'form-horizontal' }) do |f| %>
 	<%= render 'fields', f: f %>
 	  <div class="controls">
@@ -19,5 +15,5 @@
 	  </div>
 	<% end %>
       </div>
-  </div>
+  </section>
 </div>

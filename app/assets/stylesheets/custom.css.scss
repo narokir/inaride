@@ -305,7 +305,7 @@ span.price, span.seats, span.rides{
     color:#66CC99;
 }
 
-/* Sign in Form 
+/* Sign in  
 ------------------------------------------------------------------------------*/
 
 form#signin{
@@ -325,6 +325,25 @@ form#signin{
 	border-radius:0px 0px 3px 3px
     }
 }
+
+
+/* Sign up 
+------------------------------------------------------------------------------*/
+#signup{
+    button{
+	font-size: 24px;
+	line-height: 53px;
+	font-weight:bold;
+	color:$youngBlue;
+    }
+}
+
+#signup-form{
+    
+}
+
+
+
 
 /* Media queries 
 ------------------------------------------------------------------------------*/
