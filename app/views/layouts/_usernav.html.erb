@@ -1,6 +1,7 @@
 <div class="nav-collapse collapse">
 <nav class="nav pull-right ">
   <% if signed_in? %>
+
     
     <li class="usrimg">
       <%=image_tag current_user.image, class:"fbimg", alt: current_user.first_name%>
@@ -18,7 +19,6 @@
 	<li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
       </ul>
     </li>
-    <li class="focus"><%= link_to "New Pickmeup",new_ride_path %></li>
   
   <% else %>
     
@@ -30,12 +30,12 @@
       end%>
     </li>
     <li><%= link_to 'Sign in', signin_path %></li>
-    <ul class="nav">
-      <li class="focus"><%= link_to "New Pickmeup",new_ride_path %></li>
-    </ul>
     
   <% end %>
 </nav>
+    <div class="span">
+      <%= link_to "New Ride",new_ride_path, class: " btn btn-warning" %>
+    </div>
 </div>
 
 
