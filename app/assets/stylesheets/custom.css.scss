@@ -54,8 +54,13 @@ html {
 body {
   background:url('/assets/fancy_deboss.png');
 }
+
 #main{
-    padding-top:80px;
+    margin-top:20px;
+}
+
+header{
+    height: 60px;
 }
 
 textarea {
@@ -151,7 +156,6 @@ li.usrimg{
 /* mast
 ------------------------------------------------------------------------------*/
 #mast{
-    margin-top:60px;
     /*background:-moz-linear-gradient(-45deg, #189288 0%, #55EF98 100%) repeat scroll 0 0 transparent;*/
     background:url("/assets/noisy_net.png") repeat scroll 0 0 transparent;
     
