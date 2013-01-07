@@ -2,7 +2,7 @@ $salmon:		#FF6666;
 $salmonDark:		#A02D0B;
 $salmonSoft:		#FFA3A3;
 $youngBlue:		#5abfe0;
-$youngGreen:		#41a3a2;
+$youngGreen:		#00CCCC;
 $green:			#33FF99;
 $greenDark:		#ddd;
 $blue:			#0099FF;
@@ -13,7 +13,7 @@ $red:			#B92048;
 $white:			#ffffff;
 
 $navbarBackgroundHighlight: $white;
-$navbarHeight:60px;
+$navbarHeight:80px;
 $navbarBackground: darken($navbarBackgroundHighlight, 5%);
 $bodyBackground:url('/assets/fancy_deboss.png') transparent;
 $navbarLinkColor:                 $youngBlue;
@@ -51,7 +51,7 @@ html {
   overflow-y: scroll;
 }
 
-body {
+.body-bg {
   background:url('/assets/fancy_deboss.png');
 }
 
@@ -60,7 +60,7 @@ body {
 }
 
 header{
-    height: 60px;
+    height: 80px;
 }
 
 textarea {
@@ -143,7 +143,7 @@ span#brand {
   text-decoration: none;
 }
 li.usrimg{
-    padding:17px 0px;
+    padding:27px 0px;
     img.fbimg{
 	border:1px solid #9F9F9F;
 	border-radius:3px;
@@ -157,11 +157,11 @@ li.usrimg{
 ------------------------------------------------------------------------------*/
 #mast{
     /*background:-moz-linear-gradient(-45deg, #189288 0%, #55EF98 100%) repeat scroll 0 0 transparent;*/
-    background:url("/assets/noisy_net.png") repeat scroll 0 0 transparent;
+    background:url("/assets/driving_together.jpg") no-repeat scroll 0 0 transparent;
     
     .container{
-	padding:2em 0 2em 0;
-	/*background:url("/assets/people_in_car.jpg") no-repeat scroll 50% 100% transparent;*/
+	padding:2em 0 12em 0;
+	/*background:url("/assets/inoride_main_img.png") no-repeat scroll 50% 100% transparent;*/
 	color:#fff;
 	
     }
@@ -185,7 +185,7 @@ li.usrimg{
 ------------------------------------------------------------------------------*/
 
 footer {
-  margin-top: 10px;
+  /*margin-top: 10px;*/
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #666;
@@ -217,6 +217,21 @@ footer ul li {
 
 /* ride 
 ------------------------------------------------------------------------------*/
+
+ul#recent-rides{
+    li{
+	width:22.5%;
+    }
+    .locations{
+	border-bottom:1px solid #eee;
+	margin-bottom:10px;
+	min-height:75px;
+    }
+    .thumbnail{
+	min-height:200px;
+	background:#fff;
+    }
+}
 
 h1.trip{
     font-size:1.5em;

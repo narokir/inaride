@@ -2,7 +2,9 @@
 <% notice %>
 <div class="row-fluid">
   <div class="embos span6 offset3">
-    <h1>Sign in</h1><hr>
+    <h1>Sign in</h1>
+    <p>Not registered yet? <%= link_to "Sign up!", signup_path %></p>
+    <hr>
     <div class="">
       <div class="span5 embos">
 	<%= link_to image_tag('fb-logo.png'), "/auth/facebook", class: "sign_in" %>

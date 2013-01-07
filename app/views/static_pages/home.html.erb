@@ -2,7 +2,7 @@
 
 <div class="row-fluid">
   <div class="mast span7 embos">
-    <h1>Set up a pickmeup <%=image_tag('logo_bug.png')%></h1>
+    <h1>Pick someone up <%=image_tag('logo_bug.png')%></h1>
     <hr>
     <p> Be nice and pick someone up. It's cheaper for both of you and your kids will breath fresh air. <%= link_to 'Why?', '#' %></p>
       <%= link_to(new_ride_path, html_options = { class: "btn btn-large btn-success add-ride tooltip-right", title:"Good idea"}) do %>
@@ -12,14 +12,7 @@
   <section id="search-rides" class="span5 embos">
     <%= render '/layouts/main_search_form' %>
   </section>
-  <div class="row-fluid">
-  <div class="embos span">
-    <h3>Bunch of new pickmeups</h3>
+  <div class="row">
     <%= render 'current_rides' %>
   </div>
-  </div>
-</div>
-
-<div class="row-fluid">
-    <%# render 'featured' %>
 </div>
