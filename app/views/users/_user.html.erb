@@ -8,7 +8,8 @@
       <% if current_user.admin? && !current_user?(user) %>
 	  <%= link_to 'Edit', edit_user_path(user) %>
 	  | <%= link_to 'Delete', user, confirm: 'Are you sure?', method: :delete %>
-      <% end %>	
+      <% end %>
+      <strong><% if user.admin? %><span class="red">Admin</span><% end %></strong>
     </div>
   </td>
   <td>

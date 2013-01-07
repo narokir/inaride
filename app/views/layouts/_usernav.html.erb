@@ -37,6 +37,12 @@
       <%= link_to "New pickmeup",new_ride_path, class: " btn btn-warning" %>
     </div>
 </nav>
+<% if signed_in? && current_user.admin? %>
+  <ul class="nav">
+    <li><%= link_to 'All Users', users_path %></li>
+    <li><%= link_to 'All Rides', rides_path %></li>
+  </ul>
+<% end %>
 </div>
 
 
