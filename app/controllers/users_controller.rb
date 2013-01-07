@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:index,:edit, :update, :show]
   #before_filter :correct_user,   only: [:edit, :update]
-  #before_filter :admin_user,     only: [:edit, :destroy]
+  #before_filter :admin_user,     only: [:edit, :destroy, :update]
   
   # GET /users
   # GET /users.json
@@ -40,6 +40,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+      UserMailer.registration_confirmation(@user).deliver
       sign_in @user
       flash[:success] = "Nice! Welcome to Innoride"
       redirect_back_or @user
@@ -51,6 +52,7 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
+    @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:success] = "Profile updated"
       sign_in @user
