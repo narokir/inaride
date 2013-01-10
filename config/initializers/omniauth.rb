@@ -8,3 +8,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 	    :secure_image_url => 'true',
 	    :image_size => 'square'
 end
+
+OmniAuth.config.on_failure = UsersController.action(:oauth_failure)

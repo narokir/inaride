@@ -2,9 +2,8 @@
 <div class="row-fluid">
   <section id="signup" class="embos span6 offset3">
       <h1>Sign up</h1>
-      <hr>
       <div class="row-fluid">
-	  <%= link_to image_tag('fb-logo.png'), "/auth/facebook", class: "sign_in signup span6 btn offset3" %>
+	  <%# link_to image_tag('fb-logo.png'), "/auth/facebook", class: "sign_in signup span6 btn offset3" %>
       </div>
       
       <div id="signup-form"><hr>
@@ -13,6 +12,11 @@
 	  <div class="controls">
 	  <%= f.submit "Sign up", class: "btn btn-large btn-primary" %>
 	  </div>
+	  <hr>
+      <div class="span5 embos offset3">
+	<%= link_to image_tag('fb-logo.png'), "/auth/facebook", class: "sign_in" %>
+	<%= link_to 'Sign up', "/auth/facebook", class: "btn" %>
+      </div>
 	<% end %>
       </div>
   </section>

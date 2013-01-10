@@ -66,13 +66,18 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
-    session[:user_id] = nil
+    #session[:user_id] = nil
     @user = User.find(params[:id])
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url }
       format.json { head :ok }
     end
+  end
+  
+  def oauth_failure
+    redirect_to signup_path
+    #redirect wherever you want.
   end
   
   private

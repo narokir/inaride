@@ -120,14 +120,7 @@ h1{
 	margin-bottom:0px;
 	
     }
-    input#ride_origin,input#ride_destination{
-	border:1px solid #C7E6DA;
-	height:37px;
-    }
-    input#ride_date{
-	border:1px solid #C7E6DA;
-	height:30px;
-    }
+
 
     
 }
@@ -162,10 +155,11 @@ li.usrimg{
 ------------------------------------------------------------------------------*/
 #mast{
     /*background:-moz-linear-gradient(-45deg, #189288 0%, #55EF98 100%) repeat scroll 0 0 transparent;*/
-    background:url("/assets/driving_together.jpg") no-repeat scroll 0 0 transparent;
+    background:url("/assets/highway1440x900.jpg") no-repeat scroll 0 85% transparent;
+    box-shadow: 0 0 35px #000000 inset;
     
     .container{
-	padding:2em 0 12em 0;
+	padding:12em 0 2em 0;
 	/*background:url("/assets/inoride_main_img.png") no-repeat scroll 50% 100% transparent;*/
 	color:#fff;
 	
@@ -182,6 +176,24 @@ li.usrimg{
 	line-height:1em;
 	letter-spacing:.05em;
     }
+}
+
+/* current rides
+------------------------------------------------------------------------------*/
+#current-rides{
+    .tile{
+	background:#fff;
+	min-height:220px;
+	margin-bottom:10px;
+	padding:10px;
+	}
+    .driver-details{
+	margin-left:10px;
+	}
+    hr{
+	margin:10px 0px 10px 0px;
+    }
+    
 }
 
 
@@ -362,8 +374,15 @@ form#signin{
     }
 }
 
-#signup-form{
-    
+/* Search Form 
+------------------------------------------------------------------------------*/
+input#ride_origin,input#ride_destination{
+    border:1px solid #C7E6DA;
+    height:37px;
+}
+input#ride_date{
+    border:1px solid #C7E6DA;
+    height:30px;
 }
 
 

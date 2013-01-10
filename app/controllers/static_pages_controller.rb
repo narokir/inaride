@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   
   def home
-    @rides = Ride.all(limit: 8)
+    @rides = Ride.all(limit: 6)
     if signed_in?
       #@rides  = current_user.rides.build
       @feed_items = current_user.feed.paginate(page: params[:page])

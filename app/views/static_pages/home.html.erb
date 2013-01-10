@@ -2,17 +2,22 @@
 
 <div class="row-fluid">
   <div class="mast span7 embos">
-    <h1>Pick someone up <%=image_tag('logo_bug.png')%></h1>
-    <hr>
-    <p> Be nice and pick someone up. It's cheaper for both of you and your kids will breath fresh air. <%= link_to 'Why?', '#' %></p>
+    <h1>Post a new ride</h1>
+<div class="row-fluid">
+        <div class="span4 well">Tell passengers when and where will you be traveling</div>
+      <div class="span4 well">Mention the number of seats available and the amount of contributions per passenger</div>
+      <div class="span4 well">Pick up your passengers and enjoy the ride</div>
+</div>
+      
       <%= link_to(new_ride_path, html_options = { class: "btn btn-large btn-success add-ride tooltip-right", title:"Good idea"}) do %>
-	Pick someone up
+	Go
       <% end %>
   </div>
   <section id="search-rides" class="span5 embos">
     <%= render '/layouts/main_search_form' %>
   </section>
-  <div class="row">
-    <%= render 'current_rides' %>
-  </div>
 </div>
+<section id="current-rides" class="row">
+    <%= render 'current_rides' %>
+</section>
+    <%= render '/layouts/search_modal' %>
