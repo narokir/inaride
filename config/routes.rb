@@ -20,5 +20,9 @@ Inoride::Application.routes.draw do
   match 'signout', to: 'sessions#destroy', as: 'signout'
   match '/auth/failure', to: redirect('/')
   match '/search', to: 'search#search_rides', as: 'search'
+  
+  if Rails.env.development?
+    mount MailPreview => 'mail_view'
+  end
 
 end

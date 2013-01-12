@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>inaride | New User Registration</title>
+<style type="text/css">
+
+body {
+	background-repeat: repeat;
+	background-color: #FFF;
+	background-image: url("assets/fancy_deboss.png");
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #666;
+	padding:0px;
+	margin:0px 0px 0px 0px;
+	
+}
+
+table{
+  width:600px;
+  margin:0 auto;
+  margin-top:50px;
+  line-height:0px;
+}
+
+
+
+.email-container {
+	background-color: #FFF;
+	border-collapse:collapse;
+}
+
+small {
+	font-size: 12px;
+	line-height: 16px;
+	color: #999;
+}
+
+.email-container td {
+    background:#fff;
+    padding: 25px;
+    border-left:1px solid #ddd;
+    width:500px;
+    border-right:1px solid #ddd;
+    border-top:1px solid #49B1B3;
+}
+
+
+p {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	line-height: 20px;
+	color: #666;
+}
+
+a {
+	color: #07B7C1;
+}
+.logo-small{
+    width:100px;
+    text-indent:-99999px;
+    position:relative;
+    top:2px;
+}
+
+#footer td {
+	text-align: center;
+	padding: 20px;
+}
+</style>
+</head>
+<body>
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+     <td class="header">
+	<%= image_tag('email_header.png')%>
+     </td>
+    </tr>
+    <tr class="email-container">
+     <td>
+	<p><strong>Hey <%= @user.first_name %>,</strong></p>
+        <p>
+	Thank you for registering with inaride <%= link_to 'New Pickmeup', new_ride_url, :only_path => false
+	%> of the printing and typesetting industry. Lorem Ipsum has been the
+	industry's standard dummy text ever since the 1500s, when an unknown
+	printer took a galley of type and scrambled it to make a type specimen
+	book. It has survived not only five centuries, but also the leap into
+	electronic typesetting, remaining essentially unchanged. It was
+	popularised in the 1960s with the release of Letraset sheets containing
+	Lorem Ipsum passages, and more recently with desktop publishing software
+	like Aldus PageMaker including versions of Lorem Ipsum.
+	<%= link_to 'New Pickmeup', new_ride_url, :only_path => false %>
+        </p>
+     </td>
+      </tr>
+  <tr>
+    <td><%= image_tag('email_footer.png')%></td>
+  </tr>
+
+  <tr id="footer">
+    <td>
+    <p><small><a href="#">Unsubscribe</a> | <a href="mailto:narokir@gmail.com">info@inaride.com</a><br />&copy; <span class="logo-small"><%= image_tag('footer_logo.png')%></span> 2012</small></p></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -9,7 +9,6 @@
   <%# f.submit "Search", :name => nil, class: "btn btn-large btn-primary" %>
 <%# end %>
   <%= form_tag search_path, :method => 'get', id: "main-search",class: "form-vertical" do %>
-  <legend>I need a ride</legend>
       <div class="control-group">
 	 <div class="controls">
 	    <%= text_field_tag :origin, params[:origin], placeholder:"From:", id:"ride_origin",class: "mainsearch span ride_origin",autocomplete:"off"%>

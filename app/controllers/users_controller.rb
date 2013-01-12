@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      UserMailer.registration_confirmation(@user).deliver
+      UserMailer.registration_email(@user).deliver
       sign_in @user
       flash[:success] = "Nice! Welcome to Innoride"
       redirect_back_or @user

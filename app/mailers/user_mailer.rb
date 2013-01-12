@@ -3,14 +3,16 @@ class UserMailer < ActionMailer::Base
   default :from => 'no-reply@pickmeup.com'
   default :sender => 'narek@pickmeup.com'
   
-  def registration_confirmation(user)
+  def registration_email(user)
     @user = user
-    attachments.inline["email_header.png"] = File.read("#{Rails.root}/public/email_header.png")
-    mail(to: user.email, subject: "Welcome to Pickmeup")
+    mail(to: user.email, subject: "Welcome to Inaride")
   end
   
-  def ride_request(user)
-    @user = user
-    mail(to: ride.user.email, subject: "Can I get a ride", :from => current_user.email)
+  def weekly(email)
+    mail to: email, subject: "inaride Weekly"
   end
+  
+  def forgot_password(user)
+  end
+
 end

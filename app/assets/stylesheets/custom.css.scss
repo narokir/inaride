@@ -117,7 +117,7 @@ h1{
     }
 
     input{
-	margin-bottom:0px;
+	margin-bottom:3px;
 	
     }
 
@@ -154,12 +154,10 @@ li.usrimg{
 /* mast
 ------------------------------------------------------------------------------*/
 #mast{
-    /*background:-moz-linear-gradient(-45deg, #189288 0%, #55EF98 100%) repeat scroll 0 0 transparent;*/
-    background:url("/assets/highway1440x900.jpg") no-repeat scroll 0 85% transparent;
-    box-shadow: 0 0 35px #000000 inset;
+
     
     .container{
-	padding:12em 0 2em 0;
+	padding:5em 0 5em 0;
 	/*background:url("/assets/inoride_main_img.png") no-repeat scroll 50% 100% transparent;*/
 	color:#fff;
 	
@@ -175,6 +173,11 @@ li.usrimg{
 	font-weight:lighter;
 	line-height:1em;
 	letter-spacing:.05em;
+    }
+    #slide1{
+    /*background:-moz-linear-gradient(-45deg, #189288 0%, #55EF98 100%) repeat scroll 0 0 transparent;*/
+    background:url("/assets/highway1440x900.jpg") no-repeat scroll 0 85% transparent;
+    box-shadow: 0 0 35px #000000 inset;
     }
 }
 
@@ -376,13 +379,49 @@ form#signin{
 
 /* Search Form 
 ------------------------------------------------------------------------------*/
-input#ride_origin,input#ride_destination{
+input#ride_origin{
     border:1px solid #C7E6DA;
-    height:37px;
+    height:40px;
+    background:url('/assets/origin_marker.png') no-repeat scroll 5px 50% transparent;
+    padding:1px 5px 1px 30px;
 }
+
+input#ride_destination{
+    border:1px solid #C7E6DA;
+    height:40px;
+    background:url('/assets/destination_marker.png') no-repeat scroll 5px 50% transparent;
+    padding:1px 5px 1px 30px;
+}
+
 input#ride_date{
     border:1px solid #C7E6DA;
-    height:30px;
+    height:37px;
+    background:url('/assets/calendar_small.png') no-repeat scroll 95% 50% transparent;
+    padding:1px 5px 1px 5px;
+}
+
+div.section{
+    background:#fff;
+    border: 1px solid #07B7C1;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+    margin-bottom:10px;
+    .section-header{
+	color:#fff;
+	.text{
+	    font-size:32px;
+	    
+	}
+	padding:20px;
+	border-bottom:1px solid #07B7C1;
+	/*background:#E6F5F5;*/
+	background-image: linear-gradient(to bottom, #00CCCC, #58D1D4);
+	border-radius: 4px 4px 0px 0px;
+    }
+    .section-content{
+	padding:20px;
+
+    }
 }
 
 
@@ -402,6 +441,15 @@ input#ride_date{
      
     /* Landscape phones and down */
     @media (max-width: 480px) { #main{padding-top:0px;} }
+    
+    
+ /* Bootstrap overide 
+------------------------------------------------------------------------------*/   
+textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
+    border-color: #05cccc;
+    box-shadow: 0 1px 1px #ddd inset, 0 0 4px #05cccc;
+    outline: 0 none;
+}
 
 
 
