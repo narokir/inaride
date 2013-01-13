@@ -196,6 +196,9 @@ li.usrimg{
     hr{
 	margin:10px 0px 10px 0px;
     }
+    .date{
+    color:$salmon;
+    }
     
 }
 
@@ -250,6 +253,9 @@ ul#recent-rides{
     .thumbnail{
 	min-height:200px;
 	background:#fff;
+    }
+    .date{
+    color:$salmon;
     }
 }
 
@@ -337,9 +343,7 @@ span.price, span.seats, span.rides{
     display:block;
 }
 
-.date{
-    color:$salmon;
-}
+
 .red{
     color:#66CC99;
 }
@@ -416,6 +420,7 @@ div.section{
 	border-bottom:1px solid #07B7C1;
 	/*background:#E6F5F5;*/
 	background-image: linear-gradient(to bottom, #00CCCC, #58D1D4);
+	background-image: -webkit-linear-gradient(#00CCCC, #58D1D4);
 	border-radius: 4px 4px 0px 0px;
     }
     .section-content{

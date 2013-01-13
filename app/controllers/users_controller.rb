@@ -47,6 +47,10 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
+    if User.from_omniauth(env["omniauth.auth"])
+      @user.save
+      flash[:success] = "Facebook! Welcome to Innoride"
+    end
   end
 
   # PUT /users/1

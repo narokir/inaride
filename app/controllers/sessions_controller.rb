@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   
   def new
+    @user = User.new
   end
   
   def create
@@ -20,9 +21,11 @@ class SessionsController < ApplicationController
   end
   
   def facebook_login
+    #raise request.env["omniauth.auth"].to_yaml
+    #raise request.env["omniauth.auth"].extra.raw_info.gender
     user = User.from_omniauth(env["omniauth.auth"])
-    session[:user_id] = user.id
-    redirect_back_or user
+      session[:user_id] = user.id
+      redirect_back_or user
   end
   
 end
