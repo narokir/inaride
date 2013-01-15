@@ -15,7 +15,10 @@ $(document).ready(function(){
     $('.tooltip-bottom').tooltip({placement:'bottom'});
     $('.has-popover').popover({placement:'right',trigger:'focus'});
     $(".collapse").collapse({ toggle: true });
+    
+    $("#signup").click(function() {
+	$("#signinModal").modal('hide');
+	$("#signupModal").modal('show');
+    });
+
 });
-
-
-

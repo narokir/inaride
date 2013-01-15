@@ -1,5 +1,5 @@
 class RidesController < ApplicationController
-  before_filter	:signed_in_user, only: [:create, :destroy, :new]
+  before_filter	:signed_in_user, only: [:destroy,:create, :new]
   before_filter	:correct_user,	 only: [:edit, :destroy]
   #before_filter	:admin_user,	 only: [:edit, :destroy, :show]
   
@@ -42,7 +42,6 @@ class RidesController < ApplicationController
   # POST /rides
   # POST /rides.json
   def create
-    @ride = current_user.rides.build(params[:ride])
     if @ride.save
       flash[:success] = "Nice! Ride Created."
       redirect_to @ride
@@ -77,14 +76,6 @@ class RidesController < ApplicationController
   end
   
   private
-
-    def signed_in_user
-      unless signed_in?
-        store_location
-        #redirect_to signin_url, notice: "Please sign in"
-        render '/shared/_signin'
-      end
-    end
 
     def correct_user
       @ride = current_user.rides.find_by_id(params[:id])

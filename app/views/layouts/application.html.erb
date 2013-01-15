@@ -10,8 +10,10 @@
 </head>
 
 <body>
+  
 <div class="body-bg">
     <%= render 'layouts/signin_modal' %>
+    <%= render 'layouts/signup_modal' %>
     <%= render 'layouts/header' %>
     
   <div id="messages" class="container">
@@ -25,11 +27,17 @@
     <% end %>
   
     <div id="main" class="container">
+
     <%= yield %>
     </div>
 </div>
     <%= render 'layouts/footer' %>   
       
   <%= debug(params) if Rails.env.development? %>
+    <div class="row-fluid">
+    <div class="span embos">
+    <%= session.inspect %>
+    </div>
+  </div>
 </body>
 </html>

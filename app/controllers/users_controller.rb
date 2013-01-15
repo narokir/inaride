@@ -47,10 +47,6 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
-    if User.from_omniauth(env["omniauth.auth"])
-      @user.save
-      flash[:success] = "Facebook! Welcome to Innoride"
-    end
   end
 
   # PUT /users/1
@@ -85,14 +81,6 @@ class UsersController < ApplicationController
   end
   
   private
-
-    def signed_in_user
-      unless signed_in?
-        store_location
-        #redirect_to signin_url, notice: "Please signin" unless signed_in?
-        render '/shared/_signin'
-      end
-    end
     
     def admin_user
       redirect_to(root_path) unless current_user.admin?

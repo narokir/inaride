@@ -1,7 +1,7 @@
 Inoride::Application.routes.draw do
   
   resources :maps
-  resources :users
+  resources :users, only: [:new, :create, :destroy, :edit]
   resources :rides
   resources :sessions, only: [:new, :create, :destroy]
   

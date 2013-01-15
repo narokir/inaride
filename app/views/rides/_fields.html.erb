@@ -13,4 +13,4 @@
     <span class="add-on">$</span><%= f.input_field :price,class:'span4 has-popover',title: "Payup for pickmeup","data-content" =>"Enter the ammount you want each passenger to contrebute to the pickmeup.","placeholder"=>"",:wrapper_html => { :class => 'span1' },:label => "Price per seat", :input_html => {} %>
 <% end %>
 <%= f.input :seats,:wrapper_html => { :class => '' },:label => "Seats avlable", :input_html => {:class => 'span1 has-popover',:title =>"Seats Available","data-content" =>"Enter the number of seats available for passengers.","placeholder"=>"3"} %>
-<%= f.input :notes,label: "What's your story?",:input_html => {:class =>"span8",:rows=> 3},placeholder: "Example: Hey, I'm #{current_user.first_name}, I can pick someone up."%>
+<%= f.input :notes,label: "What's your story?",:input_html => {:class =>"span8",:rows=> 3},placeholder: "Example: Hey,I can pick someone up."%>

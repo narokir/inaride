@@ -1,6 +1,7 @@
 <% provide(:title, 'Create New Ride')%>
 
 <div class="row-fluid">
+  
   <div class="span8 embos">
       <h1>New Ride</h1><hr>
       <%= simple_form_for(@ride,:html => {:class => 'form-horizontal' }) do |f| %>
@@ -13,6 +14,10 @@
   <div class="span4 embos">
     <%= render 'map' %>
   </div>
+  <%# session[:params][:ride].present? %>
+
+  
+  
 </div>
   
 <!--<a class="tooltip-left"href="#" title="A nice tooltip" >Tooltip Left</a>
