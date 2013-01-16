@@ -14,11 +14,8 @@ class SessionsController < ApplicationController
         format.js #{ render :js => "$('.modal').modal('hide')" } # JavaScript to do the redirect  
       end
     else
-      respond_to do |format|  
-        format.html { render 'new' }
-        flash.now[:error] = 'Invalid email/password combination'
-        format.js { render :js => "$('.modal').modal('hide')" } # JavaScript to do the redirect  
-      end
+      flash.now[:error] = 'Invalid email/password combination'
+      render 'new'
     end 
   end
 
