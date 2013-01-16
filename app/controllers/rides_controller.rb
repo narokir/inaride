@@ -1,5 +1,5 @@
 class RidesController < ApplicationController
-  before_filter	:signed_in_user, only: [:destroy,:create, :new]
+  before_filter	:signed_in_user, only: [:destroy,:create]
   before_filter	:correct_user,	 only: [:edit, :destroy]
   #before_filter	:admin_user,	 only: [:edit, :destroy, :show]
   
@@ -21,6 +21,11 @@ class RidesController < ApplicationController
   # GET /rides/new
   # GET /rides/new.json
   def new
+      respond_to do |format|
+	format.html {}
+	format.js { render :js => "alert('hi');" }
+	format.json { render :js => "alert('hi');" }
+      end
       @ride = Ride.new
       @user = @ride.build_user(params[:user])
       @markers = '[
@@ -42,14 +47,32 @@ class RidesController < ApplicationController
   # POST /rides
   # POST /rides.json
   def create
+    @ride = current_user.rides.build(params[:ride])
     if @ride.save
+      
       flash[:success] = "Nice! Ride Created."
       redirect_to @ride
     else
       render action: "new"
+      flash[:error] = "Failder to create ride"
       @feed_items = []
     end
   end
+  
+#  def create
+#    @ride = current_user.rides.build(params[:ride])
+#      if signed_in?
+#	respond_to do |format|
+#	  format.html { redirect_to @ride }
+#	  flash[:success] = "Nice! Ride Created."
+#        end
+#      else
+#	respond_to do |format|
+#	  format.js { render :js => "$('#signinModal').modal('show')" } # JavaScript to do the redirect
+#	end
+#      end
+#  end
+  
 
   # PUT /rides/1
   # PUT /rides/1.json

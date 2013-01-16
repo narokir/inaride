@@ -36,7 +36,20 @@
   <%= debug(params) if Rails.env.development? %>
     <div class="row-fluid">
     <div class="span embos">
+      <h1>Session</h1>
     <%= session.inspect %>
+    <hr>
+      <h1>Requests</h1>
+      <ul>
+	<li>Request url: <%= request.url %></li>
+	<li>Request fullpath: <%= request.fullpath %></li>
+	<li>Request referer: <%= request.referer %></li>
+	<li>Request ip: <%= request.ip %></li>
+	<li>Request xhr?: <%= request.xhr? %></li>
+	<li>Request server software: <%= request.server_software %></li>
+	<li>Request header info: <%= request.headers["User-Agent"] %></li>
+      </ul>
+    
     </div>
   </div>
 </body>

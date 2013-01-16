@@ -5,13 +5,23 @@ class SessionsController < ApplicationController
   end
   
   def create
+    #store_location
     user = User.find_by_email(params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
-      sign_in user
-      redirect_back_or root_url
+      
+      respond_to do |format|  
+        format.html { redirect_back_or root_url }  
+        format.js #{ render :js => "$('.modal').modal('hide')" } # JavaScript to do the redirect  
+      end
+      
+    sign_in user
+      
     else
-      flash.now[:error] = 'Invalid email/password combination'
-      render 'new'
+      respond_to do |format|  
+        format.html { render 'new' }
+        flash.now[:error] = 'Invalid email/password combination'
+        format.js { render :js => "$('.modal').modal('hide')" } # JavaScript to do the redirect  
+      end
     end 
   end
 

@@ -16,6 +16,7 @@ $(document).ready(function(){
     $('.has-popover').popover({placement:'right',trigger:'focus'});
     $(".collapse").collapse({ toggle: true });
     
+    // Switch modla from Login to Signup
     $("#signup").click(function() {
 	$("#signinModal").modal('hide');
 	$("#signupModal").modal('show');

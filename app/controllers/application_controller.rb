@@ -25,9 +25,11 @@ class ApplicationController < ActionController::Base
       store_location
       session[:params] = params
       #redirect_to signin_url, notice: "Please sign in"
-      render '/shared/_signin'
-      #render :js => "$('#signinModal').modal(show);"
-      #@js = "$(function () { $('#signinModal').modal();});"
+      #render '/shared/_signin'
+      #format.js { render :js => "$('#signinModal').modal('show')" } # JavaScript to do the redirect
+      #format.js { render :js => "$('#signinModal').modal(hide);" }
+      #render :js => "$('#signinModal').modal(hide);"
+      #@js = "('#signinModal').modal(show);"
       #render :inline => "<%= javascript_tag(@js) %>"
     end
   end

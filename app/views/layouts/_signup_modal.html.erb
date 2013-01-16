@@ -7,22 +7,19 @@
     <div class="row">
     <div class="span2 embos">
       <%= link_to image_tag('fb-logo.png'), "/auth/facebook", class: "sign_in" %>
-      <%= link_to 'Sign in', "/auth/facebook", class: "btn" %>
+      <%= link_to 'Signup', "/auth/facebook", class: "btn" %>
     </div>
     <div class="span">
-<%= simple_form_for(:user, :url => users_path, :action=>"create", :controller=>"users", :html => {:class => 'form-inline', :method => :post }) do |f| %>
-<%# form_for :user, :url => new_user_path, :html => {:method => :post} do |f| %>
-    
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :email %>
-  <%= f.input :password %>
-  <%= f.input :password_confirmation %>
-  <div class="actions">
-  <%= f.submit 'Sign up',  class: "btn btn-primary btn-large" %>
-  </div>
-<% end %>
-
+    <%= simple_form_for(:user, :url => users_path, :html => {:class => 'form-inline', :remote => true }) do |f| %>
+      <%= f.input :first_name, label: false, placeholder: 'First Name' %>
+      <%= f.input :last_name, label: false, placeholder: 'Last Name' %>
+      <%= f.input :email, label: false, placeholder: 'Email' %>
+      <%= f.input :password, label: false, placeholder: 'Pick a password' %>
+      <%= f.input :password_confirmation, label: false, placeholder: 'Confirm Password' %>
+    <div class="actions">
+      <%= f.submit 'Sign up',  class: "btn btn-primary btn-large" %>
+    </div>
+    <% end %>
     </div>
     </div>
   </div>

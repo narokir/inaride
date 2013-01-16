@@ -1,0 +1,11 @@
+<li class="usrimg">
+  <% if @usr_img.present? %>
+    <%= image_tag current_user.usr_img, class:"fbimg", alt: current_user.first_name %>
+  <% else %>
+    <%= image_tag ("profile_ico.png"),class:"fbimg" %>
+  <% end %>
+</li>
+<li><%# link_to 'Sign in', signin_path %></li>
+<li><%# link_to 'Sign up', signup_path %></li>
+<li><%= link_to('Login', "#signinModal", :id => 'login', "data-toggle" => "modal") %></li>
+<li><%= link_to('Signup', "#signupModal", :id => 'signup', "data-toggle" => "modal") %></li>
