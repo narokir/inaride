@@ -1,3 +1,4 @@
+<ul id="signedin_user_links" class="nav">
 <li class="usrimg">
   <%=image_tag current_user.image, class:"fbimg", alt: current_user.first_name%>
 </li>
@@ -14,3 +15,4 @@
     <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
   </ul>
 </li>
+</ul>

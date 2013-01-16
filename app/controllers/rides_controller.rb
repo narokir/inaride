@@ -59,21 +59,7 @@ class RidesController < ApplicationController
     end
   end
   
-#  def create
-#    @ride = current_user.rides.build(params[:ride])
-#      if signed_in?
-#	respond_to do |format|
-#	  format.html { redirect_to @ride }
-#	  flash[:success] = "Nice! Ride Created."
-#        end
-#      else
-#	respond_to do |format|
-#	  format.js { render :js => "$('#signinModal').modal('show')" } # JavaScript to do the redirect
-#	end
-#      end
-#  end
   
-
   # PUT /rides/1
   # PUT /rides/1.json
   def update

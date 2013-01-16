@@ -8,14 +8,11 @@ class SessionsController < ApplicationController
     #store_location
     user = User.find_by_email(params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
-      
+      sign_in user
       respond_to do |format|  
         format.html { redirect_back_or root_url }  
         format.js #{ render :js => "$('.modal').modal('hide')" } # JavaScript to do the redirect  
       end
-      
-    sign_in user
-      
     else
       respond_to do |format|  
         format.html { render 'new' }

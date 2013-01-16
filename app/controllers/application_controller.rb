@@ -6,10 +6,6 @@ class ApplicationController < ActionController::Base
     redirect_to(session[:return_to] || default)
     session.delete(:return_to)
   end
-
-  #def store_location
-  #  session[:return_to] = request.url
-  #end
   
   def store_location
     session[:return_to] =
@@ -28,7 +24,7 @@ class ApplicationController < ActionController::Base
       #render '/shared/_signin'
       #format.js { render :js => "$('#signinModal').modal('show')" } # JavaScript to do the redirect
       #format.js { render :js => "$('#signinModal').modal(hide);" }
-      #render :js => "$('#signinModal').modal(hide);"
+      #render :js => "$('#signinModal').modal('show')"
       #@js = "('#signinModal').modal(show);"
       #render :inline => "<%= javascript_tag(@js) %>"
     end

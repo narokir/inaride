@@ -11,7 +11,7 @@
 	  <%= f.submit "Done", class: "btn btn-large btn-success" %>
 	<% else %>
 	  <%= link_to('Please sign in to post this ride', "#signinModal", :id => 'login', "data-toggle" => "modal") %>
-	  <%= f.submit "Done", html = { class: "btn btn-large btn-success disabled",:disabled => true }  %>
+	  <%= f.submit "Done", html = { id: "submit_new_ride", class: "btn btn-large btn-success",:disabled => true }  %>
 	<% end %>
       </div>
     <% end %>
@@ -19,9 +19,6 @@
   <div class="span4 embos">
     <%= render 'map' %>
   </div>
-  <%# session[:params][:ride].present? %>
-
-  
   
 </div>
   

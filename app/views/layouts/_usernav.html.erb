@@ -1,21 +1,22 @@
-<nav id="user-links" class="nav pull-right ">
+  <div class="span pull-right">
+    <%= link_to "New Ride",new_ride_path, class: " btn btn-warning" %>
+  </div>
+<nav id="usernav" class="pull-right">
   <% if signed_in? %>
     <%= render 'layouts/signedin_user_links' %>
   <% else %>
     <%= render 'layouts/user_links' %>  
   <% end %>
-  
-  <div class="span">
-    <%= link_to "New Ride",new_ride_path, class: " btn btn-warning" %>
-  </div>
 </nav>
 
+
+<nav id="admin-links" class="nav">
 <% if signed_in? && current_user.admin? %>
   <ul class="nav">
     <li><%= link_to 'All Users', users_path %></li>
     <li><%= link_to 'All Rides', rides_path %></li>
   </ul>
 <% end %>
-</div>
+</nav>
 
 

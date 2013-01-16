@@ -42,10 +42,16 @@ class UsersController < ApplicationController
     if @user.save
       UserMailer.registration_email(@user).deliver
       sign_in @user
-      flash[:success] = "Hey #{current_user.first_name}, welcome to inaride"
-      redirect_back_or @user
+      respond_to do |format|  
+        format.html { redirect_back_or @user }
+        flash[:success] = "Hey #{current_user.first_name}, welcome to inaride"
+        format.js  
+      end
     else
-      render 'new'
+      respond_to do |format|  
+        format.html { redirect_back_or @user }
+        format.js  
+      end
     end
   end
 

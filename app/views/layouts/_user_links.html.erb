@@ -1,3 +1,4 @@
+<ul id="user_links" class="nav">
 <li class="usrimg">
   <% if @usr_img.present? %>
     <%= image_tag current_user.usr_img, class:"fbimg", alt: current_user.first_name %>
@@ -9,3 +10,4 @@
 <li><%# link_to 'Sign up', signup_path %></li>
 <li><%= link_to('Login', "#signinModal", :id => 'login', "data-toggle" => "modal") %></li>
 <li><%= link_to('Signup', "#signupModal", :id => 'signup', "data-toggle" => "modal") %></li>
+</ul>
