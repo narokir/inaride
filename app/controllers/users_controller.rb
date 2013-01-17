@@ -40,17 +40,17 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      UserMailer.registration_email(@user).deliver
       sign_in @user
-      respond_to do |format|  
+      respond_to do |format|
+      #UserMailer.registration_email(@user).deliver
         format.html { redirect_back_or @user }
-        flash[:success] = "Hey #{current_user.first_name}, welcome to inaride"
         format.js  
       end
+      flash[:success] = "Hey #{current_user.first_name}, welcome to inaride"
     else
       respond_to do |format|  
         format.html { redirect_back_or @user }
-        format.js  
+        format.js { render :js => "alert('Signing did not work');" } 
       end
     end
   end
