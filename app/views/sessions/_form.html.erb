@@ -1,4 +1,4 @@
-<%= simple_form_for(:session, url: sessions_path, :html => { id:"signin", :remote => true }) do |f| %>
+<%= simple_form_for(:session, url: sessions_path, :html => { id:"signin" }) do |f| %>
   <%= f.input :email, :label_html => { :class => 'fancy-label' } %>
   <%= f.input :password, :label_html => { :class => 'fancy-label' } %>
   <%= f.submit "Sign in", id: "login",class: "btn btn-large btn-primary" %>

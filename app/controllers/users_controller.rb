@@ -37,23 +37,47 @@ class UsersController < ApplicationController
 
   # POST /users
   # POST /users.json
+  #def create
+  #  @user = User.new(params[:user])
+  #  if @user.save
+  #    sign_in @user
+  #    respond_to do |format|
+  #    #UserMailer.registration_email(@user).deliver
+  #      format.html { redirect_back_or @user }
+  #      format.js  
+  #    end
+  #    flash[:success] = "Hey #{current_user.first_name}, welcome to inaride"
+  #  else
+  #    respond_to do |format|  
+  #      format.html { redirect_back_or @user }
+  #      format.js { render :js => "alert('Signing did not work');" } 
+  #    end
+  #  end
+  #end
+  
+
   def create
     @user = User.new(params[:user])
     if @user.save
-      sign_in @user
+      UserMailer.registration_email(@user).deliver
       respond_to do |format|
-      #UserMailer.registration_email(@user).deliver
-        format.html { redirect_back_or @user }
-        format.js  
+	sign_in @user
+	format.html do
+	  redirect_back_or @user
+	  flash[:success] = "Hey #{current_user.first_name}, welcome to inaride"
+	  end
+	format.js 
       end
-      flash[:success] = "Hey #{current_user.first_name}, welcome to inaride"
     else
       respond_to do |format|  
-        format.html { redirect_back_or @user }
-        format.js { render :js => "alert('Signing did not work');" } 
+        format.html { render 'new' }
+        flash[:error] = "User did not work"
       end
     end
   end
+  
+  
+  
 
   # PUT /users/1
   # PUT /users/1.json

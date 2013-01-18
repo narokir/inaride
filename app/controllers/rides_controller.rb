@@ -21,11 +21,7 @@ class RidesController < ApplicationController
   # GET /rides/new
   # GET /rides/new.json
   def new
-      respond_to do |format|
-	format.html {}
-	format.js { render :js => "alert('hi');" }
-	format.json { render :js => "alert('hi');" }
-      end
+    respond_to do |format|
       @ride = Ride.new
       @user = @ride.build_user(params[:user])
       @markers = '[
@@ -37,6 +33,11 @@ class RidesController < ApplicationController
               "height": "41"
               },]'
       @json = @markers
+      
+	format.html { }
+	format.json { render json: @ride.errors, status: :unprocessable_entity }
+	format.js { }
+      end
   end
 
   # GET /rides/1/edit

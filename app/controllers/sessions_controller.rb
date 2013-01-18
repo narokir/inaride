@@ -2,6 +2,9 @@ class SessionsController < ApplicationController
   
   def new
     @user = User.new
+      respond_to do |format|   
+        format.js { render :js => "$('.modal').modal('show')" } # JavaScript to do the redirect  
+      end
   end
   
   def create
