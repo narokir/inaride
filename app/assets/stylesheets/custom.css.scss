@@ -127,12 +127,38 @@ h1{
 
 /* header 
 ------------------------------------------------------------------------------*/
+nav#controlls{
 
+    li{
+	border-left:1px solid #ddd;
+    }
+    li:last-child{
+      border-right:1px solid #ddd;  
+    }
+    a{
+	font-size:16px;
+	font-weight:bold;
+	padding:20px 20px 20px 20px;
+    }
+    a:hover{
+	background:#05CCCC;
+	color:#fff;
+	text-shadow:none;
+	small{
+	    color:#419D9F;
+	}
+    }
+    small{
+	display:block;
+	color:#BEBEBE;
+    }
+}
 
 span#brand {
     display: block;
     float: left;
     padding-top: 11px;
+    margin-right:30px;
 
 }
 
