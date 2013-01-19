@@ -11,9 +11,9 @@
 $(document).ready(function(){
     $('.tooltip-left').tooltip({placement:'left'});
     $('.tooltip-right').tooltip({placement:'right'});
-    $('.tooltip-top').tooltip({placement:'top',trigger:'focus'});
+    $('.tooltip-top').tooltip({placement:'top'});
     $('.tooltip-bottom').tooltip({placement:'bottom'});
-    $('.has-popover').popover({placement:'right',trigger:'focus'});
+    $('.has-popover').popover({placement:'right'});
     $(".collapse").collapse({ toggle: true });
     
     // Switch modla from Login to Signup

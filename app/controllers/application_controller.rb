@@ -16,10 +16,14 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  
+  def store_params
+    session[:params]= params
+  end
+    
   def signed_in_user
     unless signed_in?
       store_location
+      store_params
       #session[:params] = params
       #render_to_body(options = {:js => "$('#signinModal').modal('show')"})
       redirect_to signin_url, notice: "Please sign in"

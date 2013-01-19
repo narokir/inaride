@@ -10,7 +10,7 @@
 	<% if signed_in? %>
 	  <%= f.submit "Post Ride", class: "btn btn-large btn-success" %>
 	<% else %>
-	  <%= f.submit "Post Ride", class: "btn btn-large btn-success" %>
+	  <%= f.submit "Post Ride", html_options = { class: "btn btn-large btn-success tooltip-top",title:"Sign in first" } %>
 	  <%= link_to('Sign in to post ride', "#signinModal", :id => 'login', class:"btn btn-large", "data-toggle" => "modal") %>
 	  <%# f.submit "Done", html = { id: "submit_new_ride", class: "btn btn-large btn-success",:disabled => true }  %>
 	<% end %>
