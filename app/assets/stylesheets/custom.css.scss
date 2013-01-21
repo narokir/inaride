@@ -2,7 +2,7 @@ $salmon:		#FF6666;
 $salmonDark:		#A02D0B;
 $salmonSoft:		#FFA3A3;
 $youngBlue:		#5abfe0;
-$youngGreen:		#00CCCC;
+$youngGreen:		#05CCCC;
 $green:			#33FF99;
 $greenDark:		#ddd;
 $blue:			#0099FF;
@@ -79,6 +79,7 @@ textarea {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
     margin-bottom:10px;
     padding: 20px;
+    overflow:hidden;
 }
 .table-embos{
     background:#fff;
@@ -102,28 +103,75 @@ h1{
 }
 
 
-/* Main Search form 
+/* Search Form 
 ------------------------------------------------------------------------------*/
-
-#main_search{
+form#main_search{
+    margin-bottom:0px !important;
     background:#fff;
-    form{
-	margin-bottom:0px;
-    }
-    
     .ride-date{
 	margin-right:10px;
 	float:left;
     }
-
     input{
 	margin-bottom:3px;
 	
     }
-
-
-    
+  
 }
+
+input#ride_origin{
+    height:40px;
+    background:url('/assets/origin_marker.png') no-repeat scroll 5px 50% transparent;
+    padding:1px 5px 1px 30px;
+}
+
+input#ride_destination{
+    height:40px;
+    background:url('/assets/destination_marker.png') no-repeat scroll 5px 50% transparent;
+    padding:1px 5px 1px 30px;
+}
+
+input#ride_date{
+    height:40px;
+    background:url('/assets/calendar_small.png') no-repeat scroll 5px 50% transparent;
+    padding:1px 5px 1px 35px;
+}
+select.time{
+    padding: 10px;
+}
+.input-prepend{
+    span.large{
+	line-height: 30px;
+	height:30px;
+    }
+}
+
+
+div.section{
+    background:#fff;
+    border: 1px solid #07B7C1;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px #ddd;
+    margin-bottom:10px;
+    .section-header{
+	color:#fff;
+	.text{
+	    font-size:32px;
+	    
+	}
+	padding:20px;
+	border-bottom:1px solid #07B7C1;
+	background-image: linear-gradient(to bottom, #00CCCC, #58D1D4);
+	background-image: -webkit-linear-gradient(#00CCCC, #58D1D4);
+	border-radius: 4px 4px 0px 0px;
+    }
+    .section-content{
+	padding:20px;
+
+    }
+}
+
+
 
 /* header 
 ------------------------------------------------------------------------------*/
@@ -180,7 +228,6 @@ li.usrimg{
 /* mast
 ------------------------------------------------------------------------------*/
 #mast{
-
     
     .container{
 	padding:5em 0 5em 0;
@@ -206,6 +253,14 @@ li.usrimg{
     box-shadow: 0 0 35px #000000 inset;
     }
 }
+
+
+/* Proped Bar 
+------------------------------------------------------------------------------*/
+.proped{
+    position: relative;
+    top: -60px;
+    }
 
 /* current rides
 ------------------------------------------------------------------------------*/
@@ -391,7 +446,18 @@ form#signin{
 	padding-left: 5px;
     }
     input.password,input.email{
-	border-radius:0px 0px 3px 3px
+	border-radius:0px 0px 3px 3px;
+	height:21px;
+    }
+}
+
+#login-errors{
+    p{
+	padding:10px;
+	color:red;
+	background:#FFFF66;
+	border:1px solid #D0AFB7;
+	border-radius:3px;
     }
 }
 
@@ -406,55 +472,6 @@ form#signin{
 	color:$youngBlue;
     }
 }
-
-/* Search Form 
-------------------------------------------------------------------------------*/
-input#ride_origin{
-    border:1px solid #C7E6DA;
-    height:40px;
-    background:url('/assets/origin_marker.png') no-repeat scroll 5px 50% transparent;
-    padding:1px 5px 1px 30px;
-}
-
-input#ride_destination{
-    border:1px solid #C7E6DA;
-    height:40px;
-    background:url('/assets/destination_marker.png') no-repeat scroll 5px 50% transparent;
-    padding:1px 5px 1px 30px;
-}
-
-input#ride_date{
-    border:1px solid #C7E6DA;
-    height:37px;
-    background:url('/assets/calendar_small.png') no-repeat scroll 95% 50% transparent;
-    padding:1px 5px 1px 5px;
-}
-
-div.section{
-    background:#fff;
-    border: 1px solid #07B7C1;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px #ddd;
-    margin-bottom:10px;
-    .section-header{
-	color:#fff;
-	.text{
-	    font-size:32px;
-	    
-	}
-	padding:20px;
-	border-bottom:1px solid #07B7C1;
-	background-image: linear-gradient(to bottom, #00CCCC, #58D1D4);
-	background-image: -webkit-linear-gradient(#00CCCC, #58D1D4);
-	border-radius: 4px 4px 0px 0px;
-    }
-    .section-content{
-	padding:20px;
-
-    }
-}
-
-
 
 
 /* Media queries 
@@ -475,12 +492,18 @@ div.section{
     
  /* Bootstrap overide 
 ------------------------------------------------------------------------------*/   
-textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
-    border-color: #05cccc;
-    box-shadow: 0 1px 1px #ddd inset, 0 0 4px #05cccc;
-    outline: 0 none;
-}
 
+select, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+    background-color: white;
+    border: 1px solid #CCCCCC;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+    height:30px;
+}
+.row-fluid [class*="span"] {
+    -moz-box-sizing: border-box;
+    min-height: 40px;
+}
 
 
 

@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:index,:edit, :update, :show]
   before_filter :correct_user,   only: [:edit, :update]
   before_filter :admin_user,     only: [:destroy]
+  layout :choose_layout
   
   # GET /users
   # GET /users.json
@@ -71,7 +72,7 @@ class UsersController < ApplicationController
     else
       respond_to do |format|  
         format.html { render 'new' }
-        flash[:error] = "User did not work"
+        flash.now[:error] = "Failed to create account"
       end
     end
   end
@@ -119,5 +120,9 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_path) unless current_user?(@user)
+    end
+     
+    def choose_layout  
+      (request.xhr?) ? nil : 'application'
     end
 end

@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   
+  layout :choose_layout
   def new
     @user = User.new
   end
@@ -11,15 +12,17 @@ class SessionsController < ApplicationController
       sign_in user
       respond_to do |format|  
         format.html { redirect_back_or root_url }  
-        format.js 
+        format.js # create.js 
       end
     else
       respond_to do |format|
 	format.html do
 	  flash.now[:error] = 'Invalid email/password combination'
-	  render 'new'
+	  render action: "new"
 	end
-	format.js { render :js => "alert('Invalid email/password combination')" } 
+	format.js do
+	  render :js => "$('<p>Invalid email password combination</p>').prependTo('#login-errors');"
+	end
       end
     end 
   end
@@ -40,6 +43,11 @@ class SessionsController < ApplicationController
       end
       #redirect_back_or root_url
   end
+  
+  private  
+  def choose_layout  
+    (request.xhr?) ? nil : 'application'
+  end 
   
 end
 

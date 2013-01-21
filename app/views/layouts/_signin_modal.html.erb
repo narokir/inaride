@@ -5,6 +5,7 @@
     <p>Not registered yet? <%= link_to('Signup', "#signupModal", :id => 'signup') %></p>
   </div>
   <div class="modal-body">
+    <div class="alert" style="color:red;"></div>
       <% if flash[:error].present? %>
       <%= render inline: "<div class='alert alert-error'>#{flash[:error]}</div>" %>
       <% end %>

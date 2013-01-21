@@ -13,7 +13,7 @@ $(document).ready(function(){
     $('.tooltip-right').tooltip({placement:'right'});
     $('.tooltip-top').tooltip({placement:'top'});
     $('.tooltip-bottom').tooltip({placement:'bottom'});
-    $('.has-popover').popover({placement:'right'});
+    $('.has-popover').popover({placement:'right',trigger: 'focus'});
     $(".collapse").collapse({ toggle: true });
     
     // Switch modla from Login to Signup
@@ -21,5 +21,5 @@ $(document).ready(function(){
 	$("#signinModal").modal('hide');
 	$("#signupModal").modal('show');
     });
-
 });
+

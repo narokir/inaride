@@ -1,4 +1,4 @@
-<%= simple_form_for(@user, :html => {:class => 'form-inline' }) do |f| %>
+<%= simple_form_for(@user, :html => {:class => 'form-inline',remote: true }) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
     
     <%= f.input :first_name, label: false, placeholder: 'First Name' %>
