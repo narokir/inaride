@@ -1,0 +1,15 @@
+$(document).ready(function(){
+    $("a#login").click(function(){
+      // Put an animated GIF image insight of content
+	$("#modal").empty().html('<img src="/assets/loading.gif" />');
+	// Make AJAX call
+	$("#modal").modal({show:true, backdrop: 'static'}).load("/signin");
+    });
+    $("a#signup").click(function(){
+      // Put an animated GIF image insight of content
+	$("#modal").empty().html('<img src="/assets/loading.gif" />');
+	// Make AJAX call
+	$("#modal").modal({show:true, backdrop: 'static'}).load("/signup");
+    });
+
+});

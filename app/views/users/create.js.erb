@@ -1,0 +1,4 @@
+$('.modal').modal('hide');
+$("ul#user_links").replaceWith("<%= escape_javascript(render "layouts/signedin_user_links") %>");
+$("a#login").replaceWith("<input class='btn btn-large btn-success' type='submit' value='Post Ride' name='commit'>");
+
