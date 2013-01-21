@@ -1,15 +1,30 @@
 $(document).ready(function(){
+    
+    // open a modal and load in signin
     $("a#login").click(function(){
       // Put an animated GIF image insight of content
 	$("#modal").empty().html('<img src="/assets/loading.gif" />');
 	// Make AJAX call
 	$("#modal").modal({show:true, backdrop: 'static'}).load("/signin");
     });
+    
+    // open a modal and load in signup
     $("a#signup").click(function(){
       // Put an animated GIF image insight of content
 	$("#modal").empty().html('<img src="/assets/loading.gif" />');
 	// Make AJAX call
 	$("#modal").modal({show:true, backdrop: 'static'}).load("/signup");
     });
+    
+    // replace the modal when "signup" is clicked
+    $('#modal').on('shown', function () {
+	$("a#modalsignup").click(function() {
+	    $("#modal").modal({show:true, backdrop: 'static'}).load("/signup");
+	});
+	$("a#modal-login").click(function() {
+	    $("#modal").reload().modal({show:true, backdrop: 'static'}).load("/signin");
+	});
+    });
+
 
 });

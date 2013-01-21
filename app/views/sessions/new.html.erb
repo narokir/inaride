@@ -23,13 +23,16 @@
 
 
 
-<div class="modal-header">
+<div class="embos">
+  <div class="modal-header">
   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
   <h3>Sign in</h3>
-  <p>Not registered yet? <%= link_to "Sign up!", signup_path %></p>
+  <p>Not registered yet? <%= link_to('Signup', "#modal", html_options = {id: 'modalsignup'}) %></p>
 </div>
 <div class="modal-body">
-  <div class="row-fluid">
+    <div class="embos">
+      <%= link_to image_tag('fb_signin.png'), "/auth/facebook", class: "sign_in" %>
+    </div>
     <%= render "form" %>
-  </div>
+</div>
 </div>
