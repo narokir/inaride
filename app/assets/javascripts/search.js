@@ -25,7 +25,7 @@
 
 $(document).ready(function() {
   
-  
+  $('input#s').hide();
   $("#main-search").submit(function(event) {
     /* stop form from submitting normally */
     event.preventDefault();
@@ -35,6 +35,7 @@ $(document).ready(function() {
     url = $form.attr( 'action' );
     /* Send the data using post */
     var posting = $.post( url, params );
+    $("#current-rides").empty().html('<div class="alert alert-info"><img src="/assets/loading.gif" /></div>');
     /* Put the results in a div */
     posting.done(function( data ) {
       $("#current-rides").html(data);
@@ -48,7 +49,7 @@ $(document).ajaxStop(function() {
 });
 
 $(document).ajaxStart(function() {
-  $("#current-rides").empty().html('<div class="alert alert-info"><img src="/assets/loading.gif" /></div>');
+  //$("#current-rides").empty().html('<div class="alert alert-info"><img src="/assets/loading.gif" /></div>');
 });
 
 
