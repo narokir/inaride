@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
   layout :choose_layout
+  
   def search_rides
     if params[:origin].present? || params[:destination].present? || params[:date].present?
       @rides=Ride.search(params).limit(10)
@@ -14,7 +15,7 @@ class SearchController < ApplicationController
   
   private  
   def choose_layout  
-    (request.xhr?) ? 'special' : 'application'
+    (request.xhr?) ? 'search_results' : 'application'
   end 
 
 end

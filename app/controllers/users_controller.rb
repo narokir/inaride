@@ -123,6 +123,6 @@ class UsersController < ApplicationController
     end
      
     def choose_layout  
-      (request.xhr?) ? nil : 'application'
+      (request.xhr?) ? 'signup' : 'application'
     end
 end

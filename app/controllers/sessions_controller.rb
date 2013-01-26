@@ -46,7 +46,7 @@ class SessionsController < ApplicationController
   
   private  
   def choose_layout  
-    (request.xhr?) ? nil : 'application'
+    (request.xhr?) ? 'signin' : 'application'
   end 
   
 end

@@ -1,31 +1,53 @@
+<div class="row">
 <% @rides.each do |ride| %>
-  <div class="span4">
-<div class="thumbnail tile">
+
+  <div class="span">
+    <div class="embos">
+      
+  <div class="span3">
+
+      <div id="driver">
+	<div class="pull-left">
+	  <%= link_to image_tag(ride.user.image, options = {:class =>"profile_img_small"}), ride  %>
+	</div>
+	<div class="driver-details span">
+	  <small class="muted">Driver</small><br><small><%= link_to ride.user.first_name,ride.user %></small>
+	  <small class="muted">( <%= ride.user.rides.count %> rides )</small>
+	</div>
+      </div>
+      
+  </div>
+      
+  <div class="span5">
       <div class="locations">
 	<strong><%= link_to "#{ride.origin} ---> #{ride.destination}", ride %></strong><br>
 	<span class="date"><%= ride.date.strftime(" %A, %b %d") %></span> -
 	<span class="muted"><%= ride.time.strftime(" %I:%M %p") if present? %></span>
-      </div><hr>
-      <div id="driver" class="row">
-	<div class="span">
-	  <%= link_to image_tag(ride.user.image, options = {:class =>"profile_img_small"}), ride  %>
-	</div>
-	<div class="span driver-details">
-	  <small class="muted">Driver</small><br><small><%= link_to ride.user.first_name,ride.user %></small>
-	  <small class="muted">( <%= ride.user.rides.count %> rides )</small>
-	</div>
-      </div><hr>
-<div class="row">
-      <div class=span>
+      </div>
+  </div>
+
+  
+  <div class="span">
+
+      
 	<span class="price"><%= number_to_currency(ride.price, precision: 0) %></span>
 	<small class="muted">Per passenger</small>
-      </div>
-    
-      <div class=span>
-	<span class="seats"><%= ride.seats %></span>
-	<small class="muted">Seats available</small> 
-      </div>
-</div>
-</div>
+
   </div>
+  
+  <div class="span">
+
+
+	<span class="seats"><%= ride.seats %></span>
+	<small class="muted">Seats available</small>
+	
+
+  </div>
+  
+    </div>
+  </div>
+
+
+
 <% end %>
+</div>

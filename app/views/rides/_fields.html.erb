@@ -1,24 +1,28 @@
 <%= render 'shared/error_messages', object: f.object %>
-<fieldset>
+<fieldset id='step1'>
   <%= f.input :origin,label:'Start Location', :error_html => { id: 'ride_origin'},placeholder: 'Origin city, street or a Zip code', :input_html => { class:'span8 ride_origin tooltip-top',title:"Typing 'My house' is not gonna work" },autocomplete: "off" %>
   <%= f.input :destination,:label => 'Destination',:placeholder => 'Destination city, street or a Zip code', :input_html => { :class => 'span8 ride_destination tooltip-bottom',title:"Stay out of the boonies" } %>
-  <hr>
 </fieldset>
-<fieldset>
+
+<fieldset id='step2'>
   <%= f.input :date, :as => :string, :label => "Date",:placeholder => "Date", :input_html => {:class => 'date-tiny span4 tooltip-right',title:"When is this happening?"},autocomplete: "off" %>
   <%= f.input :time,:label => 'Time',:as => :time,:minute_step => 15,:ampm => true,:input_html => {:class => 'span2'} %>
-  <hr>
 </fieldset>
-<fieldset>
-  <%# f.input :time,:collection => ['1','2','3','4','5','6','7','8','9','10','11','12'], :include_blank => false,:label => false, :input_html => {:class => 'span2'}%>
-  <%# f.input :time,:collection => ['00','15','30','45'], :include_blank => false,:label => false, :input_html => {:class => 'span2'}%>
-  <%# f.input :date,:collection => ['AM','PM'],:include_blank => false,:label => false, :input_html => {:class => 'span2'}%>
 
+<fieldset id='step3'>
   <%= f.input :price,:wrapper_html => { :class => '' }, :label => "Contribution",:wrapper => :prepend do %>
     <span class="add-on large">$</span><%= f.input_field :price,class:'span4 has-popover',title: "Payup for pickmeup","data-content" =>"Enter the ammount you want each passenger to contrebute to the pickmeup.","placeholder"=>"",:wrapper_html => { :class => 'span1' },:label => "Price per seat", :input_html => {} %>
   <% end %>
   <%= f.input :seats,:wrapper_html => { :class => '' },:label => "Seats avlable", :input_html => {:class => 'span2 has-popover',:title =>"Seats Available","data-content" =>"Enter the number of seats available for passengers.","placeholder"=>"3"} %>
 </fieldset>
-<fieldset>
+
+<fieldset id='step4'>
 <%= f.input :notes,label: "What's your story?",:input_html => {:class =>"span8",:rows=> 3},placeholder: "Example: Hey,I can pick someone up."%>
+  <div class="controls">
+    <% if signed_in? %>
+      <%= f.submit "Post Ride", class: "btn btn-large btn-success" %>
+    <% else %>
+      <%= link_to('Sign in to continue', "#signinModal", :id => 'login', class:"btn btn-large btn-warning", "data-toggle" => "modal") %>
+    <% end %>
+  </div>
 </fieldset>

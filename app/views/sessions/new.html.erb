@@ -1,37 +1,21 @@
 <% provide(:title, 'Sign In') %>
 
-<!--<div class="row-fluid ">-->
-<!--  <div class="embos span6 offset3 ">-->
-<!--    <h1>Sign in</h1>-->
-<!--    <p>Not registered yet? <%= link_to "Sign up!", signup_path %></p>-->
-<!--    <hr>-->
-<!--      <% if flash[:error].present? %>-->
-<!--      <%= render inline: "<div class='alert alert-error'>#{flash[:error]}</div>" %>-->
-<!--      <% end %>-->
-<!--    <div class="row-fluid">-->
-<!--      <div class="span5 embos">-->
-<!--	<%= link_to image_tag('fb-logo.png'), "/auth/facebook", class: "sign_in" %>-->
-<!--	<%= link_to 'Sign in', "/auth/facebook", class: "btn" %>-->
-<!--      </div>-->
-<!--      <div class="span">-->
-<!--	<%= render "form" %>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-    
-
-
-
-
-  <div class="modal-header">
-  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-  <h3>Sign in</h3>
-  <p>Not registered yet? <%= link_to('Signup', "#modal", html_options = {id: 'modalsignup'}) %></p>
-</div>
-  <div class="fb-bar">
-    <%= link_to image_tag('fb_signin.png'), "/auth/facebook", class: "sign_in" %>
+<div class="row-fluid ">
+  <div class="embos span6 offset3 ">
+    <h1>Sign in</h1>
+    <p>Not registered yet? <%= link_to "Sign up!", signup_path %></p>
+    <hr>
+      <% if flash[:error].present? %>
+      <%= render inline: "<div class='alert alert-error'>#{flash[:error]}</div>" %>
+      <% end %>
+    <div class="row-fluid">
+      <div class="span5 embos">
+	<%= link_to image_tag('fb-logo.png'), "/auth/facebook", class: "sign_in" %>
+	<%= link_to 'Sign in', "/auth/facebook", class: "btn" %>
+      </div>
+      <div class="span4">
+	<%= render "form" %>
+      </div>
+    </div>
   </div>
-<div class="modal-body">
-    <%= render "form" %>
 </div>

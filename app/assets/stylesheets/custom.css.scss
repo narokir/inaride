@@ -57,6 +57,7 @@ html {
 
 #main{
     margin-top:20px;
+    border: 1px solid;
 }
 
 header{
@@ -253,6 +254,22 @@ li.usrimg{
     box-shadow: 0 0 35px #000000 inset;
     }
 }
+
+/* Modal 
+------------------------------------------------------------------------------*/
+
+#modal{
+    .modal-header{
+	border-bottom: 1px solid #39A8BB;
+	background-image: linear-gradient(to bottom, #58D1D4, #00CCCC);
+	background-image: -webkit-linear-gradient(#58D1D4, #00CCCC);
+	h3{
+	   color:#fff; 
+	}
+    }
+}
+
+
 
 
 /* Proped Bar 
@@ -463,7 +480,7 @@ form#signin{
     }
 }
 
-.fb-bar{
+.strip{
     padding:15px;
     border-bottom:1px solid #eee;
     background:#F4F4F4;
@@ -515,7 +532,12 @@ select, input[type="text"], input[type="password"], input[type="datetime"], inpu
 
 #modal .embos{
     padding:0px;
-    border:none;
+}
+
+form#new_ride{
+  fieldset{
+    border:1px solid #ddd;
+  }
 }
 
 

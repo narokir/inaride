@@ -6,15 +6,6 @@
       <div class="span8 ">
 	<%= simple_form_for(@ride,:html => {:class => 'form-horizontal' }) do |f| %>
 	<%= render 'fields', f: f %>
-	<div class="controls">
-	  <% if signed_in? %>
-	    <%= f.submit "Post Ride", class: "btn btn-large btn-success" %>
-	    <%# link_to('Sign in to post ride', "#signinModal", :id => 'login', class:"btn btn-large btn-warning", "data-toggle" => "modal") %>
-	  <% else %>
-	    <%# f.submit "Post Ride", html_options = { class: "btn btn-large btn-success tooltip-top",title:"Sign in first" } %>
-	    <%= link_to('Sign in to continue', "#signinModal", :id => 'login', class:"btn btn-large btn-warning", "data-toggle" => "modal") %>
-	  <% end %>
-	</div>
       <% end %>
     </div>
     <div class="span4">
@@ -23,9 +14,5 @@
     </div>  
   </div>  
 </div>
-  
-<!--<a class="tooltip-left"href="#" title="A nice tooltip" >Tooltip Left</a>
-<a class="tooltip-right"href="#" title="A nice tooltip" >Tooltip Right</a>
-<a class="has-popover"href="#">Popover</a>-->
 
 

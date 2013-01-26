@@ -5,4 +5,3 @@
 jQuery ->
   $('#ride_date').datepicker
     dateFormat: 'yy-mm-dd'
-    #$("a.tooltip").tooltip(placement:'left');
