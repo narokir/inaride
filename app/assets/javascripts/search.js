@@ -37,18 +37,18 @@ $(document).ready(function() {
     var posting = $.post( url, params );
     /* Put the results in a div */
     posting.done(function( data ) {
-      $("#current-rides").html(data).fadeIn("slow");
+      $("#current-rides").html(data);
     });
   });
   
 });
 
 $(document).ajaxStop(function() {
-  $("#results").empty().html('finish');
+  //$(".alert alert-info").empty().html('finish');
 });
 
 $(document).ajaxStart(function() {
-  $("#results").empty().html('<img src="/assets/loading.gif" />');
+  $("#current-rides").empty().html('<div class="alert alert-info"><img src="/assets/loading.gif" /></div>');
 });
 
 

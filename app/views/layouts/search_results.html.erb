@@ -5,11 +5,11 @@
   <table class="table table-bordered">
     
   <% if @rides.present? %>
+    <div class="alert alert-info"><%= pluralize( @rides.count, 'ride' ) %> <%= rides_found_msg %></div>
     <%= render 'rides' %>
   <% else %>
     <div class="alert alert-info">
-    <b><%= notice = "0 rides found."%></b>
-    <%= search_status %>
+    <b><%= notice = "0 rides found."%></b><%= no_rides_found_msg %>
     </div>
   <% end %>
   </table>

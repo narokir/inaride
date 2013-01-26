@@ -1,53 +1,31 @@
-<div class="row">
+<table class="table table-bordered">
 <% @rides.each do |ride| %>
-
-  <div class="span">
-    <div class="embos">
-      
-  <div class="span3">
-
-      <div id="driver">
-	<div class="pull-left">
-	  <%= link_to image_tag(ride.user.image, options = {:class =>"profile_img_small"}), ride  %>
-	</div>
-	<div class="driver-details span">
-	  <small class="muted">Driver</small><br><small><%= link_to ride.user.first_name,ride.user %></small>
-	  <small class="muted">( <%= ride.user.rides.count %> rides )</small>
-	</div>
+<tr>
+  <td>
+    <article class="driver-info">
+      <%= link_to image_tag(ride.user.image, options = {:class =>"profile_img_small"}), ride  %>
+    </article>
+      <div class="info">
+	<small><%= link_to ride.user.first_name,ride.user if signed_in? %></small><br>
+	<small class="muted"><%= ride.user.rides.count %> Rides</small>
       </div>
-      
-  </div>
-      
-  <div class="span5">
-      <div class="locations">
-	<strong><%= link_to "#{ride.origin} ---> #{ride.destination}", ride %></strong><br>
-	<span class="date"><%= ride.date.strftime(" %A, %b %d") %></span> -
-	<span class="muted"><%= ride.time.strftime(" %I:%M %p") if present? %></span>
-      </div>
-  </div>
-
-  
-  <div class="span">
-
-      
-	<span class="price"><%= number_to_currency(ride.price, precision: 0) %></span>
-	<small class="muted">Per passenger</small>
-
-  </div>
-  
-  <div class="span">
-
-
-	<span class="seats"><%= ride.seats %></span>
-	<small class="muted">Seats available</small>
-	
-
-  </div>
-  
-    </div>
-  </div>
-
-
-
+  </td>
+  <td>
+    <%= link_to "#{ride.origin} ---> #{ride.destination}", ride %><br>
+    <span class="date"><%= ride.date.strftime(" %A, %b %d") %></span>
+    <span class="muted"><%= ride.time.strftime(" %I, %M %p") if present? %></span>
+  </td>
+  <td>
+    <span class="price"><%= number_to_currency(ride.price, precision: 0) %></span>
+    <small class="muted">Per passenger</small>
+  </td>
+  <td>
+    <span class="seats"><%= ride.seats %></span>
+    <small class="muted">Seats available</small>
+  </td>
+  <td>
+    <%= link_to "show", ride %>
+  </td>
+</tr>
 <% end %>
-</div>
+</table>
