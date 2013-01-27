@@ -535,27 +535,9 @@ select, input[type="text"], input[type="password"], input[type="datetime"], inpu
 
 
 
-form#new_ride{
-  fieldset{
-    border:1px solid #ddd;
-  }
-}
 
 
 
-fieldset {
-    padding : 10px;
-    margin : 0 0 10px 0;
-    border : 1px solid black;
-    background : white;
-}
-
-label.error {
-    clear : none;
-    width : auto;
-    margin-left : 10px;
-    color : red;
-}
 
 .btn-blue {
     background: -moz-linear-gradient(center top , #33A0E8, #2180CE) repeat scroll 0 0 transparent;
