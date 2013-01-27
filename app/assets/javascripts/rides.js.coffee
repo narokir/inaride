@@ -5,3 +5,10 @@
 jQuery ->
   $('#ride_date').datepicker
     dateFormat: 'yy-mm-dd'
+    
+  #$('#new_ride').quickWizard
+  #  prevButton: '<button type="button" class="btn btn-large">Previous</button>',
+  #  nextButton: '<button type="button" class="btn btn-large">Next</button>',
+  #  nextArgs: ["slide", { direction: "down" }, 500],
+  #  PrevArgs: ["slide", { direction: "up" }, 500],
+  #  submit: "#post_ride"

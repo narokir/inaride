@@ -1,9 +1,3 @@
-//$(document).ready(function(){
-//    $("#sign_in").click(function(event){
-//        $('#signinModal').modal('show')
-//        event.preventDefault();
-//    });
-//});
 $(document).ready(function(){
     //Replace placeholder on inputs
     $('#ride_origin').blur(function() {

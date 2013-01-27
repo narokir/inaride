@@ -543,8 +543,38 @@ form#new_ride{
 
 
 
+fieldset {
+    padding : 10px;
+    margin : 0 0 10px 0;
+    border : 1px solid black;
+    background : white;
+}
 
+label.error {
+    clear : none;
+    width : auto;
+    margin-left : 10px;
+    color : red;
+}
 
+.btn-blue {
+    background: -moz-linear-gradient(center top , #33A0E8, #2180CE) repeat scroll 0 0 transparent;
+    border-color: #2270AB #18639A #0F568B;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), 0 1px 0 #83C5F1 inset;
+    color: #FFFFFF;
+    text-shadow: 0 1px 2px #355782;
+}
+.btn-blue{
+    border-radius: 3px 3px 3px 3px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    overflow: visible;
+    padding: 5px 16px;
+    text-align: center;
+}
 
 
 

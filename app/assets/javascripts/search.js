@@ -21,11 +21,14 @@
 ////alert( "Triggered ajaxSend handler." );
 //});
 
-
+$('.pac-container').mousedown(function() {
+  alert('Handler for .mousedown() called.');
+});
 
 $(document).ready(function() {
   
   $('input#s').hide();
+  
   $("#main-search").submit(function(event) {
     /* stop form from submitting normally */
     event.preventDefault();
