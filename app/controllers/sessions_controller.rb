@@ -40,7 +40,7 @@ class SessionsController < ApplicationController
     session[:user_id] = @user.id
       respond_to do |format|
 	format.html { redirect_back_or @user }
-	format.js { render :js => "alert('Facebook')" }
+	format.json { render :js => "alert('Facebook')" }
       end
   end
   
