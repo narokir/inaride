@@ -27,7 +27,7 @@ $('.pac-container').mousedown(function() {
 
 $(document).ready(function() {
   
-  $('input#s').hide();
+  //$('input#s').hide();
   
   $("#main-search").submit(function(event) {
     /* stop form from submitting normally */
