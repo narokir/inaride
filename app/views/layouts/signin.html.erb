@@ -3,19 +3,28 @@
   <h3>Login in</h3>
   
 </div>
-  <div class="strip">
-    <%= link_to image_tag('fb_signin.png'), "/auth/facebook", class: "sign_in" %>
+  <div class="strip ">
+    <div id="login-errors"></div>
   </div>
+  
 <div class="modal-body">
-<div id="login-errors"></div>
+  
   <% if flash[:error].present? %>
   <%= render inline: "<div class='alert alert-error'>#{flash[:error]}</div>" %>
   <% end %>
-<%= simple_form_for(:session, url: sessions_path, :html => { id:"signin", remote: true }) do |f| %>
-  <%= f.input :email, :placeholder => 'Email', :label => false, :label_html => { :class => 'fancy-label' } %>
-  <%= f.input :password, :placeholder => 'Password', :label => false, :label_html => { :class => 'fancy-label' } %>
-  <%= f.submit "Log in", id: "login",class: "btn btn-large btn-primary" %>
-<% end %>
+<div class="row">
+  
+  <div class="span embos">
+    <%= link_to image_tag('fb_signin.png'), "/auth/facebook", class: "sign_in" %>
+  </div>
+  <div class="span">
+    <%= simple_form_for(:session, url: sessions_path, :html => { id:"signin", remote: true }) do |f| %>
+      <%= f.input :email, :placeholder => 'Email', :label => false, :label_html => { :class => 'fancy-label' } %>
+      <%= f.input :password, :placeholder => 'Password', :label => false, :label_html => { :class => 'fancy-label' } %>
+      <%= f.submit "Log in", id: "login",class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
 </div>
 <div class="modal-footer">
  Not registered yet? <%= link_to('Signup', "#modal", html_options = {id: 'modalsignup'}) %>
