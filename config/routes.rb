@@ -15,7 +15,7 @@ Inoride::Application.routes.draw do
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
   
-  match 'auth/:provider/callback', to: 'sessions#facebook_login'
+  match 'auth/:provider/callback', to: 'sessions#create'
   match 'signout', to: 'sessions#destroy', as: 'signout'
   match '/auth/failure', to: redirect('/')
   match '/search', to: 'search#search_rides', as: 'search'
