@@ -16,5 +16,31 @@ $(document).ready(function(){
     $('.has-popover').popover({placement:'right',trigger: 'focus'});
     $(".collapse").collapse({ toggle: true });
     
+    //Replace placeholder on inputs
+    $('#ride_origin').blur(function() {
+        //alert('Handler for .focus() called.');
+        $(this).prop("placeholder","From:")
+    });
+    $('#ride_origin').focus(function() {
+        //alert('Handler for .focus() called.');
+        $(this).prop("placeholder","")
+    });
+    $('#ride_date').blur(function() {
+        //alert('Handler for .focus() called.');
+        $(this).prop("placeholder","Date:")
+    });
+    $('#ride_date').focus(function() {
+        //alert('Handler for .focus() called.');
+        $(this).prop("placeholder","")
+    });
+    $('#ride_destination').blur(function() {
+        //alert('Handler for .focus() called.');
+        $(this).prop("placeholder","To:")
+    });
+    $('#ride_destination').focus(function() {
+        //alert('Handler for .focus() called.');
+        $(this).prop("placeholder","")
+    });
+    
 });
 

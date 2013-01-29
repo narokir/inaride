@@ -550,5 +550,8 @@ select, input[type="text"], input[type="password"], input[type="datetime"], inpu
     text-align: center;
 }
 
-
+.loading{
+    background:url('/assets/loading.gif') no-repeat scroll 5px 50% #fff;
+    background-color:#05cccc !important;
+}
 

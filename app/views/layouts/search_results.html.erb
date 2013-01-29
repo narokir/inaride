@@ -8,7 +8,7 @@
     <div class="alert alert-info"><%= pluralize( @rides.count, 'ride' ) %> <%= rides_found_msg %><b></b></div>
     <%= render 'rides' %>
   <% else %>
-    <div class="alert alert-info">
+    <div class="alert">
     <b><%= notice = "0 rides found."%></b> <%= no_rides_found_msg %>
     </div>
   <% end %>
