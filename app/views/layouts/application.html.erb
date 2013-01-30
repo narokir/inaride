@@ -31,8 +31,10 @@
     <% if current_page?('/search') %>
       <%= render 'layouts/mast' %>
     <% end %>
-        
-  
+    
+    <% if current_page?( root_url) %>
+      <%= render 'layouts/mast' %>
+    <% end %>
 
 
     <div id="main" class="container">

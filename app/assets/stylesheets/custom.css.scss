@@ -533,6 +533,16 @@ fieldset{
   padding: 30px 0px 15px 0px;
   background:#fff;
 }
+label.error{
+    background: url("/assets/error_pop.png") no-repeat scroll 2px 4px transparent;
+    color: #FF4F58;
+    content: "shit";
+    font-size: small;
+    padding: 12px 4px 0;
+    position: relative;
+    right: -20px;
+    top: -13px;
+}
 
 
 .btn-blue {

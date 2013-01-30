@@ -2,10 +2,11 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-
-  #$('#new_ride').quickWizard
-  #  prevButton: '<button type="button" class="btn btn-large">Previous</button>',
-  #  nextButton: '<button type="button" class="btn btn-large">Next</button>',
-  #  nextArgs: ["slide", { direction: "down" }, 500],
-  #  PrevArgs: ["slide", { direction: "up" }, 500],
-  #  submit: "#post_ride"
+jQuery ->
+  # Turn forms into wizards with jQury quickWizard plugin
+  $('#new_ride').quickWizard
+    prevButton : '<button type="button" class="btn btn-large">Previous</button>',
+    nextButton : '<button type="button" class="btn btn-large">Next</button>',
+    nextArgs : ["slide", { direction: "left" }, 500],
+    PrevArgs : ["slide", { direction: "right" }, 500],
+    submit : "#login" || "post_ride"

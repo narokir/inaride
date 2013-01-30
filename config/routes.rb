@@ -4,7 +4,7 @@ Inoride::Application.routes.draw do
   resources :rides
   resources :sessions, only: [:new, :create, :destroy]
   
-  root :to => 'static_pages#home'
+  root :to => 'rides#new'
   
   match '/help', to: 'static_pages#help'
   match '/about', to: 'static_pages#about'
