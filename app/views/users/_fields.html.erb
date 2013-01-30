@@ -1,7 +1,12 @@
 <%= render 'shared/error_messages', object: f.object %>
-
+<fieldset>
 <%= f.input :first_name, label: false, placeholder: 'First Name' %>
 <%= f.input :last_name, label: false, placeholder: 'Last Name' %>
+</fieldset>
+<fieldset>
 <%= f.input :email, label: false, placeholder: 'Email' %>
+</fieldset>
+<fieldset>
 <%= f.input :password, label: false, placeholder: 'Pick a password' %>
 <%= f.input :password_confirmation, label: false, placeholder: 'Confirm Password' %>
+</fieldset>
