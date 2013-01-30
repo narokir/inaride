@@ -5,12 +5,26 @@
 // the compiled file.
 // 
 //= require jquery
-//= require jquery_ujs
+//= require jquery.ui.datepicker
+//= require jquery.ui.core
+//= require jquery.ui.effect-slide
 //= require bootstrap.js
 //= require_tree .
 $(document).ready(function(){
+  // add datepicker to date form fields
+  $(function() {
+    $('#ride_date').datepicker({dateFormat: 'yy-mm-dd'});
+  });
+  // validate form wizards with jQuery validation plugin
   $("form").validate();
-  $('form').quickWizard();
+  // Turn forms into wizards with jQury quickWizard plugin
+  $('#new_ride').quickWizard({
+    prevButton : '<button type="button" class="btn btn-large">Previous</button>',
+    nextButton : '<button type="button" class="btn btn-large">Next</button>',
+    nextArgs : ["slide", { direction: "left" }, 500],
+    PrevArgs : ["slide", { direction: "right" }, 500],
+    submit : "#login" || "post_ride"
+  });
   
     $('.tooltip-left').tooltip({placement:'left'});
     $('.tooltip-right').tooltip({placement:'right'});

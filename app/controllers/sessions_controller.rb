@@ -24,7 +24,6 @@ class SessionsController < ApplicationController
     (request.xhr?) ? 'signin' : 'application'
   end
   
-  private
   def fbuser
     @user = User.from_omniauth(env["omniauth.auth"])
     sign_in @user
@@ -34,7 +33,6 @@ class SessionsController < ApplicationController
       end
   end
   
-  private
   def normal_user
     user = User.find_by_email(params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
