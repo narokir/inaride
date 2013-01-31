@@ -24,25 +24,23 @@
     <% end %>
   </div>
     
-    <% if current_page?(:controller => 'static_pages', :action => 'home') %>
+    <% if current_page?('/') %>
       <%= render 'layouts/mast' %>
     <% end %>
     
-    <% if current_page?('/search') %>
+    <% if current_page?('/rides/new') %>
       <%= render 'layouts/mast' %>
     <% end %>
     
-    <% if current_page?('/create') %>
+    <% if current_page?('/find') %>
       <%= render 'layouts/mast' %>
     <% end %>
-
-
+    
+    
     <div id="main" class="container">
     <%= yield %>
     </div>
     <%= render 'layouts/footer' %>
-    
-    
     
     
       
