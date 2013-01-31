@@ -1,11 +1,12 @@
 <% provide(:title, "Ride from #{@ride.origin} to #{@ride.destination}")%>
 <% notice %>
 <div class="row-fluid">
-  <div class="span8 embos">
+  <div class ="embos">
+  <div class="span8">
 <section id="ride-info">
-  <h1 class="trip"><%= @ride.origin %> --- <%=image_tag('logo_bug.png')%> --> <%= @ride.destination %></h1>
+  <h1 class="trip"><%= @ride.origin %> ---> <%= @ride.destination %></h1>
 
-  <table>
+  <table class="table table-bordered">
     <tbody>
       <tr>
 	<td colspan=1>
@@ -44,21 +45,25 @@
 	  </div>
 	</td>
       </tr>
-      <% end %>
+    <% end %>
+    <tr>
+      <td colspan=4>
+	<div>
+	  <%= gmaps({
+	 :map_options => { :zoom => 18, :auto_adjust => true, :auto_zoom => false},
+	  #:markers => { :data => @json, :options => { :draggable => true,"custom_infowindow_class" => "yellow"  } },
+	 :direction => {
+	 :data => { :from => @ride.origin, :to => @ride.destination}},
+		    })%>
+	</div>
+      </td>
+    </tr>
     </tbody>
   </table>
-  <div>
-    <%= gmaps({
-   :map_options => { :zoom => 18, :auto_adjust => true, :auto_zoom => false},
-    #:markers => { :data => @json, :options => { :draggable => true,"custom_infowindow_class" => "yellow"  } },
-   :direction => {
-   :data => { :from => @ride.origin, :to => @ride.destination}},
-	      })%>
-  </div>
 </section><!-- Rides -->
   </div>
 
-<aside id="driver" class="span4 embos">
+<aside id="driver" class="span4">
   <h2>Driver</h2><%= @ride.user.full_name %><hr>
   <div class="row-fluid">
     <div class="pull-left">
@@ -72,15 +77,8 @@
     </div>
   </div>
   <hr>
-  <button type="button" class="btn btn-mini" data-toggle="collapse" data-target="#message">
-    Send Message
-  </button>
-  <div id="message" class="collapse in"><br>
-    <textarea rows="3"></textarea>
-    <br>
-      <button type="button" class="btn btn-mini btn-success">Send</button>
-  </div>
 </aside>
+</div>
 </div>
 
 
