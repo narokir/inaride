@@ -105,36 +105,41 @@ h1{
 
 /* Search Form 
 ------------------------------------------------------------------------------*/
+
+.loading{
+  background:url('/assets/loading.gif') no-repeat scroll 5px 50% #fff;
+  background-color:#05cccc !important;
+}
+
 form#main_search{
-    margin-bottom:0px !important;
-    background:#fff;
-    .ride-date{
-	margin-right:10px;
-	float:left;
-    }
-    input{
-	margin-bottom:3px;
-	
-    }
+  margin-bottom:0px !important;
+  background:#fff;
+  .ride-date{
+    margin-right:10px;
+    float:left;
+  }
+  input{
+    margin-bottom:3px;
+  }
   
 }
 
 input#ride_origin{
-    height:40px;
-    background:url('/assets/origin_marker.png') no-repeat scroll 5px 50% #fff;
-    padding:1px 5px 1px 30px;
+  height:40px;
+  background:url('/assets/origin_marker.png') no-repeat scroll 5px 50% #fff;
+  padding:1px 5px 1px 30px;
 }
 
 input#ride_destination{
-    height:40px;
-    background:url('/assets/destination_marker.png') no-repeat scroll 5px 50% #fff;
-    padding:1px 5px 1px 30px;
+  height:40px;
+  background:url('/assets/destination_marker.png') no-repeat scroll 5px 50% #fff;
+  padding:1px 5px 1px 30px;
 }
 
 input#ride_date{
-    height:40px;
-    background:url('/assets/calendar_small.png') no-repeat scroll 5px 50% #fff;
-    padding:1px 5px 1px 35px;
+  height:40px;
+  background:url('/assets/calendar_small.png') no-repeat scroll 5px 50% #fff;
+  padding:1px 5px 1px 35px;
 }
 select.time{
     padding: 10px;
@@ -148,27 +153,25 @@ select.time{
 
 
 div.section{
-    background:#fff;
-    border: 1px solid #07B7C1;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px #ddd;
-    margin-bottom:10px;
-    .section-header{
-	color:#fff;
-	.text{
-	    font-size:32px;
-	    
-	}
-	padding:20px;
-	border-bottom:1px solid #07B7C1;
-	background-image: linear-gradient(to bottom, #00CCCC, #58D1D4);
-	background-image: -webkit-linear-gradient(#00CCCC, #58D1D4);
-	border-radius: 4px 4px 0px 0px;
+  background:#fff;
+  border: 1px solid #07B7C1;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px #ddd;
+  margin-bottom:10px;
+  .section-header{
+    color:#fff;
+    .text{
+      font-size:32px;
     }
-    .section-content{
-	padding:20px;
-
-    }
+    padding:20px;
+    border-bottom:1px solid #07B7C1;
+    background-image: linear-gradient(to bottom, #00CCCC, #58D1D4);
+    background-image: -webkit-linear-gradient(#00CCCC, #58D1D4);
+    border-radius: 4px 4px 0px 0px;
+  }
+  .section-content{
+    padding:20px;
+  }
 }
 
 
@@ -176,38 +179,36 @@ div.section{
 /* header 
 ------------------------------------------------------------------------------*/
 nav#controlls{
-
-    li{
-	border-left:1px solid #ddd;
-    }
-    li:last-child{
-      border-right:1px solid #ddd;  
-    }
-    a{
-	font-size:16px;
-	font-weight:bold;
-	padding:20px 20px 20px 20px;
-    }
-    a:hover{
-	background:#05CCCC;
-	color:#fff;
-	text-shadow:none;
-	small{
-	    color:#419D9F;
-	}
-    }
+  li{
+      border-left:1px solid #ddd;
+  }
+  li:last-child{
+    border-right:1px solid #ddd;  
+  }
+  a{
+    font-size:16px;
+    font-weight:bold;
+    padding:20px 20px 20px 20px;
+  }
+  a:hover{
+    background:#05CCCC;
+    color:#fff;
+    text-shadow:none;
     small{
-	display:block;
-	color:#BEBEBE;
+	color:#419D9F;
     }
+  }
+  small{
+    display:block;
+    color:#BEBEBE;
+  }
 }
 
 span#brand {
-    display: block;
-    float: left;
-    padding-top: 11px;
-    margin-right:30px;
-
+  display: block;
+  float: left;
+  padding-top: 11px;
+  margin-right:30px;
 }
 
 #logo:hover {
@@ -215,57 +216,54 @@ span#brand {
   text-decoration: none;
 }
 li.usrimg{
-    padding:27px 0px;
-    img.fbimg{
-	border:1px solid #9F9F9F;
-	border-radius:3px;
-	width:23px;
-	height:23px;
-    }
+  padding:27px 0px;
+  img.fbimg{
+      border:1px solid #9F9F9F;
+      border-radius:3px;
+      width:23px;
+      height:23px;
+  }
 }
 
 
 /* mast
 ------------------------------------------------------------------------------*/
 #mast{
-    
-    .container{
-	padding:5em 0 5em 0;
-	/*background:url("/assets/inoride_main_img.png") no-repeat scroll 50% 100% transparent;*/
-	color:#fff;
-	
-    }
-    h1{
-	color:#fff;
-	font-size:5em;
-	margin:.2em 0 .2em 0;
-	line-height: 1em;
-    }
-    p{
-	font-size:1.9em;
-	font-weight:lighter;
-	line-height:1em;
-	letter-spacing:.05em;
-    }
-    #slide1{
-    /*background:-moz-linear-gradient(-45deg, #189288 0%, #55EF98 100%) repeat scroll 0 0 transparent;*/
+  .container{
+    padding:5em 0 5em 0;
+    /*background:url("/assets/inoride_main_img.png") no-repeat scroll 50% 100% transparent;*/
+    color:#fff;
+  }
+  h1{
+    color:#fff;
+    font-size:5em;
+    margin:.2em 0 .2em 0;
+    line-height: 1em;
+  }
+  p{
+    font-size:1.9em;
+    font-weight:lighter;
+    line-height:1em;
+    letter-spacing:.05em;
+  }
+  #slide1{
     background:url("/assets/highway1440x900.jpg") no-repeat scroll 0 85% transparent;
     box-shadow: 0 0 35px #000000 inset;
-    }
+  }
 }
 
 /* Modal 
 ------------------------------------------------------------------------------*/
 
 #modal{
-    .modal-header{
-	border-bottom: 1px solid #39A8BB;
-	background-image: linear-gradient(to bottom, #58D1D4, #00CCCC);
-	background-image: -webkit-linear-gradient(#58D1D4, #00CCCC);
-	h3{
-	   color:#fff; 
-	}
+  .modal-header{
+    border-bottom: 1px solid #39A8BB;
+    background-image: linear-gradient(to bottom, #58D1D4, #00CCCC);
+    background-image: -webkit-linear-gradient(#58D1D4, #00CCCC);
+    h3{
+       color:#fff; 
     }
+  }
 }
 
 
@@ -274,29 +272,28 @@ li.usrimg{
 /* Proped Bar 
 ------------------------------------------------------------------------------*/
 .proped{
-    position: relative;
-    top: -60px;
-    }
+  position: relative;
+  top: -60px;
+}
 
 /* current rides
 ------------------------------------------------------------------------------*/
 #current-rides{
-    .tile{
-	background:#fff;
-	min-height:220px;
-	margin-bottom:10px;
-	padding:10px;
-	}
-    .driver-details{
-	margin-left:10px;
-	}
-    hr{
-	margin:10px 0px 10px 0px;
+  .tile{
+    background:#fff;
+    min-height:220px;
+    margin-bottom:10px;
+    padding:10px;
     }
-    .date{
+  .driver-details{
+    margin-left:10px;
+    }
+  hr{
+    margin:10px 0px 10px 0px;
+  }
+  .date{
     color:$salmon;
-    }
-    
+  }
 }
 
 
@@ -339,21 +336,24 @@ footer ul li {
 ------------------------------------------------------------------------------*/
 
 ul#recent-rides{
-    li{
-	width:22.5%;
-    }
-    .locations{
-	border-bottom:1px solid #eee;
-	margin-bottom:10px;
-	min-height:75px;
-    }
-    .thumbnail{
-	min-height:200px;
-	background:#fff;
-    }
-    .date{
+  li{
+    width:22.5%;
+  }
+  
+  .locations{
+    border-bottom:1px solid #eee;
+    margin-bottom:10px;
+    min-height:75px;
+  }
+  
+  .thumbnail{
+    min-height:200px;
+    background:#fff;
+  }
+  
+  .date{
     color:$salmon;
-    }
+  }
 }
 
 h1.trip{
@@ -365,27 +365,27 @@ h1.trip{
     border:none;
  }
 
- table{
+table{
   width:100%;
   tbody{
-    border-right:1px dotted #ddd;
-	border-top:1px dotted #ddd;
+  border-right:1px dotted #ddd;
+    border-top:1px dotted #ddd;
+  }
+  
+  td{
+    border-bottom:1px dotted #ddd;
+    border-left:1px dotted #ddd;
+    padding:5px;
+  }
+  
+  .pickup{
+    border: 1px solid #1B8B08;
+    border-radius: 5px 5px 5px 5px;
+    line-height: inherit;
+    margin: 3px;
+    padding: 12px 18px;
     }
-    
-    td{
-	border-bottom:1px dotted #ddd;
-	border-left:1px dotted #ddd;
-	padding:5px;
-    }
-    
-    .pickup{
-	border: 1px solid #1B8B08;
-	border-radius: 5px 5px 5px 5px;
-	line-height: inherit;
-	margin: 3px;
-	padding: 12px 18px;
-	}
-    }
+  }
 }
 
 /* User Profile 
@@ -393,179 +393,206 @@ h1.trip{
 
 
 section#user{
-    h1{
-	margin:0px 0px 4px 0px;
-	line-height:1em;
-    }
-    h2{
-	margin:0px 0px 5px 0px;
-	font-size:1em;
-	line-height:1em;
-    }
-    hr{
-	margin:5px 0px 5px 0px;
-    }
+  h1{
+    margin:0px 0px 4px 0px;
+    line-height:1em;
+  }
+  h2{
+    margin:0px 0px 5px 0px;
+    font-size:1em;
+    line-height:1em;
+  }
+  hr{
+    margin:5px 0px 5px 0px;
+  }
 }
 .driver-info{
-    float:left;
-    margin-right:5px;
+  float:left;
+  margin-right:5px;
 }
 
 
 aside#driver{
-    h2{
-	margin:0px 0px 0px 0px;
-    }
-    
-    hr{
-	margin:0px 0px 10px 0px;
-    }
-    
-    ul{
-	color:$grayLight;
-    }
-    
-
+  h2{
+    margin:0px 0px 0px 0px;
+  }
+  hr{
+    margin:0px 0px 10px 0px;
+  }
+  ul{
+    color:$grayLight;
+  }
 }
 
 img.profile_img_small{
-    border:1px solid;
-    border-color:#FFA3A3;
-    border-radius:4px;
+  border:1px solid;
+  border-color:#FFA3A3;
+  border-radius:4px;
 }
 
 span.price, span.seats, span.rides{
-    font-size: 18px;
-    font-weight: bold;
-    display:block;
+  font-size: 18px;
+  font-weight: bold;
+  display:block;
 }
 
-
 .red{
-    color:#66CC99;
+  color:#66CC99;
 }
 
 /* Sign in  
 ------------------------------------------------------------------------------*/
 
 form#signin{
-    width:224px;
-    .fancy-label{
-	background: none repeat scroll 0 0 #EEEEEE;
-	border-left: 1px solid #DDDDDD;
-	border-radius: 3px 3px 0px 0px;
-	border-right: 1px solid #DDDDDD;
-	border-top: 1px solid #DDDDDD;
-	display: block;
-	margin-bottom:0px;
-	padding-bottom: 2px;
-	padding-left: 5px;
-    }
+  width:224px;
+  .fancy-label{
+    background: none repeat scroll 0 0 #EEEEEE;
+    border-left: 1px solid #DDDDDD;
+    border-radius: 3px 3px 0px 0px;
+    border-right: 1px solid #DDDDDD;
+    border-top: 1px solid #DDDDDD;
+    display: block;
+    margin-bottom:0px;
+    padding-bottom: 2px;
+    padding-left: 5px;
+  }
 }
+
 .modal-body{
-    form{
-	margin-bottom:0px;
-    }
+  form{
+    margin-bottom:0px;
+  }
 }
 
 #login-errors{
-    p{
-	padding:10px;
-	color:red;
-	background:#FFFF66;
-	border:1px solid #D0AFB7;
-	border-radius:3px;
-    }
+  p{
+  padding:10px;
+  color:red;
+  background:#FFFF66;
+  border:1px solid #D0AFB7;
+  border-radius:3px;
+  }
 }
 
 .strip{
-    padding:15px;
-    border-bottom:1px solid #eee;
-    background:#F4F4F4;
+  padding:15px;
+  border-bottom:1px solid #eee;
+  background:#F4F4F4;
 }
 
 
 /* Sign up 
 ------------------------------------------------------------------------------*/
 #signup{
-    button{
-	font-size: 24px;
-	line-height: 53px;
-	font-weight:bold;
-	color:$youngBlue;
-    }
+  button{
+    font-size: 24px;
+    line-height: 53px;
+    font-weight:bold;
+    color:$youngBlue;
+  }
 }
 
 
 /* Media queries 
 ------------------------------------------------------------------------------*/
 
-    /* Large desktop */
-    @media (min-width: 1200px) {}
-     
-    /* Portrait tablet to landscape and desktop */
-    @media (min-width: 768px) and (max-width: 979px) { #main{padding-top:0px;} }
-     
-    /* Landscape phone to portrait tablet */
-    @media (max-width: 767px) { #main{padding-top:0px;} }
-     
-    /* Landscape phones and down */
-    @media (max-width: 480px) { #main{padding-top:0px;} }
+  /* Large desktop */
+  @media (min-width: 1200px) {}
+   
+  /* Portrait tablet to landscape and desktop */
+  @media (min-width: 768px) and (max-width: 979px) { #main{padding-top:0px;} }
+   
+  /* Landscape phone to portrait tablet */
+  @media (max-width: 767px) { #main{padding-top:0px;} }
+   
+  /* Landscape phones and down */
+  @media (max-width: 480px) { #main{padding-top:0px;} }
     
     
  /* Bootstrap overide 
 ------------------------------------------------------------------------------*/   
 
 select, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
-    background-color: white;
-    border: 1px solid #CCCCCC;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
-    height:30px;
+  background-color: white;
+  border: 1px solid #CCCCCC;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+  height:30px;
 }
 .row-fluid [class*="span"] {
-    -moz-box-sizing: border-box;
-    min-height: 40px;
+  -moz-box-sizing: border-box;
+  min-height: 40px;
 }
 
-fieldset{
+ /* Ride Form Wizard 
+------------------------------------------------------------------------------*/  
+
+form#new_ride{
   border:1px solid #ddd;
-  padding: 30px 0px 15px 0px;
+  border-radius:3px;
+  padding: 0px 0px 15px 0px;
   background:#fff;
+  margin-bottom:0;
+  
+  fieldset{
+    min-height:170px;
+  }
+  
+  legend{
+    display:none;
+  }
 }
+
 label.error{
-    background: url("/assets/error_pop.png") no-repeat scroll 2px 4px transparent;
-    color: #FF4F58;
-    content: "shit";
-    font-size: small;
-    padding: 12px 4px 0;
-    position: relative;
-    right: -20px;
-    top: -13px;
+  background: url("/assets/error_pop.png") no-repeat scroll 2px 4px transparent;
+  color: #FF4F58;
+  font-size: small;
+  padding: 12px 4px 0;
+  position: relative;
+  right: -20px;
+  top: -13px;
+}
+
+ol.bread-crumb{
+  display:block;
+  height:75px;
+  margin:0;
+  li{
+    padding:10px;
+    display:block;
+    float:left;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+    background:#fff;
+  }
+}
+
+.bread-crumb-active{
+  color:$youngGreen;
+  border:1px solid #05cccc;
+}
+.bread-crumb-completed{
+  color:#ddd;
 }
 
 
 .btn-blue {
-    background: -moz-linear-gradient(center top , #33A0E8, #2180CE) repeat scroll 0 0 transparent;
-    border-color: #2270AB #18639A #0F568B;
-    border-style: solid;
-    border-width: 1px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), 0 1px 0 #83C5F1 inset;
-    color: #FFFFFF;
-    text-shadow: 0 1px 2px #355782;
+  background: -moz-linear-gradient(center top , #33A0E8, #2180CE) repeat scroll 0 0 transparent;
+  border-color: #2270AB #18639A #0F568B;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), 0 1px 0 #83C5F1 inset;
+  color: #FFFFFF;
+  text-shadow: 0 1px 2px #355782;
 }
 .btn-blue{
-    border-radius: 3px 3px 3px 3px;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 600;
-    overflow: visible;
-    padding: 5px 16px;
-    text-align: center;
-}
-
-.loading{
-    background:url('/assets/loading.gif') no-repeat scroll 5px 50% #fff;
-    background-color:#05cccc !important;
+  border-radius: 3px 3px 3px 3px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  overflow: visible;
+  padding: 5px 16px;
+  text-align: center;
 }
 

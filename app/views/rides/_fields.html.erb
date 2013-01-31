@@ -1,15 +1,18 @@
 <%= render 'shared/error_messages', object: f.object %>
 <fieldset>
+  <legend>Set origin & destination</legend>
   <%= f.input :origin,label:'Start Location', :error_html => { id: 'ride_origin'},placeholder: 'Origin city, street or a Zip code', :input_html => { class:'span8 ride_origin tooltip-top',title:"Typing 'My house' is not gonna work" },autocomplete: "off" %>
   <%= f.input :destination,:label => 'Destination',:placeholder => 'Destination city, street or a Zip code', :input_html => { :class => 'span8 ride_destination'} %>
 </fieldset>
 
 <fieldset>
+  <legend>Set date and time</legend>
   <%= f.input :date, :as => :string, :label => "Date",:placeholder => "Date", :input_html => {:class => 'date-tiny span4 tooltip-right',title:"When is this happening?"},autocomplete: "off" %>
   <%= f.input :time,:label => 'Time',:as => :time,:minute_step => 15,:ampm => true,:input_html => {:class => 'span2'} %>
 </fieldset>
 
 <fieldset>
+  <legend>Set ride contributions</legend>
   <%= f.input :price,:wrapper_html => { :class => '' }, :label => "Contribution",:wrapper => :prepend do %>
     <span class="add-on large">$</span><%= f.input_field :price,class:'span4 has-popover',title: "Payup for pickmeup","data-content" =>"Enter the ammount you want each passenger to contrebute to the pickmeup.","placeholder"=>"",:wrapper_html => { :class => 'span1' },:label => "Price per seat", :input_html => {} %>
   <% end %>
@@ -17,6 +20,7 @@
 </fieldset>
 
 <fieldset>
+  <legend>Notes</legend>
 <%= f.input :notes,label: "What's your story?",:input_html => {:class =>"span8",:rows=> 3},placeholder: "Example: Hey,I can pick someone up."%>
 </fieldset>
   <div class="controls">

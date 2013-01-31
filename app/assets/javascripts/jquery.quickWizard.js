@@ -15,15 +15,15 @@
             'containerClass' : 'form-wizard-container',
             'breadCrumb': true,
             'breadCrumbElement': 'legend',
-            'breadCrumbListOpen': '<ol>',
+            'breadCrumbListOpen': "<ol>",
             'breadCrumbListClose': '</ol>',
-			'breadCrumbListClass': 'bread-crumb',
-            'breadCrumbListElementOpen': '<li>',
+			'breadCrumbListClass': 'bread-crumb row-fluid unstyled',
+            'breadCrumbListElementOpen': "<li class='span3'>",
             'breadCrumbListElementClose': '</li>',
             'breadCrumbActiveClass': 'bread-crumb-active',
             'breadCrumbCompletedClass': 'bread-crumb-completed',
             'breadCrumbPosition': 'before',
-			'clickableBreadCrumbs': false
+			'clickableBreadCrumbs': true
         };
 
         if (options) {
