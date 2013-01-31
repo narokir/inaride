@@ -533,13 +533,17 @@ form#new_ride{
   padding: 0px 0px 15px 0px;
   background:#fff;
   margin-bottom:0;
+  min-height:210px;	
   
   fieldset{
-    min-height:170px;
+    min-height:140px;
   }
   
   legend{
     display:none;
+  }
+  button{
+    margin-right:5px;
   }
 }
 

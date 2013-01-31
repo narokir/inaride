@@ -9,4 +9,4 @@ jQuery ->
     nextButton : '<button type="button" class="btn btn-large">Next</button>',
     nextArgs : ["slide", { direction: "right" }, 500],
     PrevArgs : ["slide", { direction: "right" }, 500],
-    submit : "#login" || '#post_ride'
+    submit : "#post_ride"

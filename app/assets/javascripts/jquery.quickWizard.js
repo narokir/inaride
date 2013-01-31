@@ -7,7 +7,7 @@
             'nextButton': '<button id="form-wizard-next" type="button">Next</button>',
             'activeClass': 'form-wizard-active',
             'element': 'fieldset',
-            'submit': '[type = "submit"]',
+            'submit': '[class = "submit"]',
             'root': null,
             'prevArgs': [0],
             'nextArgs': [0],

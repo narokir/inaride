@@ -1,8 +1,8 @@
 <%= render 'shared/error_messages', object: f.object %>
 <fieldset>
   <legend>Set origin & destination</legend>
-  <%= f.input :origin,label:'Start Location', :error_html => { id: 'ride_origin'},placeholder: 'Origin city, street or a Zip code', :input_html => { class:'span8 ride_origin tooltip-top',title:"Typing 'My house' is not gonna work" },autocomplete: "off" %>
-  <%= f.input :destination,:label => 'Destination',:placeholder => 'Destination city, street or a Zip code', :input_html => { :class => 'span8 ride_destination'} %>
+  <%= f.input :origin,label:'Trip Origin', :error_html => { id: 'ride_origin'},placeholder: 'e.g. Tremont Street, Boston, MA', :input_html => { class:'span8 ride_origin tooltip-top',title:"Street, City or Zip will also work" },autocomplete: "off" %>
+  <%= f.input :destination,:label => 'Destination',:placeholder => 'e.g. Charlottesville, VA', :input_html => { :class => 'span8 ride_destination'} %>
 </fieldset>
 
 <fieldset>
@@ -21,12 +21,16 @@
 
 <fieldset>
   <legend>Notes</legend>
-<%= f.input :notes,label: "What's your story?",:input_html => {:class =>"span8",:rows=> 3},placeholder: "Example: Hey,I can pick someone up."%>
+<%= f.input :notes,label: "Anything else?",:input_html => {:class =>"span8",:rows=> 3},placeholder: "Optional greeting, notes or instructions related to this ride. This will be visible to others"%>
+  <% unless signed_in? %>
+    <div class="login_warnign controls muted"><b>All Done?</b> Simply <%= link_to('login', "#signinModal", :id => 'login',"data-toggle" => "modal") %> to finish posting</div><br>
+  <% end %>
 </fieldset>
   <div class="controls">
     <% if signed_in? %>
       <%= f.submit "Post Ride", id: 'post_ride', class: "btn btn-large btn-success" %>
     <% else %>
-      <%= link_to('Sign in to post', "#signinModal", :id => 'login', class:"btn btn-large btn-warning", "data-toggle" => "modal") %>
+      <%= f.submit "Post Ride",html_options = {:disabled => true, id: 'post_ride', class: "btn btn-large btn-success"} %>
+      <%# link_to('Sign in to post', "#signinModal", :id => 'login', class:"btn btn-large btn-warning", "data-toggle" => "modal") %>
     <% end %>
   </div>
