@@ -10,7 +10,9 @@
     <tbody>
       <tr>
 	<td colspan=1>
-	  <h4><span class="date"><%= @ride.date.strftime(" %A, %b %d, %Y") %></span></h4>
+	  <span class="date"><%= @ride.date.strftime(" %A, %b %d") %></span>
+	  <br>Departs:
+	  <span class="muted"><%= @ride.time.strftime(" %I:%M %p") if present? %></span>
 	</td>
 	<td>
 	  <span class="price">$<%= @ride.price %></span>
@@ -63,7 +65,7 @@
 </section><!-- Rides -->
   </div>
 
-<aside id="driver" class="span4">
+<aside id="driver" class="span4 embos">
   <h2>Driver</h2><%= @ride.user.full_name %><hr>
   <div class="row-fluid">
     <div class="pull-left">

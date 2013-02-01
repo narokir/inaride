@@ -74,7 +74,7 @@ textarea {
 
 .embos{
     background:#fff;
-    border: 1px solid #DDDDDD;
+    border: 1px solid #ddd;
     border-radius: 4px 4px 4px 4px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
     margin-bottom:10px;
@@ -239,7 +239,7 @@ li.usrimg{
     color:#fff;
   }
   h1{
-    color:#fff;
+    color:#FDC306;
     font-size:5em;
     margin:.2em 0 .2em 0;
     line-height: 1em;
@@ -263,6 +263,7 @@ li.usrimg{
 #modal{
   .modal-header{
     border-bottom: 1px solid #39A8BB;
+    border-radius: 6px 6px 0 0 ;
     background-image: linear-gradient(to bottom, #58D1D4, #00CCCC);
     background-image: -webkit-linear-gradient(#58D1D4, #00CCCC);
     h3{
@@ -541,9 +542,6 @@ form#new_ride{
   button{
     margin-right:5px;
   }
-  input[type="time"]{
-    border:none;
-  }
 }
 
 label.error{
@@ -562,7 +560,7 @@ ol.bread-crumb{
   margin:0;
   li{
     padding:10px;
-    color:#ddd;
+    color:$grayLight;
     text-align:center;
     display:block;
     float:left;
@@ -572,10 +570,10 @@ ol.bread-crumb{
     height:62px;
   }
   li.bread-crumb-active{
-    color:$youngGreen;
+    color:$grayDark;
     font-weight:600;
     border:1px solid #05cccc;
-    background: url("/assets/error_pop.png") no-repeat scroll 50% bottom #F8FFB5;
+    background: url("/assets/error_pop.png") no-repeat scroll 50% bottom #bde906;
   }
 }
 
