@@ -14,5 +14,5 @@ class UserMailer < ActionMailer::Base
   
   def forgot_password(user)
   end
-
+  
 end
