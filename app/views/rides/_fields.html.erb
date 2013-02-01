@@ -12,15 +12,15 @@
 </fieldset>
 
 <fieldset>
-  <legend>Set ride contributions</legend>
+  <legend>Passengers & contributions</legend>
   <%= f.input :price,:wrapper_html => { :class => '' }, :label => "Contribution",:wrapper => :prepend do %>
-    <span class="add-on large">$</span><%= f.input_field :price,class:'span4 has-popover',title: "Payup for pickmeup","data-content" =>"Enter the ammount you want each passenger to contrebute to the pickmeup.","placeholder"=>"",:wrapper_html => { :class => 'span1' },:label => "Price per seat", :input_html => {} %>
+    <span class="add-on large">$</span><%= f.input_field :price,html_options = { :class => 'span4 has-popover',:title => "Payup for pickmeup","data-content" =>"Enter the ammount you want each passenger to contrebute to the ride."} %>
   <% end %>
   <%= f.input :seats,:wrapper_html => { :class => '' },:label => "Seats avlable", :input_html => {:class => 'span2 has-popover',:title =>"Seats Available","data-content" =>"Enter the number of seats available for passengers.","placeholder"=>"3"} %>
 </fieldset>
 
 <fieldset>
-  <legend>Notes</legend>
+  <legend>Finish & Submit</legend>
 <%= f.input :notes,label: "Anything else?",:input_html => {:class =>"span8",:rows=> 3},placeholder: "Optional greeting, notes or instructions related to this ride. This will be visible to others"%>
   <% unless signed_in? %>
     <div class="login_warnign controls muted"><b>All Done?</b> Simply <%= link_to('login', "#signinModal", :id => 'login',"data-toggle" => "modal") %> to finish posting</div><br>
