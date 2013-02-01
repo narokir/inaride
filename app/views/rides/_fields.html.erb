@@ -23,7 +23,7 @@
   <legend>Finish & Submit</legend>
 <%= f.input :notes,label: "Anything else?",:input_html => {:class =>"span8",:rows=> 3},placeholder: "Optional greeting, notes or instructions related to this ride. This will be visible to others"%>
   <% unless signed_in? %>
-    <div class="login_warnign controls muted"><b>All Done?</b> Simply <%= link_to('login', "#signinModal", :id => 'login',"data-toggle" => "modal") %> to finish posting</div><br>
+    <div class="login_warnign controls muted"><%= link_to image_tag('fb_login_btn_small.png'), "/auth/facebook", class: "sign_in" %> to finish posting</div><br>
   <% end %>
 </fieldset>
   <div class="controls">
