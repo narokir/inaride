@@ -51,7 +51,7 @@ class RidesController < ApplicationController
     @ride = current_user.rides.build(params[:ride])
     if @ride.save
       
-      flash[:success] = "Nice! Ride Created."
+      flash[:success] = "Success! Ride Created."
       redirect_to @ride
     else
       render action: "new"

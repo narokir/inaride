@@ -27,10 +27,6 @@ class SessionsController < ApplicationController
   def fbuser
     @user = User.from_omniauth(env["omniauth.auth"])
     sign_in @user
-      respond_to do |format|
-	format.html { redirect_back_or @user }
-	format.json { render :js => "alert('Facebook')" }
-      end
   end
   
   def normal_user
