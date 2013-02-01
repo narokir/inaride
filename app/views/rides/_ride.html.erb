@@ -1,12 +1,15 @@
 <tr>
-  <% if !current_user?(ride.user) %>
-  <td>
+  
+  <td><% if current_user.admin? || !current_user?(ride.user) %>
   <div class="driver-info">
     <div><%= image_tag(ride.user.image,options={:class =>"profile_img_small"}) %></div>
-    <small><%= link_to ride.user.first_name, ride.user %></small>
   </div>
+    <div class="info">
+    <small><%= link_to ride.user.first_name, ride.user %></small>
+    </div>
+    <% end %>
   </td>
-  <% end %>
+  
   <td>
     <%= link_to "#{ride.origin} ---> #{ride.destination}", ride %><br>
     <small class="muted date"><%= ride.date.strftime(" %A, %b %d, %Y") %></small>

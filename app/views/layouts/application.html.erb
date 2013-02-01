@@ -24,22 +24,8 @@
     <% end %>
   </div>
     
-    <% if current_page?('/') %>
-      <%= render 'layouts/mast' %>
-    <% end %>
     
-    <% if current_page?('/rides/new') %>
-      <%= render 'layouts/mast' %>
-    <% end %>
-    
-    <% if current_page?('/find') %>
-      <%= render 'layouts/mast' %>
-    <% end %>
-    
-    
-    <div id="main" class="container">
     <%= yield %>
-    </div>
     <%= render 'layouts/footer' %>
     
     

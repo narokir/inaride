@@ -1,20 +1,17 @@
 <% provide(:title, 'Rides')%>
 <%notice%>
-
-<div class="row-fluid">
-  <div class="span8 embos">
-  <h1>All rides</h1>
-  <%= will_paginate @rides %>
-  
-    <table class="table">
-      <%= render @rides %>
-    </table>
+<div id="main" class="container"
+  <div class="row-fluid">
+    <div class="embos">
+    <h1>All rides</h1>
+    <%= will_paginate @rides %>
     
-  <%= will_paginate @rides %>
-  </div>
-  <div class="span4 embos">
-    <%= render '/layouts/main_search_form' %>
+      <table class="table table-bordered table-condenced">
+	<%= render @rides %>
+      </table>
+      
+    <%= will_paginate @rides %>
+    </div>
   </div>
 </div>
-
 

@@ -1,25 +1,11 @@
 <% provide(:title, 'Search Rides')%>
 <%notice%>
-<div class="row-fluid">
-  
-<div class="span8 embos">
-
-  <table class="table table-bordered">
+<div id="main" class="container">
+  <div class="row-fluid">
+    <%= render 'layouts/search_form' %>
+  <section id="current-rides" class="embos">
     
-  <% if @rides.present? %>
-    <%= render 'rides' %>
-  <% else %>
-    <div class="alert alert-info">
-    <b><%= notice = "0 rides found."%></b>
-    <%= search_status %>
-    </div>
-  <% end %>
-  </table>
-</div>
-
-<div class="span4 embos">
-    <%= render 'layouts/main_search_form' %>
-</div>
-
+  </section>
+  </div>
 </div>
 

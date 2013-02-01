@@ -1,15 +1,18 @@
-<div class="row-fluid">
-  <div class="embos span6">
-      <h1>Edit Your Profile</h1><hr>
-      <%= simple_form_for(@user,:html => {:class => 'form-horizontal' }) do |f| %>
-      <%= render 'fields', f: f %>
-      <%= f.input :birthday, :label => "Birthday", :input_html => {:class => 'form-inline'},autocomplete: "off" %>
-      <%= f.input :gender, :label => "Gender" %>
-      <%= f.input :education, :label => "Education" %>
-
-      <div class="controls">
-      <%= f.submit "Save Changes", class: "btn btn-large btn-success" %>
-      </div>
-    <% end %>
+<% provide(:title, 'Edit Proflie') %>
+<div id="main" class="container">
+  <div class="row-fluid">
+    <div class="embos">
+	<h1>Edit Your Profile</h1><hr>
+	<%= simple_form_for(@user,:html => {:class => 'form-horizontal' }) do |f| %>
+	<%= render 'fields', f: f %>
+	<%= f.input :birthday, :label => "Birthday", :input_html => {:class => 'form-inline'},autocomplete: "off" %>
+	<%= f.input :gender, :label => "Gender" %>
+	<%= f.input :education, :label => "Education" %>
+  
+	<div class="controls">
+	<%= f.submit "Save Changes", class: "btn btn-large btn-success" %>
+	</div>
+      <% end %>
+    </div>
   </div>
 </div>

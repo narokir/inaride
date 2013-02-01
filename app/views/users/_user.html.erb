@@ -1,16 +1,14 @@
 <tr>
   <td>
     <div class="driver-info">
-      <%= image_tag user.image %>
+      <%= image_tag user.image, class: 'profile_img_small' %>
     </div>
-    <div class="span">
-      <%= link_to user.full_name, user %><br>
-      <% if current_user.admin? && !current_user?(user) %>
-	  <%= link_to 'Edit', edit_user_path(user) %>
-	  | <%= link_to 'Delete', user, confirm: 'Are you sure?', method: :delete %>
-      <% end %>
-      <strong><% if user.admin? %><span class="red">Admin</span><% end %></strong>
-    </div>
+    <%= link_to user.full_name, user %><br>
+    <% if current_user.admin? && !current_user?(user) %>
+	<%= link_to 'Edit', edit_user_path(user) %>
+	| <%= link_to 'Delete', user, confirm: 'Are you sure?', method: :delete %>
+    <% end %>
+    <strong><% if user.admin? %><span class="red">Admin</span><% end %></strong>
   </td>
   <td>
     <span class="rides"><%= user.rides.count %></span>

@@ -1,43 +1,43 @@
 <% provide(:title,"#{@user.full_name}'s profile")%>
-<%= notice %>
-
-<div class="row-fluid">
-
-  <section id="user" class="span4 embos">
-    <div class="span">
-      <div class="driver-info"><%= image_tag(@user.image, options = {:class =>"profile_img_small"})  %></div>
-      <div class="offset2">
-	<h1><%= @user.first_name %></h1>
-	<h2><%= @user.last_name %><% if @user.admin %> | <span class="red">Admin</span><% end %></h2>
+<div id="main" class="container">
+  <div class="row-fluid">
+    <div class="embos">
+    <%= notice %>
+    <section id="user" class="span4">
+      <div class="span">
+	<div class="driver-info"><%= image_tag(@user.image, options = {:class =>"profile_img_small"})  %></div>
+	<div class="offset2">
+	  <h1><%= @user.first_name %></h1>
+	  <h2><%= @user.last_name %><% if @user.admin %> | <span class="red">Admin</span><% end %></h2>
+	</div>
+	<hr>
+	<% if current_user?(@user) %>
+	  <%= link_to 'Edit Profile', edit_user_path, :class => 'btn btn-mini' %>
+	<% end %>
       </div>
-      <hr>
-      <% if current_user?(@user) %>
-	<%= link_to 'Edit Profile', edit_user_path, :class => 'btn btn-mini' %>
+      
+	<div><%# gravatar_for @user %></div>
+      <div class="info">
+	<% if current_user?(@user) %>
+	  <%# link_to 'Edit Profile', edit_user_path, :class => 'btn btn-mini' %>
+	<% end %>
+      </div>
+      <%= @user.birthday %>
+      <%= @user.gender %>
+      <%= @user.education %>
+    </section>	
+  
+    <section id="rides" class="span8">
+      <% if @user.rides.any? %>
+	<h3>Rides(<%= @user.rides.count %>)</h3>
+	<table class="table">
+	<%= render @rides %>
+	</table>
+      <% else %>
+      <%= link_to 'Add Ride', new_ride_path, class: "btn btn-success" if current_user?(@user) %>
       <% end %>
+    </section>
     </div>
-    
-      <div><%# gravatar_for @user %></div>
-    <div class="info">
-      <% if current_user?(@user) %>
-	<%# link_to 'Edit Profile', edit_user_path, :class => 'btn btn-mini' %>
-      <% end %>
-    </div>
-    <%= @user.birthday %>
-    <%= @user.gender %>
-    <%= @user.education %>
-  </section>	
-
-
-  <section id="rides" class="span8 embos">
-    <% if @user.rides.any? %>
-      <h3>Rides(<%= @user.rides.count %>)</h3>
-      <table class="table">
-      <%= render @rides %>
-      </table>
-    <% else %>
-    <%= link_to 'Add Ride', new_ride_path, class: "btn btn-success" if current_user?(@user) %>
-    <% end %>
-  </section>
+  </div>
 </div>
-
 

@@ -26,40 +26,5 @@
 <% end %>
 
 
-<script>
-
-    $('.carousel').carousel({
-        interval: false
-    })
-
-    // Could be slid or slide (slide happens before animation, slid happens after)
-    $('#myCarousel').bind('slide', function() {
-
-    });
-
-
-    $("#slide1").click(function() {
-        //alert("Handler for .click() called.");
-        $('#myCarousel').carousel(0)
-        $("#slide1").addClass("btn-success");
-    });
-    $('#ride_price').change(function() {
-        alert('Handler for .change() called.');
-        function showValues() {
-            var fields = $(":input").serializeArray();
-            $("#results").empty();
-            jQuery.each(fields, function(i, field){
-                $("#results").append(field.value + " ");
-            });
-        }
-
-        $(":checkbox, :radio").click(showValues);
-        $("select").change(showValues);
-        showValues();
-    });
-
-</script>
-
-
 
 

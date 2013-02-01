@@ -1,16 +1,14 @@
 <% provide(:title, 'Users')%>
-
-<div class="row-fluid">
-  <div class="span8 embos">
-    <h1>All users</h1><hr>
-    <%= will_paginate %>
-      <table class="table table-bordered">
-	<%= render @users %>
-      </table>
-    <%= will_paginate %>
-    <br/>
-    <%= link_to 'New User', new_user_path, class:"btn btn-large btn-primary" %>
+<div id="main" class="container">
+  <div class="row-fluid">
+    <div class="embos">
+      <h1>All users</h1><hr>
+      <%= will_paginate %>
+	<table class="table table-bordered">
+	  <%= render @users %>
+	</table>
+      <%= will_paginate %>
+    </div>
   </div>
 </div>
-
 

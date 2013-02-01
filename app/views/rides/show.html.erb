@@ -1,109 +1,29 @@
 <% provide(:title, "Ride from #{@ride.origin} to #{@ride.destination}")%>
 <% notice %>
-<div class="row-fluid">
-  <div class ="embos">
-  <div class="span8">
-<section id="ride-info">
-  <h1 class="trip"><%= @ride.origin %> ---> <%= @ride.destination %></h1>
-
-  <table class="table table-bordered">
-    <tbody>
-      <tr>
-	<td colspan=1>
-	  <span class="date"><%= @ride.date.strftime(" %A, %b %d") %></span>
-	  <br>Departs:
-	  <span class="muted"><%= @ride.time.strftime(" %I:%M %p") if present? %></span>
-	</td>
-	<td>
-	  <span class="price">$<%= @ride.price %></span>
-	  <small class="muted">Per passenger</small>
-	</td>
-	<td>
-	  <span class="price"><%= seats %></span>
-	  <small class="muted">Seats available</small>
-	</td>
-	<% if !current_user?(@ride.user) %>
-	<td colspan=1>
-	  <a class="pickup btn btn-success pull-right">Request Pickup</a>
-	</td>
-	<% end %>
-      </tr>
-      <tr>
-	<td colspan=4>
-	  <div class="driver-info">
-	    <div><%= image_tag(@ride.user.image,options={:class =>"profile_img_small"}) %></div>
-	  </div>
-	  <div class="ride-note"><%= wrap(@ride.notes) %></div>
-	</td>
-      </tr>
-      <% if current_user?(@ride.user) %>
-      <tr>
-	<td colspan=4>
-	  <div>
-	    <%= link_to 'Edit Ride', edit_ride_path(@ride)%>  | 
-	    <%= link_to "Delete", @ride, method: :delete,
-			       data: { confirm: "You sure?" },
-			       title: "Delete Ride #{@ride.origin} to #{@ride.destination}" %>
-	  </div>
-	</td>
-      </tr>
-    <% end %>
-    <tr>
-      <td colspan=4>
-	<div>
-	  <%= gmaps({
-	 :map_options => { :zoom => 18, :auto_adjust => true, :auto_zoom => false},
-	  #:markers => { :data => @json, :options => { :draggable => true,"custom_infowindow_class" => "yellow"  } },
-	 :direction => {
-	 :data => { :from => @ride.origin, :to => @ride.destination}},
-		    })%>
-	</div>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-</section><!-- Rides -->
-  </div>
-
-<aside id="driver" class="span4 embos">
-  <h2>Driver</h2><%= @ride.user.full_name %><hr>
+<div id="main" class="container">
   <div class="row-fluid">
-    <div class="pull-left">
-	<div><%= link_to image_tag(@ride.user.image,options={:class =>"profile_img_small"}),@ride.user %></div>
-    </div>
-    <div class="span9">
-      <ul class="unstyled">
-	<li>Rides: <%= @user.rides.count %></li>
-	<li>Experience: Beginner</li>
-      </ul>	
+    <div class ="embos">
+      <div class="span8">
+      <%= render 'ride_info' %>
+      </div>
+      <aside id="driver" class="span4 embos">
+	<h2>Driver</h2><%= @ride.user.full_name %><hr>
+	<div class="row-fluid">
+	  <div class="pull-left">
+	      <div><%= link_to image_tag(@ride.user.image,options={:class =>"profile_img_small"}),@ride.user %></div>
+	  </div>
+	  <div class="span9">
+	    <ul class="unstyled">
+	      <li>Rides: <%= @user.rides.count %></li>
+	      <li>Experience: Beginner</li>
+	    </ul>	
+	  </div>
+	</div>
+	<hr>
+      </aside>
     </div>
   </div>
-  <hr>
-</aside>
 </div>
-</div>
-
-
-  
-<% content_for :scripts do %>
- <script type="text/javascript" charset="utf-8">
-var markersArray = [];
-
-Gmaps.map.callback = function() {
-//alert('Your ride was successfully mapped. Press OK to continue')
-clearOverlays();
-}
-//Clear the markers
-function clearOverlays() {
-  if (markersArray) {
-    for (var i = 0; i < markersArray.length; i++ ) {
-      markersArray[i].setMap(null);
-    }
-  }
-  markersArray.length = 0;
-}
- </script>
-<% end %>
 
 
 
