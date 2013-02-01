@@ -1,0 +1,59 @@
+<section id="ride-info">
+  <h1 class="trip"><%= @ride.origin %> ---> <%= @ride.destination %></h1>
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+	<td colspan=1>
+	  <span class="date"><%= @ride.date.strftime(" %A, %b %d") %></span>
+	  <br>Departs:
+	  <span class="muted"><%= @ride.time.strftime(" %I:%M %p") if present? %></span>
+	</td>
+	<td>
+	  <span class="price">$<%= @ride.price %></span>
+	  <small class="muted">Per passenger</small>
+	</td>
+	<td>
+	  <span class="price"><%= seats %></span>
+	  <small class="muted">Seats available</small>
+	</td>
+	<% if !current_user?(@ride.user) %>
+	<td colspan=1>
+	  <a class="pickup btn btn-success pull-right">Request Pickup</a>
+	</td>
+	<% end %>
+      </tr>
+      <tr>
+	<td colspan=4>
+	  <div class="driver-info">
+	    <div><%= image_tag(@ride.user.image,options={:class =>"profile_img_small"}) %></div>
+	  </div>
+	  <div class="ride-note"><%= wrap(@ride.notes) %></div>
+	</td>
+      </tr>
+      <% if current_user?(@ride.user) %>
+      <tr>
+	<td colspan=4>
+	  <div>
+	    <%= link_to 'Edit Ride', edit_ride_path(@ride)%>  | 
+	    <%= link_to "Delete", @ride, method: :delete,
+			       data: { confirm: "You sure?" },
+			       title: "Delete Ride #{@ride.origin} to #{@ride.destination}" %>
+	  </div>
+	</td>
+      </tr>
+    <% end %>
+    <tr>
+      <td colspan=4>
+	<div>
+	  <%= gmaps({
+	 :map_options => { :zoom => 18, :auto_adjust => true, :auto_zoom => false},
+	  #:markers => { :data => @json, :options => { :draggable => true,"custom_infowindow_class" => "yellow"  } },
+	 :direction => {
+	 :data => { :from => @ride.origin, :to => @ride.destination}},
+		    })%>
+	</div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</section><!-- Rides -->
