@@ -1,5 +1,7 @@
 Inoride::Application.routes.draw do
   
+  devise_for :users
+
   resources :users
   resources :rides
   resources :sessions, only: [:new, :create, :destroy]

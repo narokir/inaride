@@ -12,10 +12,11 @@ gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate'
 gem 'roadie'
 gem "mail_view", "~> 1.0.3"
+gem 'devise'
 
 
 group :development, :test do
-  gem 'bcrypt-ruby', '3.0.1'
+  #gem 'bcrypt-ruby', '3.0.1'
 end
 
 # Gems used only for assets and not required
@@ -28,7 +29,7 @@ group :assets do
 end
 
 group :production do
-  gem 'bcrypt-ruby', '3.0.1'
+  #gem 'bcrypt-ruby', '3.0.1'
 end
 
 group :test do
