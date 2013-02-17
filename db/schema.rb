@@ -13,18 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130112180612) do
 
-  create_table "maps", :force => true do |t|
-    t.string   "title"
-    t.string   "origin"
-    t.string   "destination"
-    t.float    "longitude"
-    t.float    "latitude"
-    t.string   "waypoint_1"
-    t.boolean  "gmaps"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
   create_table "rides", :force => true do |t|
     t.string   "origin"
     t.string   "destination"
@@ -42,6 +30,8 @@ ActiveRecord::Schema.define(:version => 20130112180612) do
     t.text     "notes"
     t.integer  "distance"
   end
+
+  add_index "rides", ["user_id", "created_at"], :name => "index_rides_on_user_id_and_created_at"
 
   create_table "users", :force => true do |t|
     t.string   "provider"
