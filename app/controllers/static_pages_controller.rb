@@ -2,15 +2,13 @@ class StaticPagesController < ApplicationController
   
   def home
     @rides = Ride.all(limit: 6)
-    if signed_in?
-      #@rides  = current_user.rides.build
-      @feed_items = current_user.feed.paginate(page: params[:page])
-    end
-    # see if this will help with ride creation on home page
     @ride = current_user.rides.build if signed_in?
   end
 
   def help
+  end
+  
+  def index
   end
   
   def about

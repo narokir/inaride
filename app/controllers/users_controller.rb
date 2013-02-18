@@ -37,27 +37,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  # POST /users
-  # POST /users.json
-  #def create
-  #  @user = User.new(params[:user])
-  #  if @user.save
-  #    sign_in @user
-  #    respond_to do |format|
-  #    #UserMailer.registration_email(@user).deliver
-  #      format.html { redirect_back_or @user }
-  #      format.js  
-  #    end
-  #    flash[:success] = "Hey #{current_user.first_name}, welcome to inaride"
-  #  else
-  #    respond_to do |format|  
-  #      format.html { redirect_back_or @user }
-  #      format.js { render :js => "alert('Signing did not work');" } 
-  #    end
-  #  end
-  #end
-  
-
   def create
     @user = User.new(params[:user])
     if @user.save
@@ -106,23 +85,7 @@ class UsersController < ApplicationController
       format.json { head :ok }
     end
   end
-  
-  def oauth_failure
-    redirect_to signup_path
-    #redirect wherever you want.
-  end
-  
-  private
-    
-    def admin_user
-      redirect_to(root_path) unless current_user.admin?
-    end
-    
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_path) unless current_user?(@user)
-    end
-     
+       
     def choose_layout  
       (request.xhr?) ? 'signup' : 'application'
     end

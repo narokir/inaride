@@ -9,13 +9,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,:name,
 		  :first_name, :last_name, :usr_img, :birthday, :gender, :education
-    
-  validates :first_name, presence: true, length: { maximum: 50 }
-  validates :last_name, presence: true, length: { maximum: 50 }
-  
-  
-  validates :password, presence: true, length: { minimum: 6 }
-  #validates_confirmation_of :password
+
+  validates_uniqueness_of :email
 
 
 
@@ -40,13 +35,7 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
-  
-  def feed
-    # This is preliminary. See "Following users" for the full implementation.
-    Ride.where("user_id = ?", id)
-  end
-  
-  
+    
   def image
     if usr_img.present?
       usr_img

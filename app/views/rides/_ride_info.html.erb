@@ -16,7 +16,7 @@
 	  <span class="price"><%= seats %></span>
 	  <small class="muted">Seats available</small>
 	</td>
-	<% if !current_user?(@ride.user) %>
+	<% if current_user = (@ride.user) %>
 	<td colspan=1>
 	  <a class="pickup btn btn-success pull-right">Request Pickup</a>
 	</td>
@@ -30,7 +30,7 @@
 	  <div class="ride-note"><%= wrap(@ride.notes) %></div>
 	</td>
       </tr>
-      <% if current_user?(@ride.user) %>
+      <% if current_user = (@ride.user) %>
       <tr>
 	<td colspan=4>
 	  <div>
