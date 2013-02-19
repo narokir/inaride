@@ -91,15 +91,8 @@ textarea {
 }
 
 #messages{
-    background: none repeat scroll 0 0 rgba(198, 255, 153, 0.96);
-    float: left;
-    position: fixed;
-    width: 100%;
-    z-index: 1;
     .alert{
-      margin:20px 50px 20px 50px;
-      border:none;
-      background:none;
+      margin:20px 0px 0px 10px;
       }
     
 }
@@ -193,10 +186,10 @@ div.section{
 ------------------------------------------------------------------------------*/
 nav#controlls{
   li{
-      border-left:1px solid #ddd;
+      border-left:1px solid #F2F2F2;
   }
   li:last-child{
-    border-right:1px solid #ddd;  
+    border-right:1px solid #F2F2F2;  
   }
   a{
     font-size:16px;
@@ -204,9 +197,10 @@ nav#controlls{
     padding:20px 20px 20px 20px;
   }
   a:hover{
-    background:#05CCCC;
+    background-image: linear-gradient(#A1EFEE, #05CCCC);
     color:#fff;
     text-shadow:none;
+    box-shadow: 0 0 3px #27C1C9 inset;
     small{
 	color:#419D9F;
     }
@@ -265,7 +259,8 @@ li.usrimg{
     box-shadow: 0 0 35px #000000 inset;
   }
   #slide2{
-    background:url("/assets/inoride_main_img.png") no-repeat scroll 10% 85% transparent;
+    background: url("/assets/inoride_main_img.png") no-repeat scroll 0 100% transparent;
+    height: 450px;
     box-shadow: 0 0 10px 0693AB inset;
       h1{
       color:#fff;
@@ -277,7 +272,7 @@ li.usrimg{
   }
 }
 .sky {
-    background-image: -moz-linear-gradient(-45deg, #189288 0%, #55EF98 100%);
+    background-image: -moz-linear-gradient(#FDC306, #55EF98 100%);
 }
 
 /* Modal 
@@ -538,11 +533,11 @@ select, input[type="text"], input[type="password"], input[type="datetime"], inpu
   transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
   height:30px;
 }
-/*.row-fluid [class*="span"] {
+.row-fluid [class*="span"] {
   -moz-box-sizing: border-box;
   min-height: 40px;
 }
-*/
+
  /* Ride Form Wizard 
 ------------------------------------------------------------------------------*/  
 

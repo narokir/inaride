@@ -31,6 +31,17 @@ class User < ActiveRecord::Base
     end
     user
   end
+  
+  def confirm!
+    welcome_message
+    super
+  end
+  
+  private
+
+  def welcome_message
+    UserMailer.registration_email(@user).deliver
+  end
 
 
 

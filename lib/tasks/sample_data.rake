@@ -9,7 +9,7 @@ admin = User.create!(name: 			"Admin User",
                          password_confirmation: "foobar")
     admin.toggle!(:admin)
     
-    10.times do
+    5.times do
       name = Faker::Name.name
       email = Faker::Internet.free_email
       usr_img = "/assets/user_placeholder.png"
@@ -26,7 +26,7 @@ admin = User.create!(name: 			"Admin User",
                    password_cofirmation: 	password)
       
       users = User.all(limit: 6)
-      10.times do
+      2.times do
 	notes = Faker::Lorem.sentence(5)
 	origin = "#{Faker::Address.city}, #{Faker::Address.us_state_abbr}"
 	destination = "#{Faker::Address.city}, #{Faker::Address.us_state_abbr}"
