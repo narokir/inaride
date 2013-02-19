@@ -1,9 +1,13 @@
 Inoride::Application.routes.draw do
   root :to => 'static_pages#home'
   
-  devise_for :users
+  #devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users
   resources :rides
+  devise_scope :user do
+    get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
+  end
   
   
   
@@ -18,7 +22,7 @@ Inoride::Application.routes.draw do
   #match '/signin',  to: 'sessions#new'
   #match '/signout', to: 'sessions#destroy', via: :delete
   
-  #match 'auth/:provider/callback', to: 'sessions#create'
+  #match '/users/auth/facebook/callback', to: 'static_pages#home'
   #match 'signout', to: 'sessions#destroy', as: 'signout'
   #match '/auth/failure', to: redirect('/')
   match '/search', to: 'search#search_rides', as: 'search'

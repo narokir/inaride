@@ -25,7 +25,7 @@
       <tr>
 	<td colspan=4>
 	  <div class="driver-info">
-	    <div><%= image_tag(@ride.user.image,options={:class =>"profile_img_small"}) %></div>
+	    <div><%= image_tag(profile_image_for(@ride.user), options={:class =>"profile_img_small"}) %></div>
 	  </div>
 	  <div class="ride-note"><%= wrap(@ride.notes) %></div>
 	</td>

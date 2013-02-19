@@ -7,10 +7,10 @@
       <%= render 'ride_info' %>
       </div>
       <aside id="driver" class="span4 embos">
-	<h2>Driver</h2><%= @ride.user.full_name %><hr>
+	<h2>Driver</h2><%= @ride.user.name %><hr>
 	<div class="row-fluid">
 	  <div class="pull-left">
-	      <div><%= link_to image_tag(@ride.user.image,options={:class =>"profile_img_small"}),@ride.user %></div>
+	      <div><%= link_to image_tag(profile_image_for(@ride.user),options={:class =>"profile_img_small"}),@ride.user %></div>
 	  </div>
 	  <div class="span9">
 	    <ul class="unstyled">

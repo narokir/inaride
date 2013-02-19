@@ -1,8 +1,22 @@
 <% provide(:title, 'Carpool and Rideshare - Join The Ride') %>
+<section id="mast" class="sky">
+  <div id="slide2" class="row-fluid active item">
+    <div class="container">
+      <div class="span7">
+	<h1>Ride Together.</h1>
+	<p>Split costs, make friends and enjoy a cleaner world.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div class="proped">
-    <%= render 'layouts/search_form' %>  
+<div id="main" class="container">
+  <div class="row-fluid">
+    <div class="proped">
+      <%= render 'layouts/search_form' %>
   <section id="current-rides" class="embos">
     <%= render 'current_rides' %>
   </section>
+</div>
+  </div>
 </div>

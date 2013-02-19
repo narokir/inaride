@@ -171,7 +171,8 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   mail_view (~> 1.0.3)
-  omniauth-facebook (= 1.4.0)
+  omniauth
+  omniauth-facebook
   pg (= 0.12.2)
   rails (= 3.2.6)
   roadie
