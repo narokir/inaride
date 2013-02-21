@@ -22,24 +22,33 @@
     
       
   <%= debug(params) if Rails.env.development? %>
-    <div class="row-fluid">
-    <div class="span embos">
-      <h1>Session</h1>
-    <%= session.inspect %>
-    <hr>
-      <h1>Requests</h1>
-      <ul>
-	<li>Request url: <%= request.url %></li>
-	<li>Request fullpath: <%= request.fullpath %></li>
-	<li>Request referer: <%= request.referer %></li>
-	<li>Request ip: <%= request.ip %></li>
-	<li>Request xhr?: <%= request.xhr? %></li>
-	<li>Request server software: <%= request.server_software %></li>
-	<li>Request header info: <%= request.headers["User-Agent"] %></li>
-	<li>Request Parameters</li><%= request.parameters %>
-      </ul>
-    
-    </div>
-  </div>
+  
+  <table class="table table-bordered table-striped embos">
+    <tr>
+      <td>Request url:</td><td><%= request.url %></td>
+    </tr>
+    <tr>
+      <td>Request fullpath:</td><td><%= request.fullpath %></td>
+    </tr>
+    <tr>
+      <td>Request referer: </td><td><%= request.referer %></td>
+    </tr>
+    <tr>
+      <td>Request ip: </td><td><%= request.ip %></td>
+    </tr>
+    <tr>
+      <td>Request xhr?: </td><td><%= request.xhr? %></td>
+    </tr>
+    <tr>
+      <td>Request header info:</td><td><%= request.headers["User-Agent"] %></td>
+    </tr>
+    <tr>
+      <td>Request Parameters</td><td><%= request.parameters %></td>
+    </tr>
+    <tr>
+      <td><strong>Session</strong></td><td><%= session.inspect %></td>
+    </tr>
+  </table>
+
 </body>
 </html>

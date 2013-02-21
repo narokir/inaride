@@ -5,7 +5,7 @@ $('.pac-container').mousedown(function() {
 
 $(document).ready(function() {
     
-  $("#main-search").submit(function(event) {
+  $("#main-search" || "#search-box").submit(function(event) {
     /* stop form from submitting normally */
     event.preventDefault();
     /* get some values from elements on the page: */

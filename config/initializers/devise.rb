@@ -220,7 +220,7 @@ Devise.setup do |config|
   :scope => 'email,user_birthday,user_likes,user_interests,user_about_me,user_education_history,user_work_history',
   :display => 'popup',
   :secure_image_url => 'true',
-  :image_size => 'large'
+  :image_size => 'square'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

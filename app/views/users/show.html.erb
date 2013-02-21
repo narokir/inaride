@@ -1,11 +1,11 @@
-<% provide(:title,"#{@user.full_name}'s profile")%>
+<% provide(:title,"#{@user.first_name}'s profile")%>
 <div id="main" class="container">
   <div class="row-fluid">
     <div class="embos">
     <%= notice %>
     <section id="user" class="span4">
       <div class="span">
-	<div class="driver-info"><%= image_tag(@user.image, options = {:class =>"profile_img_small"})  %></div>
+	<div class="driver-info"><%= image_tag(profile_image_for(@user), options = {:class =>"profile_img_small"})  %></div>
 	<div class="offset2">
 	  <h1><%= @user.first_name %></h1>
 	  <h2><%= @user.last_name %><% if @user.admin %> | <span class="red">Admin</span><% end %></h2>
