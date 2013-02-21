@@ -1,8 +1,8 @@
 <tr>
   
   <td><% if current_user.admin? || !current_user?(ride.user) %>
-  <div class="driver-info">
-    <div><%= image_tag(ride.user.image,options={:class =>"profile_img_small"}) %></div>
+  <div class="imagebox-small">
+    <div><%= image_tag(ride.user.image,options={:class =>"small"}) %></div>
   </div>
     <div class="info">
     <small><%= link_to ride.user.first_name, ride.user %></small>

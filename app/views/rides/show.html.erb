@@ -7,18 +7,14 @@
       <%= render 'ride_info' %>
       </div>
       <aside id="driver" class="span4 embos">
-	<h2>Driver</h2><%= @ride.user.name %><hr>
-	<div class="row-fluid">
-	  <div class="pull-left">
-	      <div><%= link_to image_tag(profile_image_for(@ride.user),options={:class =>"profile_img_small"}),@ride.user %></div>
-	  </div>
-	  <div class="span9">
-	    <ul class="unstyled">
-	      <li>Rides: <%= @user.rides.count %></li>
-	      <li>Experience: Beginner</li>
-	    </ul>	
-	  </div>
-	</div>
+      <div class="imagebox-large"><%= link_to image_tag(profile_image_for(@ride.user),options={:class =>"large"}),@ride.user %></div>
+	<p class="muted">Driver</p>
+	<p><%= @ride.user.name %></p>	
+	<ul class="unstyled">
+	  <li>Rides: <%= @user.rides.count %></li>
+	  <li>Experience: Beginner</li>
+	</ul>	
+
 	<hr>
       </aside>
     </div>

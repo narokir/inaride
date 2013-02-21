@@ -16,6 +16,7 @@ module ApplicationHelper
       current_user.usr_img = "/assets/user_placeholder.png"
     else
       @user.usr_img
+      user.usr_img
     end
   end
   

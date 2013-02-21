@@ -620,3 +620,30 @@ ol.bread-crumb{
   text-align: center;
 }
 
+.imagebox-large{
+  float:left;
+  margin:0 10px 0 0;
+  overflow:hidden; /* this is important */
+  border:1px solid #ccc;
+  width:100px;
+  height:100px;
+    img.large{
+      margin:-3px -31px -34px -40px;
+      max-width: 200%;
+    }
+
+}
+
+.imagebox-small{
+  float:left;
+  margin:0 10px 0 0;
+  overflow:hidden; /* this is important */
+  border:1px solid #ccc;
+  width:50px;
+  height:50px;
+
+    img.small{
+      margin:-5px -29px -33px -28px;
+      max-width: 200%;
+    }
+}
