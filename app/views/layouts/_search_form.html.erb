@@ -5,7 +5,7 @@
     <%= text_field_tag :origin, params[:origin], placeholder:"From:", id:"ride_origin",class: "mainsearch span4 ride_origin",autocomplete:"off"%>
     <%= text_field_tag :destination, params[:destination],placeholder: 'To:', id:"ride_destination",class: "mainsearch span4 ride_destination",:autocomplete => "off"%>
     <%= text_field_tag :date, params[:date], placeholder: 'Date:',id: "ride_date",class: "mainsearch date-small span2", :autocomplete => "off"%>
-    <%= submit_tag "Search", :name => nil, class: "btn btn-primary btn-large",id: 's' %>
+    <%= submit_tag "Find Rides", :name => nil, class: "btn btn-success find-rides",id: 's' %>
   <% end %>
 </section>
 

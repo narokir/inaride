@@ -1,8 +1,8 @@
 <% @rides.each do |ride| %>
   <tr>
     <td>
-    <article class="driver-info">
-      <%= link_to image_tag(profile_image_for(ride.user), options = {:class =>"profile_img_small"}), ride  %>
+    <article class="imagebox-small">
+      <%= link_to image_tag(profile_image_for(ride.user), options = {:class =>"small"}), ride  %>
     </article>
       <div class="info">
 	<small><%= link_to ride.user.first_name,ride.user %></small><br>

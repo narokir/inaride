@@ -91,11 +91,15 @@ textarea {
 }
 
 #messages{
-    .alert{
-      margin:20px 0px 0px 10px;
-      }
-    
+  .alert{
+    margin:20px 0px 0px 10px;
+    } 
 }
+
+.btn{
+  height: 42px; 
+}
+
 
 .date{
   color:$salmon;
@@ -117,44 +121,68 @@ h1{
   background-color:#05cccc !important;
 }
 
-form#main_search{
-  margin-bottom:0px !important;
-  background:#fff;
-  .ride-date{
+form#search-box{
+/*  background: rgba(238, 255, 225, 0.55);
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 0px 0px 3px rgba(17, 17, 17, 0.28);
+  padding: 15px;*/
+  max-width:353px;
+  
+  input#ride_date{
     margin-right:10px;
     float:left;
   }
-  input{
-    margin-bottom:3px;
+  input[type="text"]{
+    margin-bottom:10px;
+    border: 1px solid #E1F773;
+    text-shadow: 1px 1px 1px #767676;
+    color: #FFFFFF;
+  }
+  input#ride_origin {
+    background: url("/assets/origin_marker.png") no-repeat scroll 5px 50% rgba(0, 0, 0, 0.1);
+    padding: 1px 5px 1px 30px;
   }
   
+  input#ride_destination {
+    background: url("/assets/destination_marker.png") no-repeat scroll 5px 50% rgba(0, 0, 0, 0.1);
+    padding: 1px 5px 1px 30px;
+  }
+  
+  input#ride_date {
+    background: url("/assets/calendar_small.png") no-repeat scroll 5px 50% rgba(0, 0, 0, 0.1);
+    height: 40px;
+  }
+}
+
+input.find-rides{
+  width: 95px; 
 }
 
 input#ride_origin{
-  height:40px;
   background:url('/assets/origin_marker.png') no-repeat scroll 5px 50% #fff;
   padding:1px 5px 1px 30px;
+  height: 40px;
 }
 
 input#ride_destination{
-  height:40px;
   background:url('/assets/destination_marker.png') no-repeat scroll 5px 50% #fff;
   padding:1px 5px 1px 30px;
+  height: 40px;
 }
 
 input#ride_date{
   height:40px;
   background:url('/assets/calendar_small.png') no-repeat scroll 5px 50% #fff;
-  padding:1px 5px 1px 35px;
+  padding:0px 5px 0px 35px;
 }
 select.time{
-    padding: 10px;
+  padding: 10px;
 }
 .input-prepend{
-    span.large{
-	line-height: 30px;
-	height:30px;
-    }
+  span.large{
+    line-height: 30px;
+    height:30px;
+  }
 }
 
 
@@ -237,7 +265,7 @@ li.usrimg{
 ------------------------------------------------------------------------------*/
 #mast{
   .container{
-    padding:5em 0 5em 0;
+    padding:1em 0 8em 0;
     /*background:url("/assets/inoride_main_img.png") no-repeat scroll 50% 100% transparent;*/
     color:#fff;
   }
@@ -260,7 +288,7 @@ li.usrimg{
   }
   #slide2{
     background: url("/assets/inoride_main_img.png") no-repeat scroll 0 100% transparent;
-    height: 450px;
+    height: 400px;
     box-shadow: 0 0 10px 0693AB inset;
       h1{
       color:#fff;

@@ -1,26 +1,3 @@
-//$(document).ready(function() {
-//    $('#ride_origin').change(function(event) {
-//	//alert($(this).serialize());
-//	var dataString = { origin: "Asheville, NC", destination: "Boston, MA" };
-//	$.ajax({
-//	    type: "POST",
-//	    url: "/search",
-//	    data: dataString
-//	    }).done(function( data ) {
-//		$("#results").html(data);
-//	    });
-//    });
-//    
-//});
-//
-//$(document).ajaxComplete(function() {
-////alert( "Triggered ajaxComplete handler." );
-//});
-//
-//$(document).ajaxSend(function() {
-////alert( "Triggered ajaxSend handler." );
-//});
-
 $('.pac-container').mousedown(function() {
   alert('Handler for .mousedown() called.');
 });
@@ -55,35 +32,3 @@ $(document).ajaxStart(function() {
   //$("#current-rides").empty().html('<div class="alert alert-info"><img src="/assets/loading.gif" /></div>');
 });
 
-
-
-
-
-
-//$(document).ajaxStart(function() {
-//$("#results").empty().html('<img src="/assets/loading.gif" />');
-//});
-//
-//$(document).ready(function() {
-//    
-//  var start = document.getElementById('ride_origin');
-//  var end = document.getElementById('ride_destination');
-//  var origin = new google.maps.places.Autocomplete(start);
-//  var destination = new google.maps.places.Autocomplete(end);
-//  
-//  //google.maps.event.addListener(origin, 'place_changed', function(event) {
-//  $('#ride_origin').change(function(event) {
-//    var originValue = $("#ride_origin").attr("value");
-//    var dataString = { origin: originValue };
-//    $.ajax({
-//      type: "POST",
-//      url: "/search",
-//      data: dataString
-//    }).done(function( data ) { 
-//      $("#results").html(data);
-//    });
-//    
-//    
-//  });
-//  
-//});

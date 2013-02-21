@@ -2,9 +2,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   #include SessionsHelper
   
-  #def after_sign_in_path_for(user)
-  #  request.env['omniauth.origin'] || stored_location_for(resource) || root_path
-  #end
+  def after_sign_in_path_for(user)
+    request.env['omniauth.origin'] || stored_location_for(user) || root_path
+  end
   
   
   def redirect_back_or(default)
