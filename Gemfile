@@ -35,5 +35,10 @@ end
 
 group :test do
   # Pretty printed test output
+  gem 'rspec-rails'
+  gem 'rspec'
+  gem 'webrat'
+  gem 'cucumber-rails', '1.2.1', :require => false
+  gem 'database_cleaner', '0.7.0'
   gem 'turn', '~> 0.8.3', :require => false
 end

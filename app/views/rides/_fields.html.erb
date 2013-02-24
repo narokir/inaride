@@ -28,7 +28,7 @@
   <% end %>
 </fieldset>
   <div class="controls">
-    <% if signed_in? %>
+    <% if user_signed_in? %>
       <%= f.submit "Post Ride", id: 'post_ride', class: "btn btn-large btn-success" %>
     <% else %>
       <%= f.submit "Post Ride",html_options = {:disabled => true, id: 'post_ride', class: "btn btn-success"} %>

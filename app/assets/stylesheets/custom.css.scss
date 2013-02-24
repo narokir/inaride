@@ -96,11 +96,6 @@ textarea {
     } 
 }
 
-.btn{
-  height: 42px; 
-}
-
-
 .date{
   color:$salmon;
 }
@@ -155,7 +150,8 @@ form#search-box{
 }
 
 input.find-rides{
-  width: 95px; 
+  width: 95px;
+  height: 42px;
 }
 
 input#ride_origin{
@@ -265,7 +261,6 @@ li.usrimg{
 ------------------------------------------------------------------------------*/
 #mast{
   .container{
-    padding:1em 0 8em 0;
     /*background:url("/assets/inoride_main_img.png") no-repeat scroll 50% 100% transparent;*/
     color:#fff;
   }
@@ -285,10 +280,12 @@ li.usrimg{
   #slide1{
     background:url("/assets/mast_strip.jpg") no-repeat scroll 10% 85% #111;
     box-shadow: 0 0 35px #000000 inset;
+    #slide-contet{
+      padding:5em 0 4em 0
+    }
   }
   #slide2{
     background: url("/assets/inoride_main_img.png") no-repeat scroll 0 100% transparent;
-    height: 400px;
     box-shadow: 0 0 10px 0693AB inset;
       h1{
       color:#fff;
@@ -296,6 +293,9 @@ li.usrimg{
       margin:.2em 0 .2em 0;
       line-height: 1em;
       text-shadow: 0 1px 3px rgba(3, 3, 3, 0.28);
+    }
+    #slide-contet{
+      padding:2em 0 2em 0;
     }
   }
 }
@@ -607,7 +607,7 @@ ol.bread-crumb{
   li{
     padding:10px;
     color:$grayLight;
-    text-align:center;
+    text-align:left;
     display:block;
     float:left;
     border: 1px solid #DDDDDD;
