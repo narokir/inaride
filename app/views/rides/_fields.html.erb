@@ -28,10 +28,5 @@
   <% end %>
 </fieldset>
   <div class="controls">
-    <% if user_signed_in? %>
-      <%= f.submit "Post Ride", id: 'post_ride', class: "btn btn-large btn-success" %>
-    <% else %>
-      <%= f.submit "Post Ride",html_options = {:disabled => true, id: 'post_ride', class: "btn btn-success"} %>
-      <%# link_to('Sign in to post', "#signinModal", :id => 'login', class:"btn btn-large btn-warning", "data-toggle" => "modal") %>
-    <% end %>
+    <%= f.submit class: "btn btn-large btn-success" %>
   </div>

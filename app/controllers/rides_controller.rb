@@ -1,5 +1,5 @@
 class RidesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, only: [:create, :destroy]
 
   before_filter	:correct_user,	 only: [:edit, :destroy]
   #before_filter	:admin_user,	 only: [:edit, :destroy, :show]
