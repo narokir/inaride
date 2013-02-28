@@ -1,8 +1,7 @@
 class RidesController < ApplicationController
   before_filter :authenticate_user!
-
   before_filter	:correct_user,	 only: [:edit, :destroy]
-  #before_filter	:admin_user,	 only: [:edit, :destroy, :show]
+  before_filter	:admin_user,	 only: [:edit, :destroy]
   
   # GET /rides
   # GET /rides.json	
@@ -90,10 +89,12 @@ class RidesController < ApplicationController
 
     def correct_user
       @ride = current_user.rides.find_by_id(params[:id])
+      flash[:notice] = "Sorry! you do not have permission to do that"
       redirect_to root_url if @ride.nil?
     end
     
     def admin_user
+      flash[:notice] = "Only Admins have such powers"
       redirect_to(root_path) unless current_user.admin?
     end
 end

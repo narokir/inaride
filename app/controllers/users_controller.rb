@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!
 
   before_filter :correct_user,   only: [:edit, :update]
-  before_filter :admin_user,     only: [:destroy]
+  before_filter :admin_user,     only: [:edit, :update, :destroy]
   layout :choose_layout
   
   # GET /users
@@ -88,5 +88,18 @@ class UsersController < ApplicationController
        
     def choose_layout  
       (request.xhr?) ? 'signup' : 'application'
+    end
+    
+  private
+
+    def correct_user
+      @ride = current_user.rides.find_by_id(params[:id])
+      flash[:notice] = "Sorry! you do not have permission to do that"
+      redirect_to root_url if @ride.nil?
+    end
+    
+    def admin_user
+      flash[:notice] = "Only Admins have such powers"
+      redirect_to(root_path) unless current_user.admin?
     end
 end

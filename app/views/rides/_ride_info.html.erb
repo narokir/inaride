@@ -30,7 +30,7 @@
 	  <div class="ride-note"><%= wrap(@ride.notes) %></div>
 	</td>
       </tr>
-      <% if current_user = (@ride.user) %>
+      <% if current_user.admin? || current_user?(@user) %>
       <tr>
 	<td colspan=4>
 	  <div>

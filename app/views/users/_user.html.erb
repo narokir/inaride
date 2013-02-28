@@ -3,8 +3,9 @@
     <div class="driver-info">
       <%= image_tag profile_image_for(user), class: 'profile_img_small' %>
     </div>
-    <%= link_to user.full_name, user %><br>
-    <% if current_user.admin? && !current_user?(user) %>
+
+    <%= link_to user.first_name, user %><br>
+    <% if current_user.admin? || current_user?(user) %>
 	<%= link_to 'Edit', edit_user_path(user) %>
 	| <%= link_to 'Delete', user, confirm: 'Are you sure?', method: :delete %>
     <% end %>

@@ -1,14 +1,14 @@
 <tr>
-  <td><% if current_user.admin? || !current_user?(ride.user) %>
-  <div class="imagebox-small">
-    <div><%= image_tag(profile_image_for(ride.user),options={:class =>"small"}) %></div>
-  </div>
-    <div class="info">
-    <small><%= link_to ride.user.first_name, ride.user %><br><%= @user.rides.count %></small>
-    
-    </div>
-    <% end %>
-  </td>
+  <%# if current_user.admin? || current_user?(ride.user) %>
+<!--    <td>
+      <div class="imagebox-small">
+	<div><%# image_tag(profile_image_for(ride.user),options={:class =>"small"}) %></div>
+      </div>
+      <div class="info">
+	<small><%# link_to ride.user.first_name, ride.user %><br><%# @user.rides.count %></small>
+      </div>
+    </td>-->
+  <%# end %>
   
   <td>
     <%= link_to "#{ride.origin} ---> #{ride.destination}", ride %><br>

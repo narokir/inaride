@@ -11,6 +11,10 @@
 	  
 	  <%= f.input :email, :required => true, :autofocus => true, :label => false, :placeholder => 'Email address' %>
 	  <%= f.input :name, :required => true %>
+	  <%= f.input :first_name, :required => true %>
+	  <%= f.input :last_name, :required => true %>
+	  <%= f.input :gender, :label => "Gender" %>
+	  <%= f.input :birthday, :required => true %>
 	  
 	  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
 	    <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>

@@ -2,7 +2,6 @@
 <div id="main" class="container">
   <div class="row-fluid">
     <div class="embos">
-    <%= notice %>
     <section id="user" class="span4">
       <div class="span">
 	<div class="driver-info"><%= image_tag(profile_image_for(@user), options = {:class =>"profile_img_small"})  %></div>
@@ -16,7 +15,7 @@
 	<% end %>
       </div>
       
-	<div><%# gravatar_for @user %></div>
+
       <div class="info">
 	<% if current_user?(@user) %>
 	  <%# link_to 'Edit Profile', edit_user_path, :class => 'btn btn-mini' %>
