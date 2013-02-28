@@ -21,7 +21,7 @@ Then /^the user submits valid ride information$/ do
   fill_in "ride[date]",    with: "2013-02-01"
   fill_in "ride[price]",    with: "45"
   fill_in "ride_seats",    with: "3"
-  click_button('post_ride')
+  click_button('Create Ride')
 end
 
 Then /^he should see the new ride page$/ do
