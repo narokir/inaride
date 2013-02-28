@@ -29,16 +29,12 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-group :production do
-  #gem 'bcrypt-ruby', '3.0.1'
-end
-
-group :test do
-  # Pretty printed test output
-  gem 'rspec-rails'
+  gem "email_spec", :group => :test
   gem 'rspec'
+  gem 'rspec-rails', :group => [:development, :test]
+  gem 'factory_girl_rails', :group => [:development, :test]
   gem 'webrat'
-  gem 'cucumber-rails', '1.2.1', :require => false
-  gem 'database_cleaner', '0.7.0'
+  gem 'cucumber-rails', ">= 1.3.0", :group => :test, :require => false
+  gem 'database_cleaner', :group => :test
   gem 'turn', '~> 0.8.3', :require => false
-end
+  gem 'webrat'
