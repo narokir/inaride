@@ -7,12 +7,16 @@ Feature: Manage Users
   
   Scenario: Show edit link as admin
     Given the following user records
-      | email | first_name | password | admin |
-      | admin@example.com | Admin| foobar | true  |
-      | random@example.com| Random | foobar | false |
+      | email 			| first_name 	| password 	| admin |
+      | admin@example.com 	| Admin    	| foobar 	| true  |
+      | random@example.com	| Random   	| foobar 	| false |
+      
     And I am loged in as "admin@example.com" with password "foobar"
     When I visit profile for user "random@example.com"
     Then I should see "Edit Profile" link
+    
+  Scenario: hide edit link as random
+    When I visit 	
    
     
   Scenario: Edit link as admin
