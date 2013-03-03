@@ -7,9 +7,26 @@ Feature: Manage Users
   
   Scenario: Show edit link as admin
     Given the following user records
-      | email                    | first_name | password | admin |
-      | admin@somehost.com       | AdminUser  | foobar 	 | true  |
-      | normaluser@gmail.com     | NormalUser | foobar	 | false |
-    And I am loged in as "admin" with password "foobar"
-    When I visit profile for user "normaluser@gmail.com"
-    Then I shoud see "Edit Profile" link
+      | email | first_name | password | admin |
+      | admin@example.com | Admin| foobar | true  |
+      | random@example.com| Random | foobar | false |
+    And I am loged in as "admin@example.com" with password "foobar"
+    When I visit profile for user "random@example.com"
+    Then I should see "Edit Profile" link
+   
+    
+  Scenario: Edit link as admin
+    Given an admin account exists
+    Given a random user account exists
+    And I login as admin
+    When I visit a random users profile page
+    Then I should see Edit Profile link
+  
+    
+  Scenario: Edit link as non admin
+    Given an admin account exists
+    Given a random user account exists
+    Given I am loged in as random user
+    When i vist profile for admin@example.com
+    Then I should not see Edit Profile link
+    

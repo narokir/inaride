@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
 
-  before_filter :correct_user,   only: [:edit, :update]
-  before_filter :admin_user,     only: [:edit, :update, :destroy]
+  #before_filter :correct_user,   only: [:edit, :update]
+  #before_filter :admin_user,     only: [:edit, :update, :destroy]
   layout :choose_layout
   
   # GET /users

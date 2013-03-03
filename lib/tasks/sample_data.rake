@@ -1,13 +1,21 @@
 namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
-admin = User.create!(name: 			"Admin User",
+  admin = User.create!(name: 			"Admin User",
 		         first_name: 		"AdminFirst",
 			 last_name: 		"AdminLast",
                          email: 		"admin@somehost.com",
                          password: 		"foobar",
                          password_confirmation: "foobar")
     admin.toggle!(:admin)
+    
+  random = User.create!(name: 			"Random User",
+		         first_name: 		"Random",
+			 last_name: 		"Randomuser",
+                         email: 		"randomuser@gmail.com",
+                         password: 		"foobar",
+                         password_confirmation: "foobar",
+                         admin: false)
     
     5.times do
       name = Faker::Name.name
