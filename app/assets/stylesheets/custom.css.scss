@@ -44,8 +44,26 @@ $paginationActiveBackground: 		#f5f5f5;
 @import "bootstrap";
 @import "bootstrap-responsive";
 
+
+
 /* universal 
 ------------------------------------------------------------------------------*/
+@mixin gradient($from, $to) {
+  /* fallback/image non-cover color */
+  background-color: $from;
+
+  /* Firefox 3.6+ */
+  background-image: -moz-linear-gradient($from, $to);
+
+  /* Safari 4+, Chrome 1+ */
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to));
+
+  /* Safari 5.1+, Chrome 10+ */
+  background-image: -webkit-linear-gradient($from, $to);
+
+  /* Opera 11.10+ */
+  background-image: -o-linear-gradient($from, $to);
+}
 
 
 /*Generic frame and liner components*/
@@ -236,7 +254,8 @@ nav#controlls{
     padding:20px 20px 20px 20px;
   }
   a:hover{
-    background-image: linear-gradient(#A1EFEE, #05CCCC);
+    @include gradient(#A1EFEE, #05CCCC);
+    /*background-image: linear-gradient(#A1EFEE, #05CCCC);*/
     color:#fff;
     text-shadow:none;
     box-shadow: 0 0 3px #27C1C9 inset;
@@ -316,6 +335,7 @@ li.usrimg{
 }
 .sky {
     background-image: -moz-linear-gradient(#FDC306, #55EF98 100%);
+    background-image: -webkit-linear-gradient(#FDC306, #55EF98 100%);
 }
 
 /* Modal 

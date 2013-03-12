@@ -1,5 +1,5 @@
 class RidesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, only: [:edit, :create, :new, :destroy, :update]
   before_filter	:correct_user,	 only: [:edit, :destroy]
   before_filter	:admin_user,	 only: [:edit, :destroy]
   
@@ -13,7 +13,6 @@ class RidesController < ApplicationController
   # GET /rides/1.json
   def show
     @ride = Ride.find(params[:id])
-    #@rides = @user.rides.create(params[:user_id])
     @user = @ride.user(params[:id])
     @json = Ride.find(params[:id]).to_gmaps4rails
   end

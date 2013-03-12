@@ -57,13 +57,13 @@ end
 When /^i vist profile for admin@example\.com$/ do
   user = User.find_by_email!('admin@example.com')
   visit user_url(user)
-  
 end
 
 Then /^I should not see Edit Profile link$/ do
   user = User.find_by_email!('admin@example.com')
   page.should_not have_link('Edit Profile', href: edit_user_path(user))
 end
+
 
 
 

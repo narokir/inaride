@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
   
   def home
     @rides = Ride.all(limit: 6)
-    @ride = current_user.rides.build if signed_in?
+    #@ride = current_user.rides.build if signed_in?
   end
 
   def help
