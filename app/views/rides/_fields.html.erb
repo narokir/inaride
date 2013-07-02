@@ -30,7 +30,7 @@
     <% if signed_in? %>
       <%= f.submit "Post Ride", id: 'post_ride', class: "btn btn-large btn-success" %>
     <% else %>
-      <%= f.submit "Post Ride",html_options = {:disabled => true, id: 'post_ride', class: "btn btn-large btn-success"} %>
+      <%= f.submit "Log In to post ride",html_options = {:disabled => true, id: 'post_ride', class: "btn btn-large btn-success"} %>
       <%# link_to('Sign in to post', "#signinModal", :id => 'login', class:"btn btn-large btn-warning", "data-toggle" => "modal") %>
     <% end %>
   </div>
