@@ -8,7 +8,7 @@ gem 'simple_form'
 gem 'jquery-rails'
 gem 'jquery_datepicker'
 gem 'faker', '1.0.1'
-gem 'will_paginate', '3.0.3'
+gem 'will_paginate', '3.0.5'
 gem 'bootstrap-will_paginate'
 
 
